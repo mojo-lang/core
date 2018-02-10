@@ -16,9 +16,9 @@ func repeat<T>(T, UInt) -> Array<T>
 /// ## Basics
 
 /// 
-func empty<T>([T])
+func empty<T>([T]) -> Bool
 
-func length<T>([T])
+func length<T>([T]) -> Size
 
 func push<T>([T], T) -> [T]
 
