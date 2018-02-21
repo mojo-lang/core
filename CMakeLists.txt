@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.7)
-project(core)
+project(mojo-core)
 
 set(CMAKE_CXX_STANDARD 14)
 
 INCLUDE_DIRECTORIES(
         /usr/local/include
         ${PROJECT_SOURCE_DIR}/../../aimap/ncraft/include
+        ${PROJECT_SOURCE_DIR}/include
 )
 
 set(SOURCE_FILES
@@ -26,4 +27,6 @@ set(SOURCE_FILES
         src/mojo/mojo_core.cpp
         )
 
-#add_executable(core ${SOURCE_FILES})
+SET(MOJO_CORE_LIB mojo-core)
+
+add_library(${MOJO_CORE_LIB} STATIC ${SOURCE_FILES} ${INCLUDE_FILES})
