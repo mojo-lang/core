@@ -1,1 +1,0 @@
-type Result<E:Error, Ts...>

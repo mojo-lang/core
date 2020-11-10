@@ -1,1 +1,0 @@
-type Function<Result, Parameters...>

@@ -1,6 +1,0 @@
-///
-///
-///
-type Regex
-
-Regex(String)

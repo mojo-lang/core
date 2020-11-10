@@ -1,4 +1,0 @@
-///
-///
-///
-type Dictionary<K, V>

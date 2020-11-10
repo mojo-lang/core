@@ -1,1 +1,0 @@
-type Status = Error | Null

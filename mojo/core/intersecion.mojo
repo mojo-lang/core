@@ -1,1 +1,0 @@
-type Intersection<Ts...>
