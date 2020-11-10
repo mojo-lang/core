@@ -1,0 +1,1 @@
+type Status = Error | Null
