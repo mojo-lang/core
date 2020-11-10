@@ -5,7 +5,7 @@
 type Date {}
 
 ///
-type DateTime {}
+type Timestamp {}
 
 ///
 type Duration {}
@@ -19,22 +19,22 @@ func local_now() -> DateTime
 /// ## DateTime
 /// 
 ///
-DateTime(String)
+Timestamp(String)
 
 ///
-DateTime(Date)
+Timestamp(Date)
 
 ///
-func to<>(DateTime) -> String
+func to<>(Timestamp) -> String
 
 ///
-func +(DateTime, Duration) -> DateTime
+func +(Timestamp, Duration) -> DateTime
 
 ///
-func -(DateTime, Duration) -> DateTime
+func -(Timestamp, Duration) -> DateTime
 
 ///
-func year(DateTime) -> Int
+func year(Timestamp) -> Int
 
 ///
-func month(DateTime) -> Int @in([1..12])
+func month(Timestamp) -> Int @in([1..12])

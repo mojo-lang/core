@@ -10,7 +10,7 @@
 ///
 ///
 @template()
-type Uri {
+type Url {
     @template('//[{user_info} '@'] {host} [":" {port}]')
     type Authority {
         user_info: String @1

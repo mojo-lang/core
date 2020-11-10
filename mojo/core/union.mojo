@@ -1,3 +1,3 @@
 /// # Union Type
 ///
-type Union<T...>
+type Union<Ts...>

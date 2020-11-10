@@ -20,13 +20,13 @@ func empty<T>([T]) -> Bool
 
 func length<T>([T]) -> Size
 
-func push<T>([T], T) -> [T]
+//func push<T>([T], T) -> [T]
 
 func append<T>([T], T) -> [T]
 
 func append<T>([T], [T]) -> [T]
 
 /// ## Get and Set
-func get<T>([T], Int) -> Maybe<T>
+func get<T>([T], Int) -> Optional<T>
 
 func set<T>([T], Int, T) -> [T]

@@ -1,13 +1,13 @@
 #ifndef MOJO_CORE_UNION_HPP
 #define MOJO_CORE_UNION_HPP
 
-#include <ncraft/core/either.hpp>
+#include <ncraft/core/union.hpp>
 
 namespace mojo {
 namespace core {
 
 template <typename... Ts>
-using Union = ncraft::core::Either<Ts...>;
+using Union = ncraft::core::Union<Ts...>;
 
 }
 

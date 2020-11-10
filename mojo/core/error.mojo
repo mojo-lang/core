@@ -5,7 +5,7 @@
 /// "system.NotSupport"
 /// code `[100..599]` is reserved by duplicated with http status code
 /// code `0` is also reserved because of it usually has success meaning
-@template('[{domain}.]{value}')
+@template('[{domain}.]{value}.{brief}')
 type ErrorCode {
     ///
     value: Int @1 @required
@@ -18,7 +18,7 @@ type ErrorCode {
     domain: String @3
     
     /// the api document url for this error code
-    document: Uri @4
+    document: Url @4
 }
 
 /// @lang('zh-CN')
@@ -26,8 +26,12 @@ type ErrorCode {
 type Error {
     type Code = ErrorCode
 
-    code: Code @1 | String @2 | Int @3
+    ///
+    code: Code @1 | String @2
+    
+    ///
     message: String @4
 
+    /// the detail errors which cause this error
     causes: [Error] @10
 }

@@ -1,1 +1,1 @@
-type Result<T, E:Error> = T | E
+type Result<E:Error, Ts...>

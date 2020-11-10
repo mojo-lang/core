@@ -1,6 +1,6 @@
 /// the core package
 package core {
-    name: ''
+    name: 'mojo'
     license: ''
     exports: [
     ]

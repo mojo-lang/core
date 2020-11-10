@@ -3,4 +3,4 @@
 ///
 /// the unit type is called None or () and its only value is `none`, reflecting the 0-tuple interpretation.
 ///
-type None
+type Null

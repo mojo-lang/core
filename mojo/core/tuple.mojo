@@ -1,3 +1,3 @@
 /// # Tuple Module
 ///  
-type Tuple<T...>
+type Tuple<Ts...>
