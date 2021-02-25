@@ -1,0 +1,1 @@
+{"title":"mojo.core.Error","type":"object","properties":{"code":{"$ref":"#/components/schemas/mojo.core.ErrorCode"},"message":{"type":"string"},"document":{"type":"string","format":"url"},"causes":{"type":"array","items":{"$ref":"#/components/schemas/mojo.core.Error"}}}}

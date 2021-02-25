@@ -1,0 +1,1 @@
+{"title":"mojo.core.Image","type":"object","properties":{"properties":{"type":"object","additionalProperties":{"type":"string"}},"timestamp":{"$ref":"#/components/schemas/mojo.core.Timestamp"},"title":{"type":"string"},"url":{"type":"string","format":"url"},"type":{"type":"string"}}}

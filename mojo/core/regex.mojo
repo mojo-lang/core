@@ -1,6 +1,8 @@
 ///
 ///
 ///
-type Regex
+type Regex {
+    expression: String @1
+}
 
-Regex(String)
+//Regex(String)

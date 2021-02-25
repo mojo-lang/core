@@ -1,16 +1,15 @@
 ///
 ///
 ///
-type Range<T:Number> {
-    min: T
-    max: T
+type Range<T> {
+    min: T @1
+    max: T @2
+
+    min_excluded: Bool @3
+    max_excluded: Bool @4
 }
 
-type LeftOpenRange<T:Number> {
-}
-
-type RightOpenRange<T:Number> {
-}
-
-type OpenRange<T:Number> {
-}
+// 12...45    12..45
+// 12..<45    12..<45
+// 12<..45    12<..45
+// 12<.<45    12<..<45

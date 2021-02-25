@@ -1,0 +1,1 @@
+{"title":"mojo.core.ErrorCode","type":"object","properties":{"description":{"type":"string"},"document":{"type":"string","format":"url"},"value":{"type":"integer","format":"int"},"domain":{"type":"string"},"brief":{"type":"string"}},"required":["value"]}

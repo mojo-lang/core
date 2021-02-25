@@ -1,2 +1,2 @@
 
-type Id = uint64 | string | UUID
+type Id = UInt64 @1 | String @2 | Uuid @3

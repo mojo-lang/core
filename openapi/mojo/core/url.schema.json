@@ -1,0 +1,1 @@
+{"title":"mojo.core.Url","type":"object","properties":{"query":{"$ref":"#/components/schemas/mojo.core.Url.Query"},"fragment":{"type":"string"},"scheme":{"type":"string"},"authority":{"$ref":"#/components/schemas/mojo.core.Url.Authority"},"path":{"type":"string"}}}

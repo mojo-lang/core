@@ -1,0 +1,1 @@
+{"title":"mojo.core.TemplateString","type":"object","properties":{"segments":{"type":"array","items":{"$ref":"#/components/schemas/mojo.core.TemplateString.Segment"}}}}

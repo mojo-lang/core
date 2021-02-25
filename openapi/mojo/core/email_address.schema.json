@@ -1,0 +1,1 @@
+{"title":"mojo.core.EmailAddress","type":"object","properties":{"localPart":{"type":"string"},"domain":{"$ref":"#/components/schemas/mojo.core.Domain"}}}

@@ -1,1 +1,1 @@
-type Status = Error | Null
+type Status = Error @1 | Null @2

@@ -11,22 +11,22 @@ type Array<T>
 /// repeat("cat", 3) == ["cat","cat","cat"]
 /// "cat".repeat(3) == ["cat","cat","cat"]
 /// ```
-func repeat<T>(T, UInt) -> Array<T>
+//func repeat<T>(T, UInt) -> Array<T>
 
 /// ## Basics
 
 /// 
-func empty<T>([T]) -> Bool
+//func empty<T>([T]) -> Bool
 
-func length<T>([T]) -> Size
+//func length<T>([T]) -> Size
 
 //func push<T>([T], T) -> [T]
 
-func append<T>([T], T) -> [T]
+//func append<T>([T], T) -> [T]
 
-func append<T>([T], [T]) -> [T]
+//func append<T>([T], [T]) -> [T]
 
 /// ## Get and Set
-func get<T>([T], Int) -> Optional<T>
+//func get<T>([T], Int) -> Optional<T>
 
-func set<T>([T], Int, T) -> [T]
+//func set<T>([T], Int, T) -> [T]

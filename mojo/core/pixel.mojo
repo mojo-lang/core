@@ -1,0 +1,2 @@
+
+type Pixel : Int

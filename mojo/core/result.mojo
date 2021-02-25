@@ -1,1 +1,1 @@
-type Result<E:Error, Ts...>
+//type Result<E:Error, Ts...>

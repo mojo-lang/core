@@ -1,1 +1,1 @@
-type Function<Result, Parameters...>
+//type Function<Result, Parameters...>

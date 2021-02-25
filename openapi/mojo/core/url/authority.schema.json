@@ -1,0 +1,1 @@
+{"title":"mojo.core.Url.Authority","type":"object","properties":{"host":{"type":"string"},"port":{"type":"integer","format":"int"},"userInfo":{"type":"string"}}}

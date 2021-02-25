@@ -1,0 +1,1 @@
+{"title":"mojo.core.VersionRange","type":"object","properties":{"min":{"$ref":"#/components/schemas/mojo.core.Version"},"max":{"$ref":"#/components/schemas/mojo.core.Version"},"minExcluded":{"type":"boolean"},"maxExcluded":{"type":"boolean"}}}

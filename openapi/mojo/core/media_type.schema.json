@@ -1,0 +1,1 @@
+{"title":"mojo.core.MediaType","type":"object","properties":{"type":{"type":"string"},"subtype":{"type":"string"},"parameter":{"$ref":"#/components/schemas/mojo.core.MediaType.Parameter"}}}

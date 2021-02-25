@@ -1,0 +1,3 @@
+
+
+type VersionRange = Range<Version>

@@ -1,0 +1,1 @@
+{"title":"mojo.core.TimeZone","type":"object","properties":{"offset":{"type":"integer","format":"int32"},"name":{"type":"string"}}}
