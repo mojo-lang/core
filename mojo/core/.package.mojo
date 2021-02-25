@@ -1,11 +1,9 @@
 /// the core package
-package core {
-    name: 'mojo'
-    license: ''
-    exports: [
-    ]
-    imports: [{
-    }
-    ]
+package mojo.core {
     version: '0.1.0'
+    authors: ['Frankee<frankee.zhou@gmail.com>']
+    license: 'Apache'
+
+    dependencies: {
+    }
 }

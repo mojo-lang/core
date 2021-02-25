@@ -9,22 +9,24 @@
 /// https://tools.ietf.org/html/rfc3986
 ///
 ///
-@template()
+@template("{scheme}://{authority}/{path}{#fragment}{?query}")
 type Url {
-    @template('//[{user_info} '@'] {host} [":" {port}]')
+    @template('{user_info@}{host}{:port}')
     type Authority {
         user_info: String @1
-        host: String @2 @format()
+        host: String @2 @format(r'')
         port: Int @3
     }
 
     ///
+    @template("{segments:/}")
     type Path {
         segments:[String]
     }
 
     ///
-    type Query = [(String, String)]
+    @template("{key=value:&}")
+    type Query = [(key: String, value: String)]
 
     ///
     scheme: String! @1 @format(r'[\w\d+-.]+')
@@ -41,3 +43,9 @@ type Url {
     ///
     fragment: String @6
 }
+
+func addQuery(url: Url, key: String, value: String)
+
+func addQueries(url: Url, parameters: {String, String})
+
+func getQuery(url: Url, key: String) -> [String]

@@ -2,13 +2,14 @@
 ///
 
 ///
-type Date {}
+type Date
 
 ///
-type Timestamp {}
+@template('')
+type Timestamp
 
 ///
-type Duration {}
+type Duration
 
 ///
 func now() -> DateTime

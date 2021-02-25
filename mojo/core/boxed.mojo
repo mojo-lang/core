@@ -1,6 +1,6 @@
 ///
 ///
 ///
-type Box<T> {
+type Boxed<T> {
     value: T
 }
