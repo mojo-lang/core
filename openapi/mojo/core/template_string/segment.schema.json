@@ -1,1 +1,1 @@
-{"title":"mojo.core.TemplateString.Segment","type":"object","properties":{"content":{"type":"string"},"templated":{"type":"boolean"}}}
+{"title":"mojo.core.TemplateString.Segment","description":"","type":"object","properties":{"content":{"type":"string"},"templated":{"type":"boolean"}}}

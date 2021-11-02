@@ -9,22 +9,22 @@
 /// https://tools.ietf.org/html/rfc3986
 ///
 ///
-@template("{scheme}://{authority}/{path}{#fragment}{?query}")
+@format("{scheme}://{authority}/{path}{#fragment}{?query}")
 type Url {
-    @template('{user_info@}{host}{:port}')
+    @format('{user_info@}{host}{:port}')
     type Authority {
         user_info: String @1
         host: String @2 @format('')
         port: Int @3
     }
 
-    //@template("{segments:/}")
+    //@format("{segments:/}")
     //type Path {
     //    segments:[String] @1
     //}
 
     ///
-    @template("{key=value:&}")
+    @format("{key=value:&}")
     type Query: {String: [String]}
 
     ///

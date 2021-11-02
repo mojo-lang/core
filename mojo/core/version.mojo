@@ -2,9 +2,9 @@
 ///
 /// (spec)[http://semver.org/spec/v2.0.0.html]
 ///
-@template("{major}.{minor}.{patch}{-pre_releases:'.'}{+builds:'.'}")
+@format("{major}.{minor}.{patch}{-pre_releases:'.'}{+builds:'.'}")
 type Version {
-    type Identifier = String @pattern('[0-9A-Za-z-]+')
+    type Identifier = String @format(r'[0-9A-Za-z-]+')
 
     ///
     major: UInt @1

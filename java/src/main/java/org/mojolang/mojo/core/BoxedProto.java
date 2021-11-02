@@ -15,6 +15,11 @@ public final class BoxedProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedBool_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedBool_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_Strings_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -38,31 +43,38 @@ public final class BoxedProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025mojo/core/boxed.proto\022\tmojo.core\"\031\n\007St" +
-      "rings\022\016\n\006values\030\001 \003(\t\"\032\n\010Integers\022\016\n\006val" +
-      "ues\030\001 \003(\003\"\031\n\007Doubles\022\016\n\006values\030\001 \003(\001BW\n\026" +
-      "org.mojolang.mojo.coreB\nBoxedProtoP\001Z/gi" +
-      "thub.com/mojo-lang/core/go/pkg/mojo/core" +
-      ";coreb\006proto3"
+      "\n\025mojo/core/boxed.proto\022\tmojo.core\"\032\n\tBo" +
+      "xedBool\022\r\n\005value\030\001 \001(\010\"\031\n\007Strings\022\016\n\006val" +
+      "ues\030\001 \003(\t\"\032\n\010Integers\022\016\n\006values\030\001 \003(\003\"\031\n" +
+      "\007Doubles\022\016\n\006values\030\001 \003(\001BW\n\026org.mojolang" +
+      ".mojo.coreB\nBoxedProtoP\001Z/github.com/moj" +
+      "o-lang/core/go/pkg/mojo/core;coreb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_mojo_core_Strings_descriptor =
+    internal_static_mojo_core_BoxedBool_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_mojo_core_BoxedBool_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedBool_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_Strings_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_mojo_core_Strings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Strings_descriptor,
         new java.lang.String[] { "Values", });
     internal_static_mojo_core_Integers_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_mojo_core_Integers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Integers_descriptor,
         new java.lang.String[] { "Values", });
     internal_static_mojo_core_Doubles_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_mojo_core_Doubles_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Doubles_descriptor,

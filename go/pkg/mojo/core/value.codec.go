@@ -1,25 +1,26 @@
 package core
 
 import (
+	"errors"
 	jsoniter "github.com/json-iterator/go"
 	"unsafe"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.Object", &ObjectJsonCodec{})
-	jsoniter.RegisterTypeEncoder("core.Object", &ObjectJsonCodec{})
+	jsoniter.RegisterTypeDecoder("core.Object", &ObjectCodec{})
+	jsoniter.RegisterTypeEncoder("core.Object", &ObjectCodec{})
 
-	jsoniter.RegisterTypeDecoder("core.Values", &ValuesJsonCodec{})
-	jsoniter.RegisterTypeEncoder("core.Values", &ValuesJsonCodec{})
+	jsoniter.RegisterTypeDecoder("core.Values", &ValuesCodec{})
+	jsoniter.RegisterTypeEncoder("core.Values", &ValuesCodec{})
 
-	jsoniter.RegisterTypeDecoder("core.Value", &ValueJsonCodec{})
-	jsoniter.RegisterTypeEncoder("core.Value", &ValueJsonCodec{})
+	jsoniter.RegisterTypeDecoder("core.Value", &ValueCodec{})
+	jsoniter.RegisterTypeEncoder("core.Value", &ValueCodec{})
 }
 
-type ObjectJsonCodec struct {
+type ObjectCodec struct {
 }
 
-func (codec *ObjectJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (codec *ObjectCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	any := iter.ReadAny()
 
 	if any.ValueType() == jsoniter.ObjectValue {
@@ -58,65 +59,63 @@ func (codec *ObjectJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator
 	}
 }
 
-func (codec *ObjectJsonCodec) IsEmpty(ptr unsafe.Pointer) bool {
+func (codec *ObjectCodec) IsEmpty(ptr unsafe.Pointer) bool {
 	return len(((*Object)(ptr)).Values) == 0
 }
 
-func (codec *ObjectJsonCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+func (codec *ObjectCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	object := (*Object)(ptr)
 	stream.WriteVal(object.Values)
 }
 
-type ValuesJsonCodec struct {
+type ValueCodec struct {
 }
 
-func (codec *ValuesJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func NewValueCodec() *ValueCodec {
+	return &ValueCodec{}
 }
 
-func (codec *ValuesJsonCodec) IsEmpty(ptr unsafe.Pointer) bool {
-	values := (*Values)(ptr)
-	return values == nil || len(values.Values) == 0
-}
-
-func (codec *ValuesJsonCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-}
-
-type ValueJsonCodec struct {
-}
-
-func (codec *ValueJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-	any := iter.ReadAny()
-	val := (*Value)(ptr)
+func (codec *ValueCodec) DecodeAny(any jsoniter.Any) (*Value, error) {
 	switch any.ValueType() {
+	case jsoniter.NilValue:
+		return &Value{}, nil
 	case jsoniter.BoolValue:
-		val.Value = &Value_BoolVal{BoolVal: any.ToBool()}
+		return NewBoolValue(any.ToBool()), nil
 	case jsoniter.NumberValue:
-		int64V := any.ToInt64() // if integer overflow will change pos to neg int
-		floatV := any.ToFloat64()
-		if floatV == float64(int64V) { // [-2^53, 2^53]
-			val.Value = &Value_Int64Val{Int64Val: int64V}
+		floatVal := any.ToFloat64()
+		intVal := any.ToInt64() // not support uint64 (the highest bit is 1)
+
+		if floatVal != float64(intVal) {
+			return NewFloat64Value(floatVal), nil
 		} else {
-			val.Value = &Value_DoubleVal{DoubleVal: floatV}
+			return NewInt64Value(intVal), nil
 		}
 	case jsoniter.StringValue:
-		val.Value = &Value_StringVal{StringVal: any.ToString()}
-	case jsoniter.ArrayValue:
-		values := make([]*Value, 0, any.Size())
-		any.ToVal(&values)
-		val.Value = &Value_ValuesVal{ValuesVal: &Values{Values: values}}
+		return NewStringValue(any.ToString()), nil
 	case jsoniter.ObjectValue:
-		obj := &Object{}
-		any.ToVal(obj)
-		val.Value = &Value_ObjectVal{ObjectVal: obj}
+		val := make(map[string]*Value)
+		any.ToVal(&val)
+		return NewMapValue(val), nil
+	case jsoniter.ArrayValue:
+		val := make([]*Value, 0)
+		any.ToVal(&val)
+		return NewArrayValue(val...), nil
 	}
+	return nil, errors.New("type is invalid")
 }
 
-func (codec *ValueJsonCodec) IsEmpty(ptr unsafe.Pointer) bool {
+func (codec *ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+	any := iter.ReadAny()
+	v, _ := codec.DecodeAny(any)
+	(*Value)(ptr).Value = v.Value
+}
+
+func (codec *ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
 	value := (*Value)(ptr)
 	return value == nil || value.Value == nil
 }
 
-func (codec *ValueJsonCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+func (codec *ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	value := (*Value)(ptr)
 	switch val := value.Value.(type) {
 	case *Value_BoolVal:
@@ -131,5 +130,7 @@ func (codec *ValueJsonCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream)
 		stream.WriteVal(val.ValuesVal.Values)
 	case *Value_ObjectVal:
 		stream.WriteVal(val.ObjectVal.Values)
+	default:
+		stream.WriteNil()
 	}
 }

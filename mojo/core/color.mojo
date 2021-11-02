@@ -1,5 +1,5 @@
 
-@template('#{red:0x}{green:0x}{blue}')
+@format('#{red:0x}{green:0x}{blue:0x}')
 type Color {
     red:   UInt8 @1
     green: UInt8 @2

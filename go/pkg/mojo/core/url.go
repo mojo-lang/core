@@ -71,7 +71,7 @@ func (m *Url) Parse(raw string) error {
 	return nil
 }
 
-func (m *Url) Encode() string {
+func (m *Url) Format() string {
 	if m == nil {
 		return ""
 	}

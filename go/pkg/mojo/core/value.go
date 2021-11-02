@@ -277,6 +277,10 @@ func NewArrayValue(values ...*Value) *Value {
 	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
 }
 
+func NewMapValue(values map[string]*Value) *Value {
+	return &Value{Value: &Value_ObjectVal{ObjectVal: &Object{Values: values}}}
+}
+
 func NewBoolValue(val bool) *Value {
 	return &Value{Value: &Value_BoolVal{BoolVal: val}}
 }
@@ -452,6 +456,14 @@ func (m *Value) GetFloat32() float32 {
 }
 
 func (m *Value) GetFloat64() float64 {
+	if m == nil {
+		return 0
+	}
+
+	return m.GetDoubleVal()
+}
+
+func (m *Value) GetDouble() float64 {
 	if m == nil {
 		return 0
 	}

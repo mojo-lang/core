@@ -1,1 +1,1 @@
-{"title":"mojo.core.Regex","type":"object","properties":{"expression":{"type":"string"}}}
+{"title":"mojo.core.Regex","description":"","type":"object","properties":{"expression":{"type":"string"}}}

@@ -6,7 +6,7 @@
 /// The simplest MIME type consists of a type and a subtype;
 /// these are each strings which, when concatenated with a slash (/) between them, comprise a MIME type. 
 /// No whitespace is allowed in a MIME type:
-@template('{type}/{subtype}{;{parameter.key}={parameter.value}}')
+@format('{type}/{subtype}{;{parameter.key}={parameter.value}}')
 type MediaType {
     type Parameter {
         key:String @1

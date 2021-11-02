@@ -8,7 +8,7 @@
 /// The part after the @ symbol (domain) is a domain name that represents the administrative realm for the mail box,
 /// e.g., a company's domain name, example.com.
 ///
-@template('{local_part}@{domain}')
+@format('{local_part}@{domain}')
 type EmailAddress {
     ///
     local_part: String @1

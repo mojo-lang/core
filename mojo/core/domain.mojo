@@ -19,7 +19,7 @@
 /// upper case and a through z in lower case
 /// <digit> ::= any one of the ten digits 0 through 9
 /// ```
-@template('labels:separate(".")') // join/split
+@format('labels:separate(".")') // join/split
 type Domain {
     labels: [String] @1
 }

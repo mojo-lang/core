@@ -1,1 +1,1 @@
-{"title":"mojo.core.Color","type":"object","properties":{"alpha":{"type":"number"},"red":{"type":"integer","format":"uint8"},"green":{"type":"integer","format":"uint8"},"blue":{"type":"integer","format":"uint8"}}}
+{"title":"mojo.core.Color","description":"","type":"object","properties":{"red":{"type":"integer","format":"uint8"},"green":{"type":"integer","format":"uint8"},"blue":{"type":"integer","format":"uint8"},"alpha":{"type":"number"}}}

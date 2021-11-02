@@ -5,8 +5,7 @@
 /// "system.NotSupport"
 /// code `[100..599]` is reserved by duplicated with http status code
 /// code `0` is also reserved because of it usually has success meaning
-@template('{domain.}{value}{.brief}')
-@serialization_with_string
+@format('{domain.}{value}{.brief}')
 type ErrorCode {
     ///
     value: Int @1 @required

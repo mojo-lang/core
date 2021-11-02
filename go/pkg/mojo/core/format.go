@@ -6,5 +6,5 @@ type Formatter interface {
 }
 
 type Parser interface {
-	Parse(value string)
+	Parse(value string) error
 }
