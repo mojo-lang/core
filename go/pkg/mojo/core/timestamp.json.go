@@ -22,9 +22,10 @@ type TimestampCodec struct {
 
 func (codec *TimestampCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	any := iter.ReadAny()
+	ts := (*Timestamp)(ptr)
 	if any.ValueType() == jsoniter.NumberValue {
 		number := any.ToInt64()
-		ts := (*Timestamp)(ptr)
+
 		if number < int64(MaxInt) {
 			ts.Seconds = number
 		} else {
@@ -44,7 +45,6 @@ func (codec *TimestampCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator)
 		if err != nil {
 		}
 
-		ts := (*Timestamp)(ptr)
 		ts.FromTime(t)
 	}
 }

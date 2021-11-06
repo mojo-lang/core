@@ -59,13 +59,13 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             org.mojolang.mojo.core.Url.Builder subBuilder = null;
-            if (url_ != null) {
-              subBuilder = url_.toBuilder();
+            if (link_ != null) {
+              subBuilder = link_.toBuilder();
             }
-            url_ = input.readMessage(org.mojolang.mojo.core.Url.parser(), extensionRegistry);
+            link_ = input.readMessage(org.mojolang.mojo.core.Url.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(url_);
-              url_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(link_);
+              link_ = subBuilder.buildPartial();
             }
 
             break;
@@ -184,30 +184,30 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int URL_FIELD_NUMBER = 2;
-  private org.mojolang.mojo.core.Url url_;
+  public static final int LINK_FIELD_NUMBER = 2;
+  private org.mojolang.mojo.core.Url link_;
   /**
-   * <code>.mojo.core.Url url = 2;</code>
-   * @return Whether the url field is set.
+   * <code>.mojo.core.Url link = 2;</code>
+   * @return Whether the link field is set.
    */
   @java.lang.Override
-  public boolean hasUrl() {
-    return url_ != null;
+  public boolean hasLink() {
+    return link_ != null;
   }
   /**
-   * <code>.mojo.core.Url url = 2;</code>
-   * @return The url.
+   * <code>.mojo.core.Url link = 2;</code>
+   * @return The link.
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.Url getUrl() {
-    return url_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : url_;
+  public org.mojolang.mojo.core.Url getLink() {
+    return link_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : link_;
   }
   /**
-   * <code>.mojo.core.Url url = 2;</code>
+   * <code>.mojo.core.Url link = 2;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.UrlOrBuilder getUrlOrBuilder() {
-    return getUrl();
+  public org.mojolang.mojo.core.UrlOrBuilder getLinkOrBuilder() {
+    return getLink();
   }
 
   public static final int TYPE_FIELD_NUMBER = 3;
@@ -372,8 +372,8 @@ private static final long serialVersionUID = 0L;
     if (!getTitleBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
     }
-    if (url_ != null) {
-      output.writeMessage(2, getUrl());
+    if (link_ != null) {
+      output.writeMessage(2, getLink());
     }
     if (!getTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
@@ -399,9 +399,9 @@ private static final long serialVersionUID = 0L;
     if (!getTitleBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
     }
-    if (url_ != null) {
+    if (link_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getUrl());
+        .computeMessageSize(2, getLink());
     }
     if (!getTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
@@ -437,10 +437,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getTitle()
         .equals(other.getTitle())) return false;
-    if (hasUrl() != other.hasUrl()) return false;
-    if (hasUrl()) {
-      if (!getUrl()
-          .equals(other.getUrl())) return false;
+    if (hasLink() != other.hasLink()) return false;
+    if (hasLink()) {
+      if (!getLink()
+          .equals(other.getLink())) return false;
     }
     if (!getType()
         .equals(other.getType())) return false;
@@ -464,9 +464,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
-    if (hasUrl()) {
-      hash = (37 * hash) + URL_FIELD_NUMBER;
-      hash = (53 * hash) + getUrl().hashCode();
+    if (hasLink()) {
+      hash = (37 * hash) + LINK_FIELD_NUMBER;
+      hash = (53 * hash) + getLink().hashCode();
     }
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getType().hashCode();
@@ -635,11 +635,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       title_ = "";
 
-      if (urlBuilder_ == null) {
-        url_ = null;
+      if (linkBuilder_ == null) {
+        link_ = null;
       } else {
-        url_ = null;
-        urlBuilder_ = null;
+        link_ = null;
+        linkBuilder_ = null;
       }
       type_ = "";
 
@@ -678,10 +678,10 @@ private static final long serialVersionUID = 0L;
       org.mojolang.mojo.core.Image result = new org.mojolang.mojo.core.Image(this);
       int from_bitField0_ = bitField0_;
       result.title_ = title_;
-      if (urlBuilder_ == null) {
-        result.url_ = url_;
+      if (linkBuilder_ == null) {
+        result.link_ = link_;
       } else {
-        result.url_ = urlBuilder_.build();
+        result.link_ = linkBuilder_.build();
       }
       result.type_ = type_;
       result.properties_ = internalGetProperties();
@@ -743,8 +743,8 @@ private static final long serialVersionUID = 0L;
         title_ = other.title_;
         onChanged();
       }
-      if (other.hasUrl()) {
-        mergeUrl(other.getUrl());
+      if (other.hasLink()) {
+        mergeLink(other.getLink());
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
@@ -861,123 +861,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.core.Url url_;
+    private org.mojolang.mojo.core.Url link_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> urlBuilder_;
+        org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> linkBuilder_;
     /**
-     * <code>.mojo.core.Url url = 2;</code>
-     * @return Whether the url field is set.
+     * <code>.mojo.core.Url link = 2;</code>
+     * @return Whether the link field is set.
      */
-    public boolean hasUrl() {
-      return urlBuilder_ != null || url_ != null;
+    public boolean hasLink() {
+      return linkBuilder_ != null || link_ != null;
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
-     * @return The url.
+     * <code>.mojo.core.Url link = 2;</code>
+     * @return The link.
      */
-    public org.mojolang.mojo.core.Url getUrl() {
-      if (urlBuilder_ == null) {
-        return url_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : url_;
+    public org.mojolang.mojo.core.Url getLink() {
+      if (linkBuilder_ == null) {
+        return link_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : link_;
       } else {
-        return urlBuilder_.getMessage();
+        return linkBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
-    public Builder setUrl(org.mojolang.mojo.core.Url value) {
-      if (urlBuilder_ == null) {
+    public Builder setLink(org.mojolang.mojo.core.Url value) {
+      if (linkBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        url_ = value;
+        link_ = value;
         onChanged();
       } else {
-        urlBuilder_.setMessage(value);
+        linkBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
-    public Builder setUrl(
+    public Builder setLink(
         org.mojolang.mojo.core.Url.Builder builderForValue) {
-      if (urlBuilder_ == null) {
-        url_ = builderForValue.build();
+      if (linkBuilder_ == null) {
+        link_ = builderForValue.build();
         onChanged();
       } else {
-        urlBuilder_.setMessage(builderForValue.build());
+        linkBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
-    public Builder mergeUrl(org.mojolang.mojo.core.Url value) {
-      if (urlBuilder_ == null) {
-        if (url_ != null) {
-          url_ =
-            org.mojolang.mojo.core.Url.newBuilder(url_).mergeFrom(value).buildPartial();
+    public Builder mergeLink(org.mojolang.mojo.core.Url value) {
+      if (linkBuilder_ == null) {
+        if (link_ != null) {
+          link_ =
+            org.mojolang.mojo.core.Url.newBuilder(link_).mergeFrom(value).buildPartial();
         } else {
-          url_ = value;
+          link_ = value;
         }
         onChanged();
       } else {
-        urlBuilder_.mergeFrom(value);
+        linkBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
-    public Builder clearUrl() {
-      if (urlBuilder_ == null) {
-        url_ = null;
+    public Builder clearLink() {
+      if (linkBuilder_ == null) {
+        link_ = null;
         onChanged();
       } else {
-        url_ = null;
-        urlBuilder_ = null;
+        link_ = null;
+        linkBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
-    public org.mojolang.mojo.core.Url.Builder getUrlBuilder() {
+    public org.mojolang.mojo.core.Url.Builder getLinkBuilder() {
       
       onChanged();
-      return getUrlFieldBuilder().getBuilder();
+      return getLinkFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
-    public org.mojolang.mojo.core.UrlOrBuilder getUrlOrBuilder() {
-      if (urlBuilder_ != null) {
-        return urlBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.core.UrlOrBuilder getLinkOrBuilder() {
+      if (linkBuilder_ != null) {
+        return linkBuilder_.getMessageOrBuilder();
       } else {
-        return url_ == null ?
-            org.mojolang.mojo.core.Url.getDefaultInstance() : url_;
+        return link_ == null ?
+            org.mojolang.mojo.core.Url.getDefaultInstance() : link_;
       }
     }
     /**
-     * <code>.mojo.core.Url url = 2;</code>
+     * <code>.mojo.core.Url link = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> 
-        getUrlFieldBuilder() {
-      if (urlBuilder_ == null) {
-        urlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getLinkFieldBuilder() {
+      if (linkBuilder_ == null) {
+        linkBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder>(
-                getUrl(),
+                getLink(),
                 getParentForChildren(),
                 isClean());
-        url_ = null;
+        link_ = null;
       }
-      return urlBuilder_;
+      return linkBuilder_;
     }
 
     private java.lang.Object type_ = "";

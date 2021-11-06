@@ -35,15 +35,15 @@ public final class ImageProto {
     java.lang.String[] descriptorData = {
       "\n\025mojo/core/image.proto\022\tmojo.core\032\024mojo" +
       "/core/time.proto\032\023mojo/core/url.proto\032\025m" +
-      "ojo/core/value.proto\"\345\001\n\005Image\022\r\n\005title\030" +
-      "\001 \001(\t\022\033\n\003url\030\002 \001(\0132\016.mojo.core.Url\022\014\n\004ty" +
-      "pe\030\003 \001(\t\0224\n\nproperties\030\004 \003(\0132 .mojo.core" +
-      ".Image.PropertiesEntry\022\'\n\ttimestamp\030\n \001(" +
-      "\0132\024.mojo.core.Timestamp\032C\n\017PropertiesEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 \001(\0132\020.mojo.co" +
-      "re.Value:\0028\001BW\n\026org.mojolang.mojo.coreB\n" +
-      "ImageProtoP\001Z/github.com/mojo-lang/core/" +
-      "go/pkg/mojo/core;coreb\006proto3"
+      "ojo/core/value.proto\"\346\001\n\005Image\022\r\n\005title\030" +
+      "\001 \001(\t\022\034\n\004link\030\002 \001(\0132\016.mojo.core.Url\022\014\n\004t" +
+      "ype\030\003 \001(\t\0224\n\nproperties\030\004 \003(\0132 .mojo.cor" +
+      "e.Image.PropertiesEntry\022\'\n\ttimestamp\030\n \001" +
+      "(\0132\024.mojo.core.Timestamp\032C\n\017PropertiesEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 \001(\0132\020.mojo.c" +
+      "ore.Value:\0028\001BW\n\026org.mojolang.mojo.coreB" +
+      "\nImageProtoP\001Z/github.com/mojo-lang/core" +
+      "/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -57,7 +57,7 @@ public final class ImageProto {
     internal_static_mojo_core_Image_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Image_descriptor,
-        new java.lang.String[] { "Title", "Url", "Type", "Properties", "Timestamp", });
+        new java.lang.String[] { "Title", "Link", "Type", "Properties", "Timestamp", });
     internal_static_mojo_core_Image_PropertiesEntry_descriptor =
       internal_static_mojo_core_Image_descriptor.getNestedTypes().get(0);
     internal_static_mojo_core_Image_PropertiesEntry_fieldAccessorTable = new

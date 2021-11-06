@@ -1,6 +1,4 @@
 // Copyright 2021 Mojo-lang.
-// 
-// (come from https://github.com/googleapis/api-common-protos/blob/master/google/type/money.proto)
 //
 // Copyright 2019 Google LLC.
 //
@@ -16,6 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+// [source](https://github.com/googleapis/api-common-protos/blob/master/google/type/money.proto)
 
 /// The amount of money
 ///

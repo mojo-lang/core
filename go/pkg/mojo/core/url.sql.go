@@ -25,6 +25,6 @@ func (m *Url) Scan(src interface{}) error {
 		m.Parse(bs)
 		return nil
 	default:
-		return fmt.Errorf("Could not not Decode type %T -> %T", src, m)
+		return fmt.Errorf("failed to Decode type %T -> %T", src, m)
 	}
 }

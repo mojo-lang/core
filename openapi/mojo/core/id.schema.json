@@ -1,0 +1,1 @@
+{"oneOf":[{"type":"integer","format":"uint64"},{"type":"string"},{"$ref":"#/components/schemas/mojo.core.Uuid"}]}

@@ -20,19 +20,19 @@ public interface ImageOrBuilder extends
       getTitleBytes();
 
   /**
-   * <code>.mojo.core.Url url = 2;</code>
-   * @return Whether the url field is set.
+   * <code>.mojo.core.Url link = 2;</code>
+   * @return Whether the link field is set.
    */
-  boolean hasUrl();
+  boolean hasLink();
   /**
-   * <code>.mojo.core.Url url = 2;</code>
-   * @return The url.
+   * <code>.mojo.core.Url link = 2;</code>
+   * @return The link.
    */
-  org.mojolang.mojo.core.Url getUrl();
+  org.mojolang.mojo.core.Url getLink();
   /**
-   * <code>.mojo.core.Url url = 2;</code>
+   * <code>.mojo.core.Url link = 2;</code>
    */
-  org.mojolang.mojo.core.UrlOrBuilder getUrlOrBuilder();
+  org.mojolang.mojo.core.UrlOrBuilder getLinkOrBuilder();
 
   /**
    * <code>string type = 3;</code>

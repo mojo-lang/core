@@ -12,9 +12,9 @@ func TestUrlCodec(t *testing.T) {
 			Host: "mojo-lang.org",
 		},
 		Path:  "root",
-		Query: NewQuery(),
+		Query: NewUrlQuery(),
 	}
 
 	url.GetQuery().Add("test", "value")
-	assert.Equal(t, "https://mojo-lang.org/root?test=value", url.Encode())
+	assert.Equal(t, "https://mojo-lang.org/root?test=value", url.Format())
 }

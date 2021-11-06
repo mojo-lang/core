@@ -29,7 +29,7 @@ public final class PixelProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\025mojo/core/pixel.proto\022\tmojo.core\"\026\n\005Pi" +
-      "xel\022\r\n\005value\030\001 \001(\003BW\n\026org.mojolang.mojo." +
+      "xel\022\r\n\005value\030\001 \001(\004BW\n\026org.mojolang.mojo." +
       "coreB\nPixelProtoP\001Z/github.com/mojo-lang" +
       "/core/go/pkg/mojo/core;coreb\006proto3"
     };

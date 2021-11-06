@@ -39,6 +39,11 @@ public final class TimeProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Duration_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_TimeOfDay_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_TimeOfDay_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -57,10 +62,23 @@ public final class TimeProto {
       "meZone\"(\n\010TimeZone\022\016\n\006offset\030\001 \001(\005\022\014\n\004na" +
       "me\030\002 \001(\t\"1\n\tTimestamp\022\017\n\007seconds\030\001 \001(\003\022\023" +
       "\n\013nanoseconds\030\002 \001(\005\"0\n\010Duration\022\017\n\007secon" +
-      "ds\030\001 \001(\003\022\023\n\013nanoseconds\030\002 \001(\005BV\n\026org.moj" +
-      "olang.mojo.coreB\tTimeProtoP\001Z/github.com" +
-      "/mojo-lang/core/go/pkg/mojo/core;coreb\006p" +
-      "roto3"
+      "ds\030\001 \001(\003\022\023\n\013nanoseconds\030\002 \001(\005\"K\n\tTimeOfD" +
+      "ay\022\r\n\005hours\030\001 \001(\005\022\017\n\007minutes\030\002 \001(\005\022\017\n\007se" +
+      "conds\030\003 \001(\005\022\r\n\005nanos\030\004 \001(\005*\370\001\n\005Month\022\025\n\021" +
+      "MONTH_UNSPECIFIED\020\000\022\021\n\rMONTH_JANUARY\020\001\022\022" +
+      "\n\016MONTH_FEBRUARY\020\002\022\017\n\013MONTH_MARCH\020\003\022\017\n\013M" +
+      "ONTH_APRIL\020\004\022\r\n\tMONTH_MAY\020\005\022\016\n\nMONTH_JUN" +
+      "E\020\006\022\016\n\nMONTH_JULY\020\007\022\020\n\014MONTH_AUGUST\020\010\022\023\n" +
+      "\017MONTH_SEPTEMBER\020\t\022\021\n\rMONTH_OCTOBER\020\n\022\022\n" +
+      "\016MONTH_NOVEMBER\020\013\022\022\n\016MONTH_DECEMBER\020\014*\330\001" +
+      "\n\tDayOfWeek\022\033\n\027DAY_OF_WEEK_UNSPECIFIED\020\000" +
+      "\022\026\n\022DAY_OF_WEEK_MONDAY\020\001\022\027\n\023DAY_OF_WEEK_" +
+      "TUESDAY\020\002\022\031\n\025DAY_OF_WEEK_WEDNESDAY\020\003\022\030\n\024" +
+      "DAY_OF_WEEK_THURSDAY\020\004\022\026\n\022DAY_OF_WEEK_FR" +
+      "IDAY\020\005\022\030\n\024DAY_OF_WEEK_SATURDAY\020\006\022\026\n\022DAY_" +
+      "OF_WEEK_SUNDAY\020\007BV\n\026org.mojolang.mojo.co" +
+      "reB\tTimeProtoP\001Z/github.com/mojo-lang/co" +
+      "re/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -96,6 +114,12 @@ public final class TimeProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Duration_descriptor,
         new java.lang.String[] { "Seconds", "Nanoseconds", });
+    internal_static_mojo_core_TimeOfDay_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_mojo_core_TimeOfDay_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_TimeOfDay_descriptor,
+        new java.lang.String[] { "Hours", "Minutes", "Seconds", "Nanos", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -8,7 +8,7 @@ public interface PixelOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 value = 1;</code>
+   * <code>uint64 value = 1;</code>
    * @return The value.
    */
   long getValue();

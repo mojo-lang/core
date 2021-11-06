@@ -27,5 +27,5 @@ func (codec *UrlCodec) IsEmpty(ptr unsafe.Pointer) bool {
 
 func (codec *UrlCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	url := (*Url)(ptr)
-	stream.WriteString(url.Encode())
+	stream.WriteString(url.Format())
 }

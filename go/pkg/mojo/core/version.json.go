@@ -8,14 +8,14 @@ import (
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.Version", &VersionJsonCodec{})
-	jsoniter.RegisterTypeEncoder("core.Version", &VersionJsonCodec{})
+	jsoniter.RegisterTypeDecoder("core.Version", &VersionCodec{})
+	jsoniter.RegisterTypeEncoder("core.Version", &VersionCodec{})
 }
 
-type VersionJsonCodec struct {
+type VersionCodec struct {
 }
 
-func (codec *VersionJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (codec *VersionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	value := iter.ReadString()
 	version := (*Version)(ptr)
 
@@ -34,18 +34,21 @@ func (codec *VersionJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 		if len(segments) == 3 {
 			major, err := strconv.Atoi(segments[0])
 			if err != nil {
+				iter.ReportError("VersionCodec.DecodeMajor", err.Error())
 			} else {
-				version.Minor = uint64(major)
+				version.Major = uint64(major)
 			}
 
 			minor, err := strconv.Atoi(segments[1])
 			if err != nil {
+				iter.ReportError("VersionCodec.DecodeMinor", err.Error())
 			} else {
 				version.Minor = uint64(minor)
 			}
 
 			patch, err := strconv.Atoi(segments[2])
 			if err != nil {
+				iter.ReportError("VersionCodec.DecodePatch", err.Error())
 			} else {
 				version.Patch = uint64(patch)
 			}
@@ -53,12 +56,12 @@ func (codec *VersionJsonCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 	}
 }
 
-func (codec *VersionJsonCodec) IsEmpty(ptr unsafe.Pointer) bool {
+func (codec *VersionCodec) IsEmpty(ptr unsafe.Pointer) bool {
 	version := (*Version)(ptr)
 	return version == nil || (version.Major == 0 && version.Minor == 0 && version.Patch == 0)
 }
 
-func (codec *VersionJsonCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+func (codec *VersionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	version := (*Version)(ptr)
 	stream.WriteUint64(version.Major)
 	stream.WriteRaw(".")

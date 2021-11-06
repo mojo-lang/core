@@ -8,8 +8,8 @@ import (
 
 func TestVersionJsonCodec_Decode(t *testing.T) {
 	version := &Version{}
-	jsoniter.UnmarshalFromString("1.2.3", version)
-	assert.Equal(t, 1, version.Major)
+	jsoniter.UnmarshalFromString(`"1.2.3"`, version)
+	assert.Equal(t, uint64(1), version.Major)
 }
 
 func TestVersionJsonCodec_Encode(t *testing.T) {
