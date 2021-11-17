@@ -14,4 +14,4 @@
 
 package core
 
-const DictionaryTypeName = "mojo.core.Dictionary"
+const MapTypeName = "mojo.core.Map"

@@ -91,3 +91,21 @@ attribute discriminator: String
 /// 对于union，转换成protobuf时，每个union的类型对于的字段名，如果是`{}`,则是类型名snake化
 /// 如果是其他的，则会给每个字段附加`_val`后缀
 attribute label_format: String
+
+attribute label: String
+
+attribute case_style: CaseStyle
+
+/// Case Style types for name case style changing
+/// 
+/// for value, snake_case is the defualt style
+/// for type, CamelCase is the default style
+enum CaseStyle {
+    unspecified @0
+    snake @1           //< snake_case style
+    screaming_snake @2 //< SCREAMING_SNAKE_CASE style
+    kebab @3           //< kebab-case style
+    screaming_kebab @4 //< SCREAMING-KEBAB-CASE style
+    camel @5           // CamelCase style
+    lower_camel @6     //< lowerCamelCase style
+}

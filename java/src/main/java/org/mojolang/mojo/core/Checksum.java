@@ -104,21 +104,21 @@ private static final long serialVersionUID = 0L;
      */
     ALGORITHM_UNSPECIFIED(0),
     /**
-     * <code>ALGORITHM_MD_5 = 1;</code>
+     * <code>ALGORITHM_MD5 = 1;</code>
      */
-    ALGORITHM_MD_5(1),
+    ALGORITHM_MD5(1),
     /**
-     * <code>ALGORITHM_SHA_1 = 2;</code>
+     * <code>ALGORITHM_SHA1 = 2;</code>
      */
-    ALGORITHM_SHA_1(2),
+    ALGORITHM_SHA1(2),
     /**
-     * <code>ALGORITHM_SHA_256 = 3;</code>
+     * <code>ALGORITHM_SHA256 = 3;</code>
      */
-    ALGORITHM_SHA_256(3),
+    ALGORITHM_SHA256(3),
     /**
-     * <code>ALGORITHM_SHA_512 = 4;</code>
+     * <code>ALGORITHM_SHA512 = 4;</code>
      */
-    ALGORITHM_SHA_512(4),
+    ALGORITHM_SHA512(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -127,21 +127,21 @@ private static final long serialVersionUID = 0L;
      */
     public static final int ALGORITHM_UNSPECIFIED_VALUE = 0;
     /**
-     * <code>ALGORITHM_MD_5 = 1;</code>
+     * <code>ALGORITHM_MD5 = 1;</code>
      */
-    public static final int ALGORITHM_MD_5_VALUE = 1;
+    public static final int ALGORITHM_MD5_VALUE = 1;
     /**
-     * <code>ALGORITHM_SHA_1 = 2;</code>
+     * <code>ALGORITHM_SHA1 = 2;</code>
      */
-    public static final int ALGORITHM_SHA_1_VALUE = 2;
+    public static final int ALGORITHM_SHA1_VALUE = 2;
     /**
-     * <code>ALGORITHM_SHA_256 = 3;</code>
+     * <code>ALGORITHM_SHA256 = 3;</code>
      */
-    public static final int ALGORITHM_SHA_256_VALUE = 3;
+    public static final int ALGORITHM_SHA256_VALUE = 3;
     /**
-     * <code>ALGORITHM_SHA_512 = 4;</code>
+     * <code>ALGORITHM_SHA512 = 4;</code>
      */
-    public static final int ALGORITHM_SHA_512_VALUE = 4;
+    public static final int ALGORITHM_SHA512_VALUE = 4;
 
 
     public final int getNumber() {
@@ -169,10 +169,10 @@ private static final long serialVersionUID = 0L;
     public static Algorithm forNumber(int value) {
       switch (value) {
         case 0: return ALGORITHM_UNSPECIFIED;
-        case 1: return ALGORITHM_MD_5;
-        case 2: return ALGORITHM_SHA_1;
-        case 3: return ALGORITHM_SHA_256;
-        case 4: return ALGORITHM_SHA_512;
+        case 1: return ALGORITHM_MD5;
+        case 2: return ALGORITHM_SHA1;
+        case 3: return ALGORITHM_SHA256;
+        case 4: return ALGORITHM_SHA512;
         default: return null;
       }
     }

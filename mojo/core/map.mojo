@@ -15,4 +15,4 @@
 ///
 ///
 ///
-type Dictionary<K, V>
+type Map<K, V>

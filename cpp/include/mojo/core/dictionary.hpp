@@ -7,12 +7,12 @@ namespace mojo {
 namespace core {
 
 template<typename K, typename V>
-using Dictionary = ::std::unordered_map<K, V>;
+using Map = ::std::unordered_map<K, V>;
 
 }
 
 template <typename K, typename V>
-using Dictionary = ::mojo::core::Dictionary<K, V>;
+using Map = ::mojo::core::Map<K, V>;
 
 }
 

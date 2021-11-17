@@ -39,10 +39,10 @@ public final class PhoneNumberProto {
       "\n\021CountryCodeSource\022#\n\037COUNTRY_CODE_SOUR" +
       "CE_UNSPECIFIED\020\000\0222\n.COUNTRY_CODE_SOURCE_" +
       "FROM_NUMBER_WITH_PLUS_SIGN\020\001\022,\n(COUNTRY_" +
-      "CODE_SOURCE_FROM_NUMBER_WITH_IDD\020\002\0225\n1CO" +
+      "CODE_SOURCE_FROM_NUMBER_WITH_IDD\020\005\0225\n1CO" +
       "UNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PL" +
-      "US_SIGN\020\003\022,\n(COUNTRY_CODE_SOURCE_FROM_DE" +
-      "FAULT_COUNTRY\020\004B]\n\026org.mojolang.mojo.cor" +
+      "US_SIGN\020\n\022,\n(COUNTRY_CODE_SOURCE_FROM_DE" +
+      "FAULT_COUNTRY\020\024B]\n\026org.mojolang.mojo.cor" +
       "eB\020PhoneNumberProtoP\001Z/github.com/mojo-l" +
       "ang/core/go/pkg/mojo/core;coreb\006proto3"
     };

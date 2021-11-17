@@ -13,7 +13,7 @@ set(SOURCE_FILES
         include/mojo/core/any.hpp
         include/mojo/core/array.hpp
         include/mojo/core/bool.hpp
-        include/mojo/core/dictionary.hpp
+        include/mojo/core/map.hpp
         include/mojo/core/error.hpp
         include/mojo/core/null.hpp
         include/mojo/core/numeric.hpp

@@ -1,1 +1,1 @@
-{"type":"array","items":{"$ref":"#/components/schemas/mojo.core.Value"}}
+{"title":"mojo.core.Values","description":"Values type","type":"array","items":{"$ref":"#/components/schemas/mojo.core.Value"}}

@@ -43,11 +43,11 @@ func (m *Url) Parse(raw string) error {
 	m.Fragment = url.Fragment
 
 	m.Query = &Url_Query{
-		Values: make(map[string]*Strings),
+		Values: make(map[string]*Url_Query_Strings),
 	}
 	query := url.Query()
 	for k, v := range query {
-		m.Query.Values[k] = &Strings{
+		m.Query.Values[k] = &Url_Query_Strings{
 			Values: v,
 		}
 	}

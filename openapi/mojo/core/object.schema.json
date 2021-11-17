@@ -1,1 +1,1 @@
-{"type":"object","additionalProperties":{"type":"string"}}
+{"title":"mojo.core.Object","description":"Object type","type":"object","additionalProperties":{"$ref":"#/components/schemas/mojo.core.Value"}}

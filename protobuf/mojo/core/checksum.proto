@@ -13,10 +13,10 @@ message Checksum {
     
     enum Algorithm {
         ALGORITHM_UNSPECIFIED=0;
-        ALGORITHM_MD_5=1;
-        ALGORITHM_SHA_1=2;
-        ALGORITHM_SHA_256=3;
-        ALGORITHM_SHA_512=4;
+        ALGORITHM_MD5=1;
+        ALGORITHM_SHA1=2;
+        ALGORITHM_SHA256=3;
+        ALGORITHM_SHA512=4;
     }
     Algorithm algorithm = 1;
     string value = 2;

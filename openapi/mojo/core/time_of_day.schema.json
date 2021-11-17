@@ -1,1 +1,1 @@
-{"title":"mojo.core.TimeOfDay","description":"","type":"object","properties":{"hours":{"type":"integer","format":"int32"},"minutes":{"type":"integer","format":"int32"},"seconds":{"type":"integer","format":"int32"},"nanos":{"type":"integer","format":"int32"}}}
+{"title":"mojo.core.TimeOfDay","description":"","type":"object","properties":{"hours":{"type":"integer","format":"int32"},"minutes":{"type":"integer","format":"int32"},"nanos":{"type":"integer","format":"int32"},"seconds":{"type":"integer","format":"int32"}}}

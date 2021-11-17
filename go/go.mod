@@ -7,7 +7,8 @@ require (
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de // indirect
 	github.com/gogo/protobuf v1.3.2
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/json-iterator/go v1.1.10
+	github.com/iancoleman/strcase v0.2.0 // indirect
+	github.com/json-iterator/go v1.1.12
 	github.com/stretchr/testify v1.7.0
 	go.uber.org/zap v1.17.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0

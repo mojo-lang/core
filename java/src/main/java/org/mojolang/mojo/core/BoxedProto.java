@@ -20,30 +20,85 @@ public final class BoxedProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_BoxedBool_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_BoxedInt_descriptor;
+    internal_static_mojo_core_BoxedInt64_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_BoxedInt_fieldAccessorTable;
+      internal_static_mojo_core_BoxedInt64_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedUInt64_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedUInt64_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedInt32_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedInt32_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedUInt32_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedUInt32_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedFloat_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedFloat_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedDouble_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedDouble_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_BoxedString_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_BoxedString_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoxedBytes_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoxedBytes_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_BoolValues_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_BoolValues_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_Int32Values_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_Int32Values_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_UInt32Values_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_UInt32Values_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_Int64Values_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_Int64Values_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_UInt64Values_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_UInt64Values_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_FloatValues_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_FloatValues_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_DoubleValues_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_DoubleValues_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_Strings_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Strings_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_Integers_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_Integers_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_Doubles_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_Doubles_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -54,13 +109,22 @@ public final class BoxedProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\025mojo/core/boxed.proto\022\tmojo.core\"\032\n\tBo" +
-      "xedBool\022\r\n\005value\030\001 \001(\010\"\031\n\010BoxedInt\022\r\n\005va" +
-      "lue\030\001 \001(\003\"\034\n\013BoxedString\022\r\n\005value\030\001 \001(\t\"" +
-      "\031\n\007Strings\022\016\n\006values\030\001 \003(\t\"\032\n\010Integers\022\016" +
-      "\n\006values\030\001 \003(\003\"\031\n\007Doubles\022\016\n\006values\030\001 \003(" +
-      "\001BW\n\026org.mojolang.mojo.coreB\nBoxedProtoP" +
-      "\001Z/github.com/mojo-lang/core/go/pkg/mojo" +
-      "/core;coreb\006proto3"
+      "xedBool\022\r\n\005value\030\001 \001(\010\"\033\n\nBoxedInt64\022\r\n\005" +
+      "value\030\001 \001(\003\"\034\n\013BoxedUInt64\022\r\n\005value\030\001 \001(" +
+      "\004\"\033\n\nBoxedInt32\022\r\n\005value\030\001 \001(\005\"\034\n\013BoxedU" +
+      "Int32\022\r\n\005value\030\001 \001(\005\"\033\n\nBoxedFloat\022\r\n\005va" +
+      "lue\030\001 \001(\002\"\034\n\013BoxedDouble\022\r\n\005value\030\001 \001(\001\"" +
+      "\034\n\013BoxedString\022\r\n\005value\030\001 \001(\t\"\033\n\nBoxedBy" +
+      "tes\022\r\n\005value\030\001 \001(\014\"\034\n\nBoolValues\022\016\n\006valu" +
+      "es\030\001 \003(\010\"\035\n\013Int32Values\022\016\n\006values\030\001 \003(\005\"" +
+      "\036\n\014UInt32Values\022\016\n\006values\030\001 \003(\005\"\035\n\013Int64" +
+      "Values\022\016\n\006values\030\001 \003(\003\"\036\n\014UInt64Values\022\016" +
+      "\n\006values\030\001 \003(\004\"\035\n\013FloatValues\022\016\n\006values\030" +
+      "\001 \003(\002\"\036\n\014DoubleValues\022\016\n\006values\030\001 \003(\001\"\031\n" +
+      "\007Strings\022\016\n\006values\030\001 \003(\tBW\n\026org.mojolang" +
+      ".mojo.coreB\nBoxedProtoP\001Z/github.com/moj" +
+      "o-lang/core/go/pkg/mojo/core;coreb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -72,35 +136,101 @@ public final class BoxedProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_BoxedBool_descriptor,
         new java.lang.String[] { "Value", });
-    internal_static_mojo_core_BoxedInt_descriptor =
+    internal_static_mojo_core_BoxedInt64_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_mojo_core_BoxedInt_fieldAccessorTable = new
+    internal_static_mojo_core_BoxedInt64_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_BoxedInt_descriptor,
+        internal_static_mojo_core_BoxedInt64_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoxedUInt64_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_mojo_core_BoxedUInt64_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedUInt64_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoxedInt32_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_mojo_core_BoxedInt32_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedInt32_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoxedUInt32_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_mojo_core_BoxedUInt32_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedUInt32_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoxedFloat_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_mojo_core_BoxedFloat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedFloat_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoxedDouble_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_mojo_core_BoxedDouble_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedDouble_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_mojo_core_BoxedString_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_mojo_core_BoxedString_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_BoxedString_descriptor,
         new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoxedBytes_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_mojo_core_BoxedBytes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoxedBytes_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_mojo_core_BoolValues_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_mojo_core_BoolValues_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_BoolValues_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_mojo_core_Int32Values_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_mojo_core_Int32Values_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_Int32Values_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_mojo_core_UInt32Values_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_mojo_core_UInt32Values_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_UInt32Values_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_mojo_core_Int64Values_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_mojo_core_Int64Values_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_Int64Values_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_mojo_core_UInt64Values_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_mojo_core_UInt64Values_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_UInt64Values_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_mojo_core_FloatValues_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_mojo_core_FloatValues_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_FloatValues_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_mojo_core_DoubleValues_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_mojo_core_DoubleValues_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_DoubleValues_descriptor,
+        new java.lang.String[] { "Values", });
     internal_static_mojo_core_Strings_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_mojo_core_Strings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Strings_descriptor,
-        new java.lang.String[] { "Values", });
-    internal_static_mojo_core_Integers_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_mojo_core_Integers_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_Integers_descriptor,
-        new java.lang.String[] { "Values", });
-    internal_static_mojo_core_Doubles_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_mojo_core_Doubles_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_Doubles_descriptor,
         new java.lang.String[] { "Values", });
   }
 

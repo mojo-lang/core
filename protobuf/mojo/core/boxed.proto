@@ -13,22 +13,66 @@ message BoxedBool {
     bool value = 1;
 }
 
-message BoxedInt {
+message BoxedInt64 {
     int64 value = 1;
+}
+
+message BoxedUInt64 {
+    uint64 value = 1;
+}
+
+message BoxedInt32 {
+    int32 value = 1;
+}
+
+message BoxedUInt32 {
+    int32 value = 1;
+}
+
+message BoxedFloat {
+    float value = 1;
+}
+
+message BoxedDouble {
+    double value = 1;
 }
 
 message BoxedString {
     string value = 1;
 }
 
-message Strings {
-    repeated string values = 1;
+message BoxedBytes {
+    bytes value = 1;
 }
 
-message Integers {
+message BoolValues {
+    repeated bool values = 1;
+}
+
+message Int32Values {
+    repeated int32 values = 1;
+}
+
+message UInt32Values {
+    repeated int32 values = 1;
+}
+
+message Int64Values {
     repeated int64 values = 1;
 }
 
-message Doubles {
+message UInt64Values {
+    repeated uint64 values = 1;
+}
+
+message FloatValues {
+    repeated float values = 1;
+}
+
+message DoubleValues {
     repeated double values = 1;
+}
+
+message Strings {
+    repeated string values = 1;
 }

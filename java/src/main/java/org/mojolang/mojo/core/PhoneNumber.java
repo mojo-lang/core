@@ -142,17 +142,17 @@ private static final long serialVersionUID = 0L;
      */
     COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN(1),
     /**
-     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD = 2;</code>
+     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD = 5;</code>
      */
-    COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD(2),
+    COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD(5),
     /**
-     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN = 3;</code>
+     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN = 10;</code>
      */
-    COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN(3),
+    COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN(10),
     /**
-     * <code>COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY = 4;</code>
+     * <code>COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY = 20;</code>
      */
-    COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY(4),
+    COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY(20),
     UNRECOGNIZED(-1),
     ;
 
@@ -165,17 +165,17 @@ private static final long serialVersionUID = 0L;
      */
     public static final int COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN_VALUE = 1;
     /**
-     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD = 2;</code>
+     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD = 5;</code>
      */
-    public static final int COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD_VALUE = 2;
+    public static final int COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD_VALUE = 5;
     /**
-     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN = 3;</code>
+     * <code>COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN = 10;</code>
      */
-    public static final int COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN_VALUE = 3;
+    public static final int COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN_VALUE = 10;
     /**
-     * <code>COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY = 4;</code>
+     * <code>COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY = 20;</code>
      */
-    public static final int COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY_VALUE = 4;
+    public static final int COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY_VALUE = 20;
 
 
     public final int getNumber() {
@@ -204,9 +204,9 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 0: return COUNTRY_CODE_SOURCE_UNSPECIFIED;
         case 1: return COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN;
-        case 2: return COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD;
-        case 3: return COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN;
-        case 4: return COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY;
+        case 5: return COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD;
+        case 10: return COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN;
+        case 20: return COUNTRY_CODE_SOURCE_FROM_DEFAULT_COUNTRY;
         default: return null;
       }
     }
