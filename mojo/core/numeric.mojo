@@ -40,10 +40,10 @@ type UInt64
 type Byte = UInt8
 
 ///
-type Int
+type Int = Int64
 
 ///
-type UInt
+type UInt = UInt64
 
 ///
 type Size = UInt
