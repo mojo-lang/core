@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/url"
 	"strconv"
+	"strings"
 )
 
 func ParseUrl(raw string) (*Url, error) {
@@ -28,6 +29,18 @@ func (m *Url) Parse(raw string) error {
 	m.Scheme = url.Scheme
 	m.Authority = &Url_Authority{
 		Host: url.Hostname(),
+	}
+
+	if len(m.Authority.Host) == 0 {
+		url, err = url.Parse("http://" + raw)
+		if err != nil {
+			return err
+		}
+		m.Scheme = ""
+		m.Authority.Host = url.Hostname()
+		if len(m.Authority.Host) == 0 {
+			return errors.New("failed to parse the url")
+		}
 	}
 
 	port := url.Port()
@@ -86,4 +99,23 @@ func (m *Url) Format() string {
 	}
 
 	return u.String()
+}
+
+// get url like: "apis.company.com/path/to/resource"
+func (m *Url) FormatWithoutSchema() string {
+	if m == nil {
+		return ""
+	}
+
+	url := &Url{
+		Authority: &Url_Authority{
+			Host: m.GetAuthority().GetHost(),
+			Port: m.GetAuthority().GetPort(),
+			//UserInfo: m.GetAuthority().GetUserInfo(),
+		},
+		Path:     m.Path,
+		Query:    m.Query,
+		Fragment: m.Fragment,
+	}
+	return strings.TrimPrefix(url.Format(), "//")
 }
