@@ -30,11 +30,6 @@ public final class UrlProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Url_Query_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_Url_Query_Strings_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_Url_Query_Strings_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_Url_Query_ValuesEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48,23 +43,23 @@ public final class UrlProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023mojo/core/url.proto\022\tmojo.core\"\347\002\n\003Url" +
-      "\022\016\n\006scheme\030\001 \001(\t\022+\n\tauthority\030\002 \001(\0132\030.mo" +
-      "jo.core.Url.Authority\022\014\n\004path\030\003 \001(\t\022#\n\005q" +
-      "uery\030\005 \001(\0132\024.mojo.core.Url.Query\022\020\n\010frag" +
-      "ment\030\007 \001(\t\032:\n\tAuthority\022\021\n\tuser_info\030\001 \001" +
-      "(\t\022\014\n\004host\030\002 \001(\t\022\014\n\004port\030\003 \001(\003\032\241\001\n\005Query" +
-      "\0220\n\006values\030\001 \003(\0132 .mojo.core.Url.Query.V" +
-      "aluesEntry\032\031\n\007Strings\022\016\n\006values\030\001 \003(\t\032K\n" +
-      "\013ValuesEntry\022\013\n\003key\030\001 \001(\t\022+\n\005value\030\002 \001(\013" +
-      "2\034.mojo.core.Url.Query.Strings:\0028\001BU\n\026or" +
-      "g.mojolang.mojo.coreB\010UrlProtoP\001Z/github" +
-      ".com/mojo-lang/core/go/pkg/mojo/core;cor" +
-      "eb\006proto3"
+      "\n\023mojo/core/url.proto\022\tmojo.core\032\025mojo/c" +
+      "ore/boxed.proto\"\301\002\n\003Url\022\016\n\006scheme\030\001 \001(\t\022" +
+      "+\n\tauthority\030\002 \001(\0132\030.mojo.core.Url.Autho" +
+      "rity\022\014\n\004path\030\003 \001(\t\022#\n\005query\030\005 \001(\0132\024.mojo" +
+      ".core.Url.Query\022\020\n\010fragment\030\007 \001(\t\032:\n\tAut" +
+      "hority\022\021\n\tuser_info\030\001 \001(\t\022\014\n\004host\030\002 \001(\t\022" +
+      "\014\n\004port\030\003 \001(\003\032|\n\005Query\0220\n\006values\030\001 \003(\0132 " +
+      ".mojo.core.Url.Query.ValuesEntry\032A\n\013Valu" +
+      "esEntry\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.mo" +
+      "jo.core.Strings:\0028\001BU\n\026org.mojolang.mojo" +
+      ".coreB\010UrlProtoP\001Z/github.com/mojo-lang/" +
+      "core/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.core.BoxedProto.getDescriptor(),
         });
     internal_static_mojo_core_Url_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -84,18 +79,13 @@ public final class UrlProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Url_Query_descriptor,
         new java.lang.String[] { "Values", });
-    internal_static_mojo_core_Url_Query_Strings_descriptor =
-      internal_static_mojo_core_Url_Query_descriptor.getNestedTypes().get(0);
-    internal_static_mojo_core_Url_Query_Strings_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_Url_Query_Strings_descriptor,
-        new java.lang.String[] { "Values", });
     internal_static_mojo_core_Url_Query_ValuesEntry_descriptor =
-      internal_static_mojo_core_Url_Query_descriptor.getNestedTypes().get(1);
+      internal_static_mojo_core_Url_Query_descriptor.getNestedTypes().get(0);
     internal_static_mojo_core_Url_Query_ValuesEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Url_Query_ValuesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    org.mojolang.mojo.core.BoxedProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -2,4 +2,4 @@
 |---|---|---|---|---|---|
 | `userInfo` | `string` | `` | 否 |  |
 | `host` | `string` | `` | 否 |  |
-| `port` | `integer` | `int` | 否 |  |
+| `port` | `integer` | `int64` | 否 |  |
