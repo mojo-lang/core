@@ -46,6 +46,10 @@ func ToKebab(s string) string {
 	return ToDelimited(s, '-')
 }
 
+func ToKebabWithIgnore(s string, ignore string) string {
+	return ToScreamingDelimited(s, '-', ignore, false)
+}
+
 // ToScreamingKebab converts a string to SCREAMING-KEBAB-CASE
 func ToScreamingKebab(s string) string {
 	return ToScreamingDelimited(s, '-', "", true)
