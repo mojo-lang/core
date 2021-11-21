@@ -25,6 +25,8 @@ func (m *Version) Parse(version string) error {
 
 			segments = strings.Split(segments[0], "-")
 			if len(segments) > 1 {
+				segments[1] = strings.Join(segments[1:], "-")
+				segments = segments[:2]
 				m.PreReleases = strings.Split(segments[1], ".")
 			}
 
