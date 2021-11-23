@@ -26,6 +26,12 @@ public interface VersionOrBuilder extends
   long getPatch();
 
   /**
+   * <code>int32 level = 4;</code>
+   * @return The level.
+   */
+  int getLevel();
+
+  /**
    * <code>repeated string pre_releases = 5;</code>
    * @return A list containing the preReleases.
    */

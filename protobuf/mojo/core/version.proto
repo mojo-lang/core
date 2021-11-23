@@ -13,6 +13,7 @@ message Version {
     uint64 major = 1;
     uint64 minor = 2;
     uint64 patch = 3;
+    int32 level = 4;
     repeated string pre_releases = 5;
     repeated string builds = 6;
 }

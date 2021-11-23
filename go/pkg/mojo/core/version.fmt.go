@@ -31,21 +31,24 @@ func (m *Version) Parse(version string) error {
 			}
 
 			segments = strings.Split(segments[0], ".")
-			if len(segments) == 3 {
+			m.Level = int32(len(segments))
+			if m.Level > 0 {
 				major, err := strconv.Atoi(segments[0])
 				if err != nil {
 					return err
 				} else {
-					m.Minor = uint64(major)
+					m.Major = uint64(major)
 				}
-
+			}
+			if m.Level > 1 {
 				minor, err := strconv.Atoi(segments[1])
 				if err != nil {
 					return err
 				} else {
 					m.Minor = uint64(minor)
 				}
-
+			}
+			if m.Level > 2 {
 				patch, err := strconv.Atoi(segments[2])
 				if err != nil {
 					return err
@@ -63,10 +66,15 @@ func (m *Version) Format() string {
 	if m != nil {
 		buffer := bytes.Buffer{}
 		buffer.WriteString(strconv.FormatUint(m.Major, 10))
-		buffer.WriteByte('.')
-		buffer.WriteString(strconv.FormatUint(m.Minor, 10))
-		buffer.WriteByte('.')
-		buffer.WriteString(strconv.FormatUint(m.Patch, 10))
+
+		if m.Level == 0 || m.Level > 1 {
+			buffer.WriteByte('.')
+			buffer.WriteString(strconv.FormatUint(m.Minor, 10))
+		}
+		if m.Level == 0 || m.Level > 2 {
+			buffer.WriteByte('.')
+			buffer.WriteString(strconv.FormatUint(m.Patch, 10))
+		}
 
 		if len(m.PreReleases) > 0 {
 			buffer.WriteByte('-')

@@ -28,6 +28,14 @@ type Version {
     
     ///
     patch: UInt @3
+
+    /// special version level
+    ///
+    /// 1: "1"
+    /// 2: "1.1"
+    /// 3: "1.1.1"
+    /// 0: is unspecified
+    level: Int32 @4
     
     ///
     pre_releases: [Identifier] @5

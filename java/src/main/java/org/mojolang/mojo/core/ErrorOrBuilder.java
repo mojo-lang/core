@@ -35,41 +35,26 @@ public interface ErrorOrBuilder extends
       getMessageBytes();
 
   /**
-   * <code>.mojo.core.Url document = 5;</code>
-   * @return Whether the document field is set.
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
-  boolean hasDocument();
+  java.util.List<org.mojolang.mojo.core.Any> 
+      getDetailsList();
   /**
-   * <code>.mojo.core.Url document = 5;</code>
-   * @return The document.
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
-  org.mojolang.mojo.core.Url getDocument();
+  org.mojolang.mojo.core.Any getDetails(int index);
   /**
-   * <code>.mojo.core.Url document = 5;</code>
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
-  org.mojolang.mojo.core.UrlOrBuilder getDocumentOrBuilder();
-
+  int getDetailsCount();
   /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
-  java.util.List<org.mojolang.mojo.core.Error> 
-      getCausesList();
+  java.util.List<? extends org.mojolang.mojo.core.AnyOrBuilder> 
+      getDetailsOrBuilderList();
   /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
-  org.mojolang.mojo.core.Error getCauses(int index);
-  /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
-   */
-  int getCausesCount();
-  /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
-   */
-  java.util.List<? extends org.mojolang.mojo.core.ErrorOrBuilder> 
-      getCausesOrBuilderList();
-  /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
-   */
-  org.mojolang.mojo.core.ErrorOrBuilder getCausesOrBuilder(
+  org.mojolang.mojo.core.AnyOrBuilder getDetailsOrBuilder(
       int index);
 }

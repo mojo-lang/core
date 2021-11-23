@@ -66,6 +66,11 @@ private static final long serialVersionUID = 0L;
             patch_ = input.readUInt64();
             break;
           }
+          case 32: {
+
+            level_ = input.readInt32();
+            break;
+          }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
@@ -153,6 +158,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public long getPatch() {
     return patch_;
+  }
+
+  public static final int LEVEL_FIELD_NUMBER = 4;
+  private int level_;
+  /**
+   * <code>int32 level = 4;</code>
+   * @return The level.
+   */
+  @java.lang.Override
+  public int getLevel() {
+    return level_;
   }
 
   public static final int PRE_RELEASES_FIELD_NUMBER = 5;
@@ -248,6 +264,9 @@ private static final long serialVersionUID = 0L;
     if (patch_ != 0L) {
       output.writeUInt64(3, patch_);
     }
+    if (level_ != 0) {
+      output.writeInt32(4, level_);
+    }
     for (int i = 0; i < preReleases_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, preReleases_.getRaw(i));
     }
@@ -274,6 +293,10 @@ private static final long serialVersionUID = 0L;
     if (patch_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(3, patch_);
+    }
+    if (level_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(4, level_);
     }
     {
       int dataSize = 0;
@@ -312,6 +335,8 @@ private static final long serialVersionUID = 0L;
         != other.getMinor()) return false;
     if (getPatch()
         != other.getPatch()) return false;
+    if (getLevel()
+        != other.getLevel()) return false;
     if (!getPreReleasesList()
         .equals(other.getPreReleasesList())) return false;
     if (!getBuildsList()
@@ -336,6 +361,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PATCH_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPatch());
+    hash = (37 * hash) + LEVEL_FIELD_NUMBER;
+    hash = (53 * hash) + getLevel();
     if (getPreReleasesCount() > 0) {
       hash = (37 * hash) + PRE_RELEASES_FIELD_NUMBER;
       hash = (53 * hash) + getPreReleasesList().hashCode();
@@ -483,6 +510,8 @@ private static final long serialVersionUID = 0L;
 
       patch_ = 0L;
 
+      level_ = 0;
+
       preReleases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       builds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -517,6 +546,7 @@ private static final long serialVersionUID = 0L;
       result.major_ = major_;
       result.minor_ = minor_;
       result.patch_ = patch_;
+      result.level_ = level_;
       if (((bitField0_ & 0x00000001) != 0)) {
         preReleases_ = preReleases_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -583,6 +613,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPatch() != 0L) {
         setPatch(other.getPatch());
+      }
+      if (other.getLevel() != 0) {
+        setLevel(other.getLevel());
       }
       if (!other.preReleases_.isEmpty()) {
         if (preReleases_.isEmpty()) {
@@ -723,6 +756,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearPatch() {
       
       patch_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private int level_ ;
+    /**
+     * <code>int32 level = 4;</code>
+     * @return The level.
+     */
+    @java.lang.Override
+    public int getLevel() {
+      return level_;
+    }
+    /**
+     * <code>int32 level = 4;</code>
+     * @param value The level to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLevel(int value) {
+      
+      level_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 level = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLevel() {
+      
+      level_ = 0;
       onChanged();
       return this;
     }

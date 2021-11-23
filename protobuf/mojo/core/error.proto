@@ -4,24 +4,16 @@ syntax = "proto3";
 
 package mojo.core;
 
-import "mojo/core/url.proto";
+import "mojo/core/any.proto";
+import "mojo/core/error_code.proto";
 
 option go_package = "github.com/mojo-lang/core/go/pkg/mojo/core;core";
 option java_multiple_files = true;
 option java_outer_classname = "ErrorProto";
 option java_package = "org.mojolang.mojo.core";
 
-message ErrorCode {
-    int64 value = 1;
-    string domain = 3;
-    string brief = 2;
-    string description = 5;
-    Url document = 4;
-}
-
 message Error {
     ErrorCode code = 1;
     string message = 4;
-    Url document = 5;
-    repeated Error causes = 10;
+    repeated Any details = 10;
 }

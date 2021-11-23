@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private Error() {
     message_ = "";
-    causes_ = java.util.Collections.emptyList();
+    details_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -70,26 +70,13 @@ private static final long serialVersionUID = 0L;
             message_ = s;
             break;
           }
-          case 42: {
-            org.mojolang.mojo.core.Url.Builder subBuilder = null;
-            if (document_ != null) {
-              subBuilder = document_.toBuilder();
-            }
-            document_ = input.readMessage(org.mojolang.mojo.core.Url.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(document_);
-              document_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           case 82: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              causes_ = new java.util.ArrayList<org.mojolang.mojo.core.Error>();
+              details_ = new java.util.ArrayList<org.mojolang.mojo.core.Any>();
               mutable_bitField0_ |= 0x00000001;
             }
-            causes_.add(
-                input.readMessage(org.mojolang.mojo.core.Error.parser(), extensionRegistry));
+            details_.add(
+                input.readMessage(org.mojolang.mojo.core.Any.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -108,7 +95,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        causes_ = java.util.Collections.unmodifiableList(causes_);
+        details_ = java.util.Collections.unmodifiableList(details_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -191,70 +178,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DOCUMENT_FIELD_NUMBER = 5;
-  private org.mojolang.mojo.core.Url document_;
+  public static final int DETAILS_FIELD_NUMBER = 10;
+  private java.util.List<org.mojolang.mojo.core.Any> details_;
   /**
-   * <code>.mojo.core.Url document = 5;</code>
-   * @return Whether the document field is set.
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
   @java.lang.Override
-  public boolean hasDocument() {
-    return document_ != null;
+  public java.util.List<org.mojolang.mojo.core.Any> getDetailsList() {
+    return details_;
   }
   /**
-   * <code>.mojo.core.Url document = 5;</code>
-   * @return The document.
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.Url getDocument() {
-    return document_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : document_;
+  public java.util.List<? extends org.mojolang.mojo.core.AnyOrBuilder> 
+      getDetailsOrBuilderList() {
+    return details_;
   }
   /**
-   * <code>.mojo.core.Url document = 5;</code>
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.UrlOrBuilder getDocumentOrBuilder() {
-    return getDocument();
-  }
-
-  public static final int CAUSES_FIELD_NUMBER = 10;
-  private java.util.List<org.mojolang.mojo.core.Error> causes_;
-  /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
-   */
-  @java.lang.Override
-  public java.util.List<org.mojolang.mojo.core.Error> getCausesList() {
-    return causes_;
+  public int getDetailsCount() {
+    return details_.size();
   }
   /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends org.mojolang.mojo.core.ErrorOrBuilder> 
-      getCausesOrBuilderList() {
-    return causes_;
+  public org.mojolang.mojo.core.Any getDetails(int index) {
+    return details_.get(index);
   }
   /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
+   * <code>repeated .mojo.core.Any details = 10;</code>
    */
   @java.lang.Override
-  public int getCausesCount() {
-    return causes_.size();
-  }
-  /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.core.Error getCauses(int index) {
-    return causes_.get(index);
-  }
-  /**
-   * <code>repeated .mojo.core.Error causes = 10;</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.core.ErrorOrBuilder getCausesOrBuilder(
+  public org.mojolang.mojo.core.AnyOrBuilder getDetailsOrBuilder(
       int index) {
-    return causes_.get(index);
+    return details_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -277,11 +238,8 @@ private static final long serialVersionUID = 0L;
     if (!getMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, message_);
     }
-    if (document_ != null) {
-      output.writeMessage(5, getDocument());
-    }
-    for (int i = 0; i < causes_.size(); i++) {
-      output.writeMessage(10, causes_.get(i));
+    for (int i = 0; i < details_.size(); i++) {
+      output.writeMessage(10, details_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -299,13 +257,9 @@ private static final long serialVersionUID = 0L;
     if (!getMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, message_);
     }
-    if (document_ != null) {
+    for (int i = 0; i < details_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getDocument());
-    }
-    for (int i = 0; i < causes_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, causes_.get(i));
+        .computeMessageSize(10, details_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -329,13 +283,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getMessage()
         .equals(other.getMessage())) return false;
-    if (hasDocument() != other.hasDocument()) return false;
-    if (hasDocument()) {
-      if (!getDocument()
-          .equals(other.getDocument())) return false;
-    }
-    if (!getCausesList()
-        .equals(other.getCausesList())) return false;
+    if (!getDetailsList()
+        .equals(other.getDetailsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -353,13 +302,9 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
-    if (hasDocument()) {
-      hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
-      hash = (53 * hash) + getDocument().hashCode();
-    }
-    if (getCausesCount() > 0) {
-      hash = (37 * hash) + CAUSES_FIELD_NUMBER;
-      hash = (53 * hash) + getCausesList().hashCode();
+    if (getDetailsCount() > 0) {
+      hash = (37 * hash) + DETAILS_FIELD_NUMBER;
+      hash = (53 * hash) + getDetailsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -489,7 +434,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getCausesFieldBuilder();
+        getDetailsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -503,17 +448,11 @@ private static final long serialVersionUID = 0L;
       }
       message_ = "";
 
-      if (documentBuilder_ == null) {
-        document_ = null;
-      } else {
-        document_ = null;
-        documentBuilder_ = null;
-      }
-      if (causesBuilder_ == null) {
-        causes_ = java.util.Collections.emptyList();
+      if (detailsBuilder_ == null) {
+        details_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        causesBuilder_.clear();
+        detailsBuilder_.clear();
       }
       return this;
     }
@@ -548,19 +487,14 @@ private static final long serialVersionUID = 0L;
         result.code_ = codeBuilder_.build();
       }
       result.message_ = message_;
-      if (documentBuilder_ == null) {
-        result.document_ = document_;
-      } else {
-        result.document_ = documentBuilder_.build();
-      }
-      if (causesBuilder_ == null) {
+      if (detailsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          causes_ = java.util.Collections.unmodifiableList(causes_);
+          details_ = java.util.Collections.unmodifiableList(details_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.causes_ = causes_;
+        result.details_ = details_;
       } else {
-        result.causes_ = causesBuilder_.build();
+        result.details_ = detailsBuilder_.build();
       }
       onBuilt();
       return result;
@@ -617,32 +551,29 @@ private static final long serialVersionUID = 0L;
         message_ = other.message_;
         onChanged();
       }
-      if (other.hasDocument()) {
-        mergeDocument(other.getDocument());
-      }
-      if (causesBuilder_ == null) {
-        if (!other.causes_.isEmpty()) {
-          if (causes_.isEmpty()) {
-            causes_ = other.causes_;
+      if (detailsBuilder_ == null) {
+        if (!other.details_.isEmpty()) {
+          if (details_.isEmpty()) {
+            details_ = other.details_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureCausesIsMutable();
-            causes_.addAll(other.causes_);
+            ensureDetailsIsMutable();
+            details_.addAll(other.details_);
           }
           onChanged();
         }
       } else {
-        if (!other.causes_.isEmpty()) {
-          if (causesBuilder_.isEmpty()) {
-            causesBuilder_.dispose();
-            causesBuilder_ = null;
-            causes_ = other.causes_;
+        if (!other.details_.isEmpty()) {
+          if (detailsBuilder_.isEmpty()) {
+            detailsBuilder_.dispose();
+            detailsBuilder_ = null;
+            details_ = other.details_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            causesBuilder_ = 
+            detailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getCausesFieldBuilder() : null;
+                 getDetailsFieldBuilder() : null;
           } else {
-            causesBuilder_.addAllMessages(other.causes_);
+            detailsBuilder_.addAllMessages(other.details_);
           }
         }
       }
@@ -871,363 +802,244 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.core.Url document_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> documentBuilder_;
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     * @return Whether the document field is set.
-     */
-    public boolean hasDocument() {
-      return documentBuilder_ != null || document_ != null;
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     * @return The document.
-     */
-    public org.mojolang.mojo.core.Url getDocument() {
-      if (documentBuilder_ == null) {
-        return document_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : document_;
-      } else {
-        return documentBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    public Builder setDocument(org.mojolang.mojo.core.Url value) {
-      if (documentBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        document_ = value;
-        onChanged();
-      } else {
-        documentBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    public Builder setDocument(
-        org.mojolang.mojo.core.Url.Builder builderForValue) {
-      if (documentBuilder_ == null) {
-        document_ = builderForValue.build();
-        onChanged();
-      } else {
-        documentBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    public Builder mergeDocument(org.mojolang.mojo.core.Url value) {
-      if (documentBuilder_ == null) {
-        if (document_ != null) {
-          document_ =
-            org.mojolang.mojo.core.Url.newBuilder(document_).mergeFrom(value).buildPartial();
-        } else {
-          document_ = value;
-        }
-        onChanged();
-      } else {
-        documentBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    public Builder clearDocument() {
-      if (documentBuilder_ == null) {
-        document_ = null;
-        onChanged();
-      } else {
-        document_ = null;
-        documentBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    public org.mojolang.mojo.core.Url.Builder getDocumentBuilder() {
-      
-      onChanged();
-      return getDocumentFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    public org.mojolang.mojo.core.UrlOrBuilder getDocumentOrBuilder() {
-      if (documentBuilder_ != null) {
-        return documentBuilder_.getMessageOrBuilder();
-      } else {
-        return document_ == null ?
-            org.mojolang.mojo.core.Url.getDefaultInstance() : document_;
-      }
-    }
-    /**
-     * <code>.mojo.core.Url document = 5;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> 
-        getDocumentFieldBuilder() {
-      if (documentBuilder_ == null) {
-        documentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder>(
-                getDocument(),
-                getParentForChildren(),
-                isClean());
-        document_ = null;
-      }
-      return documentBuilder_;
-    }
-
-    private java.util.List<org.mojolang.mojo.core.Error> causes_ =
+    private java.util.List<org.mojolang.mojo.core.Any> details_ =
       java.util.Collections.emptyList();
-    private void ensureCausesIsMutable() {
+    private void ensureDetailsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        causes_ = new java.util.ArrayList<org.mojolang.mojo.core.Error>(causes_);
+        details_ = new java.util.ArrayList<org.mojolang.mojo.core.Any>(details_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        org.mojolang.mojo.core.Error, org.mojolang.mojo.core.Error.Builder, org.mojolang.mojo.core.ErrorOrBuilder> causesBuilder_;
+        org.mojolang.mojo.core.Any, org.mojolang.mojo.core.Any.Builder, org.mojolang.mojo.core.AnyOrBuilder> detailsBuilder_;
 
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public java.util.List<org.mojolang.mojo.core.Error> getCausesList() {
-      if (causesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(causes_);
+    public java.util.List<org.mojolang.mojo.core.Any> getDetailsList() {
+      if (detailsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(details_);
       } else {
-        return causesBuilder_.getMessageList();
+        return detailsBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public int getCausesCount() {
-      if (causesBuilder_ == null) {
-        return causes_.size();
+    public int getDetailsCount() {
+      if (detailsBuilder_ == null) {
+        return details_.size();
       } else {
-        return causesBuilder_.getCount();
+        return detailsBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public org.mojolang.mojo.core.Error getCauses(int index) {
-      if (causesBuilder_ == null) {
-        return causes_.get(index);
+    public org.mojolang.mojo.core.Any getDetails(int index) {
+      if (detailsBuilder_ == null) {
+        return details_.get(index);
       } else {
-        return causesBuilder_.getMessage(index);
+        return detailsBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder setCauses(
-        int index, org.mojolang.mojo.core.Error value) {
-      if (causesBuilder_ == null) {
+    public Builder setDetails(
+        int index, org.mojolang.mojo.core.Any value) {
+      if (detailsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureCausesIsMutable();
-        causes_.set(index, value);
+        ensureDetailsIsMutable();
+        details_.set(index, value);
         onChanged();
       } else {
-        causesBuilder_.setMessage(index, value);
+        detailsBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder setCauses(
-        int index, org.mojolang.mojo.core.Error.Builder builderForValue) {
-      if (causesBuilder_ == null) {
-        ensureCausesIsMutable();
-        causes_.set(index, builderForValue.build());
+    public Builder setDetails(
+        int index, org.mojolang.mojo.core.Any.Builder builderForValue) {
+      if (detailsBuilder_ == null) {
+        ensureDetailsIsMutable();
+        details_.set(index, builderForValue.build());
         onChanged();
       } else {
-        causesBuilder_.setMessage(index, builderForValue.build());
+        detailsBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder addCauses(org.mojolang.mojo.core.Error value) {
-      if (causesBuilder_ == null) {
+    public Builder addDetails(org.mojolang.mojo.core.Any value) {
+      if (detailsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureCausesIsMutable();
-        causes_.add(value);
+        ensureDetailsIsMutable();
+        details_.add(value);
         onChanged();
       } else {
-        causesBuilder_.addMessage(value);
+        detailsBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder addCauses(
-        int index, org.mojolang.mojo.core.Error value) {
-      if (causesBuilder_ == null) {
+    public Builder addDetails(
+        int index, org.mojolang.mojo.core.Any value) {
+      if (detailsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureCausesIsMutable();
-        causes_.add(index, value);
+        ensureDetailsIsMutable();
+        details_.add(index, value);
         onChanged();
       } else {
-        causesBuilder_.addMessage(index, value);
+        detailsBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder addCauses(
-        org.mojolang.mojo.core.Error.Builder builderForValue) {
-      if (causesBuilder_ == null) {
-        ensureCausesIsMutable();
-        causes_.add(builderForValue.build());
+    public Builder addDetails(
+        org.mojolang.mojo.core.Any.Builder builderForValue) {
+      if (detailsBuilder_ == null) {
+        ensureDetailsIsMutable();
+        details_.add(builderForValue.build());
         onChanged();
       } else {
-        causesBuilder_.addMessage(builderForValue.build());
+        detailsBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder addCauses(
-        int index, org.mojolang.mojo.core.Error.Builder builderForValue) {
-      if (causesBuilder_ == null) {
-        ensureCausesIsMutable();
-        causes_.add(index, builderForValue.build());
+    public Builder addDetails(
+        int index, org.mojolang.mojo.core.Any.Builder builderForValue) {
+      if (detailsBuilder_ == null) {
+        ensureDetailsIsMutable();
+        details_.add(index, builderForValue.build());
         onChanged();
       } else {
-        causesBuilder_.addMessage(index, builderForValue.build());
+        detailsBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder addAllCauses(
-        java.lang.Iterable<? extends org.mojolang.mojo.core.Error> values) {
-      if (causesBuilder_ == null) {
-        ensureCausesIsMutable();
+    public Builder addAllDetails(
+        java.lang.Iterable<? extends org.mojolang.mojo.core.Any> values) {
+      if (detailsBuilder_ == null) {
+        ensureDetailsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, causes_);
+            values, details_);
         onChanged();
       } else {
-        causesBuilder_.addAllMessages(values);
+        detailsBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder clearCauses() {
-      if (causesBuilder_ == null) {
-        causes_ = java.util.Collections.emptyList();
+    public Builder clearDetails() {
+      if (detailsBuilder_ == null) {
+        details_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        causesBuilder_.clear();
+        detailsBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public Builder removeCauses(int index) {
-      if (causesBuilder_ == null) {
-        ensureCausesIsMutable();
-        causes_.remove(index);
+    public Builder removeDetails(int index) {
+      if (detailsBuilder_ == null) {
+        ensureDetailsIsMutable();
+        details_.remove(index);
         onChanged();
       } else {
-        causesBuilder_.remove(index);
+        detailsBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public org.mojolang.mojo.core.Error.Builder getCausesBuilder(
+    public org.mojolang.mojo.core.Any.Builder getDetailsBuilder(
         int index) {
-      return getCausesFieldBuilder().getBuilder(index);
+      return getDetailsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public org.mojolang.mojo.core.ErrorOrBuilder getCausesOrBuilder(
+    public org.mojolang.mojo.core.AnyOrBuilder getDetailsOrBuilder(
         int index) {
-      if (causesBuilder_ == null) {
-        return causes_.get(index);  } else {
-        return causesBuilder_.getMessageOrBuilder(index);
+      if (detailsBuilder_ == null) {
+        return details_.get(index);  } else {
+        return detailsBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public java.util.List<? extends org.mojolang.mojo.core.ErrorOrBuilder> 
-         getCausesOrBuilderList() {
-      if (causesBuilder_ != null) {
-        return causesBuilder_.getMessageOrBuilderList();
+    public java.util.List<? extends org.mojolang.mojo.core.AnyOrBuilder> 
+         getDetailsOrBuilderList() {
+      if (detailsBuilder_ != null) {
+        return detailsBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(causes_);
+        return java.util.Collections.unmodifiableList(details_);
       }
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public org.mojolang.mojo.core.Error.Builder addCausesBuilder() {
-      return getCausesFieldBuilder().addBuilder(
-          org.mojolang.mojo.core.Error.getDefaultInstance());
+    public org.mojolang.mojo.core.Any.Builder addDetailsBuilder() {
+      return getDetailsFieldBuilder().addBuilder(
+          org.mojolang.mojo.core.Any.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public org.mojolang.mojo.core.Error.Builder addCausesBuilder(
+    public org.mojolang.mojo.core.Any.Builder addDetailsBuilder(
         int index) {
-      return getCausesFieldBuilder().addBuilder(
-          index, org.mojolang.mojo.core.Error.getDefaultInstance());
+      return getDetailsFieldBuilder().addBuilder(
+          index, org.mojolang.mojo.core.Any.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.core.Error causes = 10;</code>
+     * <code>repeated .mojo.core.Any details = 10;</code>
      */
-    public java.util.List<org.mojolang.mojo.core.Error.Builder> 
-         getCausesBuilderList() {
-      return getCausesFieldBuilder().getBuilderList();
+    public java.util.List<org.mojolang.mojo.core.Any.Builder> 
+         getDetailsBuilderList() {
+      return getDetailsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        org.mojolang.mojo.core.Error, org.mojolang.mojo.core.Error.Builder, org.mojolang.mojo.core.ErrorOrBuilder> 
-        getCausesFieldBuilder() {
-      if (causesBuilder_ == null) {
-        causesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            org.mojolang.mojo.core.Error, org.mojolang.mojo.core.Error.Builder, org.mojolang.mojo.core.ErrorOrBuilder>(
-                causes_,
+        org.mojolang.mojo.core.Any, org.mojolang.mojo.core.Any.Builder, org.mojolang.mojo.core.AnyOrBuilder> 
+        getDetailsFieldBuilder() {
+      if (detailsBuilder_ == null) {
+        detailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.mojolang.mojo.core.Any, org.mojolang.mojo.core.Any.Builder, org.mojolang.mojo.core.AnyOrBuilder>(
+                details_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        causes_ = null;
+        details_ = null;
       }
-      return causesBuilder_;
+      return detailsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -28,12 +28,13 @@ public final class VersionProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027mojo/core/version.proto\022\tmojo.core\"\\\n\007" +
+      "\n\027mojo/core/version.proto\022\tmojo.core\"k\n\007" +
       "Version\022\r\n\005major\030\001 \001(\004\022\r\n\005minor\030\002 \001(\004\022\r\n" +
-      "\005patch\030\003 \001(\004\022\024\n\014pre_releases\030\005 \003(\t\022\016\n\006bu" +
-      "ilds\030\006 \003(\tBY\n\026org.mojolang.mojo.coreB\014Ve" +
-      "rsionProtoP\001Z/github.com/mojo-lang/core/" +
-      "go/pkg/mojo/core;coreb\006proto3"
+      "\005patch\030\003 \001(\004\022\r\n\005level\030\004 \001(\005\022\024\n\014pre_relea" +
+      "ses\030\005 \003(\t\022\016\n\006builds\030\006 \003(\tBY\n\026org.mojolan" +
+      "g.mojo.coreB\014VersionProtoP\001Z/github.com/" +
+      "mojo-lang/core/go/pkg/mojo/core;coreb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -44,7 +45,7 @@ public final class VersionProto {
     internal_static_mojo_core_Version_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Version_descriptor,
-        new java.lang.String[] { "Major", "Minor", "Patch", "PreReleases", "Builds", });
+        new java.lang.String[] { "Major", "Minor", "Patch", "Level", "PreReleases", "Builds", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

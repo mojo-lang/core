@@ -15,11 +15,6 @@ public final class ErrorProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_ErrorCode_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_ErrorCode_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_Error_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -34,34 +29,27 @@ public final class ErrorProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\025mojo/core/error.proto\022\tmojo.core\032\023mojo" +
-      "/core/url.proto\"p\n\tErrorCode\022\r\n\005value\030\001 " +
-      "\001(\003\022\016\n\006domain\030\003 \001(\t\022\r\n\005brief\030\002 \001(\t\022\023\n\013de" +
-      "scription\030\005 \001(\t\022 \n\010document\030\004 \001(\0132\016.mojo" +
-      ".core.Url\"\200\001\n\005Error\022\"\n\004code\030\001 \001(\0132\024.mojo" +
-      ".core.ErrorCode\022\017\n\007message\030\004 \001(\t\022 \n\010docu" +
-      "ment\030\005 \001(\0132\016.mojo.core.Url\022 \n\006causes\030\n \003" +
-      "(\0132\020.mojo.core.ErrorBW\n\026org.mojolang.moj" +
-      "o.coreB\nErrorProtoP\001Z/github.com/mojo-la" +
-      "ng/core/go/pkg/mojo/core;coreb\006proto3"
+      "/core/any.proto\032\032mojo/core/error_code.pr" +
+      "oto\"]\n\005Error\022\"\n\004code\030\001 \001(\0132\024.mojo.core.E" +
+      "rrorCode\022\017\n\007message\030\004 \001(\t\022\037\n\007details\030\n \003" +
+      "(\0132\016.mojo.core.AnyBW\n\026org.mojolang.mojo." +
+      "coreB\nErrorProtoP\001Z/github.com/mojo-lang" +
+      "/core/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          org.mojolang.mojo.core.UrlProto.getDescriptor(),
+          org.mojolang.mojo.core.AnyProto.getDescriptor(),
+          org.mojolang.mojo.core.ErrorCodeProto.getDescriptor(),
         });
-    internal_static_mojo_core_ErrorCode_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_mojo_core_ErrorCode_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_ErrorCode_descriptor,
-        new java.lang.String[] { "Value", "Domain", "Brief", "Description", "Document", });
     internal_static_mojo_core_Error_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_mojo_core_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Error_descriptor,
-        new java.lang.String[] { "Code", "Message", "Document", "Causes", });
-    org.mojolang.mojo.core.UrlProto.getDescriptor();
+        new java.lang.String[] { "Code", "Message", "Details", });
+    org.mojolang.mojo.core.AnyProto.getDescriptor();
+    org.mojolang.mojo.core.ErrorCodeProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
