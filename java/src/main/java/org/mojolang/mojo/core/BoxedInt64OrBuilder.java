@@ -8,8 +8,8 @@ public interface BoxedInt64OrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 value = 1;</code>
-   * @return The value.
+   * <code>int64 val = 1;</code>
+   * @return The val.
    */
-  long getValue();
+  long getVal();
 }

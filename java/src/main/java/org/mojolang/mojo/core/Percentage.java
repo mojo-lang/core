@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            value_ = input.readInt32();
+            val_ = input.readInt32();
             break;
           }
           default: {
@@ -85,15 +85,15 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.Percentage.class, org.mojolang.mojo.core.Percentage.Builder.class);
   }
 
-  public static final int VALUE_FIELD_NUMBER = 1;
-  private int value_;
+  public static final int VAL_FIELD_NUMBER = 1;
+  private int val_;
   /**
-   * <code>int32 value = 1;</code>
-   * @return The value.
+   * <code>int32 val = 1;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public int getValue() {
-    return value_;
+  public int getVal() {
+    return val_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -110,8 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (value_ != 0) {
-      output.writeInt32(1, value_);
+    if (val_ != 0) {
+      output.writeInt32(1, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -122,9 +122,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (value_ != 0) {
+    if (val_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, value_);
+        .computeInt32Size(1, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Percentage other = (org.mojolang.mojo.core.Percentage) obj;
 
-    if (getValue()
-        != other.getValue()) return false;
+    if (getVal()
+        != other.getVal()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -154,8 +154,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
-    hash = (53 * hash) + getValue();
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
+    hash = (53 * hash) + getVal();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -289,7 +289,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      value_ = 0;
+      val_ = 0;
 
       return this;
     }
@@ -317,7 +317,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Percentage buildPartial() {
       org.mojolang.mojo.core.Percentage result = new org.mojolang.mojo.core.Percentage(this);
-      result.value_ = value_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -366,8 +366,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Percentage other) {
       if (other == org.mojolang.mojo.core.Percentage.getDefaultInstance()) return this;
-      if (other.getValue() != 0) {
-        setValue(other.getValue());
+      if (other.getVal() != 0) {
+        setVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -398,33 +398,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int value_ ;
+    private int val_ ;
     /**
-     * <code>int32 value = 1;</code>
-     * @return The value.
+     * <code>int32 val = 1;</code>
+     * @return The val.
      */
     @java.lang.Override
-    public int getValue() {
-      return value_;
+    public int getVal() {
+      return val_;
     }
     /**
-     * <code>int32 value = 1;</code>
-     * @param value The value to set.
+     * <code>int32 val = 1;</code>
+     * @param value The val to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(int value) {
+    public Builder setVal(int value) {
       
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 value = 1;</code>
+     * <code>int32 val = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearVal() {
       
-      value_ = 0;
+      val_ = 0;
       onChanged();
       return this;
     }

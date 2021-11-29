@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 13: {
 
-            value_ = input.readFloat();
+            val_ = input.readFloat();
             break;
           }
           default: {
@@ -85,15 +85,15 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.Ratio.class, org.mojolang.mojo.core.Ratio.Builder.class);
   }
 
-  public static final int VALUE_FIELD_NUMBER = 1;
-  private float value_;
+  public static final int VAL_FIELD_NUMBER = 1;
+  private float val_;
   /**
-   * <code>float value = 1;</code>
-   * @return The value.
+   * <code>float val = 1;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public float getValue() {
-    return value_;
+  public float getVal() {
+    return val_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -110,8 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (value_ != 0F) {
-      output.writeFloat(1, value_);
+    if (val_ != 0F) {
+      output.writeFloat(1, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -122,9 +122,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (value_ != 0F) {
+    if (val_ != 0F) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(1, value_);
+        .computeFloatSize(1, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -141,9 +141,9 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Ratio other = (org.mojolang.mojo.core.Ratio) obj;
 
-    if (java.lang.Float.floatToIntBits(getValue())
+    if (java.lang.Float.floatToIntBits(getVal())
         != java.lang.Float.floatToIntBits(
-            other.getValue())) return false;
+            other.getVal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -155,9 +155,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getValue());
+        getVal());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      value_ = 0F;
+      val_ = 0F;
 
       return this;
     }
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Ratio buildPartial() {
       org.mojolang.mojo.core.Ratio result = new org.mojolang.mojo.core.Ratio(this);
-      result.value_ = value_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -368,8 +368,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Ratio other) {
       if (other == org.mojolang.mojo.core.Ratio.getDefaultInstance()) return this;
-      if (other.getValue() != 0F) {
-        setValue(other.getValue());
+      if (other.getVal() != 0F) {
+        setVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -400,33 +400,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float value_ ;
+    private float val_ ;
     /**
-     * <code>float value = 1;</code>
-     * @return The value.
+     * <code>float val = 1;</code>
+     * @return The val.
      */
     @java.lang.Override
-    public float getValue() {
-      return value_;
+    public float getVal() {
+      return val_;
     }
     /**
-     * <code>float value = 1;</code>
-     * @param value The value to set.
+     * <code>float val = 1;</code>
+     * @param value The val to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(float value) {
+    public Builder setVal(float value) {
       
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>float value = 1;</code>
+     * <code>float val = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearVal() {
       
-      value_ = 0F;
+      val_ = 0F;
       onChanged();
       return this;
     }

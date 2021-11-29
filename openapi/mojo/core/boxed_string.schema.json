@@ -1,1 +1,1 @@
-{"title":"mojo.core.BoxedString","description":"Wrapper type for the Generic T type\n\n","type":"object","properties":{"value":{"description":"the boxed value","type":"string"}}}
+{"title":"mojo.core.BoxedString","description":"Wrapper type for the Generic T type\n\n","type":"object","properties":{"val":{"description":"the boxed value","type":"string"}}}

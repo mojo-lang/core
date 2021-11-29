@@ -8,27 +8,27 @@ public interface StringsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated string values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated string vals = 1;</code>
+   * @return A list containing the vals.
    */
   java.util.List<java.lang.String>
-      getValuesList();
+      getValsList();
   /**
-   * <code>repeated string values = 1;</code>
-   * @return The count of values.
+   * <code>repeated string vals = 1;</code>
+   * @return The count of vals.
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated string values = 1;</code>
+   * <code>repeated string vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  java.lang.String getValues(int index);
+  java.lang.String getVals(int index);
   /**
-   * <code>repeated string values = 1;</code>
+   * <code>repeated string vals = 1;</code>
    * @param index The index of the value to return.
-   * @return The bytes of the values at the given index.
+   * @return The bytes of the vals at the given index.
    */
   com.google.protobuf.ByteString
-      getValuesBytes(int index);
+      getValsBytes(int index);
 }

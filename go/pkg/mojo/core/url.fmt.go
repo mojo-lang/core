@@ -56,12 +56,12 @@ func (m *Url) Parse(raw string) error {
 	m.Fragment = url.Fragment
 
 	m.Query = &Url_Query{
-		Values: make(map[string]*Strings),
+		Vals: make(map[string]*Strings),
 	}
 	query := url.Query()
 	for k, v := range query {
-		m.Query.Values[k] = &Strings{
-			Values: v,
+		m.Query.Vals[k] = &Strings{
+			Vals: v,
 		}
 	}
 
@@ -90,9 +90,9 @@ func (m *Url) Format() string {
 
 	if m.Query != nil {
 		query := url.Values{}
-		for k, v := range m.Query.Values {
+		for k, v := range m.Query.Vals {
 			if v != nil {
-				query[k] = v.Values
+				query[k] = v.Vals
 			}
 		}
 		u.RawQuery = query.Encode()

@@ -16,7 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Any() {
-    value_ = com.google.protobuf.ByteString.EMPTY;
+    type_ = "";
+    val_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
@@ -50,21 +51,14 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            org.mojolang.mojo.core.Url.Builder subBuilder = null;
-            if (type_ != null) {
-              subBuilder = type_.toBuilder();
-            }
-            type_ = input.readMessage(org.mojolang.mojo.core.Url.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(type_);
-              type_ = subBuilder.buildPartial();
-            }
+            java.lang.String s = input.readStringRequireUtf8();
 
+            type_ = s;
             break;
           }
           case 18: {
 
-            value_ = input.readBytes();
+            val_ = input.readBytes();
             break;
           }
           default: {
@@ -100,40 +94,52 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private org.mojolang.mojo.core.Url type_;
+  private volatile java.lang.Object type_;
   /**
-   * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-   * @return Whether the type field is set.
-   */
-  @java.lang.Override
-  public boolean hasType() {
-    return type_ != null;
-  }
-  /**
-   * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
+   * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
    * @return The type.
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.Url getType() {
-    return type_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : type_;
+  public java.lang.String getType() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      type_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
+   * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
+   * @return The bytes for type.
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.UrlOrBuilder getTypeOrBuilder() {
-    return getType();
+  public com.google.protobuf.ByteString
+      getTypeBytes() {
+    java.lang.Object ref = type_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      type_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int VALUE_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString value_;
+  public static final int VAL_FIELD_NUMBER = 2;
+  private com.google.protobuf.ByteString val_;
   /**
-   * <code>bytes value = 2;</code>
-   * @return The value.
+   * <code>bytes val = 2;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getValue() {
-    return value_;
+  public com.google.protobuf.ByteString getVal() {
+    return val_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,11 +156,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (type_ != null) {
-      output.writeMessage(1, getType());
+    if (!getTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
     }
-    if (!value_.isEmpty()) {
-      output.writeBytes(2, value_);
+    if (!val_.isEmpty()) {
+      output.writeBytes(2, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -165,13 +171,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (type_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getType());
+    if (!getTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
     }
-    if (!value_.isEmpty()) {
+    if (!val_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, value_);
+        .computeBytesSize(2, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -188,13 +193,10 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Any other = (org.mojolang.mojo.core.Any) obj;
 
-    if (hasType() != other.hasType()) return false;
-    if (hasType()) {
-      if (!getType()
-          .equals(other.getType())) return false;
-    }
-    if (!getValue()
-        .equals(other.getValue())) return false;
+    if (!getType()
+        .equals(other.getType())) return false;
+    if (!getVal()
+        .equals(other.getVal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -206,12 +208,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasType()) {
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType().hashCode();
-    }
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
-    hash = (53 * hash) + getValue().hashCode();
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getType().hashCode();
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
+    hash = (53 * hash) + getVal().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -345,13 +345,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (typeBuilder_ == null) {
-        type_ = null;
-      } else {
-        type_ = null;
-        typeBuilder_ = null;
-      }
-      value_ = com.google.protobuf.ByteString.EMPTY;
+      type_ = "";
+
+      val_ = com.google.protobuf.ByteString.EMPTY;
 
       return this;
     }
@@ -379,12 +375,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Any buildPartial() {
       org.mojolang.mojo.core.Any result = new org.mojolang.mojo.core.Any(this);
-      if (typeBuilder_ == null) {
-        result.type_ = type_;
-      } else {
-        result.type_ = typeBuilder_.build();
-      }
-      result.value_ = value_;
+      result.type_ = type_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -433,11 +425,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Any other) {
       if (other == org.mojolang.mojo.core.Any.getDefaultInstance()) return this;
-      if (other.hasType()) {
-        mergeType(other.getType());
+      if (!other.getType().isEmpty()) {
+        type_ = other.type_;
+        onChanged();
       }
-      if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
-        setValue(other.getValue());
+      if (other.getVal() != com.google.protobuf.ByteString.EMPTY) {
+        setVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -468,155 +461,112 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.core.Url type_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> typeBuilder_;
+    private java.lang.Object type_ = "";
     /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     * @return Whether the type field is set.
-     */
-    public boolean hasType() {
-      return typeBuilder_ != null || type_ != null;
-    }
-    /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
+     * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
      * @return The type.
      */
-    public org.mojolang.mojo.core.Url getType() {
-      if (typeBuilder_ == null) {
-        return type_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : type_;
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
       } else {
-        return typeBuilder_.getMessage();
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
+     * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
+     * @return The bytes for type.
      */
-    public Builder setType(org.mojolang.mojo.core.Url value) {
-      if (typeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        type_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
       } else {
-        typeBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     */
-    public Builder setType(
-        org.mojolang.mojo.core.Url.Builder builderForValue) {
-      if (typeBuilder_ == null) {
-        type_ = builderForValue.build();
-        onChanged();
-      } else {
-        typeBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     */
-    public Builder mergeType(org.mojolang.mojo.core.Url value) {
-      if (typeBuilder_ == null) {
-        if (type_ != null) {
-          type_ =
-            org.mojolang.mojo.core.Url.newBuilder(type_).mergeFrom(value).buildPartial();
-        } else {
-          type_ = value;
-        }
-        onChanged();
-      } else {
-        typeBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     */
-    public Builder clearType() {
-      if (typeBuilder_ == null) {
-        type_ = null;
-        onChanged();
-      } else {
-        type_ = null;
-        typeBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     */
-    public org.mojolang.mojo.core.Url.Builder getTypeBuilder() {
-      
-      onChanged();
-      return getTypeFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     */
-    public org.mojolang.mojo.core.UrlOrBuilder getTypeOrBuilder() {
-      if (typeBuilder_ != null) {
-        return typeBuilder_.getMessageOrBuilder();
-      } else {
-        return type_ == null ?
-            org.mojolang.mojo.core.Url.getDefaultInstance() : type_;
+        return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder> 
-        getTypeFieldBuilder() {
-      if (typeBuilder_ == null) {
-        typeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.core.Url, org.mojolang.mojo.core.Url.Builder, org.mojolang.mojo.core.UrlOrBuilder>(
-                getType(),
-                getParentForChildren(),
-                isClean());
-        type_ = null;
-      }
-      return typeBuilder_;
-    }
-
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
-    /**
-     * <code>bytes value = 2;</code>
-     * @return The value.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getValue() {
-      return value_;
-    }
-    /**
-     * <code>bytes value = 2;</code>
-     * @param value The value to set.
+     * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
+     * @param value The type to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(com.google.protobuf.ByteString value) {
+    public Builder setType(
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      value_ = value;
+      type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bytes value = 2;</code>
+     * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearType() {
       
-      value_ = getDefaultInstance().getValue();
+      type_ = getDefaultInstance().getType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
+     * @param value The bytes for type to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      type_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString val_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes val = 2;</code>
+     * @return The val.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getVal() {
+      return val_;
+    }
+    /**
+     * <code>bytes val = 2;</code>
+     * @param value The val to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVal(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      val_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bytes val = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVal() {
+      
+      val_ = getDefaultInstance().getVal();
       onChanged();
       return this;
     }

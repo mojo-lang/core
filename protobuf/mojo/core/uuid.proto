@@ -10,5 +10,5 @@ option java_outer_classname = "UuidProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Uuid {
-    bytes value = 1;
+    bytes val = 1;
 }

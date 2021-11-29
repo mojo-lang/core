@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private DoubleValues() {
-    values_ = emptyDoubleList();
+    vals_ = emptyDoubleList();
   }
 
   @java.lang.Override
@@ -52,21 +52,21 @@ private static final long serialVersionUID = 0L;
             break;
           case 9: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              values_ = newDoubleList();
+              vals_ = newDoubleList();
               mutable_bitField0_ |= 0x00000001;
             }
-            values_.addDouble(input.readDouble());
+            vals_.addDouble(input.readDouble());
             break;
           }
           case 10: {
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              values_ = newDoubleList();
+              vals_ = newDoubleList();
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              values_.addDouble(input.readDouble());
+              vals_.addDouble(input.readDouble());
             }
             input.popLimit(limit);
             break;
@@ -87,7 +87,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        values_.makeImmutable(); // C
+        vals_.makeImmutable(); // C
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -106,33 +106,33 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.DoubleValues.class, org.mojolang.mojo.core.DoubleValues.Builder.class);
   }
 
-  public static final int VALUES_FIELD_NUMBER = 1;
-  private com.google.protobuf.Internal.DoubleList values_;
+  public static final int VALS_FIELD_NUMBER = 1;
+  private com.google.protobuf.Internal.DoubleList vals_;
   /**
-   * <code>repeated double values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated double vals = 1;</code>
+   * @return A list containing the vals.
    */
   @java.lang.Override
   public java.util.List<java.lang.Double>
-      getValuesList() {
-    return values_;
+      getValsList() {
+    return vals_;
   }
   /**
-   * <code>repeated double values = 1;</code>
-   * @return The count of values.
+   * <code>repeated double vals = 1;</code>
+   * @return The count of vals.
    */
-  public int getValuesCount() {
-    return values_.size();
+  public int getValsCount() {
+    return vals_.size();
   }
   /**
-   * <code>repeated double values = 1;</code>
+   * <code>repeated double vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  public double getValues(int index) {
-    return values_.getDouble(index);
+  public double getVals(int index) {
+    return vals_.getDouble(index);
   }
-  private int valuesMemoizedSerializedSize = -1;
+  private int valsMemoizedSerializedSize = -1;
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -149,12 +149,12 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (getValuesList().size() > 0) {
+    if (getValsList().size() > 0) {
       output.writeUInt32NoTag(10);
-      output.writeUInt32NoTag(valuesMemoizedSerializedSize);
+      output.writeUInt32NoTag(valsMemoizedSerializedSize);
     }
-    for (int i = 0; i < values_.size(); i++) {
-      output.writeDoubleNoTag(values_.getDouble(i));
+    for (int i = 0; i < vals_.size(); i++) {
+      output.writeDoubleNoTag(vals_.getDouble(i));
     }
     unknownFields.writeTo(output);
   }
@@ -167,14 +167,14 @@ private static final long serialVersionUID = 0L;
     size = 0;
     {
       int dataSize = 0;
-      dataSize = 8 * getValuesList().size();
+      dataSize = 8 * getValsList().size();
       size += dataSize;
-      if (!getValuesList().isEmpty()) {
+      if (!getValsList().isEmpty()) {
         size += 1;
         size += com.google.protobuf.CodedOutputStream
             .computeInt32SizeNoTag(dataSize);
       }
-      valuesMemoizedSerializedSize = dataSize;
+      valsMemoizedSerializedSize = dataSize;
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -191,8 +191,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.DoubleValues other = (org.mojolang.mojo.core.DoubleValues) obj;
 
-    if (!getValuesList()
-        .equals(other.getValuesList())) return false;
+    if (!getValsList()
+        .equals(other.getValsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -204,9 +204,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getValuesCount() > 0) {
-      hash = (37 * hash) + VALUES_FIELD_NUMBER;
-      hash = (53 * hash) + getValuesList().hashCode();
+    if (getValsCount() > 0) {
+      hash = (37 * hash) + VALS_FIELD_NUMBER;
+      hash = (53 * hash) + getValsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -341,7 +341,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      values_ = emptyDoubleList();
+      vals_ = emptyDoubleList();
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
@@ -371,10 +371,10 @@ private static final long serialVersionUID = 0L;
       org.mojolang.mojo.core.DoubleValues result = new org.mojolang.mojo.core.DoubleValues(this);
       int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
-        values_.makeImmutable();
+        vals_.makeImmutable();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
-      result.values_ = values_;
+      result.vals_ = vals_;
       onBuilt();
       return result;
     }
@@ -423,13 +423,13 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.DoubleValues other) {
       if (other == org.mojolang.mojo.core.DoubleValues.getDefaultInstance()) return this;
-      if (!other.values_.isEmpty()) {
-        if (values_.isEmpty()) {
-          values_ = other.values_;
+      if (!other.vals_.isEmpty()) {
+        if (vals_.isEmpty()) {
+          vals_ = other.vals_;
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          ensureValuesIsMutable();
-          values_.addAll(other.values_);
+          ensureValsIsMutable();
+          vals_.addAll(other.vals_);
         }
         onChanged();
       }
@@ -463,80 +463,80 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.DoubleList values_ = emptyDoubleList();
-    private void ensureValuesIsMutable() {
+    private com.google.protobuf.Internal.DoubleList vals_ = emptyDoubleList();
+    private void ensureValsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        values_ = mutableCopy(values_);
+        vals_ = mutableCopy(vals_);
         bitField0_ |= 0x00000001;
        }
     }
     /**
-     * <code>repeated double values = 1;</code>
-     * @return A list containing the values.
+     * <code>repeated double vals = 1;</code>
+     * @return A list containing the vals.
      */
     public java.util.List<java.lang.Double>
-        getValuesList() {
+        getValsList() {
       return ((bitField0_ & 0x00000001) != 0) ?
-               java.util.Collections.unmodifiableList(values_) : values_;
+               java.util.Collections.unmodifiableList(vals_) : vals_;
     }
     /**
-     * <code>repeated double values = 1;</code>
-     * @return The count of values.
+     * <code>repeated double vals = 1;</code>
+     * @return The count of vals.
      */
-    public int getValuesCount() {
-      return values_.size();
+    public int getValsCount() {
+      return vals_.size();
     }
     /**
-     * <code>repeated double values = 1;</code>
+     * <code>repeated double vals = 1;</code>
      * @param index The index of the element to return.
-     * @return The values at the given index.
+     * @return The vals at the given index.
      */
-    public double getValues(int index) {
-      return values_.getDouble(index);
+    public double getVals(int index) {
+      return vals_.getDouble(index);
     }
     /**
-     * <code>repeated double values = 1;</code>
+     * <code>repeated double vals = 1;</code>
      * @param index The index to set the value at.
-     * @param value The values to set.
+     * @param value The vals to set.
      * @return This builder for chaining.
      */
-    public Builder setValues(
+    public Builder setVals(
         int index, double value) {
-      ensureValuesIsMutable();
-      values_.setDouble(index, value);
+      ensureValsIsMutable();
+      vals_.setDouble(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated double values = 1;</code>
-     * @param value The values to add.
+     * <code>repeated double vals = 1;</code>
+     * @param value The vals to add.
      * @return This builder for chaining.
      */
-    public Builder addValues(double value) {
-      ensureValuesIsMutable();
-      values_.addDouble(value);
+    public Builder addVals(double value) {
+      ensureValsIsMutable();
+      vals_.addDouble(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated double values = 1;</code>
-     * @param values The values to add.
+     * <code>repeated double vals = 1;</code>
+     * @param values The vals to add.
      * @return This builder for chaining.
      */
-    public Builder addAllValues(
+    public Builder addAllVals(
         java.lang.Iterable<? extends java.lang.Double> values) {
-      ensureValuesIsMutable();
+      ensureValsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, values_);
+          values, vals_);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated double values = 1;</code>
+     * <code>repeated double vals = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValues() {
-      values_ = emptyDoubleList();
+    public Builder clearVals() {
+      vals_ = emptyDoubleList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;

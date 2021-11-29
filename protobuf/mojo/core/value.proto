@@ -10,11 +10,11 @@ option java_outer_classname = "ValueProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Object {
-    map<string, Value> values = 1;
+    map<string, Value> vals = 1;
 }
 
 message Values {
-    repeated Value values = 1;
+    repeated Value vals = 1;
 }
 
 message Value {

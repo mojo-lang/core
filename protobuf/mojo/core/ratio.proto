@@ -10,5 +10,5 @@ option java_outer_classname = "RatioProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Ratio {
-    float value = 1;
+    float val = 1;
 }

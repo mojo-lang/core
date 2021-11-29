@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UInt32Values() {
-    values_ = emptyIntList();
+    vals_ = emptyIntList();
   }
 
   @java.lang.Override
@@ -52,21 +52,21 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              values_ = newIntList();
+              vals_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
-            values_.addInt(input.readInt32());
+            vals_.addInt(input.readInt32());
             break;
           }
           case 10: {
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              values_ = newIntList();
+              vals_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              values_.addInt(input.readInt32());
+              vals_.addInt(input.readInt32());
             }
             input.popLimit(limit);
             break;
@@ -87,7 +87,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        values_.makeImmutable(); // C
+        vals_.makeImmutable(); // C
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -106,33 +106,33 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.UInt32Values.class, org.mojolang.mojo.core.UInt32Values.Builder.class);
   }
 
-  public static final int VALUES_FIELD_NUMBER = 1;
-  private com.google.protobuf.Internal.IntList values_;
+  public static final int VALS_FIELD_NUMBER = 1;
+  private com.google.protobuf.Internal.IntList vals_;
   /**
-   * <code>repeated int32 values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated int32 vals = 1;</code>
+   * @return A list containing the vals.
    */
   @java.lang.Override
   public java.util.List<java.lang.Integer>
-      getValuesList() {
-    return values_;
+      getValsList() {
+    return vals_;
   }
   /**
-   * <code>repeated int32 values = 1;</code>
-   * @return The count of values.
+   * <code>repeated int32 vals = 1;</code>
+   * @return The count of vals.
    */
-  public int getValuesCount() {
-    return values_.size();
+  public int getValsCount() {
+    return vals_.size();
   }
   /**
-   * <code>repeated int32 values = 1;</code>
+   * <code>repeated int32 vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  public int getValues(int index) {
-    return values_.getInt(index);
+  public int getVals(int index) {
+    return vals_.getInt(index);
   }
-  private int valuesMemoizedSerializedSize = -1;
+  private int valsMemoizedSerializedSize = -1;
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -149,12 +149,12 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (getValuesList().size() > 0) {
+    if (getValsList().size() > 0) {
       output.writeUInt32NoTag(10);
-      output.writeUInt32NoTag(valuesMemoizedSerializedSize);
+      output.writeUInt32NoTag(valsMemoizedSerializedSize);
     }
-    for (int i = 0; i < values_.size(); i++) {
-      output.writeInt32NoTag(values_.getInt(i));
+    for (int i = 0; i < vals_.size(); i++) {
+      output.writeInt32NoTag(vals_.getInt(i));
     }
     unknownFields.writeTo(output);
   }
@@ -167,17 +167,17 @@ private static final long serialVersionUID = 0L;
     size = 0;
     {
       int dataSize = 0;
-      for (int i = 0; i < values_.size(); i++) {
+      for (int i = 0; i < vals_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt32SizeNoTag(values_.getInt(i));
+          .computeInt32SizeNoTag(vals_.getInt(i));
       }
       size += dataSize;
-      if (!getValuesList().isEmpty()) {
+      if (!getValsList().isEmpty()) {
         size += 1;
         size += com.google.protobuf.CodedOutputStream
             .computeInt32SizeNoTag(dataSize);
       }
-      valuesMemoizedSerializedSize = dataSize;
+      valsMemoizedSerializedSize = dataSize;
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -194,8 +194,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.UInt32Values other = (org.mojolang.mojo.core.UInt32Values) obj;
 
-    if (!getValuesList()
-        .equals(other.getValuesList())) return false;
+    if (!getValsList()
+        .equals(other.getValsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -207,9 +207,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getValuesCount() > 0) {
-      hash = (37 * hash) + VALUES_FIELD_NUMBER;
-      hash = (53 * hash) + getValuesList().hashCode();
+    if (getValsCount() > 0) {
+      hash = (37 * hash) + VALS_FIELD_NUMBER;
+      hash = (53 * hash) + getValsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -344,7 +344,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      values_ = emptyIntList();
+      vals_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
@@ -374,10 +374,10 @@ private static final long serialVersionUID = 0L;
       org.mojolang.mojo.core.UInt32Values result = new org.mojolang.mojo.core.UInt32Values(this);
       int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
-        values_.makeImmutable();
+        vals_.makeImmutable();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
-      result.values_ = values_;
+      result.vals_ = vals_;
       onBuilt();
       return result;
     }
@@ -426,13 +426,13 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.UInt32Values other) {
       if (other == org.mojolang.mojo.core.UInt32Values.getDefaultInstance()) return this;
-      if (!other.values_.isEmpty()) {
-        if (values_.isEmpty()) {
-          values_ = other.values_;
+      if (!other.vals_.isEmpty()) {
+        if (vals_.isEmpty()) {
+          vals_ = other.vals_;
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          ensureValuesIsMutable();
-          values_.addAll(other.values_);
+          ensureValsIsMutable();
+          vals_.addAll(other.vals_);
         }
         onChanged();
       }
@@ -466,80 +466,80 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList values_ = emptyIntList();
-    private void ensureValuesIsMutable() {
+    private com.google.protobuf.Internal.IntList vals_ = emptyIntList();
+    private void ensureValsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        values_ = mutableCopy(values_);
+        vals_ = mutableCopy(vals_);
         bitField0_ |= 0x00000001;
        }
     }
     /**
-     * <code>repeated int32 values = 1;</code>
-     * @return A list containing the values.
+     * <code>repeated int32 vals = 1;</code>
+     * @return A list containing the vals.
      */
     public java.util.List<java.lang.Integer>
-        getValuesList() {
+        getValsList() {
       return ((bitField0_ & 0x00000001) != 0) ?
-               java.util.Collections.unmodifiableList(values_) : values_;
+               java.util.Collections.unmodifiableList(vals_) : vals_;
     }
     /**
-     * <code>repeated int32 values = 1;</code>
-     * @return The count of values.
+     * <code>repeated int32 vals = 1;</code>
+     * @return The count of vals.
      */
-    public int getValuesCount() {
-      return values_.size();
+    public int getValsCount() {
+      return vals_.size();
     }
     /**
-     * <code>repeated int32 values = 1;</code>
+     * <code>repeated int32 vals = 1;</code>
      * @param index The index of the element to return.
-     * @return The values at the given index.
+     * @return The vals at the given index.
      */
-    public int getValues(int index) {
-      return values_.getInt(index);
+    public int getVals(int index) {
+      return vals_.getInt(index);
     }
     /**
-     * <code>repeated int32 values = 1;</code>
+     * <code>repeated int32 vals = 1;</code>
      * @param index The index to set the value at.
-     * @param value The values to set.
+     * @param value The vals to set.
      * @return This builder for chaining.
      */
-    public Builder setValues(
+    public Builder setVals(
         int index, int value) {
-      ensureValuesIsMutable();
-      values_.setInt(index, value);
+      ensureValsIsMutable();
+      vals_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int32 values = 1;</code>
-     * @param value The values to add.
+     * <code>repeated int32 vals = 1;</code>
+     * @param value The vals to add.
      * @return This builder for chaining.
      */
-    public Builder addValues(int value) {
-      ensureValuesIsMutable();
-      values_.addInt(value);
+    public Builder addVals(int value) {
+      ensureValsIsMutable();
+      vals_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int32 values = 1;</code>
-     * @param values The values to add.
+     * <code>repeated int32 vals = 1;</code>
+     * @param values The vals to add.
      * @return This builder for chaining.
      */
-    public Builder addAllValues(
+    public Builder addAllVals(
         java.lang.Iterable<? extends java.lang.Integer> values) {
-      ensureValuesIsMutable();
+      ensureValsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, values_);
+          values, vals_);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int32 values = 1;</code>
+     * <code>repeated int32 vals = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValues() {
-      values_ = emptyIntList();
+    public Builder clearVals() {
+      vals_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;

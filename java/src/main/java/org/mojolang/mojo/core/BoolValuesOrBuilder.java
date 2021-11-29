@@ -8,19 +8,19 @@ public interface BoolValuesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated bool values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated bool vals = 1;</code>
+   * @return A list containing the vals.
    */
-  java.util.List<java.lang.Boolean> getValuesList();
+  java.util.List<java.lang.Boolean> getValsList();
   /**
-   * <code>repeated bool values = 1;</code>
-   * @return The count of values.
+   * <code>repeated bool vals = 1;</code>
+   * @return The count of vals.
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated bool values = 1;</code>
+   * <code>repeated bool vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  boolean getValues(int index);
+  boolean getVals(int index);
 }

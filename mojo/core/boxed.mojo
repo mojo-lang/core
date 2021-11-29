@@ -16,7 +16,7 @@
 ///
 ///
 type Boxed<T> {
-    value: T @1 //< the boxed value
+    val: T @1 //< the boxed value
 }
 
 /// Wrapper type for `Bool`

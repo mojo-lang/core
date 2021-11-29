@@ -8,19 +8,19 @@ public interface UInt32ValuesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated int32 values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated int32 vals = 1;</code>
+   * @return A list containing the vals.
    */
-  java.util.List<java.lang.Integer> getValuesList();
+  java.util.List<java.lang.Integer> getValsList();
   /**
-   * <code>repeated int32 values = 1;</code>
-   * @return The count of values.
+   * <code>repeated int32 vals = 1;</code>
+   * @return The count of vals.
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated int32 values = 1;</code>
+   * <code>repeated int32 vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  int getValues(int index);
+  int getVals(int index);
 }

@@ -8,19 +8,19 @@ public interface DoubleValuesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated double values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated double vals = 1;</code>
+   * @return A list containing the vals.
    */
-  java.util.List<java.lang.Double> getValuesList();
+  java.util.List<java.lang.Double> getValsList();
   /**
-   * <code>repeated double values = 1;</code>
-   * @return The count of values.
+   * <code>repeated double vals = 1;</code>
+   * @return The count of vals.
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated double values = 1;</code>
+   * <code>repeated double vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  double getValues(int index);
+  double getVals(int index);
 }

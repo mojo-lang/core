@@ -12,13 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// Any Object
-///
-/// `Any` contains an arbitrary serialized message along with a URL that describes the type of the serialized message.
-///
-type Any {
-    type: String @1 @alias("@type")
+package core
 
-    /// Must be valid serialized data of the above specified type.
-    val: Bytes @2
-}
+const MapTypeName = "mojo.core.Map"

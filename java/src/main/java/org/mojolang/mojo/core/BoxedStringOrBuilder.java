@@ -8,14 +8,14 @@ public interface BoxedStringOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string value = 1;</code>
-   * @return The value.
+   * <code>string val = 1;</code>
+   * @return The val.
    */
-  java.lang.String getValue();
+  java.lang.String getVal();
   /**
-   * <code>string value = 1;</code>
-   * @return The bytes for value.
+   * <code>string val = 1;</code>
+   * @return The bytes for val.
    */
   com.google.protobuf.ByteString
-      getValueBytes();
+      getValBytes();
 }

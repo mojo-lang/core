@@ -8,8 +8,8 @@ public interface BoxedBoolOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool value = 1;</code>
-   * @return The value.
+   * <code>bool val = 1;</code>
+   * @return The val.
    */
-  boolean getValue();
+  boolean getVal();
 }

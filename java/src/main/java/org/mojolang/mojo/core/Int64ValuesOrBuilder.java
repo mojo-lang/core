@@ -8,19 +8,19 @@ public interface Int64ValuesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated int64 values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated int64 vals = 1;</code>
+   * @return A list containing the vals.
    */
-  java.util.List<java.lang.Long> getValuesList();
+  java.util.List<java.lang.Long> getValsList();
   /**
-   * <code>repeated int64 values = 1;</code>
-   * @return The count of values.
+   * <code>repeated int64 vals = 1;</code>
+   * @return The count of vals.
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated int64 values = 1;</code>
+   * <code>repeated int64 vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  long getValues(int index);
+  long getVals(int index);
 }

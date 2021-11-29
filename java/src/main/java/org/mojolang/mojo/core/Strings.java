@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Strings() {
-    values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    vals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -53,10 +53,10 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              values_ = new com.google.protobuf.LazyStringArrayList();
+              vals_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000001;
             }
-            values_.add(s);
+            vals_.add(s);
             break;
           }
           default: {
@@ -75,7 +75,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        values_ = values_.getUnmodifiableView();
+        vals_ = vals_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -94,39 +94,39 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.Strings.class, org.mojolang.mojo.core.Strings.Builder.class);
   }
 
-  public static final int VALUES_FIELD_NUMBER = 1;
-  private com.google.protobuf.LazyStringList values_;
+  public static final int VALS_FIELD_NUMBER = 1;
+  private com.google.protobuf.LazyStringList vals_;
   /**
-   * <code>repeated string values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated string vals = 1;</code>
+   * @return A list containing the vals.
    */
   public com.google.protobuf.ProtocolStringList
-      getValuesList() {
-    return values_;
+      getValsList() {
+    return vals_;
   }
   /**
-   * <code>repeated string values = 1;</code>
-   * @return The count of values.
+   * <code>repeated string vals = 1;</code>
+   * @return The count of vals.
    */
-  public int getValuesCount() {
-    return values_.size();
+  public int getValsCount() {
+    return vals_.size();
   }
   /**
-   * <code>repeated string values = 1;</code>
+   * <code>repeated string vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  public java.lang.String getValues(int index) {
-    return values_.get(index);
+  public java.lang.String getVals(int index) {
+    return vals_.get(index);
   }
   /**
-   * <code>repeated string values = 1;</code>
+   * <code>repeated string vals = 1;</code>
    * @param index The index of the value to return.
-   * @return The bytes of the values at the given index.
+   * @return The bytes of the vals at the given index.
    */
   public com.google.protobuf.ByteString
-      getValuesBytes(int index) {
-    return values_.getByteString(index);
+      getValsBytes(int index) {
+    return vals_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -143,8 +143,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < values_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, values_.getRaw(i));
+    for (int i = 0; i < vals_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, vals_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -157,11 +157,11 @@ private static final long serialVersionUID = 0L;
     size = 0;
     {
       int dataSize = 0;
-      for (int i = 0; i < values_.size(); i++) {
-        dataSize += computeStringSizeNoTag(values_.getRaw(i));
+      for (int i = 0; i < vals_.size(); i++) {
+        dataSize += computeStringSizeNoTag(vals_.getRaw(i));
       }
       size += dataSize;
-      size += 1 * getValuesList().size();
+      size += 1 * getValsList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -178,8 +178,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Strings other = (org.mojolang.mojo.core.Strings) obj;
 
-    if (!getValuesList()
-        .equals(other.getValuesList())) return false;
+    if (!getValsList()
+        .equals(other.getValsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -191,9 +191,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getValuesCount() > 0) {
-      hash = (37 * hash) + VALUES_FIELD_NUMBER;
-      hash = (53 * hash) + getValuesList().hashCode();
+    if (getValsCount() > 0) {
+      hash = (37 * hash) + VALS_FIELD_NUMBER;
+      hash = (53 * hash) + getValsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -328,7 +328,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      vals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
@@ -358,10 +358,10 @@ private static final long serialVersionUID = 0L;
       org.mojolang.mojo.core.Strings result = new org.mojolang.mojo.core.Strings(this);
       int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
-        values_ = values_.getUnmodifiableView();
+        vals_ = vals_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
-      result.values_ = values_;
+      result.vals_ = vals_;
       onBuilt();
       return result;
     }
@@ -410,13 +410,13 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Strings other) {
       if (other == org.mojolang.mojo.core.Strings.getDefaultInstance()) return this;
-      if (!other.values_.isEmpty()) {
-        if (values_.isEmpty()) {
-          values_ = other.values_;
+      if (!other.vals_.isEmpty()) {
+        if (vals_.isEmpty()) {
+          vals_ = other.vals_;
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          ensureValuesIsMutable();
-          values_.addAll(other.values_);
+          ensureValsIsMutable();
+          vals_.addAll(other.vals_);
         }
         onChanged();
       }
@@ -450,112 +450,112 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringList values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureValuesIsMutable() {
+    private com.google.protobuf.LazyStringList vals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureValsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        values_ = new com.google.protobuf.LazyStringArrayList(values_);
+        vals_ = new com.google.protobuf.LazyStringArrayList(vals_);
         bitField0_ |= 0x00000001;
        }
     }
     /**
-     * <code>repeated string values = 1;</code>
-     * @return A list containing the values.
+     * <code>repeated string vals = 1;</code>
+     * @return A list containing the vals.
      */
     public com.google.protobuf.ProtocolStringList
-        getValuesList() {
-      return values_.getUnmodifiableView();
+        getValsList() {
+      return vals_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string values = 1;</code>
-     * @return The count of values.
+     * <code>repeated string vals = 1;</code>
+     * @return The count of vals.
      */
-    public int getValuesCount() {
-      return values_.size();
+    public int getValsCount() {
+      return vals_.size();
     }
     /**
-     * <code>repeated string values = 1;</code>
+     * <code>repeated string vals = 1;</code>
      * @param index The index of the element to return.
-     * @return The values at the given index.
+     * @return The vals at the given index.
      */
-    public java.lang.String getValues(int index) {
-      return values_.get(index);
+    public java.lang.String getVals(int index) {
+      return vals_.get(index);
     }
     /**
-     * <code>repeated string values = 1;</code>
+     * <code>repeated string vals = 1;</code>
      * @param index The index of the value to return.
-     * @return The bytes of the values at the given index.
+     * @return The bytes of the vals at the given index.
      */
     public com.google.protobuf.ByteString
-        getValuesBytes(int index) {
-      return values_.getByteString(index);
+        getValsBytes(int index) {
+      return vals_.getByteString(index);
     }
     /**
-     * <code>repeated string values = 1;</code>
+     * <code>repeated string vals = 1;</code>
      * @param index The index to set the value at.
-     * @param value The values to set.
+     * @param value The vals to set.
      * @return This builder for chaining.
      */
-    public Builder setValues(
+    public Builder setVals(
         int index, java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  ensureValuesIsMutable();
-      values_.set(index, value);
+  ensureValsIsMutable();
+      vals_.set(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string values = 1;</code>
-     * @param value The values to add.
+     * <code>repeated string vals = 1;</code>
+     * @param value The vals to add.
      * @return This builder for chaining.
      */
-    public Builder addValues(
+    public Builder addVals(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  ensureValuesIsMutable();
-      values_.add(value);
+  ensureValsIsMutable();
+      vals_.add(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string values = 1;</code>
-     * @param values The values to add.
+     * <code>repeated string vals = 1;</code>
+     * @param values The vals to add.
      * @return This builder for chaining.
      */
-    public Builder addAllValues(
+    public Builder addAllVals(
         java.lang.Iterable<java.lang.String> values) {
-      ensureValuesIsMutable();
+      ensureValsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, values_);
+          values, vals_);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string values = 1;</code>
+     * <code>repeated string vals = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValues() {
-      values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    public Builder clearVals() {
+      vals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string values = 1;</code>
-     * @param value The bytes of the values to add.
+     * <code>repeated string vals = 1;</code>
+     * @param value The bytes of the vals to add.
      * @return This builder for chaining.
      */
-    public Builder addValuesBytes(
+    public Builder addValsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      ensureValuesIsMutable();
-      values_.add(value);
+      ensureValsIsMutable();
+      vals_.add(value);
       onChanged();
       return this;
     }

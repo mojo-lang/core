@@ -28,10 +28,10 @@ public final class PixelProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025mojo/core/pixel.proto\022\tmojo.core\"\026\n\005Pi" +
-      "xel\022\r\n\005value\030\001 \001(\004BW\n\026org.mojolang.mojo." +
-      "coreB\nPixelProtoP\001Z/github.com/mojo-lang" +
-      "/core/go/pkg/mojo/core;coreb\006proto3"
+      "\n\025mojo/core/pixel.proto\022\tmojo.core\"\024\n\005Pi" +
+      "xel\022\013\n\003val\030\001 \001(\004BW\n\026org.mojolang.mojo.co" +
+      "reB\nPixelProtoP\001Z/github.com/mojo-lang/c" +
+      "ore/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -42,7 +42,7 @@ public final class PixelProto {
     internal_static_mojo_core_Pixel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Pixel_descriptor,
-        new java.lang.String[] { "Value", });
+        new java.lang.String[] { "Val", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

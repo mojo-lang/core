@@ -8,19 +8,19 @@ public interface FloatValuesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated float values = 1;</code>
-   * @return A list containing the values.
+   * <code>repeated float vals = 1;</code>
+   * @return A list containing the vals.
    */
-  java.util.List<java.lang.Float> getValuesList();
+  java.util.List<java.lang.Float> getValsList();
   /**
-   * <code>repeated float values = 1;</code>
-   * @return The count of values.
+   * <code>repeated float vals = 1;</code>
+   * @return The count of vals.
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated float values = 1;</code>
+   * <code>repeated float vals = 1;</code>
    * @param index The index of the element to return.
-   * @return The values at the given index.
+   * @return The vals at the given index.
    */
-  float getValues(int index);
+  float getVals(int index);
 }

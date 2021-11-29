@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 9: {
 
-            value_ = input.readDouble();
+            val_ = input.readDouble();
             break;
           }
           default: {
@@ -85,15 +85,15 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.BoxedDouble.class, org.mojolang.mojo.core.BoxedDouble.Builder.class);
   }
 
-  public static final int VALUE_FIELD_NUMBER = 1;
-  private double value_;
+  public static final int VAL_FIELD_NUMBER = 1;
+  private double val_;
   /**
-   * <code>double value = 1;</code>
-   * @return The value.
+   * <code>double val = 1;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public double getValue() {
-    return value_;
+  public double getVal() {
+    return val_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -110,8 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (value_ != 0D) {
-      output.writeDouble(1, value_);
+    if (val_ != 0D) {
+      output.writeDouble(1, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -122,9 +122,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (value_ != 0D) {
+    if (val_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(1, value_);
+        .computeDoubleSize(1, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -141,9 +141,9 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.BoxedDouble other = (org.mojolang.mojo.core.BoxedDouble) obj;
 
-    if (java.lang.Double.doubleToLongBits(getValue())
+    if (java.lang.Double.doubleToLongBits(getVal())
         != java.lang.Double.doubleToLongBits(
-            other.getValue())) return false;
+            other.getVal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -155,9 +155,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getValue()));
+        java.lang.Double.doubleToLongBits(getVal()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      value_ = 0D;
+      val_ = 0D;
 
       return this;
     }
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.BoxedDouble buildPartial() {
       org.mojolang.mojo.core.BoxedDouble result = new org.mojolang.mojo.core.BoxedDouble(this);
-      result.value_ = value_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -368,8 +368,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.BoxedDouble other) {
       if (other == org.mojolang.mojo.core.BoxedDouble.getDefaultInstance()) return this;
-      if (other.getValue() != 0D) {
-        setValue(other.getValue());
+      if (other.getVal() != 0D) {
+        setVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -400,33 +400,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double value_ ;
+    private double val_ ;
     /**
-     * <code>double value = 1;</code>
-     * @return The value.
+     * <code>double val = 1;</code>
+     * @return The val.
      */
     @java.lang.Override
-    public double getValue() {
-      return value_;
+    public double getVal() {
+      return val_;
     }
     /**
-     * <code>double value = 1;</code>
-     * @param value The value to set.
+     * <code>double val = 1;</code>
+     * @param value The val to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(double value) {
+    public Builder setVal(double value) {
       
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double value = 1;</code>
+     * <code>double val = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearVal() {
       
-      value_ = 0D;
+      val_ = 0D;
       onChanged();
       return this;
     }

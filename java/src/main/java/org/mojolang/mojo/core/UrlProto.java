@@ -30,10 +30,10 @@ public final class UrlProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Url_Query_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_Url_Query_ValuesEntry_descriptor;
+    internal_static_mojo_core_Url_Query_ValsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_Url_Query_ValuesEntry_fieldAccessorTable;
+      internal_static_mojo_core_Url_Query_ValsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -44,17 +44,17 @@ public final class UrlProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\023mojo/core/url.proto\022\tmojo.core\032\025mojo/c" +
-      "ore/boxed.proto\"\301\002\n\003Url\022\016\n\006scheme\030\001 \001(\t\022" +
+      "ore/boxed.proto\"\273\002\n\003Url\022\016\n\006scheme\030\001 \001(\t\022" +
       "+\n\tauthority\030\002 \001(\0132\030.mojo.core.Url.Autho" +
       "rity\022\014\n\004path\030\003 \001(\t\022#\n\005query\030\005 \001(\0132\024.mojo" +
       ".core.Url.Query\022\020\n\010fragment\030\007 \001(\t\032:\n\tAut" +
       "hority\022\021\n\tuser_info\030\001 \001(\t\022\014\n\004host\030\002 \001(\t\022" +
-      "\014\n\004port\030\003 \001(\003\032|\n\005Query\0220\n\006values\030\001 \003(\0132 " +
-      ".mojo.core.Url.Query.ValuesEntry\032A\n\013Valu" +
-      "esEntry\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.mo" +
-      "jo.core.Strings:\0028\001BU\n\026org.mojolang.mojo" +
-      ".coreB\010UrlProtoP\001Z/github.com/mojo-lang/" +
-      "core/go/pkg/mojo/core;coreb\006proto3"
+      "\014\n\004port\030\003 \001(\003\032v\n\005Query\022,\n\004vals\030\001 \003(\0132\036.m" +
+      "ojo.core.Url.Query.ValsEntry\032?\n\tValsEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.mojo.cor" +
+      "e.Strings:\0028\001BU\n\026org.mojolang.mojo.coreB" +
+      "\010UrlProtoP\001Z/github.com/mojo-lang/core/g" +
+      "o/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -78,12 +78,12 @@ public final class UrlProto {
     internal_static_mojo_core_Url_Query_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Url_Query_descriptor,
-        new java.lang.String[] { "Values", });
-    internal_static_mojo_core_Url_Query_ValuesEntry_descriptor =
+        new java.lang.String[] { "Vals", });
+    internal_static_mojo_core_Url_Query_ValsEntry_descriptor =
       internal_static_mojo_core_Url_Query_descriptor.getNestedTypes().get(0);
-    internal_static_mojo_core_Url_Query_ValuesEntry_fieldAccessorTable = new
+    internal_static_mojo_core_Url_Query_ValsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_Url_Query_ValuesEntry_descriptor,
+        internal_static_mojo_core_Url_Query_ValsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     org.mojolang.mojo.core.BoxedProto.getDescriptor();
   }

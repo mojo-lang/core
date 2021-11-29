@@ -20,7 +20,7 @@ message Url {
     }
     
     message Query {
-        map<string, Strings> values = 1;
+        map<string, Strings> vals = 1;
     }
     string scheme = 1;
     Authority authority = 2;

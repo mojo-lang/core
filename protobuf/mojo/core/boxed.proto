@@ -10,69 +10,69 @@ option java_outer_classname = "BoxedProto";
 option java_package = "org.mojolang.mojo.core";
 
 message BoxedBool {
-    bool value = 1;
+    bool val = 1;
 }
 
 message BoxedInt64 {
-    int64 value = 1;
+    int64 val = 1;
 }
 
 message BoxedUInt64 {
-    uint64 value = 1;
+    uint64 val = 1;
 }
 
 message BoxedInt32 {
-    int32 value = 1;
+    int32 val = 1;
 }
 
 message BoxedUInt32 {
-    int32 value = 1;
+    int32 val = 1;
 }
 
 message BoxedFloat {
-    float value = 1;
+    float val = 1;
 }
 
 message BoxedDouble {
-    double value = 1;
+    double val = 1;
 }
 
 message BoxedString {
-    string value = 1;
+    string val = 1;
 }
 
 message BoxedBytes {
-    bytes value = 1;
+    bytes val = 1;
 }
 
 message BoolValues {
-    repeated bool values = 1;
+    repeated bool vals = 1;
 }
 
 message Int32Values {
-    repeated int32 values = 1;
+    repeated int32 vals = 1;
 }
 
 message UInt32Values {
-    repeated int32 values = 1;
+    repeated int32 vals = 1;
 }
 
 message Int64Values {
-    repeated int64 values = 1;
+    repeated int64 vals = 1;
 }
 
 message UInt64Values {
-    repeated uint64 values = 1;
+    repeated uint64 vals = 1;
 }
 
 message FloatValues {
-    repeated float values = 1;
+    repeated float vals = 1;
 }
 
 message DoubleValues {
-    repeated double values = 1;
+    repeated double vals = 1;
 }
 
 message Strings {
-    repeated string values = 1;
+    repeated string vals = 1;
 }

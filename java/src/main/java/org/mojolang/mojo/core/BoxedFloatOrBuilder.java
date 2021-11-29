@@ -8,8 +8,8 @@ public interface BoxedFloatOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>float value = 1;</code>
-   * @return The value.
+   * <code>float val = 1;</code>
+   * @return The val.
    */
-  float getValue();
+  float getVal();
 }

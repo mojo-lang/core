@@ -21,7 +21,7 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type BoxedBool struct {
-	Value                bool     `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  bool     `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -51,15 +51,15 @@ func (m *BoxedBool) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedBool proto.InternalMessageInfo
 
-func (m *BoxedBool) GetValue() bool {
+func (m *BoxedBool) GetVal() bool {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return false
 }
 
 type BoxedInt64 struct {
-	Value                int64    `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  int64    `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -89,15 +89,15 @@ func (m *BoxedInt64) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedInt64 proto.InternalMessageInfo
 
-func (m *BoxedInt64) GetValue() int64 {
+func (m *BoxedInt64) GetVal() int64 {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return 0
 }
 
 type BoxedUInt64 struct {
-	Value                uint64   `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  uint64   `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -127,15 +127,15 @@ func (m *BoxedUInt64) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedUInt64 proto.InternalMessageInfo
 
-func (m *BoxedUInt64) GetValue() uint64 {
+func (m *BoxedUInt64) GetVal() uint64 {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return 0
 }
 
 type BoxedInt32 struct {
-	Value                int32    `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  int32    `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -165,15 +165,15 @@ func (m *BoxedInt32) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedInt32 proto.InternalMessageInfo
 
-func (m *BoxedInt32) GetValue() int32 {
+func (m *BoxedInt32) GetVal() int32 {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return 0
 }
 
 type BoxedUInt32 struct {
-	Value                int32    `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  int32    `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -203,15 +203,15 @@ func (m *BoxedUInt32) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedUInt32 proto.InternalMessageInfo
 
-func (m *BoxedUInt32) GetValue() int32 {
+func (m *BoxedUInt32) GetVal() int32 {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return 0
 }
 
 type BoxedFloat struct {
-	Value                float32  `protobuf:"fixed32,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  float32  `protobuf:"fixed32,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -241,15 +241,15 @@ func (m *BoxedFloat) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedFloat proto.InternalMessageInfo
 
-func (m *BoxedFloat) GetValue() float32 {
+func (m *BoxedFloat) GetVal() float32 {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return 0
 }
 
 type BoxedDouble struct {
-	Value                float64  `protobuf:"fixed64,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  float64  `protobuf:"fixed64,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -279,15 +279,15 @@ func (m *BoxedDouble) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedDouble proto.InternalMessageInfo
 
-func (m *BoxedDouble) GetValue() float64 {
+func (m *BoxedDouble) GetVal() float64 {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return 0
 }
 
 type BoxedString struct {
-	Value                string   `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  string   `protobuf:"bytes,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -317,15 +317,15 @@ func (m *BoxedString) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedString proto.InternalMessageInfo
 
-func (m *BoxedString) GetValue() string {
+func (m *BoxedString) GetVal() string {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return ""
 }
 
 type BoxedBytes struct {
-	Value                []byte   `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	Val                  []byte   `protobuf:"bytes,1,opt,name=val,proto3" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -355,15 +355,15 @@ func (m *BoxedBytes) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoxedBytes proto.InternalMessageInfo
 
-func (m *BoxedBytes) GetValue() []byte {
+func (m *BoxedBytes) GetVal() []byte {
 	if m != nil {
-		return m.Value
+		return m.Val
 	}
 	return nil
 }
 
 type BoolValues struct {
-	Values               []bool   `protobuf:"varint,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []bool   `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -393,15 +393,15 @@ func (m *BoolValues) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoolValues proto.InternalMessageInfo
 
-func (m *BoolValues) GetValues() []bool {
+func (m *BoolValues) GetVals() []bool {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type Int32Values struct {
-	Values               []int32  `protobuf:"varint,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []int32  `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -431,15 +431,15 @@ func (m *Int32Values) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Int32Values proto.InternalMessageInfo
 
-func (m *Int32Values) GetValues() []int32 {
+func (m *Int32Values) GetVals() []int32 {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type UInt32Values struct {
-	Values               []int32  `protobuf:"varint,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []int32  `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -469,15 +469,15 @@ func (m *UInt32Values) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_UInt32Values proto.InternalMessageInfo
 
-func (m *UInt32Values) GetValues() []int32 {
+func (m *UInt32Values) GetVals() []int32 {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type Int64Values struct {
-	Values               []int64  `protobuf:"varint,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []int64  `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -507,15 +507,15 @@ func (m *Int64Values) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Int64Values proto.InternalMessageInfo
 
-func (m *Int64Values) GetValues() []int64 {
+func (m *Int64Values) GetVals() []int64 {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type UInt64Values struct {
-	Values               []uint64 `protobuf:"varint,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []uint64 `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -545,15 +545,15 @@ func (m *UInt64Values) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_UInt64Values proto.InternalMessageInfo
 
-func (m *UInt64Values) GetValues() []uint64 {
+func (m *UInt64Values) GetVals() []uint64 {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type FloatValues struct {
-	Values               []float32 `protobuf:"fixed32,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []float32 `protobuf:"fixed32,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -583,15 +583,15 @@ func (m *FloatValues) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_FloatValues proto.InternalMessageInfo
 
-func (m *FloatValues) GetValues() []float32 {
+func (m *FloatValues) GetVals() []float32 {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type DoubleValues struct {
-	Values               []float64 `protobuf:"fixed64,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+	Vals                 []float64 `protobuf:"fixed64,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -621,15 +621,15 @@ func (m *DoubleValues) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_DoubleValues proto.InternalMessageInfo
 
-func (m *DoubleValues) GetValues() []float64 {
+func (m *DoubleValues) GetVals() []float64 {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
 
 type Strings struct {
-	Values               []string `protobuf:"bytes,1,rep,name=values,proto3" json:"values,omitempty"`
+	Vals                 []string `protobuf:"bytes,1,rep,name=vals,proto3" json:"vals,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -659,9 +659,9 @@ func (m *Strings) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Strings proto.InternalMessageInfo
 
-func (m *Strings) GetValues() []string {
+func (m *Strings) GetVals() []string {
 	if m != nil {
-		return m.Values
+		return m.Vals
 	}
 	return nil
 }
@@ -689,27 +689,27 @@ func init() {
 func init() { proto.RegisterFile("mojo/core/boxed.proto", fileDescriptor_68d6ceface8d8610) }
 
 var fileDescriptor_68d6ceface8d8610 = []byte{
-	// 338 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0xd4, 0xdd, 0x4a, 0xc3, 0x30,
-	0x14, 0x07, 0x70, 0xb2, 0x2f, 0xd7, 0x6c, 0xa0, 0xcc, 0x0f, 0x76, 0xb7, 0xb1, 0xab, 0x09, 0xb3,
-	0x01, 0x37, 0x36, 0x71, 0x5e, 0x05, 0x11, 0xbc, 0x1b, 0xca, 0x14, 0xbc, 0x5b, 0x67, 0xa8, 0xd3,
-	0xb4, 0xa7, 0xb4, 0xa9, 0xb8, 0x97, 0xdd, 0x03, 0xec, 0x29, 0x24, 0x89, 0x8a, 0x91, 0xda, 0x46,
-	0x6f, 0x4a, 0x7b, 0x7a, 0x7e, 0xfc, 0x4b, 0x39, 0x39, 0xf8, 0x30, 0x80, 0x67, 0x20, 0x4b, 0x88,
-	0x19, 0xf1, 0xe0, 0x8d, 0x3d, 0xba, 0x51, 0x0c, 0x02, 0x5a, 0x8e, 0x2c, 0xbb, 0xb2, 0xdc, 0x1b,
-	0x63, 0x87, 0xca, 0x37, 0x14, 0x80, 0xb7, 0x8e, 0x71, 0xf5, 0x75, 0xc1, 0x53, 0xd6, 0x46, 0x5d,
-	0xd4, 0xaf, 0xd3, 0xfd, 0xed, 0xa6, 0xb3, 0xab, 0x0a, 0x03, 0x08, 0x56, 0x82, 0x05, 0x91, 0x58,
-	0xdf, 0xe8, 0x8e, 0xde, 0x04, 0x63, 0xe5, 0xae, 0x43, 0x31, 0x1e, 0x99, 0xb0, 0x9c, 0x0b, 0xcf,
-	0x70, 0x43, 0xc1, 0x79, 0x86, 0xac, 0xd8, 0x46, 0x0e, 0x4f, 0x4d, 0x58, 0xb5, 0x8e, 0xfc, 0x9b,
-	0xfc, 0x8c, 0xbc, 0xe2, 0xb0, 0x10, 0x26, 0x2c, 0x59, 0x45, 0x5e, 0x42, 0xea, 0x71, 0x66, 0x4a,
-	0x64, 0x25, 0x6f, 0x45, 0xbc, 0x0a, 0x7d, 0x53, 0x3a, 0x56, 0x1f, 0x4b, 0xd7, 0x82, 0x25, 0x26,
-	0x6c, 0xe6, 0xc2, 0x73, 0x09, 0x81, 0xdf, 0xc9, 0x87, 0xa4, 0x35, 0xc0, 0x35, 0x55, 0x4e, 0xda,
-	0xa8, 0x5b, 0xee, 0xd7, 0xe9, 0xc1, 0x76, 0xd3, 0xd9, 0xd3, 0x95, 0x6f, 0xf4, 0xa3, 0xa7, 0x37,
-	0xc5, 0x0d, 0xf5, 0x57, 0x33, 0x71, 0xb5, 0x00, 0x5f, 0xe0, 0xe6, 0xfc, 0xff, 0x5a, 0x47, 0x8f,
-	0x47, 0x99, 0xb8, 0x6c, 0x17, 0xfd, 0x8b, 0xae, 0x14, 0x47, 0xab, 0x91, 0xc8, 0xc4, 0xa5, 0xe2,
-	0x68, 0x3d, 0x16, 0x99, 0x1a, 0x15, 0xe8, 0x09, 0xde, 0xd1, 0xa3, 0xf1, 0x13, 0x3a, 0xf9, 0x90,
-	0xde, 0xe3, 0x23, 0x88, 0x7d, 0x57, 0x1e, 0x7d, 0xbe, 0x08, 0xf5, 0x8d, 0xda, 0x01, 0x54, 0x8f,
-	0xcd, 0x4c, 0xae, 0x86, 0x19, 0x7a, 0x20, 0xfe, 0x4a, 0x3c, 0xa5, 0x9e, 0xbb, 0x84, 0x80, 0xc8,
-	0x9e, 0x13, 0xd9, 0xad, 0x77, 0x88, 0x0f, 0x24, 0x7a, 0xf1, 0xc9, 0xd7, 0x52, 0x99, 0xca, 0x8b,
-	0x57, 0x53, 0x4b, 0x65, 0xf8, 0x1e, 0x00, 0x00, 0xff, 0xff, 0xba, 0x2a, 0x06, 0x47, 0x6d, 0x04,
-	0x00, 0x00,
+	// 337 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0xd3, 0x4d, 0x4b, 0xfb, 0x30,
+	0x1c, 0x07, 0x70, 0xb2, 0x6e, 0xff, 0xff, 0x9a, 0x4d, 0xc1, 0x82, 0xb2, 0xdb, 0xc6, 0x04, 0xd9,
+	0x41, 0x1b, 0xf7, 0xe0, 0x2e, 0xde, 0x82, 0x08, 0xde, 0x86, 0x32, 0x05, 0x6f, 0xe9, 0x0c, 0x75,
+	0x9a, 0xee, 0x37, 0xba, 0xb4, 0xb8, 0x37, 0xbb, 0x17, 0xb0, 0x57, 0x21, 0x49, 0x50, 0x22, 0xf6,
+	0x09, 0x2f, 0xa5, 0x4d, 0xf2, 0xe1, 0x5b, 0xfa, 0xeb, 0x17, 0x1f, 0x47, 0xf0, 0x06, 0x64, 0x01,
+	0x31, 0x27, 0x01, 0x7c, 0xf0, 0x17, 0x7f, 0x1d, 0x83, 0x04, 0xcf, 0x55, 0xcb, 0xbe, 0x5a, 0xee,
+	0x5f, 0x62, 0x97, 0xaa, 0x1d, 0x0a, 0x20, 0xbc, 0x53, 0xec, 0xa4, 0x4c, 0x74, 0x50, 0x0f, 0x0d,
+	0x9a, 0xf4, 0x68, 0xbf, 0xeb, 0x1e, 0xa4, 0x4c, 0x9c, 0x43, 0xb4, 0x94, 0x3c, 0x5a, 0xcb, 0xed,
+	0xbd, 0xda, 0xed, 0x0f, 0x31, 0xd6, 0xe2, 0x6e, 0x25, 0xa7, 0x13, 0x9b, 0x38, 0xb9, 0x64, 0x84,
+	0x5b, 0x9a, 0xcc, 0x7f, 0x99, 0x7a, 0x95, 0x98, 0xf1, 0xc8, 0x26, 0x8d, 0x4a, 0x31, 0x55, 0xcd,
+	0x57, 0xcc, 0xad, 0x00, 0x26, 0x6d, 0x52, 0x2b, 0x8d, 0xb9, 0x81, 0x24, 0x10, 0xdc, 0x36, 0xa8,
+	0xd4, 0x3c, 0xc8, 0x78, 0xb9, 0x0a, 0x6d, 0xe3, 0x96, 0xbe, 0x1a, 0xdd, 0x4a, 0xbe, 0xb1, 0x49,
+	0x3b, 0x97, 0x4c, 0x14, 0x01, 0xf1, 0xc8, 0x44, 0xc2, 0x37, 0xde, 0x19, 0xae, 0xa7, 0x4c, 0x6c,
+	0x3a, 0xa8, 0xe7, 0x0c, 0x9a, 0xd4, 0xdb, 0xef, 0xba, 0x87, 0xea, 0xd9, 0x42, 0x7a, 0xbf, 0x7f,
+	0x85, 0x5b, 0xfa, 0x8b, 0x65, 0xb0, 0x46, 0x01, 0x9b, 0xe2, 0xf6, 0xfc, 0x2f, 0xce, 0xc4, 0x4d,
+	0x27, 0x19, 0xcc, 0x29, 0x8f, 0xcb, 0x74, 0xf5, 0xe2, 0x38, 0x3d, 0xdc, 0x0c, 0x56, 0x2b, 0x8e,
+	0x33, 0x03, 0xce, 0x70, 0xa8, 0xc0, 0x0d, 0xf1, 0x7f, 0x33, 0xe4, 0x9f, 0xc4, 0xcd, 0x27, 0xf4,
+	0x09, 0x9f, 0x40, 0x1c, 0xfa, 0xaa, 0x94, 0x82, 0xad, 0xcc, 0x8d, 0x6e, 0x27, 0x35, 0x3f, 0xc0,
+	0x4c, 0x95, 0x76, 0x86, 0x9e, 0x49, 0xb8, 0x94, 0xaf, 0x49, 0xe0, 0x2f, 0x20, 0x22, 0xea, 0xcc,
+	0x85, 0x3a, 0x6d, 0xda, 0x1d, 0x02, 0x59, 0xbf, 0x87, 0xe4, 0xbb, 0xee, 0xd7, 0xea, 0x12, 0xfc,
+	0xd3, 0x75, 0x1f, 0x7f, 0x06, 0x00, 0x00, 0xff, 0xff, 0xa7, 0xcc, 0x39, 0x7f, 0x07, 0x04, 0x00,
+	0x00,
 }

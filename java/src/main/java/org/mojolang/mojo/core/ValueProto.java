@@ -20,10 +20,10 @@ public final class ValueProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Object_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_Object_ValuesEntry_descriptor;
+    internal_static_mojo_core_Object_ValsEntry_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_Object_ValuesEntry_fieldAccessorTable;
+      internal_static_mojo_core_Object_ValsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_Values_descriptor;
   static final 
@@ -43,19 +43,18 @@ public final class ValueProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025mojo/core/value.proto\022\tmojo.core\"x\n\006Ob" +
-      "ject\022-\n\006values\030\001 \003(\0132\035.mojo.core.Object." +
-      "ValuesEntry\032?\n\013ValuesEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\037\n\005value\030\002 \001(\0132\020.mojo.core.Value:\0028\001\"*\n\006" +
-      "Values\022 \n\006values\030\001 \003(\0132\020.mojo.core.Value" +
-      "\"\267\001\n\005Value\022\'\n\nvalues_val\030\001 \001(\0132\021.mojo.co" +
-      "re.ValuesH\000\022\'\n\nobject_val\030\002 \001(\0132\021.mojo.c" +
-      "ore.ObjectH\000\022\022\n\010bool_val\030\003 \001(\010H\000\022\023\n\tint6" +
-      "4_val\030\004 \001(\003H\000\022\024\n\ndouble_val\030\005 \001(\001H\000\022\024\n\ns" +
-      "tring_val\030\007 \001(\tH\000B\007\n\005valueBW\n\026org.mojola" +
-      "ng.mojo.coreB\nValueProtoP\001Z/github.com/m" +
-      "ojo-lang/core/go/pkg/mojo/core;coreb\006pro" +
-      "to3"
+      "\n\025mojo/core/value.proto\022\tmojo.core\"r\n\006Ob" +
+      "ject\022)\n\004vals\030\001 \003(\0132\033.mojo.core.Object.Va" +
+      "lsEntry\032=\n\tValsEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005val" +
+      "ue\030\002 \001(\0132\020.mojo.core.Value:\0028\001\"(\n\006Values" +
+      "\022\036\n\004vals\030\001 \003(\0132\020.mojo.core.Value\"\267\001\n\005Val" +
+      "ue\022\'\n\nvalues_val\030\001 \001(\0132\021.mojo.core.Value" +
+      "sH\000\022\'\n\nobject_val\030\002 \001(\0132\021.mojo.core.Obje" +
+      "ctH\000\022\022\n\010bool_val\030\003 \001(\010H\000\022\023\n\tint64_val\030\004 " +
+      "\001(\003H\000\022\024\n\ndouble_val\030\005 \001(\001H\000\022\024\n\nstring_va" +
+      "l\030\007 \001(\tH\000B\007\n\005valueBW\n\026org.mojolang.mojo." +
+      "coreB\nValueProtoP\001Z/github.com/mojo-lang" +
+      "/core/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -66,19 +65,19 @@ public final class ValueProto {
     internal_static_mojo_core_Object_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Object_descriptor,
-        new java.lang.String[] { "Values", });
-    internal_static_mojo_core_Object_ValuesEntry_descriptor =
+        new java.lang.String[] { "Vals", });
+    internal_static_mojo_core_Object_ValsEntry_descriptor =
       internal_static_mojo_core_Object_descriptor.getNestedTypes().get(0);
-    internal_static_mojo_core_Object_ValuesEntry_fieldAccessorTable = new
+    internal_static_mojo_core_Object_ValsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_Object_ValuesEntry_descriptor,
+        internal_static_mojo_core_Object_ValsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_mojo_core_Values_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_mojo_core_Values_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Values_descriptor,
-        new java.lang.String[] { "Values", });
+        new java.lang.String[] { "Vals", });
     internal_static_mojo_core_Value_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_mojo_core_Value_fieldAccessorTable = new

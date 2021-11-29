@@ -5,11 +5,11 @@ func NewObjectValue(obj *Object) *Value {
 }
 
 func NewArrayValue(values ...*Value) *Value {
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewMapValue(values map[string]*Value) *Value {
-	return &Value{Value: &Value_ObjectVal{ObjectVal: &Object{Values: values}}}
+	return &Value{Value: &Value_ObjectVal{ObjectVal: &Object{Vals: values}}}
 }
 
 func NewBoolValue(val bool) *Value {
@@ -57,7 +57,7 @@ func NewIntArrayValue(vals ...int) *Value {
 	for _, v := range vals {
 		values = append(values, NewIntValue(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewInt32ArrayValue(vals ...int32) *Value {
@@ -65,7 +65,7 @@ func NewInt32ArrayValue(vals ...int32) *Value {
 	for _, v := range vals {
 		values = append(values, NewInt32Value(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewInt64ArrayValue(vals ...int64) *Value {
@@ -73,7 +73,7 @@ func NewInt64ArrayValue(vals ...int64) *Value {
 	for _, v := range vals {
 		values = append(values, NewInt64Value(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewUint32ArrayValue(vals ...uint32) *Value {
@@ -81,7 +81,7 @@ func NewUint32ArrayValue(vals ...uint32) *Value {
 	for _, v := range vals {
 		values = append(values, NewUint32Value(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewUint64ArrayValue(vals ...uint64) *Value {
@@ -89,7 +89,7 @@ func NewUint64ArrayValue(vals ...uint64) *Value {
 	for _, v := range vals {
 		values = append(values, NewUint64Value(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewFloat32ArrayValue(vals ...float32) *Value {
@@ -97,7 +97,7 @@ func NewFloat32ArrayValue(vals ...float32) *Value {
 	for _, v := range vals {
 		values = append(values, NewFloat32Value(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewFloat64ArrayValue(vals ...float64) *Value {
@@ -105,7 +105,7 @@ func NewFloat64ArrayValue(vals ...float64) *Value {
 	for _, v := range vals {
 		values = append(values, NewFloat64Value(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewStringArrayValue(vals ...string) *Value {
@@ -113,7 +113,7 @@ func NewStringArrayValue(vals ...string) *Value {
 	for _, v := range vals {
 		values = append(values, NewStringValue(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewObjectArrayValue(vals ...*Object) *Value {
@@ -121,7 +121,7 @@ func NewObjectArrayValue(vals ...*Object) *Value {
 	for _, v := range vals {
 		values = append(values, NewObjectValue(v))
 	}
-	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Values: values}}}
+	return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func (m *Value) GetBool() bool {
@@ -227,7 +227,7 @@ func (m *Value) GetValues() []*Value {
 		return []*Value{}
 	}
 
-	return values.Values
+	return values.Vals
 }
 
 func (m *Value) GetObjectArray() []*Object {

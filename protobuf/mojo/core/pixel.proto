@@ -10,5 +10,5 @@ option java_outer_classname = "PixelProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Pixel {
-    uint64 value = 1;
+    uint64 val = 1;
 }

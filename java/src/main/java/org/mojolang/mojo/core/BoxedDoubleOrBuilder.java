@@ -8,8 +8,8 @@ public interface BoxedDoubleOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double value = 1;</code>
-   * @return The value.
+   * <code>double val = 1;</code>
+   * @return The val.
    */
-  double getValue();
+  double getVal();
 }

@@ -8,8 +8,8 @@ public interface BoxedBytesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bytes value = 1;</code>
-   * @return The value.
+   * <code>bytes val = 1;</code>
+   * @return The val.
    */
-  com.google.protobuf.ByteString getValue();
+  com.google.protobuf.ByteString getVal();
 }

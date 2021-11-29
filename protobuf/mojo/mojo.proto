@@ -53,4 +53,7 @@ extend google.protobuf.MessageOptions {
 
 extend google.protobuf.FieldOptions {
 	optional string alias = 75001;
+
+	optional bool db_skip = 75100;
+	optional string db_association = 75101;
 }

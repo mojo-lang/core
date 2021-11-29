@@ -24,7 +24,7 @@ func (codec *UuidCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 
 func (codec *UuidCodec) IsEmpty(ptr unsafe.Pointer) bool {
 	id := (*Uuid)(ptr)
-	return id == nil || len(id.Value) == 0
+	return id == nil || len(id.Val) == 0
 }
 
 func (codec *UuidCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {

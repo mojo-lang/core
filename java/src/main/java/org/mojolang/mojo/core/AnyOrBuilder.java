@@ -8,23 +8,20 @@ public interface AnyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
-   * @return Whether the type field is set.
-   */
-  boolean hasType();
-  /**
-   * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
+   * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
    * @return The type.
    */
-  org.mojolang.mojo.core.Url getType();
+  java.lang.String getType();
   /**
-   * <code>.mojo.core.Url type = 1 [(.mojo.alias) = "&#64;type"];</code>
+   * <code>string type = 1 [(.mojo.alias) = "&#64;type"];</code>
+   * @return The bytes for type.
    */
-  org.mojolang.mojo.core.UrlOrBuilder getTypeOrBuilder();
+  com.google.protobuf.ByteString
+      getTypeBytes();
 
   /**
-   * <code>bytes value = 2;</code>
-   * @return The value.
+   * <code>bytes val = 2;</code>
+   * @return The val.
    */
-  com.google.protobuf.ByteString getValue();
+  com.google.protobuf.ByteString getVal();
 }

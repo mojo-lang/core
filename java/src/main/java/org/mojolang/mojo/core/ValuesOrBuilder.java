@@ -8,26 +8,26 @@ public interface ValuesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .mojo.core.Value values = 1;</code>
+   * <code>repeated .mojo.core.Value vals = 1;</code>
    */
   java.util.List<org.mojolang.mojo.core.Value> 
-      getValuesList();
+      getValsList();
   /**
-   * <code>repeated .mojo.core.Value values = 1;</code>
+   * <code>repeated .mojo.core.Value vals = 1;</code>
    */
-  org.mojolang.mojo.core.Value getValues(int index);
+  org.mojolang.mojo.core.Value getVals(int index);
   /**
-   * <code>repeated .mojo.core.Value values = 1;</code>
+   * <code>repeated .mojo.core.Value vals = 1;</code>
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated .mojo.core.Value values = 1;</code>
+   * <code>repeated .mojo.core.Value vals = 1;</code>
    */
   java.util.List<? extends org.mojolang.mojo.core.ValueOrBuilder> 
-      getValuesOrBuilderList();
+      getValsOrBuilderList();
   /**
-   * <code>repeated .mojo.core.Value values = 1;</code>
+   * <code>repeated .mojo.core.Value vals = 1;</code>
    */
-  org.mojolang.mojo.core.ValueOrBuilder getValuesOrBuilder(
+  org.mojolang.mojo.core.ValueOrBuilder getValsOrBuilder(
       int index);
 }

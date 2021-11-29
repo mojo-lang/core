@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            value_ = input.readInt64();
+            val_ = input.readInt64();
             break;
           }
           default: {
@@ -85,15 +85,15 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.BoxedInt64.class, org.mojolang.mojo.core.BoxedInt64.Builder.class);
   }
 
-  public static final int VALUE_FIELD_NUMBER = 1;
-  private long value_;
+  public static final int VAL_FIELD_NUMBER = 1;
+  private long val_;
   /**
-   * <code>int64 value = 1;</code>
-   * @return The value.
+   * <code>int64 val = 1;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public long getValue() {
-    return value_;
+  public long getVal() {
+    return val_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -110,8 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (value_ != 0L) {
-      output.writeInt64(1, value_);
+    if (val_ != 0L) {
+      output.writeInt64(1, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -122,9 +122,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (value_ != 0L) {
+    if (val_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, value_);
+        .computeInt64Size(1, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.BoxedInt64 other = (org.mojolang.mojo.core.BoxedInt64) obj;
 
-    if (getValue()
-        != other.getValue()) return false;
+    if (getVal()
+        != other.getVal()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -154,9 +154,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getValue());
+        getVal());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      value_ = 0L;
+      val_ = 0L;
 
       return this;
     }
@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.BoxedInt64 buildPartial() {
       org.mojolang.mojo.core.BoxedInt64 result = new org.mojolang.mojo.core.BoxedInt64(this);
-      result.value_ = value_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -367,8 +367,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.BoxedInt64 other) {
       if (other == org.mojolang.mojo.core.BoxedInt64.getDefaultInstance()) return this;
-      if (other.getValue() != 0L) {
-        setValue(other.getValue());
+      if (other.getVal() != 0L) {
+        setVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -399,33 +399,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long value_ ;
+    private long val_ ;
     /**
-     * <code>int64 value = 1;</code>
-     * @return The value.
+     * <code>int64 val = 1;</code>
+     * @return The val.
      */
     @java.lang.Override
-    public long getValue() {
-      return value_;
+    public long getVal() {
+      return val_;
     }
     /**
-     * <code>int64 value = 1;</code>
-     * @param value The value to set.
+     * <code>int64 val = 1;</code>
+     * @param value The val to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(long value) {
+    public Builder setVal(long value) {
       
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 value = 1;</code>
+     * <code>int64 val = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearVal() {
       
-      value_ = 0L;
+      val_ = 0L;
       onChanged();
       return this;
     }

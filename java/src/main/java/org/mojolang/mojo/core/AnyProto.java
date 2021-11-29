@@ -28,17 +28,15 @@ public final class AnyProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023mojo/core/any.proto\022\tmojo.core\032\023mojo/c" +
-      "ore/url.proto\032\017mojo/mojo.proto\"=\n\003Any\022\'\n" +
-      "\004type\030\001 \001(\0132\016.mojo.core.UrlB\t\312\317$\005@type\022\r" +
-      "\n\005value\030\002 \001(\014BU\n\026org.mojolang.mojo.coreB" +
-      "\010AnyProtoP\001Z/github.com/mojo-lang/core/g" +
-      "o/pkg/mojo/core;coreb\006proto3"
+      "\n\023mojo/core/any.proto\022\tmojo.core\032\017mojo/m" +
+      "ojo.proto\"+\n\003Any\022\027\n\004type\030\001 \001(\tB\t\312\317$\005@typ" +
+      "e\022\013\n\003val\030\002 \001(\014BU\n\026org.mojolang.mojo.core" +
+      "B\010AnyProtoP\001Z/github.com/mojo-lang/core/" +
+      "go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          org.mojolang.mojo.core.UrlProto.getDescriptor(),
           com.google.protobuf.MojoProtos.getDescriptor(),
         });
     internal_static_mojo_core_Any_descriptor =
@@ -46,13 +44,12 @@ public final class AnyProto {
     internal_static_mojo_core_Any_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Any_descriptor,
-        new java.lang.String[] { "Type", "Value", });
+        new java.lang.String[] { "Type", "Val", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.protobuf.MojoProtos.alias);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    org.mojolang.mojo.core.UrlProto.getDescriptor();
     com.google.protobuf.MojoProtos.getDescriptor();
   }
 

@@ -10,5 +10,5 @@ option java_outer_classname = "PercentageProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Percentage {
-    int32 value = 1;
+    int32 val = 1;
 }

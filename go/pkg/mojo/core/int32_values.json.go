@@ -34,20 +34,20 @@ func (codec *Int32ValuesCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 	any := iter.ReadAny()
 	int32Values := (*Int32Values)(ptr)
 	if any.ValueType() == jsoniter.ArrayValue {
-		any.ToVal(&int32Values.Values)
+		any.ToVal(&int32Values.Vals)
 	}
 }
 
 func (codec *Int32ValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
 	int32Values := (*Int32Values)(ptr)
-	return int32Values == nil || len(int32Values.Values) == 0
+	return int32Values == nil || len(int32Values.Vals) == 0
 }
 
 func (codec *Int32ValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	int32Values := (*Int32Values)(ptr)
 
 	stream.WriteArrayStart()
-	for i, v := range int32Values.Values {
+	for i, v := range int32Values.Vals {
 		if i > 0 {
 			stream.WriteMore()
 		}

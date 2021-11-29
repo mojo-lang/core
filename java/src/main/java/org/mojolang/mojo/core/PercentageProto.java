@@ -29,10 +29,10 @@ public final class PercentageProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/core/percentage.proto\022\tmojo.core\"" +
-      "\033\n\nPercentage\022\r\n\005value\030\001 \001(\005B\\\n\026org.mojo" +
-      "lang.mojo.coreB\017PercentageProtoP\001Z/githu" +
-      "b.com/mojo-lang/core/go/pkg/mojo/core;co" +
-      "reb\006proto3"
+      "\031\n\nPercentage\022\013\n\003val\030\001 \001(\005B\\\n\026org.mojola" +
+      "ng.mojo.coreB\017PercentageProtoP\001Z/github." +
+      "com/mojo-lang/core/go/pkg/mojo/core;core" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -43,7 +43,7 @@ public final class PercentageProto {
     internal_static_mojo_core_Percentage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Percentage_descriptor,
-        new java.lang.String[] { "Value", });
+        new java.lang.String[] { "Val", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

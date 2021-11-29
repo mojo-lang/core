@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Uuid() {
-    value_ = com.google.protobuf.ByteString.EMPTY;
+    val_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
 
-            value_ = input.readBytes();
+            val_ = input.readBytes();
             break;
           }
           default: {
@@ -86,15 +86,15 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.Uuid.class, org.mojolang.mojo.core.Uuid.Builder.class);
   }
 
-  public static final int VALUE_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString value_;
+  public static final int VAL_FIELD_NUMBER = 1;
+  private com.google.protobuf.ByteString val_;
   /**
-   * <code>bytes value = 1;</code>
-   * @return The value.
+   * <code>bytes val = 1;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getValue() {
-    return value_;
+  public com.google.protobuf.ByteString getVal() {
+    return val_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -111,8 +111,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!value_.isEmpty()) {
-      output.writeBytes(1, value_);
+    if (!val_.isEmpty()) {
+      output.writeBytes(1, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -123,9 +123,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!value_.isEmpty()) {
+    if (!val_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(1, value_);
+        .computeBytesSize(1, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -142,8 +142,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Uuid other = (org.mojolang.mojo.core.Uuid) obj;
 
-    if (!getValue()
-        .equals(other.getValue())) return false;
+    if (!getVal()
+        .equals(other.getVal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -155,8 +155,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
-    hash = (53 * hash) + getValue().hashCode();
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
+    hash = (53 * hash) + getVal().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      value_ = com.google.protobuf.ByteString.EMPTY;
+      val_ = com.google.protobuf.ByteString.EMPTY;
 
       return this;
     }
@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Uuid buildPartial() {
       org.mojolang.mojo.core.Uuid result = new org.mojolang.mojo.core.Uuid(this);
-      result.value_ = value_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -367,8 +367,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Uuid other) {
       if (other == org.mojolang.mojo.core.Uuid.getDefaultInstance()) return this;
-      if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
-        setValue(other.getValue());
+      if (other.getVal() != com.google.protobuf.ByteString.EMPTY) {
+        setVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -399,36 +399,36 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString val_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes value = 1;</code>
-     * @return The value.
+     * <code>bytes val = 1;</code>
+     * @return The val.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getValue() {
-      return value_;
+    public com.google.protobuf.ByteString getVal() {
+      return val_;
     }
     /**
-     * <code>bytes value = 1;</code>
-     * @param value The value to set.
+     * <code>bytes val = 1;</code>
+     * @param value The val to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(com.google.protobuf.ByteString value) {
+    public Builder setVal(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bytes value = 1;</code>
+     * <code>bytes val = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearVal() {
       
-      value_ = getDefaultInstance().getValue();
+      val_ = getDefaultInstance().getVal();
       onChanged();
       return this;
     }

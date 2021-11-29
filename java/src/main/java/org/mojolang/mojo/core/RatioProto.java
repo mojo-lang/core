@@ -28,10 +28,10 @@ public final class RatioProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025mojo/core/ratio.proto\022\tmojo.core\"\026\n\005Ra" +
-      "tio\022\r\n\005value\030\001 \001(\002BW\n\026org.mojolang.mojo." +
-      "coreB\nRatioProtoP\001Z/github.com/mojo-lang" +
-      "/core/go/pkg/mojo/core;coreb\006proto3"
+      "\n\025mojo/core/ratio.proto\022\tmojo.core\"\024\n\005Ra" +
+      "tio\022\013\n\003val\030\001 \001(\002BW\n\026org.mojolang.mojo.co" +
+      "reB\nRatioProtoP\001Z/github.com/mojo-lang/c" +
+      "ore/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -42,7 +42,7 @@ public final class RatioProto {
     internal_static_mojo_core_Ratio_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Ratio_descriptor,
-        new java.lang.String[] { "Value", });
+        new java.lang.String[] { "Val", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
