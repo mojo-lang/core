@@ -32,7 +32,7 @@ func (m *ErrorCode) Parse(code string) error {
 			return fmt.Errorf("failed to parse error code %w", err)
 		}
 
-		m.Value = int32(v)
+		m.Val = int32(v)
 	}
 	return nil
 }
@@ -45,7 +45,7 @@ func (m *ErrorCode) Format() string {
 			buffer.WriteString(m.Domain)
 			buffer.WriteByte('.')
 		}
-		buffer.WriteString(strconv.FormatInt(int64(m.Value), 10))
+		buffer.WriteString(strconv.FormatInt(int64(m.Val), 10))
 		return buffer.String()
 	}
 	return ""

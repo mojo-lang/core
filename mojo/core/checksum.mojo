@@ -15,7 +15,7 @@
 /// Checksum
 /// 
 /// MD5, SHA1, SHA256 and SHA512.
-@format('{algorithm} {value}')
+@format('{algorithm} {val}')
 type Checksum {
     /// commonly used algorithm for Checksum
     enum Algorithm {
@@ -31,5 +31,5 @@ type Checksum {
     algorithm: Algorithm @1
     
     /// the checksum value
-    value: String @2
+    val: String @2
 }

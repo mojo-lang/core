@@ -19,14 +19,14 @@ public interface ChecksumOrBuilder extends
   org.mojolang.mojo.core.Checksum.Algorithm getAlgorithm();
 
   /**
-   * <code>string value = 2;</code>
-   * @return The value.
+   * <code>string val = 2;</code>
+   * @return The val.
    */
-  java.lang.String getValue();
+  java.lang.String getVal();
   /**
-   * <code>string value = 2;</code>
-   * @return The bytes for value.
+   * <code>string val = 2;</code>
+   * @return The bytes for val.
    */
   com.google.protobuf.ByteString
-      getValueBytes();
+      getValBytes();
 }

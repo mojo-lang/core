@@ -19,10 +19,10 @@
 /// "system.NotSupport"
 /// code `[100..599]` is reserved by duplicated with http status code
 /// code `0` is also reserved because of it usually has success meaning
-@format('{domain.}{value}')
+@format('{domain.}{val}')
 type ErrorCode {
     ///
-    value: Int32 @1 @required
+    val: Int32 @1 @required
 
     /// The name of the error code. This is a constant value that identifies the
     /// error code. Error code name are unique within a particular
@@ -54,12 +54,12 @@ const {
     /// Not an error; returned on success
     ///
     /// HTTP Mapping: 200 OK
-    ok = ErrorCode{value: 0, name: "OK", http_status_code: 200}
+    ok = ErrorCode{val: 0, name: "OK", http_status_code: 200}
 
     /// The operation was cancelled, typically by the caller.
     ///
     /// HTTP Mapping: 499 Client Closed Request
-    cancelled = ErrorCode{value: 499, name: "CANCELLED", http_status_code: 499}
+    cancelled = ErrorCode{val: 499, name: "CANCELLED", http_status_code: 499}
 
     /// Unknown error.  For example, this error may be returned when
     /// a `Status` value received from another address space belongs to
@@ -68,7 +68,7 @@ const {
     /// may be converted to this error.
     ///
     /// HTTP Mapping: 500 Internal Server Error
-    unknown_error = ErrorCode{value: 2, name: "UNKNOWN_ERROR", http_status_code: 500}
+    unknown_error = ErrorCode{val: 2, name: "UNKNOWN_ERROR", http_status_code: 500}
 
     /// The client specified an invalid argument.  Note that this differs
     /// from `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments
@@ -76,7 +76,7 @@ const {
     /// (e.g., a malformed file name).
     ///
     /// HTTP Mapping: 400 Bad Request
-    invalid_argument = ErrorCode{value: 3, name: "INVALID_ARGUMENT", http_status_code: 400}
+    invalid_argument = ErrorCode{val: 3, name: "INVALID_ARGUMENT", http_status_code: 400}
 
     /// The deadline expired before the operation could complete. For operations
     /// that change the state of the system, this error may be returned
@@ -85,7 +85,7 @@ const {
     /// enough for the deadline to expire.
     ///
     /// HTTP Mapping: 504 Gateway Timeout
-    deadline_exceeded = ErrorCode{value: 504, name: "DEADLINE_EXCEEDED", http_status_code: 504}
+    deadline_exceeded = ErrorCode{val: 504, name: "DEADLINE_EXCEEDED", http_status_code: 504}
 
     /// Some requested entity (e.g., file or directory) was not found.
     ///
@@ -96,13 +96,13 @@ const {
     /// must be used.
     ///
     /// HTTP Mapping: 404 Not Found
-    not_found = ErrorCode{value: 404, name: "NOT_FOUND", http_status_code: 404}
+    not_found = ErrorCode{val: 404, name: "NOT_FOUND", http_status_code: 404}
 
     /// The entity that a client attempted to create (e.g., file or directory)
     /// already exists.
     ///
     /// HTTP Mapping: 409 Conflict
-    already_exists = ErrorCode{value: 6, name: "ALREADY_EXISTS", http_status_code: 409}
+    already_exists = ErrorCode{val: 6, name: "ALREADY_EXISTS", http_status_code: 409}
 
     /// The caller does not have permission to execute the specified
     /// operation. `PERMISSION_DENIED` must not be used for rejections
@@ -114,19 +114,19 @@ const {
     /// other pre-conditions.
     ///
     /// HTTP Mapping: 403 Forbidden
-    permission_denied = ErrorCode{value: 403, name: "PERMISSION_DENIED", http_status_code: 403}
+    permission_denied = ErrorCode{val: 403, name: "PERMISSION_DENIED", http_status_code: 403}
 
     /// The request does not have valid authentication credentials for the
     /// operation.
     ///
     /// HTTP Mapping: 401 Unauthorized
-    unauthenticated = ErrorCode{value: 401, name: "UNAUTHENTICATED", http_status_code: 401}
+    unauthenticated = ErrorCode{val: 401, name: "UNAUTHENTICATED", http_status_code: 401}
 
     /// Some resource has been exhausted, perhaps a per-user quota, or
     /// perhaps the entire file system is out of space.
     ///
     /// HTTP Mapping: 429 Too Many Requests
-    resource_exhausted = ErrorCode{value: 429, name: "RESOURCE_EXHAUSTED", http_status_code: 429}
+    resource_exhausted = ErrorCode{val: 429, name: "RESOURCE_EXHAUSTED", http_status_code: 429}
 
     /// The operation was rejected because the system is not in a state
     /// required for the operation's execution.  For example, the directory
@@ -146,7 +146,7 @@ const {
     ///      the files are deleted from the directory.
     ///
     /// HTTP Mapping: 400 Bad Request
-    failed_precondition = ErrorCode{value: 9, name: "FAILED_PRECONDITION", http_status_code: 400}
+    failed_precondition = ErrorCode{val: 9, name: "FAILED_PRECONDITION", http_status_code: 400}
 
     /// The operation was aborted, typically due to a concurrency issue such as
     /// a sequencer check failure or transaction abort.
@@ -155,7 +155,7 @@ const {
     /// `ABORTED`, and `UNAVAILABLE`.
     ///
     /// HTTP Mapping: 409 Conflict
-    aborted = ErrorCode{value: 10, name: "ABORTED", http_status_code: 409}
+    aborted = ErrorCode{val: 10, name: "ABORTED", http_status_code: 409}
 
     /// The operation was attempted past the valid range.  E.g., seeking or
     /// reading past end-of-file.
@@ -174,20 +174,20 @@ const {
     /// they are done.
     ///
     /// HTTP Mapping: 400 Bad Request
-    out_of_range = ErrorCode{value: 11, name: "OUT_OF_RANGE", http_status_code: 400}
+    out_of_range = ErrorCode{val: 11, name: "OUT_OF_RANGE", http_status_code: 400}
 
     /// The operation is not implemented or is not supported/enabled in this
     /// service.
     ///
     /// HTTP Mapping: 501 Not Implemented
-    unimplemented = ErrorCode{value: 501, name: "UNIMPLEMENTED", http_status_code: 501}
+    unimplemented = ErrorCode{val: 501, name: "UNIMPLEMENTED", http_status_code: 501}
 
     /// Internal errors.  This means that some invariants expected by the
     /// underlying system have been broken.  This error code is reserved
     /// for serious errors.
     ///
     /// HTTP Mapping: 500 Internal Server Error
-    internal_error = ErrorCode{value: 500, name: "INTERNAL_ERROR", http_status_code: 500}
+    internal_error = ErrorCode{val: 500, name: "INTERNAL_ERROR", http_status_code: 500}
 
     /// The service is currently unavailable.  This is most likely a
     /// transient condition, which can be corrected by retrying with
@@ -198,10 +198,10 @@ const {
     /// `ABORTED`, and `UNAVAILABLE`.
     ///
     /// HTTP Mapping: 503 Service Unavailable
-    unavailable = ErrorCode{value: 503, name: "UNAVAILABLE", http_status_code: 503}
+    unavailable = ErrorCode{val: 503, name: "UNAVAILABLE", http_status_code: 503}
 
     /// Unrecoverable data loss or corruption.
     ///
     /// HTTP Mapping: 500 Internal Server Error
-    data_loss = ErrorCode{value: 15, name: "DATA_LOSS", http_status_code: 500}
+    data_loss = ErrorCode{val: 15, name: "DATA_LOSS", http_status_code: 500}
 }

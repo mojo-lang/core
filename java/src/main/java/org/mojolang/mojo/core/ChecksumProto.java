@@ -28,15 +28,15 @@ public final class ChecksumProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030mojo/core/checksum.proto\022\tmojo.core\"\306\001" +
+      "\n\030mojo/core/checksum.proto\022\tmojo.core\"\304\001" +
       "\n\010Checksum\0220\n\talgorithm\030\001 \001(\0162\035.mojo.cor" +
-      "e.Checksum.Algorithm\022\r\n\005value\030\002 \001(\t\"y\n\tA" +
-      "lgorithm\022\031\n\025ALGORITHM_UNSPECIFIED\020\000\022\021\n\rA" +
-      "LGORITHM_MD5\020\001\022\022\n\016ALGORITHM_SHA1\020\002\022\024\n\020AL" +
-      "GORITHM_SHA256\020\003\022\024\n\020ALGORITHM_SHA512\020\004BZ" +
-      "\n\026org.mojolang.mojo.coreB\rChecksumProtoP" +
-      "\001Z/github.com/mojo-lang/core/go/pkg/mojo" +
-      "/core;coreb\006proto3"
+      "e.Checksum.Algorithm\022\013\n\003val\030\002 \001(\t\"y\n\tAlg" +
+      "orithm\022\031\n\025ALGORITHM_UNSPECIFIED\020\000\022\021\n\rALG" +
+      "ORITHM_MD5\020\001\022\022\n\016ALGORITHM_SHA1\020\002\022\024\n\020ALGO" +
+      "RITHM_SHA256\020\003\022\024\n\020ALGORITHM_SHA512\020\004BZ\n\026" +
+      "org.mojolang.mojo.coreB\rChecksumProtoP\001Z" +
+      "/github.com/mojo-lang/core/go/pkg/mojo/c" +
+      "ore;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -47,7 +47,7 @@ public final class ChecksumProto {
     internal_static_mojo_core_Checksum_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Checksum_descriptor,
-        new java.lang.String[] { "Algorithm", "Value", });
+        new java.lang.String[] { "Algorithm", "Val", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

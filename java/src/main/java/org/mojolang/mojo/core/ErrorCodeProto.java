@@ -29,13 +29,13 @@ public final class ErrorCodeProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/core/error_code.proto\022\tmojo.core\032" +
-      "\023mojo/core/url.proto\"\211\001\n\tErrorCode\022\r\n\005va" +
-      "lue\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\016\n\006domain\030\003 \001(\t\022" +
-      "\023\n\013description\030\005 \001(\t\022 \n\010document\030\004 \001(\0132\016" +
-      ".mojo.core.Url\022\030\n\020http_status_code\030\n \001(\005" +
-      "B[\n\026org.mojolang.mojo.coreB\016ErrorCodePro" +
-      "toP\001Z/github.com/mojo-lang/core/go/pkg/m" +
-      "ojo/core;coreb\006proto3"
+      "\023mojo/core/url.proto\"\207\001\n\tErrorCode\022\013\n\003va" +
+      "l\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\016\n\006domain\030\003 \001(\t\022\023\n" +
+      "\013description\030\005 \001(\t\022 \n\010document\030\004 \001(\0132\016.m" +
+      "ojo.core.Url\022\030\n\020http_status_code\030\n \001(\005B[" +
+      "\n\026org.mojolang.mojo.coreB\016ErrorCodeProto" +
+      "P\001Z/github.com/mojo-lang/core/go/pkg/moj" +
+      "o/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -47,7 +47,7 @@ public final class ErrorCodeProto {
     internal_static_mojo_core_ErrorCode_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_ErrorCode_descriptor,
-        new java.lang.String[] { "Value", "Name", "Domain", "Description", "Document", "HttpStatusCode", });
+        new java.lang.String[] { "Val", "Name", "Domain", "Description", "Document", "HttpStatusCode", });
     org.mojolang.mojo.core.UrlProto.getDescriptor();
   }
 
