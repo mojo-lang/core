@@ -5,7 +5,7 @@ package core
 
 import (
 	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
+	proto "github.com/golang/protobuf/proto"
 	math "math"
 )
 
@@ -18,13 +18,13 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type BoxedBool struct {
 	Val                  bool     `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedBool) Reset()         { *m = BoxedBool{} }
@@ -60,9 +60,9 @@ func (m *BoxedBool) GetVal() bool {
 
 type BoxedInt64 struct {
 	Val                  int64    `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedInt64) Reset()         { *m = BoxedInt64{} }
@@ -98,9 +98,9 @@ func (m *BoxedInt64) GetVal() int64 {
 
 type BoxedUInt64 struct {
 	Val                  uint64   `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedUInt64) Reset()         { *m = BoxedUInt64{} }
@@ -136,9 +136,9 @@ func (m *BoxedUInt64) GetVal() uint64 {
 
 type BoxedInt32 struct {
 	Val                  int32    `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedInt32) Reset()         { *m = BoxedInt32{} }
@@ -174,9 +174,9 @@ func (m *BoxedInt32) GetVal() int32 {
 
 type BoxedUInt32 struct {
 	Val                  int32    `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedUInt32) Reset()         { *m = BoxedUInt32{} }
@@ -212,9 +212,9 @@ func (m *BoxedUInt32) GetVal() int32 {
 
 type BoxedFloat struct {
 	Val                  float32  `protobuf:"fixed32,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedFloat) Reset()         { *m = BoxedFloat{} }
@@ -250,9 +250,9 @@ func (m *BoxedFloat) GetVal() float32 {
 
 type BoxedDouble struct {
 	Val                  float64  `protobuf:"fixed64,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedDouble) Reset()         { *m = BoxedDouble{} }
@@ -288,9 +288,9 @@ func (m *BoxedDouble) GetVal() float64 {
 
 type BoxedString struct {
 	Val                  string   `protobuf:"bytes,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedString) Reset()         { *m = BoxedString{} }
@@ -326,9 +326,9 @@ func (m *BoxedString) GetVal() string {
 
 type BoxedBytes struct {
 	Val                  []byte   `protobuf:"bytes,1,opt,name=val,proto3" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoxedBytes) Reset()         { *m = BoxedBytes{} }
@@ -364,9 +364,9 @@ func (m *BoxedBytes) GetVal() []byte {
 
 type BoolValues struct {
 	Vals                 []bool   `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *BoolValues) Reset()         { *m = BoolValues{} }
@@ -402,9 +402,9 @@ func (m *BoolValues) GetVals() []bool {
 
 type Int32Values struct {
 	Vals                 []int32  `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *Int32Values) Reset()         { *m = Int32Values{} }
@@ -440,9 +440,9 @@ func (m *Int32Values) GetVals() []int32 {
 
 type UInt32Values struct {
 	Vals                 []int32  `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *UInt32Values) Reset()         { *m = UInt32Values{} }
@@ -478,9 +478,9 @@ func (m *UInt32Values) GetVals() []int32 {
 
 type Int64Values struct {
 	Vals                 []int64  `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *Int64Values) Reset()         { *m = Int64Values{} }
@@ -516,9 +516,9 @@ func (m *Int64Values) GetVals() []int64 {
 
 type UInt64Values struct {
 	Vals                 []uint64 `protobuf:"varint,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *UInt64Values) Reset()         { *m = UInt64Values{} }
@@ -554,9 +554,9 @@ func (m *UInt64Values) GetVals() []uint64 {
 
 type FloatValues struct {
 	Vals                 []float32 `protobuf:"fixed32,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte    `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32     `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *FloatValues) Reset()         { *m = FloatValues{} }
@@ -592,9 +592,9 @@ func (m *FloatValues) GetVals() []float32 {
 
 type DoubleValues struct {
 	Vals                 []float64 `protobuf:"fixed64,1,rep,packed,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte    `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32     `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *DoubleValues) Reset()         { *m = DoubleValues{} }
@@ -630,9 +630,9 @@ func (m *DoubleValues) GetVals() []float64 {
 
 type Strings struct {
 	Vals                 []string `protobuf:"bytes,1,rep,name=vals,proto3" json:"vals,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *Strings) Reset()         { *m = Strings{} }
@@ -689,27 +689,27 @@ func init() {
 func init() { proto.RegisterFile("mojo/core/boxed.proto", fileDescriptor_68d6ceface8d8610) }
 
 var fileDescriptor_68d6ceface8d8610 = []byte{
-	// 337 bytes of a gzipped FileDescriptorProto
+	// 345 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0xd3, 0x4d, 0x4b, 0xfb, 0x30,
-	0x1c, 0x07, 0x70, 0xb2, 0x6e, 0xff, 0xff, 0x9a, 0x4d, 0xc1, 0x82, 0xb2, 0xdb, 0xc6, 0x04, 0xd9,
-	0x41, 0x1b, 0xf7, 0xe0, 0x2e, 0xde, 0x82, 0x08, 0xde, 0x86, 0x32, 0x05, 0x6f, 0xe9, 0x0c, 0x75,
-	0x9a, 0xee, 0x37, 0xba, 0xb4, 0xb8, 0x37, 0xbb, 0x17, 0xb0, 0x57, 0x21, 0x49, 0x50, 0x22, 0xf6,
-	0x09, 0x2f, 0xa5, 0x4d, 0xf2, 0xe1, 0x5b, 0xfa, 0xeb, 0x17, 0x1f, 0x47, 0xf0, 0x06, 0x64, 0x01,
-	0x31, 0x27, 0x01, 0x7c, 0xf0, 0x17, 0x7f, 0x1d, 0x83, 0x04, 0xcf, 0x55, 0xcb, 0xbe, 0x5a, 0xee,
-	0x5f, 0x62, 0x97, 0xaa, 0x1d, 0x0a, 0x20, 0xbc, 0x53, 0xec, 0xa4, 0x4c, 0x74, 0x50, 0x0f, 0x0d,
-	0x9a, 0xf4, 0x68, 0xbf, 0xeb, 0x1e, 0xa4, 0x4c, 0x9c, 0x43, 0xb4, 0x94, 0x3c, 0x5a, 0xcb, 0xed,
-	0xbd, 0xda, 0xed, 0x0f, 0x31, 0xd6, 0xe2, 0x6e, 0x25, 0xa7, 0x13, 0x9b, 0x38, 0xb9, 0x64, 0x84,
-	0x5b, 0x9a, 0xcc, 0x7f, 0x99, 0x7a, 0x95, 0x98, 0xf1, 0xc8, 0x26, 0x8d, 0x4a, 0x31, 0x55, 0xcd,
-	0x57, 0xcc, 0xad, 0x00, 0x26, 0x6d, 0x52, 0x2b, 0x8d, 0xb9, 0x81, 0x24, 0x10, 0xdc, 0x36, 0xa8,
-	0xd4, 0x3c, 0xc8, 0x78, 0xb9, 0x0a, 0x6d, 0xe3, 0x96, 0xbe, 0x1a, 0xdd, 0x4a, 0xbe, 0xb1, 0x49,
-	0x3b, 0x97, 0x4c, 0x14, 0x01, 0xf1, 0xc8, 0x44, 0xc2, 0x37, 0xde, 0x19, 0xae, 0xa7, 0x4c, 0x6c,
-	0x3a, 0xa8, 0xe7, 0x0c, 0x9a, 0xd4, 0xdb, 0xef, 0xba, 0x87, 0xea, 0xd9, 0x42, 0x7a, 0xbf, 0x7f,
-	0x85, 0x5b, 0xfa, 0x8b, 0x65, 0xb0, 0x46, 0x01, 0x9b, 0xe2, 0xf6, 0xfc, 0x2f, 0xce, 0xc4, 0x4d,
-	0x27, 0x19, 0xcc, 0x29, 0x8f, 0xcb, 0x74, 0xf5, 0xe2, 0x38, 0x3d, 0xdc, 0x0c, 0x56, 0x2b, 0x8e,
-	0x33, 0x03, 0xce, 0x70, 0xa8, 0xc0, 0x0d, 0xf1, 0x7f, 0x33, 0xe4, 0x9f, 0xc4, 0xcd, 0x27, 0xf4,
-	0x09, 0x9f, 0x40, 0x1c, 0xfa, 0xaa, 0x94, 0x82, 0xad, 0xcc, 0x8d, 0x6e, 0x27, 0x35, 0x3f, 0xc0,
-	0x4c, 0x95, 0x76, 0x86, 0x9e, 0x49, 0xb8, 0x94, 0xaf, 0x49, 0xe0, 0x2f, 0x20, 0x22, 0xea, 0xcc,
-	0x85, 0x3a, 0x6d, 0xda, 0x1d, 0x02, 0x59, 0xbf, 0x87, 0xe4, 0xbb, 0xee, 0xd7, 0xea, 0x12, 0xfc,
-	0xd3, 0x75, 0x1f, 0x7f, 0x06, 0x00, 0x00, 0xff, 0xff, 0xa7, 0xcc, 0x39, 0x7f, 0x07, 0x04, 0x00,
-	0x00,
+	0x1c, 0x07, 0xf0, 0x7f, 0xd6, 0xed, 0xef, 0x9a, 0x4d, 0xc1, 0x82, 0xb2, 0x93, 0x1b, 0x13, 0x64,
+	0x07, 0x6d, 0xdc, 0x83, 0xbb, 0x78, 0x0b, 0x22, 0x78, 0x1b, 0xca, 0x3c, 0xe8, 0x29, 0x9d, 0xa1,
+	0x4e, 0xd3, 0xfd, 0x46, 0x97, 0x0d, 0xf7, 0x4e, 0x7c, 0x75, 0xbb, 0x78, 0xdb, 0xab, 0x90, 0x24,
+	0x28, 0x11, 0xfb, 0x84, 0x97, 0xd2, 0x26, 0xf9, 0xf0, 0x2d, 0xfd, 0xf5, 0x8b, 0x0f, 0x22, 0x78,
+	0x01, 0x32, 0x81, 0x98, 0x93, 0x00, 0xde, 0xf8, 0x93, 0x3f, 0x8f, 0x41, 0x82, 0xe7, 0xaa, 0x65,
+	0x5f, 0x2d, 0xb7, 0xcf, 0xb1, 0x4b, 0xd5, 0x0e, 0x05, 0x10, 0xde, 0x31, 0x76, 0x56, 0x4c, 0x34,
+	0x50, 0x0b, 0x75, 0xaa, 0x74, 0x7f, 0xbb, 0x69, 0xee, 0xae, 0x98, 0x38, 0x85, 0x68, 0x2a, 0x79,
+	0x34, 0x97, 0xeb, 0x5b, 0xb5, 0xdb, 0xee, 0x62, 0xac, 0xc5, 0xcd, 0x4c, 0x0e, 0x07, 0x36, 0x71,
+	0x52, 0x49, 0x0f, 0xd7, 0x34, 0x19, 0xff, 0x32, 0xe5, 0x22, 0x31, 0xfd, 0x9e, 0x4d, 0x2a, 0x85,
+	0x62, 0x8a, 0x9a, 0xaf, 0x98, 0x6b, 0x01, 0x4c, 0xda, 0xa4, 0x94, 0x1b, 0x73, 0x05, 0xcb, 0x40,
+	0x70, 0xdb, 0xa0, 0x5c, 0x73, 0x27, 0xe3, 0xe9, 0x2c, 0xb4, 0x8d, 0x9b, 0xfb, 0x6a, 0x74, 0x2d,
+	0xf9, 0xc2, 0x26, 0xf5, 0x54, 0x32, 0x50, 0x04, 0xc4, 0x3d, 0x13, 0x4b, 0xbe, 0xf0, 0x4e, 0x70,
+	0x79, 0xc5, 0xc4, 0xa2, 0x81, 0x5a, 0x4e, 0xa7, 0x4a, 0xbd, 0xed, 0xa6, 0xb9, 0xa7, 0x9e, 0x2d,
+	0xa4, 0xf7, 0xdb, 0x17, 0xb8, 0xa6, 0xbf, 0x58, 0x02, 0xab, 0x64, 0xb0, 0x21, 0xae, 0x8f, 0xff,
+	0xe2, 0x4c, 0xdc, 0x70, 0x90, 0xc0, 0x9c, 0xfc, 0xb8, 0x44, 0x57, 0xce, 0x8e, 0xd3, 0xc3, 0x4d,
+	0x60, 0xa5, 0xec, 0x38, 0x33, 0xe0, 0x04, 0x87, 0x32, 0x5c, 0x17, 0xef, 0x98, 0x21, 0xff, 0x24,
+	0x6e, 0x3a, 0xa1, 0x8f, 0xef, 0x1f, 0x47, 0xff, 0xf0, 0x21, 0xc4, 0xa1, 0xaf, 0x8a, 0x29, 0xd8,
+	0xcc, 0xdc, 0xe8, 0x86, 0x52, 0xf3, 0x13, 0x8c, 0x54, 0x71, 0x47, 0xe8, 0x81, 0x84, 0x53, 0xf9,
+	0xbc, 0x0c, 0xfc, 0x09, 0x44, 0x44, 0x9d, 0x39, 0x53, 0xa7, 0x4d, 0xc3, 0x43, 0x20, 0xf3, 0xd7,
+	0x90, 0x7c, 0x57, 0xfe, 0x52, 0x5d, 0x82, 0xff, 0xba, 0xf2, 0xfd, 0xcf, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0x02, 0x17, 0xe5, 0xdd, 0x0b, 0x04, 0x00, 0x00,
 }

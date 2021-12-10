@@ -97,3 +97,5 @@ attribute label: String
 attribute case_style: CaseStyle
 
 attribute pagination: Object
+
+attribute format: TemplateString

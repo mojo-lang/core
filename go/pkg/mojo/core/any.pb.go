@@ -2,7 +2,7 @@ package core
 
 import (
 	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
+	proto "github.com/golang/protobuf/proto"
 	_ "github.com/mojo-lang/core/go/pkg/mojo"
 	math "math"
 )
@@ -16,15 +16,15 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type Any struct {
-	Type                 string      `protobuf:"bytes,1,opt,name=type,proto3" json:"@type,omitempty"`
-	Val                  []byte      `protobuf:"bytes,2,opt,name=val,proto3" json:"val,omitempty"`
-	TypeVal              interface{} `json:"-"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	Type                 string `protobuf:"bytes,1,opt,name=type,proto3" json:"@type,omitempty"`
+	Val                  []byte `protobuf:"bytes,2,opt,name=val,proto3" json:"val,omitempty"`
+	typeVal              interface{}
+	XXX_NoUnkeyedLiteral struct{} `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" gorm:"-" xml:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" gorm:"-" xml:"-" bson:"-"`
 }
 
 func (m *Any) Reset()         { *m = Any{} }

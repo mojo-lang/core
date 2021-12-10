@@ -33,13 +33,4 @@
 # at src/google/protobuf/compiler/plugin.proto
 # Also we need to fix an import.
 regenerate:
-	go install github.com/gogo/protobuf/protoc-gen-gogo@latest
-	protoc --gogo_out=Mgoogle/protobuf/descriptor.proto=github.com/gogo/protobuf/protoc-gen-gogo/descriptor:. -I=. mojo/mojo.proto
-	rm ../go/pkg/mojo/mojo.pb.go || true
-	mv github.com/mojo-lang/core/go/pkg/mojo/mojo.pb.go ../go/pkg/mojo/ || true
-	rmdir github.com/mojo-lang/core/go/pkg/mojo || true
-	rmdir github.com/mojo-lang/core/go/pkg || true
-	rmdir github.com/mojo-lang/core/go || true
-	rmdir github.com/mojo-lang/core || true
-	rmdir github.com/mojo-lang || true
-	rmdir github.com || true
+	protoc --go_out=paths=source_relative:../go/pkg/ -I=. mojo/mojo.proto

@@ -14,10 +14,13 @@
 
 /// Wrapper type for the Generic T type
 ///
-///
+/// 实例化名称规格， TValue  TValues  TValuesMap
 type Boxed<T> {
     val: T @1 //< the boxed value
 }
+
+/// Associative Values for string key based map
+type AssocValues<T> = {String: T}
 
 /// Wrapper type for `Bool`
 ///
@@ -88,7 +91,7 @@ type Int64Values: [Int64]
 /// Alias type for `Int64s`
 ///
 /// The JSON representation for `Integers` is JSON number array.
-type IntegerValues = Int64s
+type IntegerValues = Int64Values
 
 /// Wrapper type for `Array<String>`
 ///

@@ -1,1 +1,1 @@
-{"title":"mojo.core.BoxedBool","description":"Wrapper type for the Generic T type\n\n","type":"object","properties":{"val":{"description":"the boxed value","type":"boolean"}}}
+{"title":"mojo.core.BoxedBool","description":"Wrapper type for the Generic T type\n\n实例化名称规格， TValue  TValues  TValuesMap","type":"object","properties":{"val":{"description":"the boxed value","type":"boolean"}}}
