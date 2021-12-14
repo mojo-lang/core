@@ -4,6 +4,8 @@ import (
 	"time"
 )
 
+const TimestampTypeName = "mojo.core.Timestamp"
+
 var loc, _ = time.LoadLocation("Asia/Shanghai")
 var normalFormatLen = len("2006-01-02 15:04:05")
 
