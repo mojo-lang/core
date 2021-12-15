@@ -7,13 +7,18 @@ import (
 
 const DurationTypeName = "mojo.core.Duration"
 
-func (m Duration) ToDuration() time.Duration {
-	return time.Duration(m.Seconds)*time.Second + time.Duration(m.Nanoseconds)
-}
-
 func FromDuration(d time.Duration) *Duration {
 	duration := &Duration{}
 	return duration.FromDuration(d)
+}
+
+func NewDurationFromSeconds(seconds float64) *Duration {
+	duration := &Duration{}
+	return duration.FromSeconds(seconds)
+}
+
+func (m Duration) ToDuration() time.Duration {
+	return time.Duration(m.Seconds)*time.Second + time.Duration(m.Nanoseconds)
 }
 
 func (m *Duration) FromDuration(d time.Duration) *Duration {
