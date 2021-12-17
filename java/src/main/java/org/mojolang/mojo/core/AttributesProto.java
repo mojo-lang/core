@@ -24,14 +24,14 @@ public final class AttributesProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/core/attributes.proto\022\tmojo.core*" +
-      "\305\001\n\tCaseStyle\022\032\n\026CASE_STYLE_UNSPECIFIED\020" +
-      "\000\022\024\n\020CASE_STYLE_SNAKE\020\001\022\036\n\032CASE_STYLE_SC" +
-      "REAMING_SNAKE\020\002\022\024\n\020CASE_STYLE_KEBAB\020\003\022\036\n" +
-      "\032CASE_STYLE_SCREAMING_KEBAB\020\004\022\024\n\020CASE_ST" +
-      "YLE_CAMEL\020\005\022\032\n\026CASE_STYLE_LOWER_CAMEL\020\006B" +
-      "\\\n\026org.mojolang.mojo.coreB\017AttributesPro" +
-      "toP\001Z/github.com/mojo-lang/core/go/pkg/m" +
-      "ojo/core;coreb\006proto3"
+      "\310\001\n\010DeclType\022\031\n\025DECL_TYPE_UNSPECIFIED\020\000\022" +
+      "\022\n\016DECL_TYPE_TYPE\020\001\022\023\n\017DECL_TYPE_VALUE\020\002" +
+      "\022\026\n\022DECL_TYPE_FUNCTION\020\003\022\031\n\025DECL_TYPE_CO" +
+      "NSTRUCTOR\020\004\022\027\n\023DECL_TYPE_ATTRIBUTE\020\005\022\025\n\021" +
+      "DECL_TYPE_PACKAGE\020\006\022\025\n\021DECL_TYPE_GENERIC" +
+      "\020\007B\\\n\026org.mojolang.mojo.coreB\017Attributes" +
+      "ProtoP\001Z/github.com/mojo-lang/core/go/pk" +
+      "g/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

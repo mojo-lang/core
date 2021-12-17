@@ -1,5 +1,5 @@
 | 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
 |---|---|---|---|---|---|
-| `userInfo` | `string` | `` | 否 |  |
-| `host` | `string` | `` | 否 |  |
+| `userInfo` | `string` |  | 否 |  |
+| `host` | `string` |  | 否 |  |
 | `port` | `integer` | `int64` | 否 |  |

@@ -12,4 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-type Referenced<T> = String @1 @label('key') | T @2 @label_format('{}')
+/// Used in the recyle referenced stituation
+///
+/// ```
+/// type Node {
+///    name: String @1
+///    parent: Refenched<Node> @2
+///    children: [Node] @3
+/// }
+/// ```
+/// to json
+/// ```
+/// {
+///    "name": "node-0-0", 
+///    "parent": "node-0",
+///    "children": [{"name": "node-0-0-0"}]
+/// }
+/// ```
+type Referenced<T> {
+    key: String @1
+    val: T @2 @ignored
+}

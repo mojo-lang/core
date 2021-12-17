@@ -1,1 +1,1 @@
-{"oneOf":[{"$ref":"#/components/schemas/mojo.core.Error"},{"$ref":"#/components/schemas/mojo.core.Null"}]}
+{"title":"mojo.core.Status","oneOf":[{"$ref":"#/components/schemas/mojo.core.Error"},{"$ref":"#/components/schemas/mojo.core.Null"}]}

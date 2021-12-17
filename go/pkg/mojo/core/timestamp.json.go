@@ -1,9 +1,7 @@
 package core
 
 import (
-	"github.com/araddon/dateparse"
 	jsoniter "github.com/json-iterator/go"
-	"time"
 	"unsafe"
 )
 
@@ -33,19 +31,9 @@ func (codec *TimestampCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator)
 			ts.Nanoseconds = int32((number - ts.Seconds*1000) * 1000000)
 		}
 	} else if any.ValueType() == jsoniter.StringValue {
-		str := any.ToString()
-
-		// ts has timezone info, like "2006-01-02 15:04:05+0800"
-		// since '+' will be replaced by space in url, we restore it to '+' if possible
-		if len(str) > normalFormatLen && str[normalFormatLen] == ' ' {
-			str = str[:normalFormatLen] + "+" + str[normalFormatLen+1:]
+		if err := ts.Parse(any.ToString()); err != nil {
+			iter.ReportError("Decode Timestamp", err.Error())
 		}
-
-		t, err := dateparse.ParseIn(str, loc)
-		if err != nil {
-		}
-
-		ts.FromTime(t)
 	}
 }
 
@@ -54,6 +42,5 @@ func (codec *TimestampCodec) IsEmpty(ptr unsafe.Pointer) bool {
 }
 
 func (codec *TimestampCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-	ts := (*Timestamp)(ptr)
-	stream.WriteString(ts.ToTime().Format(time.RFC3339))
+	stream.WriteString((*Timestamp)(ptr).Format())
 }

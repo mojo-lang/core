@@ -46,7 +46,7 @@ func (x Checksum_Algorithm) Format() string {
 	return strconv.Itoa(int(x))
 }
 
-func (x *Checksum_Algorithm) Parse(value string) {
+func (x *Checksum_Algorithm) Parse(value string) error {
 	if x != nil {
 		s, ok := ChecksumAlgorithmValues[value]
 		if ok {
@@ -57,4 +57,5 @@ func (x *Checksum_Algorithm) Parse(value string) {
 	} else {
 		*x = Checksum_ALGORITHM_MD5
 	}
+	return nil
 }

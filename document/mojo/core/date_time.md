@@ -7,4 +7,4 @@
 | `minute` | `integer` | `int32` | 否 |  |
 | `seconds` | `integer` | `int64` | 否 |  |
 | `nanoseconds` | `integer` | `int32` | 否 |  |
-| `timeZone` | `mojo.core.TimeZone` | `` | 否 |  |
+| `timeZone` | `mojo.core.TimeZone` |  | 否 |  |

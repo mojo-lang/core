@@ -1,1 +1,1 @@
-{"oneOf":[{"$ref":"#/components/schemas/mojo.core.Values"},{"$ref":"#/components/schemas/mojo.core.Object"},{"type":"boolean"},{"type":"integer","format":"int64"},{"type":"number"},{"type":"string"}]}
+{"title":"mojo.core.Value","oneOf":[{"$ref":"#/components/schemas/mojo.core.Values"},{"$ref":"#/components/schemas/mojo.core.Object"},{"type":"boolean"},{"type":"integer","format":"int64"},{"type":"number","format":"float64"},{"type":"string"}]}

@@ -99,3 +99,17 @@ attribute case_style: CaseStyle
 attribute pagination: Object
 
 attribute format: TemplateString
+
+//@target(DeclType.attribute)
+attribute target: [DeclType]
+
+enum DeclType {
+    unspecified @0
+    type @1               //< Class, interface (including annotation type), or enum declaration
+    value @2              //< Field declaration (includes enum constants)
+    function  @3          //< Method declaration
+    constructor @4        //< Constructor declaration
+    attribute @5          //< Annotation type declaration
+    package @6            //< Package declaration
+    generic @7            //< Generic Type parameter declaration
+}

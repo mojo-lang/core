@@ -52,7 +52,7 @@ func (x DayOfWeek) Format() string {
 	return strconv.Itoa(int(x))
 }
 
-func (x *DayOfWeek) Parse(value string) {
+func (x *DayOfWeek) Parse(value string) error {
 	if x != nil {
 		s, ok := DayOfWeekValues[value]
 		if ok {
@@ -63,4 +63,5 @@ func (x *DayOfWeek) Parse(value string) {
 	} else {
 		*x = DayOfWeek_DAY_OF_WEEK_MONDAY
 	}
+	return nil
 }

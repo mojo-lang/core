@@ -1,0 +1,1 @@
+{"title":"mojo.core.DoubleValues","description":"Wrapper type for `Array\u003cString\u003e`\n\nThe JSON representation for `Doubles` is JSON number array.","type":"array","items":{"type":"number","format":"float64"}}

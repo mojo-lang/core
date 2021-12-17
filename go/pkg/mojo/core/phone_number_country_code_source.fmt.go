@@ -46,7 +46,7 @@ func (x PhoneNumber_CountryCodeSource) Format() string {
 	return strconv.Itoa(int(x))
 }
 
-func (x *PhoneNumber_CountryCodeSource) Parse(value string) {
+func (x *PhoneNumber_CountryCodeSource) Parse(value string) error {
 	if x != nil {
 		s, ok := PhoneNumberCountryCodeSourceValues[value]
 		if ok {
@@ -57,4 +57,5 @@ func (x *PhoneNumber_CountryCodeSource) Parse(value string) {
 	} else {
 		*x = PhoneNumber_COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN
 	}
+	return nil
 }
