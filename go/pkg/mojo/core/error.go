@@ -2,7 +2,8 @@ package core
 
 import (
 	"fmt"
-	"github.com/gogo/protobuf/proto"
+
+	"github.com/golang/protobuf/proto"
 )
 
 func NewError(code *ErrorCode, message string, arguments ...interface{}) *Error {

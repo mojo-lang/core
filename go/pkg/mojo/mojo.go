@@ -31,7 +31,9 @@ func MessageOptionsExtensions() []*protoimpl.ExtensionInfo {
 func FieldOptionsExtensions() []*protoimpl.ExtensionInfo {
 	return []*protoimpl.ExtensionInfo{
 		E_Alias,
-		E_DbSkip,
-		E_DbAssociation,
+		E_DbIgnore,
+		E_DbJson,
+		E_DbExplode,
+		E_DbReference,
 	}
 }
