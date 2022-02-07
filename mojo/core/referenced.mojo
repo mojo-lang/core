@@ -25,11 +25,11 @@
 /// ```
 /// {
 ///    "name": "node-0-0", 
-///    "parent": "node-0",
+///    "parent": {"name": "node-0"},
 ///    "children": [{"name": "node-0-0-0"}]
 /// }
 /// ```
 type Referenced<T> {
-    key: String @1
-    val: T @2 @ignored
+    fields: [String] @1
+    val: T @2
 }
