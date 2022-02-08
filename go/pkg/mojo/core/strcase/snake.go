@@ -3,6 +3,7 @@ package strcase
 import (
 	"regexp"
 	"strings"
+	"unicode"
 )
 
 func init() {
@@ -86,6 +87,11 @@ func ToScreamingDelimited(s string, delimiter uint8, ignore string, screaming bo
 			// add underscore if next letter case type is changed
 			if (vIsCap && (nextIsLow || nextIsNum)) || (vIsLow && (nextIsCap || nextIsNum)) || (vIsNum && (nextIsCap || nextIsLow)) {
 				if (vIsCap && nextIsNum) || (vIsLow && nextIsNum) {
+					n.WriteByte(v)
+					continue
+				}
+				// treat the a2b as a whole word
+				if vIsNum && v == '2' && (nextIsCap || nextIsLow) && i > 0 && unicode.IsLetter(rune(s[i-1])) {
 					n.WriteByte(v)
 					continue
 				}

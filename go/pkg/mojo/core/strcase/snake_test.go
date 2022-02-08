@@ -19,6 +19,7 @@ func TestToSnake(t *testing.T) {
 		{"Float32", "float32"},
 		{"Float64", "float64"},
 		{"IPV4", "ipv4"},
+		{"B2B", "b2b"},
 	}
 
 	for _, c := range cases {
