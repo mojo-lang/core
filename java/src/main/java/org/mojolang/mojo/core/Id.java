@@ -49,8 +49,8 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 8: {
-            idCase_ = 1;
             id_ = input.readUInt64();
+            idCase_ = 1;
             break;
           }
           case 18: {

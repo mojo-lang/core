@@ -460,19 +460,19 @@ private static final long serialVersionUID = 0L;
     if (nationalNumber_ != 0L) {
       output.writeUInt64(2, nationalNumber_);
     }
-    if (!getExtensionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extension_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, extension_);
     }
     if (italianLeadingZero_ != false) {
       output.writeBool(4, italianLeadingZero_);
     }
-    if (!getRawInputBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawInput_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, rawInput_);
     }
     if (countryCodeSource_ != org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.COUNTRY_CODE_SOURCE_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, countryCodeSource_);
     }
-    if (!getPreferredDomesticCarrierCodeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preferredDomesticCarrierCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, preferredDomesticCarrierCode_);
     }
     if (numberOfLeadingZeros_ != 0) {
@@ -495,21 +495,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(2, nationalNumber_);
     }
-    if (!getExtensionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extension_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, extension_);
     }
     if (italianLeadingZero_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, italianLeadingZero_);
     }
-    if (!getRawInputBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawInput_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, rawInput_);
     }
     if (countryCodeSource_ != org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.COUNTRY_CODE_SOURCE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, countryCodeSource_);
     }
-    if (!getPreferredDomesticCarrierCodeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preferredDomesticCarrierCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, preferredDomesticCarrierCode_);
     }
     if (numberOfLeadingZeros_ != 0) {

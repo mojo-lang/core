@@ -229,7 +229,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsMetadata(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetMetadata().getMap().containsKey(key);
   }
   /**
@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
   public java.lang.String getMetadataOrDefault(
       java.lang.String key,
       java.lang.String defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetMetadata().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -268,7 +268,7 @@ private static final long serialVersionUID = 0L;
 
   public java.lang.String getMetadataOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetMetadata().getMap();
     if (!map.containsKey(key)) {
@@ -291,10 +291,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getReasonBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reason_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reason_);
     }
-    if (!getDomainBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, domain_);
     }
     com.google.protobuf.GeneratedMessageV3
@@ -312,10 +312,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getReasonBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reason_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reason_);
     }
-    if (!getDomainBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, domain_);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
@@ -832,7 +832,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsMetadata(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetMetadata().getMap().containsKey(key);
     }
     /**
@@ -859,7 +859,7 @@ private static final long serialVersionUID = 0L;
     public java.lang.String getMetadataOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMetadata().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -871,7 +871,7 @@ private static final long serialVersionUID = 0L;
 
     public java.lang.String getMetadataOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMetadata().getMap();
       if (!map.containsKey(key)) {
@@ -891,7 +891,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeMetadata(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableMetadata().getMutableMap()
           .remove(key);
       return this;
@@ -910,8 +910,11 @@ private static final long serialVersionUID = 0L;
     public Builder putMetadata(
         java.lang.String key,
         java.lang.String value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableMetadata().getMutableMap()
           .put(key, value);
       return this;

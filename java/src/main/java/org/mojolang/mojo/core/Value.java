@@ -77,18 +77,18 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 24: {
-            valueCase_ = 3;
             value_ = input.readBool();
+            valueCase_ = 3;
             break;
           }
           case 32: {
-            valueCase_ = 4;
             value_ = input.readInt64();
+            valueCase_ = 4;
             break;
           }
           case 41: {
-            valueCase_ = 5;
             value_ = input.readDouble();
+            valueCase_ = 5;
             break;
           }
           case 58: {

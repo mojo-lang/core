@@ -1,0 +1,1 @@
+{"title":"mojo.core.Platform","description":"","type":"object","properties":{"arch":{"title":"mojo.core.Arch","type":"string","enum":["amd64","arm","arm64","wasm"]},"os":{"title":"mojo.core.OS","type":"string","enum":["android","darwin","ios","linux","windows"]},"osVersion":{"type":"string"}}}

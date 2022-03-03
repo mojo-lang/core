@@ -63,5 +63,4 @@ extend google.protobuf.FieldOptions {
 	optional string db_index = 75102;
 	optional string db_explode = 75103;
 	optional string db_reference = 75104;
-	optional string db_back_reference = 75105;
 }

@@ -167,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (blue_ != 0) {
       output.writeInt32(3, blue_);
     }
-    if (alpha_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(alpha_) != 0) {
       output.writeFloat(4, alpha_);
     }
     unknownFields.writeTo(output);
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, blue_);
     }
-    if (alpha_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(alpha_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(4, alpha_);
     }

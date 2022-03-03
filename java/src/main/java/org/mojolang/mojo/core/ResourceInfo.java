@@ -274,16 +274,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getResourceTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, resourceType_);
     }
-    if (!getResourceNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, resourceName_);
     }
-    if (!getOwnerBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(owner_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, owner_);
     }
-    if (!getDescriptionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
     }
     unknownFields.writeTo(output);
@@ -295,16 +295,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getResourceTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, resourceType_);
     }
-    if (!getResourceNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, resourceName_);
     }
-    if (!getOwnerBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(owner_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, owner_);
     }
-    if (!getDescriptionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
     }
     size += unknownFields.getSerializedSize();
