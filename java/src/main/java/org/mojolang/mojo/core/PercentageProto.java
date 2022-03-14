@@ -29,7 +29,7 @@ public final class PercentageProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/core/percentage.proto\022\tmojo.core\"" +
-      "\031\n\nPercentage\022\013\n\003val\030\001 \001(\005B\\\n\026org.mojola" +
+      "\031\n\nPercentage\022\013\n\003val\030\001 \001(\rB\\\n\026org.mojola" +
       "ng.mojo.coreB\017PercentageProtoP\001Z/github." +
       "com/mojo-lang/core/go/pkg/mojo/core;core" +
       "b\006proto3"

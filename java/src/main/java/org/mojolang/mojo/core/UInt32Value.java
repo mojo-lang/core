@@ -4,25 +4,25 @@
 package org.mojolang.mojo.core;
 
 /**
- * Protobuf type {@code mojo.core.BoxedUInt32}
+ * Protobuf type {@code mojo.core.UInt32Value}
  */
-public final class BoxedUInt32 extends
+public final class UInt32Value extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:mojo.core.BoxedUInt32)
-    BoxedUInt32OrBuilder {
+    // @@protoc_insertion_point(message_implements:mojo.core.UInt32Value)
+    UInt32ValueOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use BoxedUInt32.newBuilder() to construct.
-  private BoxedUInt32(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use UInt32Value.newBuilder() to construct.
+  private UInt32Value(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BoxedUInt32() {
+  private UInt32Value() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new BoxedUInt32();
+    return new UInt32Value();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BoxedUInt32(
+  private UInt32Value(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -74,15 +74,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_BoxedUInt32_descriptor;
+    return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_UInt32Value_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_BoxedUInt32_fieldAccessorTable
+    return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_UInt32Value_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.mojolang.mojo.core.BoxedUInt32.class, org.mojolang.mojo.core.BoxedUInt32.Builder.class);
+            org.mojolang.mojo.core.UInt32Value.class, org.mojolang.mojo.core.UInt32Value.Builder.class);
   }
 
   public static final int VAL_FIELD_NUMBER = 1;
@@ -136,10 +136,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.mojolang.mojo.core.BoxedUInt32)) {
+    if (!(obj instanceof org.mojolang.mojo.core.UInt32Value)) {
       return super.equals(obj);
     }
-    org.mojolang.mojo.core.BoxedUInt32 other = (org.mojolang.mojo.core.BoxedUInt32) obj;
+    org.mojolang.mojo.core.UInt32Value other = (org.mojolang.mojo.core.UInt32Value) obj;
 
     if (getVal()
         != other.getVal()) return false;
@@ -161,69 +161,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(byte[] data)
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseDelimitedFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.core.UInt32Value parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseDelimitedFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.core.BoxedUInt32 parseFrom(
+  public static org.mojolang.mojo.core.UInt32Value parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -236,7 +236,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.mojolang.mojo.core.BoxedUInt32 prototype) {
+  public static Builder newBuilder(org.mojolang.mojo.core.UInt32Value prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -252,26 +252,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code mojo.core.BoxedUInt32}
+   * Protobuf type {@code mojo.core.UInt32Value}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:mojo.core.BoxedUInt32)
-      org.mojolang.mojo.core.BoxedUInt32OrBuilder {
+      // @@protoc_insertion_point(builder_implements:mojo.core.UInt32Value)
+      org.mojolang.mojo.core.UInt32ValueOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_BoxedUInt32_descriptor;
+      return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_UInt32Value_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_BoxedUInt32_fieldAccessorTable
+      return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_UInt32Value_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mojolang.mojo.core.BoxedUInt32.class, org.mojolang.mojo.core.BoxedUInt32.Builder.class);
+              org.mojolang.mojo.core.UInt32Value.class, org.mojolang.mojo.core.UInt32Value.Builder.class);
     }
 
-    // Construct using org.mojolang.mojo.core.BoxedUInt32.newBuilder()
+    // Construct using org.mojolang.mojo.core.UInt32Value.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -297,17 +297,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_BoxedUInt32_descriptor;
+      return org.mojolang.mojo.core.BoxedProto.internal_static_mojo_core_UInt32Value_descriptor;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.core.BoxedUInt32 getDefaultInstanceForType() {
-      return org.mojolang.mojo.core.BoxedUInt32.getDefaultInstance();
+    public org.mojolang.mojo.core.UInt32Value getDefaultInstanceForType() {
+      return org.mojolang.mojo.core.UInt32Value.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.core.BoxedUInt32 build() {
-      org.mojolang.mojo.core.BoxedUInt32 result = buildPartial();
+    public org.mojolang.mojo.core.UInt32Value build() {
+      org.mojolang.mojo.core.UInt32Value result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -315,8 +315,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.core.BoxedUInt32 buildPartial() {
-      org.mojolang.mojo.core.BoxedUInt32 result = new org.mojolang.mojo.core.BoxedUInt32(this);
+    public org.mojolang.mojo.core.UInt32Value buildPartial() {
+      org.mojolang.mojo.core.UInt32Value result = new org.mojolang.mojo.core.UInt32Value(this);
       result.val_ = val_;
       onBuilt();
       return result;
@@ -356,16 +356,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.mojolang.mojo.core.BoxedUInt32) {
-        return mergeFrom((org.mojolang.mojo.core.BoxedUInt32)other);
+      if (other instanceof org.mojolang.mojo.core.UInt32Value) {
+        return mergeFrom((org.mojolang.mojo.core.UInt32Value)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.mojolang.mojo.core.BoxedUInt32 other) {
-      if (other == org.mojolang.mojo.core.BoxedUInt32.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.mojolang.mojo.core.UInt32Value other) {
+      if (other == org.mojolang.mojo.core.UInt32Value.getDefaultInstance()) return this;
       if (other.getVal() != 0) {
         setVal(other.getVal());
       }
@@ -384,11 +384,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.core.BoxedUInt32 parsedMessage = null;
+      org.mojolang.mojo.core.UInt32Value parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.core.BoxedUInt32) e.getUnfinishedMessage();
+        parsedMessage = (org.mojolang.mojo.core.UInt32Value) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -441,41 +441,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:mojo.core.BoxedUInt32)
+    // @@protoc_insertion_point(builder_scope:mojo.core.UInt32Value)
   }
 
-  // @@protoc_insertion_point(class_scope:mojo.core.BoxedUInt32)
-  private static final org.mojolang.mojo.core.BoxedUInt32 DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:mojo.core.UInt32Value)
+  private static final org.mojolang.mojo.core.UInt32Value DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.mojolang.mojo.core.BoxedUInt32();
+    DEFAULT_INSTANCE = new org.mojolang.mojo.core.UInt32Value();
   }
 
-  public static org.mojolang.mojo.core.BoxedUInt32 getDefaultInstance() {
+  public static org.mojolang.mojo.core.UInt32Value getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BoxedUInt32>
-      PARSER = new com.google.protobuf.AbstractParser<BoxedUInt32>() {
+  private static final com.google.protobuf.Parser<UInt32Value>
+      PARSER = new com.google.protobuf.AbstractParser<UInt32Value>() {
     @java.lang.Override
-    public BoxedUInt32 parsePartialFrom(
+    public UInt32Value parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BoxedUInt32(input, extensionRegistry);
+      return new UInt32Value(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BoxedUInt32> parser() {
+  public static com.google.protobuf.Parser<UInt32Value> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BoxedUInt32> getParserForType() {
+  public com.google.protobuf.Parser<UInt32Value> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.mojolang.mojo.core.BoxedUInt32 getDefaultInstanceForType() {
+  public org.mojolang.mojo.core.UInt32Value getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

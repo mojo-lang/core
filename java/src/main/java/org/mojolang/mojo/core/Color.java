@@ -50,17 +50,17 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            red_ = input.readInt32();
+            red_ = input.readUInt32();
             break;
           }
           case 16: {
 
-            green_ = input.readInt32();
+            green_ = input.readUInt32();
             break;
           }
           case 24: {
 
-            blue_ = input.readInt32();
+            blue_ = input.readUInt32();
             break;
           }
           case 37: {
@@ -103,7 +103,7 @@ private static final long serialVersionUID = 0L;
   public static final int RED_FIELD_NUMBER = 1;
   private int red_;
   /**
-   * <code>int32 red = 1;</code>
+   * <code>uint32 red = 1;</code>
    * @return The red.
    */
   @java.lang.Override
@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
   public static final int GREEN_FIELD_NUMBER = 2;
   private int green_;
   /**
-   * <code>int32 green = 2;</code>
+   * <code>uint32 green = 2;</code>
    * @return The green.
    */
   @java.lang.Override
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
   public static final int BLUE_FIELD_NUMBER = 3;
   private int blue_;
   /**
-   * <code>int32 blue = 3;</code>
+   * <code>uint32 blue = 3;</code>
    * @return The blue.
    */
   @java.lang.Override
@@ -159,13 +159,13 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (red_ != 0) {
-      output.writeInt32(1, red_);
+      output.writeUInt32(1, red_);
     }
     if (green_ != 0) {
-      output.writeInt32(2, green_);
+      output.writeUInt32(2, green_);
     }
     if (blue_ != 0) {
-      output.writeInt32(3, blue_);
+      output.writeUInt32(3, blue_);
     }
     if (java.lang.Float.floatToRawIntBits(alpha_) != 0) {
       output.writeFloat(4, alpha_);
@@ -181,15 +181,15 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (red_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, red_);
+        .computeUInt32Size(1, red_);
     }
     if (green_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, green_);
+        .computeUInt32Size(2, green_);
     }
     if (blue_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, blue_);
+        .computeUInt32Size(3, blue_);
     }
     if (java.lang.Float.floatToRawIntBits(alpha_) != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -501,7 +501,7 @@ private static final long serialVersionUID = 0L;
 
     private int red_ ;
     /**
-     * <code>int32 red = 1;</code>
+     * <code>uint32 red = 1;</code>
      * @return The red.
      */
     @java.lang.Override
@@ -509,7 +509,7 @@ private static final long serialVersionUID = 0L;
       return red_;
     }
     /**
-     * <code>int32 red = 1;</code>
+     * <code>uint32 red = 1;</code>
      * @param value The red to set.
      * @return This builder for chaining.
      */
@@ -520,7 +520,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 red = 1;</code>
+     * <code>uint32 red = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearRed() {
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
 
     private int green_ ;
     /**
-     * <code>int32 green = 2;</code>
+     * <code>uint32 green = 2;</code>
      * @return The green.
      */
     @java.lang.Override
@@ -540,7 +540,7 @@ private static final long serialVersionUID = 0L;
       return green_;
     }
     /**
-     * <code>int32 green = 2;</code>
+     * <code>uint32 green = 2;</code>
      * @param value The green to set.
      * @return This builder for chaining.
      */
@@ -551,7 +551,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 green = 2;</code>
+     * <code>uint32 green = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearGreen() {
@@ -563,7 +563,7 @@ private static final long serialVersionUID = 0L;
 
     private int blue_ ;
     /**
-     * <code>int32 blue = 3;</code>
+     * <code>uint32 blue = 3;</code>
      * @return The blue.
      */
     @java.lang.Override
@@ -571,7 +571,7 @@ private static final long serialVersionUID = 0L;
       return blue_;
     }
     /**
-     * <code>int32 blue = 3;</code>
+     * <code>uint32 blue = 3;</code>
      * @param value The blue to set.
      * @return This builder for chaining.
      */
@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 blue = 3;</code>
+     * <code>uint32 blue = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearBlue() {

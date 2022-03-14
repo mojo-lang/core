@@ -29,8 +29,8 @@ public final class ColorProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\025mojo/core/color.proto\022\tmojo.core\"@\n\005Co" +
-      "lor\022\013\n\003red\030\001 \001(\005\022\r\n\005green\030\002 \001(\005\022\014\n\004blue\030" +
-      "\003 \001(\005\022\r\n\005alpha\030\004 \001(\002BW\n\026org.mojolang.moj" +
+      "lor\022\013\n\003red\030\001 \001(\r\022\r\n\005green\030\002 \001(\r\022\014\n\004blue\030" +
+      "\003 \001(\r\022\r\n\005alpha\030\004 \001(\002BW\n\026org.mojolang.moj" +
       "o.coreB\nColorProtoP\001Z/github.com/mojo-la" +
       "ng/core/go/pkg/mojo/core;coreb\006proto3"
     };

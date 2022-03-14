@@ -8,19 +8,19 @@ public interface ColorOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 red = 1;</code>
+   * <code>uint32 red = 1;</code>
    * @return The red.
    */
   int getRed();
 
   /**
-   * <code>int32 green = 2;</code>
+   * <code>uint32 green = 2;</code>
    * @return The green.
    */
   int getGreen();
 
   /**
-   * <code>int32 blue = 3;</code>
+   * <code>uint32 blue = 3;</code>
    * @return The blue.
    */
   int getBlue();

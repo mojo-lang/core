@@ -10,8 +10,8 @@ option java_outer_classname = "ColorProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Color {
-    int32 red = 1;
-    int32 green = 2;
-    int32 blue = 3;
+    uint32 red = 1;
+    uint32 green = 2;
+    uint32 blue = 3;
     float alpha = 4;
 }

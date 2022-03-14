@@ -3,13 +3,13 @@
 
 package org.mojolang.mojo.core;
 
-public interface BoxedUInt32OrBuilder extends
-    // @@protoc_insertion_point(interface_extends:mojo.core.BoxedUInt32)
+public interface DoubleValueOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:mojo.core.DoubleValue)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint32 val = 1;</code>
+   * <code>double val = 1;</code>
    * @return The val.
    */
-  int getVal();
+  double getVal();
 }

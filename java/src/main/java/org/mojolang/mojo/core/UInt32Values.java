@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
               vals_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
-            vals_.addInt(input.readInt32());
+            vals_.addInt(input.readUInt32());
             break;
           }
           case 10: {
@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              vals_.addInt(input.readInt32());
+              vals_.addInt(input.readUInt32());
             }
             input.popLimit(limit);
             break;
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
   public static final int VALS_FIELD_NUMBER = 1;
   private com.google.protobuf.Internal.IntList vals_;
   /**
-   * <code>repeated int32 vals = 1;</code>
+   * <code>repeated uint32 vals = 1;</code>
    * @return A list containing the vals.
    */
   @java.lang.Override
@@ -118,14 +118,14 @@ private static final long serialVersionUID = 0L;
     return vals_;
   }
   /**
-   * <code>repeated int32 vals = 1;</code>
+   * <code>repeated uint32 vals = 1;</code>
    * @return The count of vals.
    */
   public int getValsCount() {
     return vals_.size();
   }
   /**
-   * <code>repeated int32 vals = 1;</code>
+   * <code>repeated uint32 vals = 1;</code>
    * @param index The index of the element to return.
    * @return The vals at the given index.
    */
@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
       output.writeUInt32NoTag(valsMemoizedSerializedSize);
     }
     for (int i = 0; i < vals_.size(); i++) {
-      output.writeInt32NoTag(vals_.getInt(i));
+      output.writeUInt32NoTag(vals_.getInt(i));
     }
     unknownFields.writeTo(output);
   }
@@ -169,7 +169,7 @@ private static final long serialVersionUID = 0L;
       int dataSize = 0;
       for (int i = 0; i < vals_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt32SizeNoTag(vals_.getInt(i));
+          .computeUInt32SizeNoTag(vals_.getInt(i));
       }
       size += dataSize;
       if (!getValsList().isEmpty()) {
@@ -474,7 +474,7 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @return A list containing the vals.
      */
     public java.util.List<java.lang.Integer>
@@ -483,14 +483,14 @@ private static final long serialVersionUID = 0L;
                java.util.Collections.unmodifiableList(vals_) : vals_;
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @return The count of vals.
      */
     public int getValsCount() {
       return vals_.size();
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @param index The index of the element to return.
      * @return The vals at the given index.
      */
@@ -498,7 +498,7 @@ private static final long serialVersionUID = 0L;
       return vals_.getInt(index);
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @param index The index to set the value at.
      * @param value The vals to set.
      * @return This builder for chaining.
@@ -511,7 +511,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @param value The vals to add.
      * @return This builder for chaining.
      */
@@ -522,7 +522,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @param values The vals to add.
      * @return This builder for chaining.
      */
@@ -535,7 +535,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int32 vals = 1;</code>
+     * <code>repeated uint32 vals = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearVals() {
