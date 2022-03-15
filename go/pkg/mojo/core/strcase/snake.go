@@ -1,126 +1,126 @@
 package strcase
 
 import (
-	"regexp"
-	"strings"
-	"unicode"
+    "regexp"
+    "strings"
+    "unicode"
 )
 
 func init() {
-	RegisterIrregularSnakeRule("UInt", "Uint")
+    RegisterIrregularCaseRule("UInt", "Uint")
 }
 
 type snakeRule struct {
-	*regexp.Regexp
-	Replacement string
+    *regexp.Regexp
+    Replacement string
 }
 
 var irregularSnakeRules []snakeRule
 
-func RegisterIrregularSnakeRule(rule string, replacement string) {
-	r, _ := regexp.Compile(rule)
-	irregularSnakeRules = append(irregularSnakeRules, snakeRule{
-		Regexp:      r,
-		Replacement: replacement,
-	})
+func RegisterIrregularCaseRule(rule string, replacement string) {
+    r, _ := regexp.Compile(rule)
+    irregularSnakeRules = append(irregularSnakeRules, snakeRule{
+        Regexp:      r,
+        Replacement: replacement,
+    })
 }
 
 func ToSnake(name string) string {
-	for _, rule := range irregularSnakeRules {
-		name = string(rule.Regexp.ReplaceAll([]byte(name), []byte(rule.Replacement)))
-	}
-
-	return ToDelimited(name, '_')
+    return ToDelimited(name, '_')
 }
 
 func ToSnakeWithIgnore(s string, ignore string) string {
-	return ToScreamingDelimited(s, '_', ignore, false)
+    return ToScreamingDelimited(s, '_', ignore, false)
 }
 
 // ToScreamingSnake converts a string to SCREAMING_SNAKE_CASE
 func ToScreamingSnake(s string) string {
-	return ToScreamingDelimited(s, '_', "", true)
+    return ToScreamingDelimited(s, '_', "", true)
 }
 
 // ToKebab converts a string to kebab-case
 func ToKebab(s string) string {
-	return ToDelimited(s, '-')
+    return ToDelimited(s, '-')
 }
 
 func ToKebabWithIgnore(s string, ignore string) string {
-	return ToScreamingDelimited(s, '-', ignore, false)
+    return ToScreamingDelimited(s, '-', ignore, false)
 }
 
 // ToScreamingKebab converts a string to SCREAMING-KEBAB-CASE
 func ToScreamingKebab(s string) string {
-	return ToScreamingDelimited(s, '-', "", true)
+    return ToScreamingDelimited(s, '-', "", true)
 }
 
 // ToDelimited converts a string to delimited.snake.case
 // (in this case `delimiter = '.'`)
 func ToDelimited(s string, delimiter uint8) string {
-	return ToScreamingDelimited(s, delimiter, "", false)
+    return ToScreamingDelimited(s, delimiter, "", false)
 }
 
 func ToScreamingDelimited(s string, delimiter uint8, ignore string, screaming bool) string {
-	s = strings.TrimSpace(s)
-	n := strings.Builder{}
-	n.Grow(len(s) + 2) // nominal 2 bytes of extra space for inserted delimiters
-	for i, v := range []byte(s) {
-		vIsCap := v >= 'A' && v <= 'Z'
-		vIsLow := v >= 'a' && v <= 'z'
-		if vIsLow && screaming {
-			v += 'A'
-			v -= 'a'
-		} else if vIsCap && !screaming {
-			v += 'a'
-			v -= 'A'
-		}
+    for _, rule := range irregularSnakeRules {
+        s = string(rule.Regexp.ReplaceAll([]byte(s), []byte(rule.Replacement)))
+    }
 
-		// treat acronyms as words, eg for JSONData -> JSON is a whole word
-		if i+1 < len(s) {
-			next := s[i+1]
-			vIsNum := v >= '0' && v <= '9'
-			nextIsCap := next >= 'A' && next <= 'Z'
-			nextIsLow := next >= 'a' && next <= 'z'
-			nextIsNum := next >= '0' && next <= '9'
-			// add underscore if next letter case type is changed
-			if (vIsCap && (nextIsLow || nextIsNum)) || (vIsLow && (nextIsCap || nextIsNum)) || (vIsNum && (nextIsCap || nextIsLow)) {
-				if (vIsCap && nextIsNum) || (vIsLow && nextIsNum) {
-					n.WriteByte(v)
-					continue
-				}
-				// treat the a2b as a whole word
-				if vIsNum && v == '2' && (nextIsCap || nextIsLow) && i > 0 && unicode.IsLetter(rune(s[i-1])) {
-					n.WriteByte(v)
-					continue
-				}
+    s = strings.TrimSpace(s)
+    n := strings.Builder{}
+    n.Grow(len(s) + 2) // nominal 2 bytes of extra space for inserted delimiters
+    for i, v := range []byte(s) {
+        vIsCap := v >= 'A' && v <= 'Z'
+        vIsLow := v >= 'a' && v <= 'z'
+        if vIsLow && screaming {
+            v += 'A'
+            v -= 'a'
+        } else if vIsCap && !screaming {
+            v += 'a'
+            v -= 'A'
+        }
 
-				prevIgnore := ignore != "" && i > 0 && strings.ContainsAny(string(s[i-1]), ignore)
-				if !prevIgnore {
-					if vIsCap && nextIsLow {
-						if prevIsCap := i > 0 && s[i-1] >= 'A' && s[i-1] <= 'Z'; prevIsCap {
-							n.WriteByte(delimiter)
-						}
-					}
-					n.WriteByte(v)
-					if vIsLow || vIsNum || nextIsNum {
-						n.WriteByte(delimiter)
-					}
-					continue
-				}
-			}
-		}
+        // treat acronyms as words, eg for JSONData -> JSON is a whole word
+        if i+1 < len(s) {
+            next := s[i+1]
+            vIsNum := v >= '0' && v <= '9'
+            nextIsCap := next >= 'A' && next <= 'Z'
+            nextIsLow := next >= 'a' && next <= 'z'
+            nextIsNum := next >= '0' && next <= '9'
+            // add underscore if next letter case type is changed
+            if (vIsCap && (nextIsLow || nextIsNum)) || (vIsLow && (nextIsCap || nextIsNum)) || (vIsNum && (nextIsCap || nextIsLow)) {
+                if (vIsCap && nextIsNum) || (vIsLow && nextIsNum) {
+                    n.WriteByte(v)
+                    continue
+                }
+                // treat the a2b as a whole word
+                if vIsNum && v == '2' && (nextIsCap || nextIsLow) && i > 0 && unicode.IsLetter(rune(s[i-1])) {
+                    n.WriteByte(v)
+                    continue
+                }
 
-		if (v == ' ' || v == '_' || v == '-' || v == '.') && !strings.ContainsAny(string(v), ignore) {
-			// replace space/underscore/hyphen/dot with delimiter
-			n.WriteByte(delimiter)
-		} else {
-			n.WriteByte(v)
-		}
-	}
+                prevIgnore := ignore != "" && i > 0 && strings.ContainsAny(string(s[i-1]), ignore)
+                if !prevIgnore {
+                    if vIsCap && nextIsLow {
+                        if prevIsCap := i > 0 && s[i-1] >= 'A' && s[i-1] <= 'Z'; prevIsCap {
+                            n.WriteByte(delimiter)
+                        }
+                    }
+                    n.WriteByte(v)
+                    if vIsLow || vIsNum || nextIsNum {
+                        n.WriteByte(delimiter)
+                    }
+                    continue
+                }
+            }
+        }
 
-	return n.String()
+        if (v == ' ' || v == '_' || v == '-' || v == '.') && !strings.ContainsAny(string(v), ignore) {
+            // replace space/underscore/hyphen/dot with delimiter
+            n.WriteByte(delimiter)
+        } else {
+            n.WriteByte(v)
+        }
+    }
+
+    return n.String()
 }
 
 //func sanitizeRule(rule string) *regexp.Regexp {
