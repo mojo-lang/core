@@ -8,6 +8,22 @@ type IsUnion interface {
     IsUnion()
 }
 
+func GetUnionPrimeType(union interface{}) interface{} {
+    if union != nil {
+        value := reflect.ValueOf(union)
+        for {
+            if _, ok := value.Interface().(IsUnion); ok {
+                value = reflect.Indirect(value).Field(0).Elem()
+                value = reflect.Indirect(value).Field(0)
+            } else {
+                break
+            }
+        }
+        return value.Interface()
+    }
+    return nil
+}
+
 func GetUnionField(union interface{}, field string) reflect.Value {
     if union != nil {
         value := reflect.ValueOf(union)
