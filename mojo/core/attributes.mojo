@@ -96,6 +96,11 @@ attribute label: String
 
 attribute case_style: CaseStyle
 
+attribute irregular_case_rule: {
+    rule: Regex @1
+    replacement: String @2
+}
+
 attribute pagination: Object
 
 attribute format: TemplateString
