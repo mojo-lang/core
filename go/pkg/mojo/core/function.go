@@ -1,3 +1,4 @@
 package core
 
-const FunctionTypeName = "mojo.core.Function"
+const FunctionTypeName = "Function"
+const FunctionTypeFullName = "mojo.core.Function"

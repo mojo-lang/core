@@ -14,4 +14,5 @@
 
 package core
 
-const ArrayTypeName = "mojo.core.Array"
+const ArrayTypeName = "Array"
+const ArrayTypeFullName = "mojo.core.Array"

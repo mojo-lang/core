@@ -1,3 +1,4 @@
 package core
 
-const StringTypeName = "mojo.core.String"
+const StringTypeName = "String"
+const StringTypeFullName = "mojo.core.String"

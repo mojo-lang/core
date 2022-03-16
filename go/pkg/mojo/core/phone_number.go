@@ -1,3 +1,4 @@
 package core
 
-const PhoneNumberTypeName = "mojo.core.PhoneNumber"
+const PhoneNumberTypeName = "PhoneNumber"
+const PhoneNumberTypeFullName = "mojo.core.PhoneNumber"

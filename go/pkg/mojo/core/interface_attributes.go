@@ -1,6 +1,9 @@
 package core
 
 const (
-	MethodAttributeName   = "method"
-	ResourceAttributeName = "resource"
+    MethodAttributeName     = "method"
+    MethodAttributeFullName = "mojo.core.method"
+
+    ResourceAttributeName     = "resource"
+    ResourceAttributeFullName = "mojo.core.resource"
 )

@@ -1,28 +1,30 @@
 package core
 
 import (
-	"fmt"
-	"github.com/google/uuid"
+    "fmt"
+
+    "github.com/google/uuid"
 )
 
-const UuidTypeName = "mojo.core.Uuid"
+const UuidTypeName = "Uuid"
+const UuidTypeFullName = "mojo.core.Uuid"
 
 func NewUuid() *Uuid {
-	id := uuid.New()
-	uuid := &Uuid{}
-	copy(uuid.Val, id[:])
-	return uuid
+    id := uuid.New()
+    uuid := &Uuid{}
+    copy(uuid.Val, id[:])
+    return uuid
 }
 
 func (m *Uuid) ToUUID() uuid.UUID {
-	if m != nil && len(m.Val) > 0 {
-		id, err := uuid.ParseBytes(m.Val)
-		if err != nil {
-			return uuid.New()
-		}
-		return id
-	}
-	return uuid.New()
+    if m != nil && len(m.Val) > 0 {
+        id, err := uuid.ParseBytes(m.Val)
+        if err != nil {
+            return uuid.New()
+        }
+        return id
+    }
+    return uuid.New()
 }
 
 //// MarshalText implements encoding.TextMarshaler.
@@ -44,16 +46,14 @@ func (m *Uuid) ToUUID() uuid.UUID {
 
 // MarshalBinary implements encoding.BinaryMarshaler.
 func (m *Uuid) MarshalBinary() ([]byte, error) {
-	return m.Val[:], nil
+    return m.Val[:], nil
 }
 
 // UnmarshalBinary implements encoding.BinaryUnmarshaler.
 func (m *Uuid) UnmarshalBinary(data []byte) error {
-	if len(data) != 16 {
-		return fmt.Errorf("invalid UUID (got %d bytes)", len(data))
-	}
-	copy(m.Val[:], data)
-	return nil
+    if len(data) != 16 {
+        return fmt.Errorf("invalid UUID (got %d bytes)", len(data))
+    }
+    copy(m.Val[:], data)
+    return nil
 }
-
-

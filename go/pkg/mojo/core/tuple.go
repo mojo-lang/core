@@ -1,3 +1,4 @@
 package core
 
-const TupleTypeName = "mojo.core.Tuple"
+const TupleTypeName = "Tuple"
+const TupleTypeFullName = "mojo.core.Tuple"

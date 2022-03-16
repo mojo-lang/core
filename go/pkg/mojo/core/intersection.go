@@ -1,3 +1,4 @@
 package core
 
-const IntersectionTypeName = "mojo.core.Intersection"
+const IntersectionTypeName = "Intersection"
+const IntersectionTypeFullName = "mojo.core.Intersection"

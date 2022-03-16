@@ -14,4 +14,5 @@
 
 package core
 
-const BoolTypeName = "mojo.core.Bool"
+const BoolTypeName = "Bool"
+const BoolTypeFullName = "mojo.core.Bool"

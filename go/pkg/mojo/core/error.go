@@ -1,123 +1,126 @@
 package core
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/proto"
 )
 
-func NewError(code *ErrorCode, message string, arguments ...interface{}) *Error {
-	msg := message
-	if len(arguments) > 0 {
-		msg = fmt.Sprintf(message, arguments...)
-	}
+const ErrorTypeName = "Error"
+const ErrorTypeFullName = "mojo.core.Error"
 
-	return &Error{
-		Code:    code,
-		Message: msg,
-	}
+func NewError(code *ErrorCode, message string, arguments ...interface{}) *Error {
+    msg := message
+    if len(arguments) > 0 {
+        msg = fmt.Sprintf(message, arguments...)
+    }
+
+    return &Error{
+        Code:    code,
+        Message: msg,
+    }
 }
 
 func NewErrorFrom(code int32, message string) *Error {
-	err := &Error{}
-	if ec, ok := errorCodeIndex[code]; ok {
-		err.Code = ec
-	} else {
-		if code >= 100 && code < 600 {
-			err.Code = &ErrorCode{
-				Val: code,
-			}
-		} else {
-			return nil
-		}
-	}
-	err.Message = message
-	return err
+    err := &Error{}
+    if ec, ok := errorCodeIndex[code]; ok {
+        err.Code = ec
+    } else {
+        if code >= 100 && code < 600 {
+            err.Code = &ErrorCode{
+                Val: code,
+            }
+        } else {
+            return nil
+        }
+    }
+    err.Message = message
+    return err
 }
 
 func NewCancelledError(format string, arguments ...interface{}) *Error {
-	return NewError(Cancelled, format, arguments...)
+    return NewError(Cancelled, format, arguments...)
 }
 
 func NewUnknownError(format string, arguments ...interface{}) *Error {
-	return NewError(UnknownError, format, arguments...)
+    return NewError(UnknownError, format, arguments...)
 }
 
 func NewInvalidArgumentError(format string, arguments ...interface{}) *Error {
-	return NewError(InvalidArgument, format, arguments...)
+    return NewError(InvalidArgument, format, arguments...)
 }
 
 func NewDeadlineExceededError(format string, arguments ...interface{}) *Error {
-	return NewError(DeadlineExceeded, format, arguments...)
+    return NewError(DeadlineExceeded, format, arguments...)
 }
 
 func NewNotFoundError(format string, arguments ...interface{}) *Error {
-	return NewError(NotFound, format, arguments...)
+    return NewError(NotFound, format, arguments...)
 }
 
 func NewAlreadyExistsError(format string, arguments ...interface{}) *Error {
-	return NewError(AlreadyExists, format, arguments...)
+    return NewError(AlreadyExists, format, arguments...)
 }
 
 func NewPermissionDeniedError(format string, arguments ...interface{}) *Error {
-	return NewError(PermissionDenied, format, arguments...)
+    return NewError(PermissionDenied, format, arguments...)
 }
 
 func NewUnauthenticatedError(format string, arguments ...interface{}) *Error {
-	return NewError(Unauthenticated, format, arguments...)
+    return NewError(Unauthenticated, format, arguments...)
 }
 
 func NewResourceExhaustedError(format string, arguments ...interface{}) *Error {
-	return NewError(ResourceExhausted, format, arguments...)
+    return NewError(ResourceExhausted, format, arguments...)
 }
 
 func NewFailedPreconditionError(format string, arguments ...interface{}) *Error {
-	return NewError(FailedPrecondition, format, arguments...)
+    return NewError(FailedPrecondition, format, arguments...)
 }
 
 func NewAbortedError(format string, arguments ...interface{}) *Error {
-	return NewError(Aborted, format, arguments...)
+    return NewError(Aborted, format, arguments...)
 }
 
 func NewOutOfRangeError(format string, arguments ...interface{}) *Error {
-	return NewError(OutOfRange, format, arguments...)
+    return NewError(OutOfRange, format, arguments...)
 }
 
 func NewUnimplementedError(format string, arguments ...interface{}) *Error {
-	return NewError(Unimplemented, format, arguments...)
+    return NewError(Unimplemented, format, arguments...)
 }
 
 func NewInternalError(format string, arguments ...interface{}) *Error {
-	return NewError(InternalError, format, arguments...)
+    return NewError(InternalError, format, arguments...)
 }
 
 func NewUnavailableError(format string, arguments ...interface{}) *Error {
-	return NewError(Unavailable, format, arguments...)
+    return NewError(Unavailable, format, arguments...)
 }
 
 func NewDataLossError(format string, arguments ...interface{}) *Error {
-	return NewError(DataLoss, format, arguments...)
+    return NewError(DataLoss, format, arguments...)
 }
 
 func (m *Error) Error() string {
-	if len(m.Message) == 0 {
-		return m.Code.Name
-	}
-	return m.Message
+    if len(m.Message) == 0 {
+        return m.Code.Name
+    }
+    return m.Message
 }
 
 func (m *Error) StatusCode() int32 {
-	if m != nil && m.Code != nil {
-		if m.Code.HttpStatusCode > 0 {
-			return m.Code.HttpStatusCode
-		}
-		return m.Code.Val
-	}
-	return 0
+    if m != nil && m.Code != nil {
+        if m.Code.HttpStatusCode > 0 {
+            return m.Code.HttpStatusCode
+        }
+        return m.Code.Val
+    }
+    return 0
 }
 
 func (m *Error) AddDetail(detail interface{}) *Error {
-	if _, ok := detail.(*proto.Message); ok {
-	}
-	return m
+    if _, ok := detail.(*proto.Message); ok {
+    }
+    return m
 }

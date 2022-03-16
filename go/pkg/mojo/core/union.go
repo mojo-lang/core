@@ -2,7 +2,8 @@ package core
 
 import "reflect"
 
-const UnionTypeName = "mojo.core.Union"
+const UnionTypeName = "Union"
+const UnionTypeFullName = "mojo.core.Union"
 
 type IsUnion interface {
     IsUnion()

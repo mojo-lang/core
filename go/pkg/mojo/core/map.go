@@ -14,4 +14,5 @@
 
 package core
 
-const MapTypeName = "mojo.core.Map"
+const MapTypeName = "Map"
+const MapTypeFullName = "mojo.core.Map"

@@ -1,12 +1,18 @@
 package core
 
 const (
-	EntityAttributeName = "entity"
+	EntityAttributeName     = "entity"
+	EntityAttributeFullName = "mojo.core.entity"
 
-	KeyAttributeName = "key"
+	KeyAttributeName     = "key"
+	KeyAttributeFullName = "mojo.core.key"
 
-	ReferenceAttributeName = "reference"
-	BackReferenceAttributeName = "back_reference"
+	ReferenceAttributeName     = "reference"
+	ReferenceAttributeFullName = "mojo.core.reference"
 
-	CycleReferenceAttributeName = "cycle_reference"
+	BackReferenceAttributeName     = "back_reference"
+	BackReferenceAttributeFullName = "mojo.core.back_reference"
+
+	CycleReferenceAttributeName     = "cycle_reference"
+	CycleReferenceAttributeFullName = "mojo.core.cycle_reference"
 )

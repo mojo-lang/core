@@ -1,3 +1,4 @@
 package core
 
-const EmailAddressTypeName = "mojo.core.Email"
+const EmailAddressTypeName = "EmailAddress"
+const EmailAddressTypeFullName = "mojo.core.EmailAddress"

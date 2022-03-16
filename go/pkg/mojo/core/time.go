@@ -1,6 +1,7 @@
 package core
 
-const DateTypeName = "mojo.core.Date"
+const DateTypeName = "Date"
+const DateTypeFullName = "mojo.core.Date"
 
-const DateTimeTypeName = "mojo.core.DateTime"
-
+const DateTimeTypeName = "DateTime"
+const DateTimeTypeFullName = "mojo.core.DateTime"

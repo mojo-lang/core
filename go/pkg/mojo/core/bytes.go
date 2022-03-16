@@ -14,4 +14,5 @@
 
 package core
 
-const BytesTypeName = "mojo.core.Bytes"
+const BytesTypeName = "Bytes"
+const BytesTypeFullName = "mojo.core.Bytes"

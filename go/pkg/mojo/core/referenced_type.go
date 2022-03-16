@@ -1,8 +1,8 @@
 package core
 
 type ReferencedType interface {
-	FieldMask() map[string]bool
+    FieldMask() map[string]bool
 
-	// return the referenced value
-	Referenced() interface{}
+    // Referenced return the referenced value
+    Referenced() interface{}
 }
