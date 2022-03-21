@@ -32,22 +32,22 @@ type UInt32ValuesCodec struct {
 
 func (codec *UInt32ValuesCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	any := iter.ReadAny()
-	uInt32Values := (*UInt32Values)(ptr)
+	uint32Values := (*UInt32Values)(ptr)
 	if any.ValueType() == jsoniter.ArrayValue {
-		any.ToVal(&uInt32Values.Vals)
+		any.ToVal(&uint32Values.Vals)
 	}
 }
 
 func (codec *UInt32ValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
-	uInt32Values := (*UInt32Values)(ptr)
-	return uInt32Values == nil || len(uInt32Values.Vals) == 0
+	uint32Values := (*UInt32Values)(ptr)
+	return uint32Values == nil || len(uint32Values.Vals) == 0
 }
 
 func (codec *UInt32ValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-	uInt32Values := (*UInt32Values)(ptr)
+	uint32Values := (*UInt32Values)(ptr)
 
 	stream.WriteArrayStart()
-	for i, v := range uInt32Values.Vals {
+	for i, v := range uint32Values.Vals {
 		if i > 0 {
 			stream.WriteMore()
 		}

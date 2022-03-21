@@ -21,24 +21,16 @@ import (
 	"strconv"
 )
 
-var ArchNames = map[int32]string{
-	1:  "x86",
-	2:  "amd64",
-	5:  "arm",
-	6:  "arm64",
-	10: "wasm",
+var FileModeNames = map[int32]string{
+	10: "dir",
 }
 
-var ArchValues = map[string]Arch{
-	"x86":   Arch_ARCH_X86,
-	"amd64": Arch_ARCH_AMD64,
-	"arm":   Arch_ARCH_ARM,
-	"arm64": Arch_ARCH_ARM64,
-	"wasm":  Arch_ARCH_WASM,
+var FileModeValues = map[string]File_Mode{
+	"dir": File_MODE_DIR,
 }
 
-func (x Arch) Format() string {
-	s, ok := ArchNames[int32(x)]
+func (x File_Mode) Format() string {
+	s, ok := FileModeNames[int32(x)]
 	if ok {
 		return s
 	}
@@ -48,16 +40,16 @@ func (x Arch) Format() string {
 	return strconv.Itoa(int(x))
 }
 
-func (x *Arch) Parse(value string) error {
+func (x *File_Mode) Parse(value string) error {
 	if x != nil {
-		s, ok := ArchValues[value]
+		s, ok := FileModeValues[value]
 		if ok {
 			*x = s
 		} else {
-			*x = Arch_ARCH_X86
+			*x = File_MODE_DIR
 		}
 	} else {
-		*x = Arch_ARCH_X86
+		*x = File_MODE_DIR
 	}
 	return nil
 }

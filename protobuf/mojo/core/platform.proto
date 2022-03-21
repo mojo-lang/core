@@ -11,7 +11,8 @@ option java_package = "org.mojolang.mojo.core";
 
 enum Arch {
     ARCH_UNSPECIFIED=0;
-    ARCH_AMD64=1;
+    ARCH_X86=1;
+    ARCH_AMD64=2;
     ARCH_ARM=5;
     ARCH_ARM64=6;
     ARCH_WASM=10;

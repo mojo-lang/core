@@ -19,5 +19,5 @@ message Checksum {
         ALGORITHM_SHA512=4;
     }
     Algorithm algorithm = 1;
-    string val = 2;
+    string value = 2;
 }

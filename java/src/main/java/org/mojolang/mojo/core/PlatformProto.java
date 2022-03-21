@@ -31,14 +31,14 @@ public final class PlatformProto {
       "\n\030mojo/core/platform.proto\022\tmojo.core\"X\n" +
       "\010Platform\022\035\n\004arch\030\001 \001(\0162\017.mojo.core.Arch" +
       "\022\031\n\002os\030\002 \001(\0162\r.mojo.core.OS\022\022\n\nos_versio" +
-      "n\030\003 \001(\t*Y\n\004Arch\022\024\n\020ARCH_UNSPECIFIED\020\000\022\016\n" +
-      "\nARCH_AMD64\020\001\022\014\n\010ARCH_ARM\020\005\022\016\n\nARCH_ARM6" +
-      "4\020\006\022\r\n\tARCH_WASM\020\n*a\n\002OS\022\022\n\016OS_UNSPECIFI" +
-      "ED\020\000\022\016\n\nOS_ANDROID\020\001\022\r\n\tOS_DARWIN\020\002\022\n\n\006O" +
-      "S_IOS\020\006\022\014\n\010OS_LINUX\020\n\022\016\n\nOS_WINDOWS\020\024BZ\n" +
-      "\026org.mojolang.mojo.coreB\rPlatformProtoP\001" +
-      "Z/github.com/mojo-lang/core/go/pkg/mojo/" +
-      "core;coreb\006proto3"
+      "n\030\003 \001(\t*g\n\004Arch\022\024\n\020ARCH_UNSPECIFIED\020\000\022\014\n" +
+      "\010ARCH_X86\020\001\022\016\n\nARCH_AMD64\020\002\022\014\n\010ARCH_ARM\020" +
+      "\005\022\016\n\nARCH_ARM64\020\006\022\r\n\tARCH_WASM\020\n*a\n\002OS\022\022" +
+      "\n\016OS_UNSPECIFIED\020\000\022\016\n\nOS_ANDROID\020\001\022\r\n\tOS" +
+      "_DARWIN\020\002\022\n\n\006OS_IOS\020\006\022\014\n\010OS_LINUX\020\n\022\016\n\nO" +
+      "S_WINDOWS\020\024BZ\n\026org.mojolang.mojo.coreB\rP" +
+      "latformProtoP\001Z/github.com/mojo-lang/cor" +
+      "e/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

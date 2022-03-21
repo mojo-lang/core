@@ -13,9 +13,13 @@ public enum Arch
    */
   ARCH_UNSPECIFIED(0),
   /**
-   * <code>ARCH_AMD64 = 1;</code>
+   * <code>ARCH_X86 = 1;</code>
    */
-  ARCH_AMD64(1),
+  ARCH_X86(1),
+  /**
+   * <code>ARCH_AMD64 = 2;</code>
+   */
+  ARCH_AMD64(2),
   /**
    * <code>ARCH_ARM = 5;</code>
    */
@@ -36,9 +40,13 @@ public enum Arch
    */
   public static final int ARCH_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>ARCH_AMD64 = 1;</code>
+   * <code>ARCH_X86 = 1;</code>
    */
-  public static final int ARCH_AMD64_VALUE = 1;
+  public static final int ARCH_X86_VALUE = 1;
+  /**
+   * <code>ARCH_AMD64 = 2;</code>
+   */
+  public static final int ARCH_AMD64_VALUE = 2;
   /**
    * <code>ARCH_ARM = 5;</code>
    */
@@ -78,7 +86,8 @@ public enum Arch
   public static Arch forNumber(int value) {
     switch (value) {
       case 0: return ARCH_UNSPECIFIED;
-      case 1: return ARCH_AMD64;
+      case 1: return ARCH_X86;
+      case 2: return ARCH_AMD64;
       case 5: return ARCH_ARM;
       case 6: return ARCH_ARM64;
       case 10: return ARCH_WASM;
