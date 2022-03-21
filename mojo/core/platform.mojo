@@ -3,10 +3,10 @@
 enum Arch {
     unspecified @0
 
-    amd64 @1
+    x86 @1
+    amd64 @2
 
     arm @5
-
     arm64 @6
 
     wasm @10
@@ -27,6 +27,7 @@ enum OS {
     windows @20
 }
 
+/// the platform information
 type Platform {
     arch: Arch @1
     os: OS @2

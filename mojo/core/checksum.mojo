@@ -21,15 +21,15 @@ type Checksum {
     enum Algorithm {
         unspecified @0
 
-        md5 @1    //<
-        sha1 @2   //<
-        sha256 @3 //<
-        sha512 @4 //<
+        md5 @1    //< md5 algorithm
+        sha1 @2   //< sha1 algorithm
+        sha256 @3 //< sha256 algorithm
+        sha512 @4 //< sha512 algorithm
     }
 
     /// the algorithm of the checksum
     algorithm: Algorithm @1
     
     /// the checksum value
-    val: String @2
+    value: String @2
 }
