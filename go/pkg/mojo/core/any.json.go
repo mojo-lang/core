@@ -3,8 +3,11 @@ package core
 import (
     "github.com/golang/protobuf/proto"
     jsoniter "github.com/json-iterator/go"
+    "github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
     "google.golang.org/protobuf/reflect/protoreflect"
     "google.golang.org/protobuf/reflect/protoregistry"
+    "reflect"
+    "sort"
     "unsafe"
 )
 
@@ -38,6 +41,18 @@ func (codec *AnyCodec) IsEmpty(ptr unsafe.Pointer) bool {
     return (*Any)(ptr).Empty()
 }
 
+type Fields []protoreflect.FieldDescriptor
+
+func (f Fields) Len() int {
+    return len(f)
+}
+func (f Fields) Swap(i, j int) {
+    f[i], f[j] = f[j], f[i]
+}
+func (f Fields) Less(i, j int) bool {
+    return f[i].JSONName() < f[j].JSONName()
+}
+
 func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
     kvWriter := func(t string, v interface{}) {
         stream.WriteObjectStart()
@@ -65,12 +80,22 @@ func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
             stream.WriteObjectField("@type")
             stream.WriteVal(reflectMsg.Descriptor().FullName())
 
+            obj := reflect.Indirect(reflect.ValueOf(any.typeVal))
+            var fields Fields
             reflectMsg.Range(func(descriptor protoreflect.FieldDescriptor, value protoreflect.Value) bool {
-                stream.WriteMore()
-                stream.WriteObjectField(descriptor.JSONName())
-                stream.WriteVal(value.Interface())
+                fields = append(fields, descriptor)
                 return true
             })
+
+            sort.Sort(fields)
+            for _, descriptor := range fields {
+                stream.WriteMore()
+                stream.WriteObjectField(descriptor.JSONName())
+
+                fieldName := strcase.ToCamel(string(descriptor.Name()))
+                field := obj.FieldByName(fieldName)
+                stream.WriteVal(field.Interface())
+            }
 
             stream.WriteObjectEnd()
         }

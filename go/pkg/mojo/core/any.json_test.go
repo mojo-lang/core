@@ -6,12 +6,23 @@ import (
     "testing"
 )
 
-func TestAnyCodec_Decode(t *testing.T) {
-    str := `{"@type": "mojo.core.Checksum", "algorithm": "sha256", "value": "sha256-checksum-value"}`
+const anyStr = `{"@type":"mojo.core.Checksum","algorithm":"sha256","value":"sha256-checksum-value"}`
 
+func TestAnyCodec_Decode(t *testing.T) {
     any := &Any{}
-    err := jsoniter.ConfigFastest.Unmarshal([]byte(str), any)
+    err := jsoniter.ConfigFastest.Unmarshal([]byte(anyStr), any)
     assert.NoError(t, err)
     assert.Equal(t, Checksum_ALGORITHM_SHA256, any.Get().(*Checksum).Algorithm)
     assert.Equal(t, "sha256-checksum-value", any.Get().(*Checksum).Value)
+}
+
+func TestAnyCodec_Encode(t *testing.T) {
+    any := NewAny(&Checksum{
+        Algorithm: Checksum_ALGORITHM_SHA256,
+        Value:     "sha256-checksum-value",
+    })
+
+    out, err := jsoniter.ConfigFastest.MarshalToString(any)
+    assert.NoError(t, err)
+    assert.Equal(t, anyStr, out)
 }
