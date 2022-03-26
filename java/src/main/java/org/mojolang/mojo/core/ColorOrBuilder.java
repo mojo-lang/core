@@ -26,8 +26,17 @@ public interface ColorOrBuilder extends
   int getBlue();
 
   /**
-   * <code>float alpha = 4;</code>
+   * <code>.mojo.core.Float32Value alpha = 4;</code>
+   * @return Whether the alpha field is set.
+   */
+  boolean hasAlpha();
+  /**
+   * <code>.mojo.core.Float32Value alpha = 4;</code>
    * @return The alpha.
    */
-  float getAlpha();
+  org.mojolang.mojo.core.Float32Value getAlpha();
+  /**
+   * <code>.mojo.core.Float32Value alpha = 4;</code>
+   */
+  org.mojolang.mojo.core.Float32ValueOrBuilder getAlphaOrBuilder();
 }

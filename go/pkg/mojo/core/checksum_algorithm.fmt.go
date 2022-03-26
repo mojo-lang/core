@@ -22,17 +22,17 @@ import (
 )
 
 var ChecksumAlgorithmNames = map[int32]string{
-	1: "md5",
-	2: "sha1",
-	3: "sha256",
-	4: "sha512",
+	1: "MD5",
+	2: "SHA1",
+	3: "SHA256",
+	4: "SHA512",
 }
 
 var ChecksumAlgorithmValues = map[string]Checksum_Algorithm{
-	"md5":    Checksum_ALGORITHM_MD5,
-	"sha1":   Checksum_ALGORITHM_SHA1,
-	"sha256": Checksum_ALGORITHM_SHA256,
-	"sha512": Checksum_ALGORITHM_SHA512,
+	"MD5":    Checksum_ALGORITHM_MD5,
+	"SHA1":   Checksum_ALGORITHM_SHA1,
+	"SHA256": Checksum_ALGORITHM_SHA256,
+	"SHA512": Checksum_ALGORITHM_SHA512,
 }
 
 func (x Checksum_Algorithm) Format() string {

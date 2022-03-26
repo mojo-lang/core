@@ -1,0 +1,46 @@
+package core
+
+import (
+    "fmt"
+    jsoniter "github.com/json-iterator/go"
+    "unsafe"
+)
+
+func init() {
+    jsoniter.RegisterTypeDecoder("core.Float32Value", &Float32ValueCodec{})
+    jsoniter.RegisterTypeEncoder("core.Float32Value", &Float32ValueCodec{})
+    jsoniter.RegisterTypeDecoder("core.Float64Value", &Float64ValueCodec{})
+    jsoniter.RegisterTypeEncoder("core.Float64Value", &Float64ValueCodec{})
+}
+
+type Float32ValueCodec struct {
+}
+
+func (codec *Float32ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+    (*Float32Value)(ptr).Val = iter.ReadAny().ToFloat32()
+}
+
+func (codec *Float32ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+    stream.WriteString(fmt.Sprint((*Float32Value)(ptr).Val))
+}
+
+func (codec *Float32ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
+    e := (*Float32Value)(ptr)
+    return e == nil
+}
+
+type Float64ValueCodec struct {
+}
+
+func (codec *Float64ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+    (*Float64Value)(ptr).Val = iter.ReadAny().ToFloat64()
+}
+
+func (codec *Float64ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+    stream.WriteString(fmt.Sprint((*Float64Value)(ptr).Val))
+}
+
+func (codec *Float64ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
+    e := (*Float64Value)(ptr)
+    return e == nil
+}

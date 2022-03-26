@@ -1,9 +1,9 @@
 | 类型 | 说明 |
 |---|---|
-| `array` |  |
-| `object` |  |
+| `array` | Values |
+| `object` | object |
 | `null` |  |
 | `boolean` |  |
 | `integer` |  |
-| `number` |  |
+| `number` | Float64 |
 | `string` |  |

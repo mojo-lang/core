@@ -23,31 +23,31 @@ import (
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.FloatValues", &FloatValuesCodec{})
-	jsoniter.RegisterTypeEncoder("core.FloatValues", &FloatValuesCodec{})
+	jsoniter.RegisterTypeDecoder("core.Float32Values", &Float32ValuesCodec{})
+	jsoniter.RegisterTypeEncoder("core.Float32Values", &Float32ValuesCodec{})
 }
 
-type FloatValuesCodec struct {
+type Float32ValuesCodec struct {
 }
 
-func (codec *FloatValuesCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (codec *Float32ValuesCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	any := iter.ReadAny()
-	floatValues := (*FloatValues)(ptr)
+	float32Values := (*Float32Values)(ptr)
 	if any.ValueType() == jsoniter.ArrayValue {
-		any.ToVal(&floatValues.Vals)
+		any.ToVal(&float32Values.Vals)
 	}
 }
 
-func (codec *FloatValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
-	floatValues := (*FloatValues)(ptr)
-	return floatValues == nil || len(floatValues.Vals) == 0
+func (codec *Float32ValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
+	float32Values := (*Float32Values)(ptr)
+	return float32Values == nil || len(float32Values.Vals) == 0
 }
 
-func (codec *FloatValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-	floatValues := (*FloatValues)(ptr)
+func (codec *Float32ValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+	float32Values := (*Float32Values)(ptr)
 
 	stream.WriteArrayStart()
-	for i, v := range floatValues.Vals {
+	for i, v := range float32Values.Vals {
 		if i > 0 {
 			stream.WriteMore()
 		}

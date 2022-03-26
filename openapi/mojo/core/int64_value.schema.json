@@ -1,1 +1,0 @@
-{"title":"mojo.core.Int64Value","description":"Wrapper type for the Generic T type\n\n实例化名称规格， TValue  TValues  TValuesMap","type":"object","properties":{"val":{"description":"the boxed value","type":"integer","format":"int64"}}}

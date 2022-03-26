@@ -33,28 +33,6 @@ type BoxedBool = Boxed<Bool>
 /// The JSON representation for `BoolValue` is JSON boolean.
 type BoolValue = Boxed<Bool>
 
-/// Wrapper type for `Int64`
-///
-/// The JSON representation for `BoxedInt64` is JSON number.
-@deprecated
-type BoxedInt64 = Boxed<Int64>
-
-/// Wrapper type for `Int64`
-///
-/// The JSON representation for `Int64Value` is JSON number.
-type Int64Value = Boxed<Int64>
-
-/// Wrapper type for `UInt64`
-///
-/// The JSON representation for `BoxedUInt64` is JSON number.
-@deprecated
-type BoxedUInt64 = Boxed<UInt64>
-
-/// Wrapper type for `UInt64`
-///
-/// The JSON representation for `UInt64Value` is JSON number.
-type UInt64Value = Boxed<UInt64>
-
 /// Wrapper type for `Int32`
 ///
 /// The JSON representation for `BoxedInt32` is JSON number.
@@ -77,16 +55,43 @@ type BoxedUInt32 = Boxed<UInt32>
 /// The JSON representation for `UInt32Value` is JSON number.
 type UInt32Value = Boxed<UInt32>
 
+/// Wrapper type for `Int64`
+///
+/// The JSON representation for `BoxedInt64` is JSON number.
+@deprecated
+type BoxedInt64 = Boxed<Int64>
+
+/// Wrapper type for `Int64`
+///
+/// The JSON representation for `Int64Value` is JSON number.
+type Int64Value = Boxed<Int64>
+
+/// Wrapper type for `UInt64`
+///
+/// The JSON representation for `BoxedUInt64` is JSON number.
+@deprecated
+type BoxedUInt64 = Boxed<UInt64>
+
+/// Wrapper type for `UInt64`
+///
+/// The JSON representation for `UInt64Value` is JSON number.
+type UInt64Value = Boxed<UInt64>
+
 /// Wrapper type for `Float`
 ///
 /// The JSON representation for `BoxedFloat` is JSON number.
 @deprecated
 type BoxedFloat = Boxed<Float>
 
-/// Wrapper type for `Float`
+/// Wrapper type for `Float32`
 ///
 /// The JSON representation for `FloatValue` is JSON number.
-type FloatValue = Boxed<Float>
+type Float32Value = Boxed<Float32>
+
+/// Alias type for `Float64Value`
+///
+/// The JSON representation for `FloatValue` is JSON number.
+type FloatValue = Float32Value
 
 /// Wrapper type for `Double`
 ///
@@ -97,7 +102,12 @@ type BoxedDouble = Boxed<Double>
 /// Wrapper type for `Double`
 ///
 /// The JSON representation for `DoubleValue` is JSON number.
-type DoubleValue = Boxed<Double>
+type Float64Value = Boxed<Float64>
+
+/// Alias type for `Float64Value`
+///
+/// The JSON representation for `DoubleValue` is JSON number.
+type DoubleValue = Float64Value
 
 /// Wrapper type for `String`
 ///
@@ -123,17 +133,17 @@ type BytesValue = Boxed<Bytes>
 
 /// Wrapper type for `Array<String>`
 ///
-/// The JSON representation for `Int32s` is JSON boolean array.
+/// The JSON representation for `BoolValues` is JSON boolean array.
 type BoolValues: [Bool]
 
 /// Wrapper type for `Array<String>`
 ///
-/// The JSON representation for `Int32s` is JSON number array.
+/// The JSON representation for `Int32Values` is JSON number array.
 type Int32Values: [Int32]
 
 /// Wrapper type for `Array<String>`
 ///
-/// The JSON representation for `UInt32s` is JSON number array.
+/// The JSON representation for `UInt32Values` is JSON number array.
 type UInt32Values: [UInt32]
 
 /// Wrapper type for `Array<String>`
@@ -141,33 +151,48 @@ type UInt32Values: [UInt32]
 /// The JSON representation for `Int64s` is JSON number array.
 type Int64Values: [Int64]
 
-/// Alias type for `Int64s`
+/// Alias type for `Int64Values`
 ///
-/// The JSON representation for `Integers` is JSON number array.
-type IntegerValues = Int64Values
+/// The JSON representation for `IntValues` is JSON number array.
+type IntValues = Int64Values
 
 /// Wrapper type for `Array<String>`
 ///
-/// The JSON representation for `UInt64s` is JSON number array.
+/// The JSON representation for `UInt64Values` is JSON number array.
 type UInt64Values: [UInt64]
 
-/// Wrapper type for `Array<String>`
+/// Alias type for `UInt64Values`
 ///
-/// The JSON representation for `Floats` is JSON number array.
-type FloatValues: [Float]
+/// The JSON representation for `UIntValues` is JSON number array.
+type UIntValues = UInt64Values
+
+/// Wrapper type for `Array<Float32>`
+///
+/// The JSON representation for `Float32Values` is JSON number array.
+type Float32Values: [Float32]
+
+/// Alias type for `Float32Values`
+///
+/// The JSON representation for `FloatValues` is JSON number array.
+type FloatValues = Float32Values
+
+/// Wrapper type for `Array<Float64>`
+///
+/// The JSON representation for `Float64Values` is JSON number array.
+type Float64Values: [Float64]
+
+/// Alias type for `Float64Values`
+///
+/// The JSON representation for `DoubleValues` is JSON number array.
+type DoubleValues = Float64Values
 
 /// Wrapper type for `Array<String>`
 ///
-/// The JSON representation for `Doubles` is JSON number array.
-type DoubleValues: [Double]
-
-/// Wrapper type for `Array<String>`
-///
-/// The JSON representation for `Doubles` is JSON string array.
+/// The JSON representation for `Strings` is JSON string array.
 @deprecated
 type Strings: [String]
 
 /// Wrapper type for `Array<String>`
 ///
-/// The JSON representation for `Doubles` is JSON string array.
+/// The JSON representation for `StringValues` is JSON string array.
 type StringValues: [String]

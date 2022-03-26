@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('#{red:0x}{green:0x}{blue:0x}')
+@format('#{red:0x}{green:0x}{blue:0x}{alpha_value:0x}')
 type Color {
     red:   UInt8 @1
     green: UInt8 @2
     blue:  UInt8 @3
-    alpha: Float @4
+    alpha: FloatValue @4 @in(0..1)
 }
 
 //type RGB = Color

@@ -1,1 +1,1 @@
-{"title":"mojo.core.Strings","description":"Wrapper type for `Array\u003cString\u003e`\n\nThe JSON representation for `Doubles` is JSON string array.","type":"array","items":{"type":"string"}}
+{"title":"mojo.core.Strings","description":"Wrapper type for `Array\u003cString\u003e`\n\nThe JSON representation for `Strings` is JSON string array.","type":"array","items":{"type":"string"}}

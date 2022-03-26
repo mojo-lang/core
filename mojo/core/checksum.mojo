@@ -18,6 +18,7 @@
 @format('{algorithm} {val}')
 type Checksum {
     /// commonly used algorithm for Checksum
+    @case_style("screaming_snake")
     enum Algorithm {
         unspecified @0
 

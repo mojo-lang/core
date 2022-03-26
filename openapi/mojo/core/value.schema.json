@@ -1,1 +1,1 @@
-{"title":"mojo.core.Value","oneOf":[{"type":"array"},{"type":"object"},{"type":"null"},{"type":"boolean"},{"type":"integer","format":"int64"},{"type":"number","format":"float64"},{"type":"string"}]}
+{"title":"mojo.core.Value","oneOf":[{"title":"Values","type":"array"},{"title":"object","type":"object"},{"type":"null"},{"type":"boolean"},{"type":"integer","format":"int64"},{"title":"Float64","type":"number","format":"float64"},{"type":"string"}]}

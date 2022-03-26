@@ -28,15 +28,18 @@ public final class ColorProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025mojo/core/color.proto\022\tmojo.core\"@\n\005Co" +
-      "lor\022\013\n\003red\030\001 \001(\r\022\r\n\005green\030\002 \001(\r\022\014\n\004blue\030" +
-      "\003 \001(\r\022\r\n\005alpha\030\004 \001(\002BW\n\026org.mojolang.moj" +
-      "o.coreB\nColorProtoP\001Z/github.com/mojo-la" +
-      "ng/core/go/pkg/mojo/core;coreb\006proto3"
+      "\n\025mojo/core/color.proto\022\tmojo.core\032\025mojo" +
+      "/core/boxed.proto\"Y\n\005Color\022\013\n\003red\030\001 \001(\r\022" +
+      "\r\n\005green\030\002 \001(\r\022\014\n\004blue\030\003 \001(\r\022&\n\005alpha\030\004 " +
+      "\001(\0132\027.mojo.core.Float32ValueBW\n\026org.mojo" +
+      "lang.mojo.coreB\nColorProtoP\001Z/github.com" +
+      "/mojo-lang/core/go/pkg/mojo/core;coreb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.core.BoxedProto.getDescriptor(),
         });
     internal_static_mojo_core_Color_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -44,6 +47,7 @@ public final class ColorProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Color_descriptor,
         new java.lang.String[] { "Red", "Green", "Blue", "Alpha", });
+    org.mojolang.mojo.core.BoxedProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

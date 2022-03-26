@@ -1,1 +1,1 @@
-{"title":"mojo.core.FloatValue","description":"Wrapper type for the Generic T type\n\n实例化名称规格， TValue  TValues  TValuesMap","type":"object","properties":{"val":{"description":"the boxed value","type":"number","format":"float32"}}}
+{"title":"Float32","type":"number","format":"float32"}

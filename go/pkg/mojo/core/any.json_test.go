@@ -6,7 +6,7 @@ import (
     "testing"
 )
 
-const anyStr = `{"@type":"mojo.core.Checksum","algorithm":"sha256","value":"sha256-checksum-value"}`
+const anyStr = `{"@type":"mojo.core.Checksum","algorithm":"SHA256","value":"sha256-checksum-value"}`
 
 func TestAnyCodec_Decode(t *testing.T) {
     any := &Any{}

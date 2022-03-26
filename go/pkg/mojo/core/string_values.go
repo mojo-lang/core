@@ -1,5 +1,8 @@
 package core
 
+const StringValuesTypeName = "StringValues"
+const StringValuesTypeFullName = "mojo.core.StringValues"
+
 func NewStringValues(values ...string) *StringValues {
     return &StringValues{Vals: values}
 }

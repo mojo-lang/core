@@ -63,9 +63,17 @@ private static final long serialVersionUID = 0L;
             blue_ = input.readUInt32();
             break;
           }
-          case 37: {
+          case 34: {
+            org.mojolang.mojo.core.Float32Value.Builder subBuilder = null;
+            if (alpha_ != null) {
+              subBuilder = alpha_.toBuilder();
+            }
+            alpha_ = input.readMessage(org.mojolang.mojo.core.Float32Value.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(alpha_);
+              alpha_ = subBuilder.buildPartial();
+            }
 
-            alpha_ = input.readFloat();
             break;
           }
           default: {
@@ -134,14 +142,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALPHA_FIELD_NUMBER = 4;
-  private float alpha_;
+  private org.mojolang.mojo.core.Float32Value alpha_;
   /**
-   * <code>float alpha = 4;</code>
+   * <code>.mojo.core.Float32Value alpha = 4;</code>
+   * @return Whether the alpha field is set.
+   */
+  @java.lang.Override
+  public boolean hasAlpha() {
+    return alpha_ != null;
+  }
+  /**
+   * <code>.mojo.core.Float32Value alpha = 4;</code>
    * @return The alpha.
    */
   @java.lang.Override
-  public float getAlpha() {
-    return alpha_;
+  public org.mojolang.mojo.core.Float32Value getAlpha() {
+    return alpha_ == null ? org.mojolang.mojo.core.Float32Value.getDefaultInstance() : alpha_;
+  }
+  /**
+   * <code>.mojo.core.Float32Value alpha = 4;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.core.Float32ValueOrBuilder getAlphaOrBuilder() {
+    return getAlpha();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -167,8 +190,8 @@ private static final long serialVersionUID = 0L;
     if (blue_ != 0) {
       output.writeUInt32(3, blue_);
     }
-    if (java.lang.Float.floatToRawIntBits(alpha_) != 0) {
-      output.writeFloat(4, alpha_);
+    if (alpha_ != null) {
+      output.writeMessage(4, getAlpha());
     }
     unknownFields.writeTo(output);
   }
@@ -191,9 +214,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(3, blue_);
     }
-    if (java.lang.Float.floatToRawIntBits(alpha_) != 0) {
+    if (alpha_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(4, alpha_);
+        .computeMessageSize(4, getAlpha());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -216,9 +239,11 @@ private static final long serialVersionUID = 0L;
         != other.getGreen()) return false;
     if (getBlue()
         != other.getBlue()) return false;
-    if (java.lang.Float.floatToIntBits(getAlpha())
-        != java.lang.Float.floatToIntBits(
-            other.getAlpha())) return false;
+    if (hasAlpha() != other.hasAlpha()) return false;
+    if (hasAlpha()) {
+      if (!getAlpha()
+          .equals(other.getAlpha())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -236,9 +261,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getGreen();
     hash = (37 * hash) + BLUE_FIELD_NUMBER;
     hash = (53 * hash) + getBlue();
-    hash = (37 * hash) + ALPHA_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getAlpha());
+    if (hasAlpha()) {
+      hash = (37 * hash) + ALPHA_FIELD_NUMBER;
+      hash = (53 * hash) + getAlpha().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -378,8 +404,12 @@ private static final long serialVersionUID = 0L;
 
       blue_ = 0;
 
-      alpha_ = 0F;
-
+      if (alphaBuilder_ == null) {
+        alpha_ = null;
+      } else {
+        alpha_ = null;
+        alphaBuilder_ = null;
+      }
       return this;
     }
 
@@ -409,7 +439,11 @@ private static final long serialVersionUID = 0L;
       result.red_ = red_;
       result.green_ = green_;
       result.blue_ = blue_;
-      result.alpha_ = alpha_;
+      if (alphaBuilder_ == null) {
+        result.alpha_ = alpha_;
+      } else {
+        result.alpha_ = alphaBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -467,8 +501,8 @@ private static final long serialVersionUID = 0L;
       if (other.getBlue() != 0) {
         setBlue(other.getBlue());
       }
-      if (other.getAlpha() != 0F) {
-        setAlpha(other.getAlpha());
+      if (other.hasAlpha()) {
+        mergeAlpha(other.getAlpha());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -592,35 +626,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float alpha_ ;
+    private org.mojolang.mojo.core.Float32Value alpha_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.core.Float32Value, org.mojolang.mojo.core.Float32Value.Builder, org.mojolang.mojo.core.Float32ValueOrBuilder> alphaBuilder_;
     /**
-     * <code>float alpha = 4;</code>
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
+     * @return Whether the alpha field is set.
+     */
+    public boolean hasAlpha() {
+      return alphaBuilder_ != null || alpha_ != null;
+    }
+    /**
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
      * @return The alpha.
      */
-    @java.lang.Override
-    public float getAlpha() {
-      return alpha_;
+    public org.mojolang.mojo.core.Float32Value getAlpha() {
+      if (alphaBuilder_ == null) {
+        return alpha_ == null ? org.mojolang.mojo.core.Float32Value.getDefaultInstance() : alpha_;
+      } else {
+        return alphaBuilder_.getMessage();
+      }
     }
     /**
-     * <code>float alpha = 4;</code>
-     * @param value The alpha to set.
-     * @return This builder for chaining.
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
      */
-    public Builder setAlpha(float value) {
-      
-      alpha_ = value;
-      onChanged();
+    public Builder setAlpha(org.mojolang.mojo.core.Float32Value value) {
+      if (alphaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        alpha_ = value;
+        onChanged();
+      } else {
+        alphaBuilder_.setMessage(value);
+      }
+
       return this;
     }
     /**
-     * <code>float alpha = 4;</code>
-     * @return This builder for chaining.
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
+     */
+    public Builder setAlpha(
+        org.mojolang.mojo.core.Float32Value.Builder builderForValue) {
+      if (alphaBuilder_ == null) {
+        alpha_ = builderForValue.build();
+        onChanged();
+      } else {
+        alphaBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
+     */
+    public Builder mergeAlpha(org.mojolang.mojo.core.Float32Value value) {
+      if (alphaBuilder_ == null) {
+        if (alpha_ != null) {
+          alpha_ =
+            org.mojolang.mojo.core.Float32Value.newBuilder(alpha_).mergeFrom(value).buildPartial();
+        } else {
+          alpha_ = value;
+        }
+        onChanged();
+      } else {
+        alphaBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
      */
     public Builder clearAlpha() {
-      
-      alpha_ = 0F;
-      onChanged();
+      if (alphaBuilder_ == null) {
+        alpha_ = null;
+        onChanged();
+      } else {
+        alpha_ = null;
+        alphaBuilder_ = null;
+      }
+
       return this;
+    }
+    /**
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
+     */
+    public org.mojolang.mojo.core.Float32Value.Builder getAlphaBuilder() {
+      
+      onChanged();
+      return getAlphaFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
+     */
+    public org.mojolang.mojo.core.Float32ValueOrBuilder getAlphaOrBuilder() {
+      if (alphaBuilder_ != null) {
+        return alphaBuilder_.getMessageOrBuilder();
+      } else {
+        return alpha_ == null ?
+            org.mojolang.mojo.core.Float32Value.getDefaultInstance() : alpha_;
+      }
+    }
+    /**
+     * <code>.mojo.core.Float32Value alpha = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.core.Float32Value, org.mojolang.mojo.core.Float32Value.Builder, org.mojolang.mojo.core.Float32ValueOrBuilder> 
+        getAlphaFieldBuilder() {
+      if (alphaBuilder_ == null) {
+        alphaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.core.Float32Value, org.mojolang.mojo.core.Float32Value.Builder, org.mojolang.mojo.core.Float32ValueOrBuilder>(
+                getAlpha(),
+                getParentForChildren(),
+                isClean());
+        alpha_ = null;
+      }
+      return alphaBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

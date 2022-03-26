@@ -1,1 +1,1 @@
-{"title":"mojo.core.MediaType.Parameter","description":"","type":"object","properties":{"key":{"type":"string"},"value":{"oneOf":[{"type":"null"},{"type":"boolean"},{"type":"number"},{"type":"string"},{"type":"array"},{"type":"object"}]}}}
+{"title":"mojo.core.MediaType.Parameter","description":"","type":"object","properties":{"key":{"type":"string"},"value":{"title":"Value","oneOf":[{"type":"null"},{"type":"boolean"},{"type":"number"},{"type":"string"},{"type":"array"},{"type":"object"}]}}}

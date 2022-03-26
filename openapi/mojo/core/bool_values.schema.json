@@ -1,1 +1,1 @@
-{"title":"mojo.core.BoolValues","description":"Wrapper type for `Array\u003cString\u003e`\n\nThe JSON representation for `Int32s` is JSON boolean array.","type":"array","items":{"type":"boolean"}}
+{"title":"mojo.core.BoolValues","description":"Wrapper type for `Array\u003cString\u003e`\n\nThe JSON representation for `BoolValues` is JSON boolean array.","type":"array","items":{"type":"boolean"}}

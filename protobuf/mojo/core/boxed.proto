@@ -17,22 +17,6 @@ message BoolValue {
     bool val = 1;
 }
 
-message BoxedInt64 {
-    int64 val = 1;
-}
-
-message Int64Value {
-    int64 val = 1;
-}
-
-message BoxedUInt64 {
-    uint64 val = 1;
-}
-
-message UInt64Value {
-    uint64 val = 1;
-}
-
 message BoxedInt32 {
     int32 val = 1;
 }
@@ -49,11 +33,27 @@ message UInt32Value {
     uint32 val = 1;
 }
 
+message BoxedInt64 {
+    int64 val = 1;
+}
+
+message Int64Value {
+    int64 val = 1;
+}
+
+message BoxedUInt64 {
+    uint64 val = 1;
+}
+
+message UInt64Value {
+    uint64 val = 1;
+}
+
 message BoxedFloat {
     float val = 1;
 }
 
-message FloatValue {
+message Float32Value {
     float val = 1;
 }
 
@@ -61,7 +61,7 @@ message BoxedDouble {
     double val = 1;
 }
 
-message DoubleValue {
+message Float64Value {
     double val = 1;
 }
 
@@ -101,11 +101,11 @@ message UInt64Values {
     repeated uint64 vals = 1;
 }
 
-message FloatValues {
+message Float32Values {
     repeated float vals = 1;
 }
 
-message DoubleValues {
+message Float64Values {
     repeated double vals = 1;
 }
 

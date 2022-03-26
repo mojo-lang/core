@@ -12,4 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@format("")
 type Id = UInt64 @1 | String @2 | Uuid @3

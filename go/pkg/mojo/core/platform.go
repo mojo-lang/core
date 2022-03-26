@@ -5,6 +5,9 @@ import (
     "strings"
 )
 
+const PlatformTypeName = "Platform"
+const PlatformTypeFullName = "mojo.core.Platform"
+
 func NewPlatform(os OS, arch Architecture, variant string) *Platform {
     return &Platform{
         Os:           os,
