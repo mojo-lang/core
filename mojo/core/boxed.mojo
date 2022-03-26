@@ -164,4 +164,10 @@ type DoubleValues: [Double]
 /// Wrapper type for `Array<String>`
 ///
 /// The JSON representation for `Doubles` is JSON string array.
+@deprecated
 type Strings: [String]
+
+/// Wrapper type for `Array<String>`
+///
+/// The JSON representation for `Doubles` is JSON string array.
+type StringValues: [String]

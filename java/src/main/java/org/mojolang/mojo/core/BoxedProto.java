@@ -144,6 +144,11 @@ public final class BoxedProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Strings_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_StringValues_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_StringValues_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -171,10 +176,11 @@ public final class BoxedProto {
       "\014\n\004vals\030\001 \003(\r\"\033\n\013Int64Values\022\014\n\004vals\030\001 \003" +
       "(\003\"\034\n\014UInt64Values\022\014\n\004vals\030\001 \003(\004\"\033\n\013Floa" +
       "tValues\022\014\n\004vals\030\001 \003(\002\"\034\n\014DoubleValues\022\014\n" +
-      "\004vals\030\001 \003(\001\"\027\n\007Strings\022\014\n\004vals\030\001 \003(\tBW\n\026" +
-      "org.mojolang.mojo.coreB\nBoxedProtoP\001Z/gi" +
-      "thub.com/mojo-lang/core/go/pkg/mojo/core" +
-      ";coreb\006proto3"
+      "\004vals\030\001 \003(\001\"\027\n\007Strings\022\014\n\004vals\030\001 \003(\t\"\034\n\014" +
+      "StringValues\022\014\n\004vals\030\001 \003(\tBW\n\026org.mojola" +
+      "ng.mojo.coreB\nBoxedProtoP\001Z/github.com/m" +
+      "ojo-lang/core/go/pkg/mojo/core;coreb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -335,6 +341,12 @@ public final class BoxedProto {
     internal_static_mojo_core_Strings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Strings_descriptor,
+        new java.lang.String[] { "Vals", });
+    internal_static_mojo_core_StringValues_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_mojo_core_StringValues_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_StringValues_descriptor,
         new java.lang.String[] { "Vals", });
   }
 

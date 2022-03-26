@@ -16,8 +16,10 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Platform() {
-    arch_ = 0;
+    architecture_ = 0;
+    variant_ = "";
     os_ = 0;
+    osName_ = "";
     osVersion_ = "";
   }
 
@@ -54,16 +56,28 @@ private static final long serialVersionUID = 0L;
           case 8: {
             int rawValue = input.readEnum();
 
-            arch_ = rawValue;
+            architecture_ = rawValue;
             break;
           }
-          case 16: {
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            variant_ = s;
+            break;
+          }
+          case 80: {
             int rawValue = input.readEnum();
 
             os_ = rawValue;
             break;
           }
-          case 26: {
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            osName_ = s;
+            break;
+          }
+          case 98: {
             java.lang.String s = input.readStringRequireUtf8();
 
             osVersion_ = s;
@@ -101,36 +115,74 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.Platform.class, org.mojolang.mojo.core.Platform.Builder.class);
   }
 
-  public static final int ARCH_FIELD_NUMBER = 1;
-  private int arch_;
+  public static final int ARCHITECTURE_FIELD_NUMBER = 1;
+  private int architecture_;
   /**
-   * <code>.mojo.core.Arch arch = 1;</code>
-   * @return The enum numeric value on the wire for arch.
+   * <code>.mojo.core.Architecture architecture = 1;</code>
+   * @return The enum numeric value on the wire for architecture.
    */
-  @java.lang.Override public int getArchValue() {
-    return arch_;
+  @java.lang.Override public int getArchitectureValue() {
+    return architecture_;
   }
   /**
-   * <code>.mojo.core.Arch arch = 1;</code>
-   * @return The arch.
+   * <code>.mojo.core.Architecture architecture = 1;</code>
+   * @return The architecture.
    */
-  @java.lang.Override public org.mojolang.mojo.core.Arch getArch() {
+  @java.lang.Override public org.mojolang.mojo.core.Architecture getArchitecture() {
     @SuppressWarnings("deprecation")
-    org.mojolang.mojo.core.Arch result = org.mojolang.mojo.core.Arch.valueOf(arch_);
-    return result == null ? org.mojolang.mojo.core.Arch.UNRECOGNIZED : result;
+    org.mojolang.mojo.core.Architecture result = org.mojolang.mojo.core.Architecture.valueOf(architecture_);
+    return result == null ? org.mojolang.mojo.core.Architecture.UNRECOGNIZED : result;
   }
 
-  public static final int OS_FIELD_NUMBER = 2;
+  public static final int VARIANT_FIELD_NUMBER = 2;
+  private volatile java.lang.Object variant_;
+  /**
+   * <code>string variant = 2;</code>
+   * @return The variant.
+   */
+  @java.lang.Override
+  public java.lang.String getVariant() {
+    java.lang.Object ref = variant_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      variant_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string variant = 2;</code>
+   * @return The bytes for variant.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVariantBytes() {
+    java.lang.Object ref = variant_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      variant_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int OS_FIELD_NUMBER = 10;
   private int os_;
   /**
-   * <code>.mojo.core.OS os = 2;</code>
+   * <code>.mojo.core.OS os = 10;</code>
    * @return The enum numeric value on the wire for os.
    */
   @java.lang.Override public int getOsValue() {
     return os_;
   }
   /**
-   * <code>.mojo.core.OS os = 2;</code>
+   * <code>.mojo.core.OS os = 10;</code>
    * @return The os.
    */
   @java.lang.Override public org.mojolang.mojo.core.OS getOs() {
@@ -139,10 +191,48 @@ private static final long serialVersionUID = 0L;
     return result == null ? org.mojolang.mojo.core.OS.UNRECOGNIZED : result;
   }
 
-  public static final int OS_VERSION_FIELD_NUMBER = 3;
+  public static final int OS_NAME_FIELD_NUMBER = 11;
+  private volatile java.lang.Object osName_;
+  /**
+   * <code>string os_name = 11;</code>
+   * @return The osName.
+   */
+  @java.lang.Override
+  public java.lang.String getOsName() {
+    java.lang.Object ref = osName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      osName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string os_name = 11;</code>
+   * @return The bytes for osName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOsNameBytes() {
+    java.lang.Object ref = osName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      osName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int OS_VERSION_FIELD_NUMBER = 12;
   private volatile java.lang.Object osVersion_;
   /**
-   * <code>string os_version = 3;</code>
+   * <code>string os_version = 12;</code>
    * @return The osVersion.
    */
   @java.lang.Override
@@ -159,7 +249,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string os_version = 3;</code>
+   * <code>string os_version = 12;</code>
    * @return The bytes for osVersion.
    */
   @java.lang.Override
@@ -191,14 +281,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (arch_ != org.mojolang.mojo.core.Arch.ARCH_UNSPECIFIED.getNumber()) {
-      output.writeEnum(1, arch_);
+    if (architecture_ != org.mojolang.mojo.core.Architecture.ARCHITECTURE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(1, architecture_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(variant_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, variant_);
     }
     if (os_ != org.mojolang.mojo.core.OS.OS_UNSPECIFIED.getNumber()) {
-      output.writeEnum(2, os_);
+      output.writeEnum(10, os_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, osName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osVersion_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, osVersion_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, osVersion_);
     }
     unknownFields.writeTo(output);
   }
@@ -209,16 +305,22 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (arch_ != org.mojolang.mojo.core.Arch.ARCH_UNSPECIFIED.getNumber()) {
+    if (architecture_ != org.mojolang.mojo.core.Architecture.ARCHITECTURE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(1, arch_);
+        .computeEnumSize(1, architecture_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(variant_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, variant_);
     }
     if (os_ != org.mojolang.mojo.core.OS.OS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, os_);
+        .computeEnumSize(10, os_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, osName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osVersion_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, osVersion_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, osVersion_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -235,8 +337,12 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Platform other = (org.mojolang.mojo.core.Platform) obj;
 
-    if (arch_ != other.arch_) return false;
+    if (architecture_ != other.architecture_) return false;
+    if (!getVariant()
+        .equals(other.getVariant())) return false;
     if (os_ != other.os_) return false;
+    if (!getOsName()
+        .equals(other.getOsName())) return false;
     if (!getOsVersion()
         .equals(other.getOsVersion())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -250,10 +356,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ARCH_FIELD_NUMBER;
-    hash = (53 * hash) + arch_;
+    hash = (37 * hash) + ARCHITECTURE_FIELD_NUMBER;
+    hash = (53 * hash) + architecture_;
+    hash = (37 * hash) + VARIANT_FIELD_NUMBER;
+    hash = (53 * hash) + getVariant().hashCode();
     hash = (37 * hash) + OS_FIELD_NUMBER;
     hash = (53 * hash) + os_;
+    hash = (37 * hash) + OS_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getOsName().hashCode();
     hash = (37 * hash) + OS_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getOsVersion().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -389,9 +499,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      arch_ = 0;
+      architecture_ = 0;
+
+      variant_ = "";
 
       os_ = 0;
+
+      osName_ = "";
 
       osVersion_ = "";
 
@@ -421,8 +535,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Platform buildPartial() {
       org.mojolang.mojo.core.Platform result = new org.mojolang.mojo.core.Platform(this);
-      result.arch_ = arch_;
+      result.architecture_ = architecture_;
+      result.variant_ = variant_;
       result.os_ = os_;
+      result.osName_ = osName_;
       result.osVersion_ = osVersion_;
       onBuilt();
       return result;
@@ -472,11 +588,19 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Platform other) {
       if (other == org.mojolang.mojo.core.Platform.getDefaultInstance()) return this;
-      if (other.arch_ != 0) {
-        setArchValue(other.getArchValue());
+      if (other.architecture_ != 0) {
+        setArchitectureValue(other.getArchitectureValue());
+      }
+      if (!other.getVariant().isEmpty()) {
+        variant_ = other.variant_;
+        onChanged();
       }
       if (other.os_ != 0) {
         setOsValue(other.getOsValue());
+      }
+      if (!other.getOsName().isEmpty()) {
+        osName_ = other.osName_;
+        onChanged();
       }
       if (!other.getOsVersion().isEmpty()) {
         osVersion_ = other.osVersion_;
@@ -511,70 +635,146 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int arch_ = 0;
+    private int architecture_ = 0;
     /**
-     * <code>.mojo.core.Arch arch = 1;</code>
-     * @return The enum numeric value on the wire for arch.
+     * <code>.mojo.core.Architecture architecture = 1;</code>
+     * @return The enum numeric value on the wire for architecture.
      */
-    @java.lang.Override public int getArchValue() {
-      return arch_;
+    @java.lang.Override public int getArchitectureValue() {
+      return architecture_;
     }
     /**
-     * <code>.mojo.core.Arch arch = 1;</code>
-     * @param value The enum numeric value on the wire for arch to set.
+     * <code>.mojo.core.Architecture architecture = 1;</code>
+     * @param value The enum numeric value on the wire for architecture to set.
      * @return This builder for chaining.
      */
-    public Builder setArchValue(int value) {
+    public Builder setArchitectureValue(int value) {
       
-      arch_ = value;
+      architecture_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.mojo.core.Arch arch = 1;</code>
-     * @return The arch.
+     * <code>.mojo.core.Architecture architecture = 1;</code>
+     * @return The architecture.
      */
     @java.lang.Override
-    public org.mojolang.mojo.core.Arch getArch() {
+    public org.mojolang.mojo.core.Architecture getArchitecture() {
       @SuppressWarnings("deprecation")
-      org.mojolang.mojo.core.Arch result = org.mojolang.mojo.core.Arch.valueOf(arch_);
-      return result == null ? org.mojolang.mojo.core.Arch.UNRECOGNIZED : result;
+      org.mojolang.mojo.core.Architecture result = org.mojolang.mojo.core.Architecture.valueOf(architecture_);
+      return result == null ? org.mojolang.mojo.core.Architecture.UNRECOGNIZED : result;
     }
     /**
-     * <code>.mojo.core.Arch arch = 1;</code>
-     * @param value The arch to set.
+     * <code>.mojo.core.Architecture architecture = 1;</code>
+     * @param value The architecture to set.
      * @return This builder for chaining.
      */
-    public Builder setArch(org.mojolang.mojo.core.Arch value) {
+    public Builder setArchitecture(org.mojolang.mojo.core.Architecture value) {
       if (value == null) {
         throw new NullPointerException();
       }
       
-      arch_ = value.getNumber();
+      architecture_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
-     * <code>.mojo.core.Arch arch = 1;</code>
+     * <code>.mojo.core.Architecture architecture = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearArch() {
+    public Builder clearArchitecture() {
       
-      arch_ = 0;
+      architecture_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object variant_ = "";
+    /**
+     * <code>string variant = 2;</code>
+     * @return The variant.
+     */
+    public java.lang.String getVariant() {
+      java.lang.Object ref = variant_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        variant_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string variant = 2;</code>
+     * @return The bytes for variant.
+     */
+    public com.google.protobuf.ByteString
+        getVariantBytes() {
+      java.lang.Object ref = variant_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        variant_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string variant = 2;</code>
+     * @param value The variant to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVariant(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      variant_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string variant = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVariant() {
+      
+      variant_ = getDefaultInstance().getVariant();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string variant = 2;</code>
+     * @param value The bytes for variant to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVariantBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      variant_ = value;
       onChanged();
       return this;
     }
 
     private int os_ = 0;
     /**
-     * <code>.mojo.core.OS os = 2;</code>
+     * <code>.mojo.core.OS os = 10;</code>
      * @return The enum numeric value on the wire for os.
      */
     @java.lang.Override public int getOsValue() {
       return os_;
     }
     /**
-     * <code>.mojo.core.OS os = 2;</code>
+     * <code>.mojo.core.OS os = 10;</code>
      * @param value The enum numeric value on the wire for os to set.
      * @return This builder for chaining.
      */
@@ -585,7 +785,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.core.OS os = 2;</code>
+     * <code>.mojo.core.OS os = 10;</code>
      * @return The os.
      */
     @java.lang.Override
@@ -595,7 +795,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? org.mojolang.mojo.core.OS.UNRECOGNIZED : result;
     }
     /**
-     * <code>.mojo.core.OS os = 2;</code>
+     * <code>.mojo.core.OS os = 10;</code>
      * @param value The os to set.
      * @return This builder for chaining.
      */
@@ -609,7 +809,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.core.OS os = 2;</code>
+     * <code>.mojo.core.OS os = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearOs() {
@@ -619,9 +819,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object osName_ = "";
+    /**
+     * <code>string os_name = 11;</code>
+     * @return The osName.
+     */
+    public java.lang.String getOsName() {
+      java.lang.Object ref = osName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        osName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string os_name = 11;</code>
+     * @return The bytes for osName.
+     */
+    public com.google.protobuf.ByteString
+        getOsNameBytes() {
+      java.lang.Object ref = osName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        osName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string os_name = 11;</code>
+     * @param value The osName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOsName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      osName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string os_name = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOsName() {
+      
+      osName_ = getDefaultInstance().getOsName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string os_name = 11;</code>
+     * @param value The bytes for osName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOsNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      osName_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object osVersion_ = "";
     /**
-     * <code>string os_version = 3;</code>
+     * <code>string os_version = 12;</code>
      * @return The osVersion.
      */
     public java.lang.String getOsVersion() {
@@ -637,7 +913,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string os_version = 3;</code>
+     * <code>string os_version = 12;</code>
      * @return The bytes for osVersion.
      */
     public com.google.protobuf.ByteString
@@ -654,7 +930,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string os_version = 3;</code>
+     * <code>string os_version = 12;</code>
      * @param value The osVersion to set.
      * @return This builder for chaining.
      */
@@ -669,7 +945,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string os_version = 3;</code>
+     * <code>string os_version = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearOsVersion() {
@@ -679,7 +955,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string os_version = 3;</code>
+     * <code>string os_version = 12;</code>
      * @param value The bytes for osVersion to set.
      * @return This builder for chaining.
      */
