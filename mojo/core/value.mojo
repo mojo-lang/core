@@ -20,4 +20,4 @@ type Values : [Value]
 
 /// Value type
 @disable_generate({"go": ["json"], "java": ["json"]})
-type Value = Values @1 | Object @2 | Bool @3 | Int64 @4 | Double @5 | String @7 
+type Value = Values @1 | Object @2 | Null @3 | Bool @4 | Int64 @5 | Double @6 | String @7

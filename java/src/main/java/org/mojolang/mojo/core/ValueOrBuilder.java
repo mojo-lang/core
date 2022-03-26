@@ -38,34 +38,49 @@ public interface ValueOrBuilder extends
   org.mojolang.mojo.core.ObjectOrBuilder getObjectValOrBuilder();
 
   /**
-   * <code>bool bool_val = 3;</code>
+   * <code>.mojo.core.Null null_val = 3;</code>
+   * @return Whether the nullVal field is set.
+   */
+  boolean hasNullVal();
+  /**
+   * <code>.mojo.core.Null null_val = 3;</code>
+   * @return The nullVal.
+   */
+  org.mojolang.mojo.core.Null getNullVal();
+  /**
+   * <code>.mojo.core.Null null_val = 3;</code>
+   */
+  org.mojolang.mojo.core.NullOrBuilder getNullValOrBuilder();
+
+  /**
+   * <code>bool bool_val = 4;</code>
    * @return Whether the boolVal field is set.
    */
   boolean hasBoolVal();
   /**
-   * <code>bool bool_val = 3;</code>
+   * <code>bool bool_val = 4;</code>
    * @return The boolVal.
    */
   boolean getBoolVal();
 
   /**
-   * <code>int64 int64_val = 4;</code>
+   * <code>int64 int64_val = 5;</code>
    * @return Whether the int64Val field is set.
    */
   boolean hasInt64Val();
   /**
-   * <code>int64 int64_val = 4;</code>
+   * <code>int64 int64_val = 5;</code>
    * @return The int64Val.
    */
   long getInt64Val();
 
   /**
-   * <code>double double_val = 5;</code>
+   * <code>double double_val = 6;</code>
    * @return Whether the doubleVal field is set.
    */
   boolean hasDoubleVal();
   /**
-   * <code>double double_val = 5;</code>
+   * <code>double double_val = 6;</code>
    * @return The doubleVal.
    */
   double getDoubleVal();

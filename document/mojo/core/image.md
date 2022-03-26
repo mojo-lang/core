@@ -3,5 +3,5 @@
 | `title` | `string` |  | 否 |  |
 | `link` | `string` | `url` | 否 |  |
 | `type` | `string` |  | 否 |  |
-| `properties` | `Map<string, mojo.core.Value>` |  | 否 |  |
+| `properties` | `Map<string, Union<null,boolean,number,string,array,object>>` |  | 否 |  |
 | `timestamp` | `string` | `DateTime` | 否 |  |

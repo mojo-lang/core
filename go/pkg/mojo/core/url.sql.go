@@ -6,7 +6,7 @@ import (
     "reflect"
 )
 
-// Implement driver.Valuer and sql.Scanner interfaces on Brand
+// Value Implement driver.Valuer and sql.Scanner interfaces on Brand
 func (m *Url) Value() (driver.Value, error) {
     if m == nil {
         return nil, nil

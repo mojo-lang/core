@@ -1,7 +1,8 @@
 | 类型 | 说明 |
 |---|---|
-| `Array<mojo.core.Value>` |  |
-| `Map<string, mojo.core.Value>` |  |
+| `array` |  |
+| `object` |  |
+| `null` |  |
 | `boolean` |  |
 | `integer` |  |
 | `number` |  |

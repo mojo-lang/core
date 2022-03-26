@@ -3,6 +3,11 @@ package core
 const ValueTypeName = "Value"
 const ValueTypeFullName = "mojo.core.Value"
 
+//TODO add more convenience new func
+//func NewValue(v interface{}) *Value {
+//
+//}
+
 func NewObjectValue(obj *Object) *Value {
     return &Value{Value: &Value_ObjectVal{ObjectVal: obj}}
 }

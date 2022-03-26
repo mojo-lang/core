@@ -43,22 +43,25 @@ public final class ValueProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025mojo/core/value.proto\022\tmojo.core\"r\n\006Ob" +
-      "ject\022)\n\004vals\030\001 \003(\0132\033.mojo.core.Object.Va" +
-      "lsEntry\032=\n\tValsEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005val" +
-      "ue\030\002 \001(\0132\020.mojo.core.Value:\0028\001\"(\n\006Values" +
-      "\022\036\n\004vals\030\001 \003(\0132\020.mojo.core.Value\"\267\001\n\005Val" +
-      "ue\022\'\n\nvalues_val\030\001 \001(\0132\021.mojo.core.Value" +
-      "sH\000\022\'\n\nobject_val\030\002 \001(\0132\021.mojo.core.Obje" +
-      "ctH\000\022\022\n\010bool_val\030\003 \001(\010H\000\022\023\n\tint64_val\030\004 " +
-      "\001(\003H\000\022\024\n\ndouble_val\030\005 \001(\001H\000\022\024\n\nstring_va" +
-      "l\030\007 \001(\tH\000B\007\n\005valueBW\n\026org.mojolang.mojo." +
-      "coreB\nValueProtoP\001Z/github.com/mojo-lang" +
-      "/core/go/pkg/mojo/core;coreb\006proto3"
+      "\n\025mojo/core/value.proto\022\tmojo.core\032\024mojo" +
+      "/core/null.proto\"r\n\006Object\022)\n\004vals\030\001 \003(\013" +
+      "2\033.mojo.core.Object.ValsEntry\032=\n\tValsEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 \001(\0132\020.mojo.co" +
+      "re.Value:\0028\001\"(\n\006Values\022\036\n\004vals\030\001 \003(\0132\020.m" +
+      "ojo.core.Value\"\334\001\n\005Value\022\'\n\nvalues_val\030\001" +
+      " \001(\0132\021.mojo.core.ValuesH\000\022\'\n\nobject_val\030" +
+      "\002 \001(\0132\021.mojo.core.ObjectH\000\022#\n\010null_val\030\003" +
+      " \001(\0132\017.mojo.core.NullH\000\022\022\n\010bool_val\030\004 \001(" +
+      "\010H\000\022\023\n\tint64_val\030\005 \001(\003H\000\022\024\n\ndouble_val\030\006" +
+      " \001(\001H\000\022\024\n\nstring_val\030\007 \001(\tH\000B\007\n\005valueBW\n" +
+      "\026org.mojolang.mojo.coreB\nValueProtoP\001Z/g" +
+      "ithub.com/mojo-lang/core/go/pkg/mojo/cor" +
+      "e;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.core.NullProto.getDescriptor(),
         });
     internal_static_mojo_core_Object_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -83,7 +86,8 @@ public final class ValueProto {
     internal_static_mojo_core_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Value_descriptor,
-        new java.lang.String[] { "ValuesVal", "ObjectVal", "BoolVal", "Int64Val", "DoubleVal", "StringVal", "Value", });
+        new java.lang.String[] { "ValuesVal", "ObjectVal", "NullVal", "BoolVal", "Int64Val", "DoubleVal", "StringVal", "Value", });
+    org.mojolang.mojo.core.NullProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

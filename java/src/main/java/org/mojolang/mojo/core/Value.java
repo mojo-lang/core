@@ -76,19 +76,33 @@ private static final long serialVersionUID = 0L;
             valueCase_ = 2;
             break;
           }
-          case 24: {
-            value_ = input.readBool();
+          case 26: {
+            org.mojolang.mojo.core.Null.Builder subBuilder = null;
+            if (valueCase_ == 3) {
+              subBuilder = ((org.mojolang.mojo.core.Null) value_).toBuilder();
+            }
+            value_ =
+                input.readMessage(org.mojolang.mojo.core.Null.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.core.Null) value_);
+              value_ = subBuilder.buildPartial();
+            }
             valueCase_ = 3;
             break;
           }
           case 32: {
-            value_ = input.readInt64();
+            value_ = input.readBool();
             valueCase_ = 4;
             break;
           }
-          case 41: {
-            value_ = input.readDouble();
+          case 40: {
+            value_ = input.readInt64();
             valueCase_ = 5;
+            break;
+          }
+          case 49: {
+            value_ = input.readDouble();
+            valueCase_ = 6;
             break;
           }
           case 58: {
@@ -136,9 +150,10 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     VALUES_VAL(1),
     OBJECT_VAL(2),
-    BOOL_VAL(3),
-    INT64_VAL(4),
-    DOUBLE_VAL(5),
+    NULL_VAL(3),
+    BOOL_VAL(4),
+    INT64_VAL(5),
+    DOUBLE_VAL(6),
     STRING_VAL(7),
     VALUE_NOT_SET(0);
     private final int value;
@@ -159,9 +174,10 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 1: return VALUES_VAL;
         case 2: return OBJECT_VAL;
-        case 3: return BOOL_VAL;
-        case 4: return INT64_VAL;
-        case 5: return DOUBLE_VAL;
+        case 3: return NULL_VAL;
+        case 4: return BOOL_VAL;
+        case 5: return INT64_VAL;
+        case 6: return DOUBLE_VAL;
         case 7: return STRING_VAL;
         case 0: return VALUE_NOT_SET;
         default: return null;
@@ -240,64 +256,95 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.core.Object.getDefaultInstance();
   }
 
-  public static final int BOOL_VAL_FIELD_NUMBER = 3;
+  public static final int NULL_VAL_FIELD_NUMBER = 3;
   /**
-   * <code>bool bool_val = 3;</code>
+   * <code>.mojo.core.Null null_val = 3;</code>
+   * @return Whether the nullVal field is set.
+   */
+  @java.lang.Override
+  public boolean hasNullVal() {
+    return valueCase_ == 3;
+  }
+  /**
+   * <code>.mojo.core.Null null_val = 3;</code>
+   * @return The nullVal.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.core.Null getNullVal() {
+    if (valueCase_ == 3) {
+       return (org.mojolang.mojo.core.Null) value_;
+    }
+    return org.mojolang.mojo.core.Null.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.core.Null null_val = 3;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.core.NullOrBuilder getNullValOrBuilder() {
+    if (valueCase_ == 3) {
+       return (org.mojolang.mojo.core.Null) value_;
+    }
+    return org.mojolang.mojo.core.Null.getDefaultInstance();
+  }
+
+  public static final int BOOL_VAL_FIELD_NUMBER = 4;
+  /**
+   * <code>bool bool_val = 4;</code>
    * @return Whether the boolVal field is set.
    */
   @java.lang.Override
   public boolean hasBoolVal() {
-    return valueCase_ == 3;
+    return valueCase_ == 4;
   }
   /**
-   * <code>bool bool_val = 3;</code>
+   * <code>bool bool_val = 4;</code>
    * @return The boolVal.
    */
   @java.lang.Override
   public boolean getBoolVal() {
-    if (valueCase_ == 3) {
+    if (valueCase_ == 4) {
       return (java.lang.Boolean) value_;
     }
     return false;
   }
 
-  public static final int INT64_VAL_FIELD_NUMBER = 4;
+  public static final int INT64_VAL_FIELD_NUMBER = 5;
   /**
-   * <code>int64 int64_val = 4;</code>
+   * <code>int64 int64_val = 5;</code>
    * @return Whether the int64Val field is set.
    */
   @java.lang.Override
   public boolean hasInt64Val() {
-    return valueCase_ == 4;
+    return valueCase_ == 5;
   }
   /**
-   * <code>int64 int64_val = 4;</code>
+   * <code>int64 int64_val = 5;</code>
    * @return The int64Val.
    */
   @java.lang.Override
   public long getInt64Val() {
-    if (valueCase_ == 4) {
+    if (valueCase_ == 5) {
       return (java.lang.Long) value_;
     }
     return 0L;
   }
 
-  public static final int DOUBLE_VAL_FIELD_NUMBER = 5;
+  public static final int DOUBLE_VAL_FIELD_NUMBER = 6;
   /**
-   * <code>double double_val = 5;</code>
+   * <code>double double_val = 6;</code>
    * @return Whether the doubleVal field is set.
    */
   @java.lang.Override
   public boolean hasDoubleVal() {
-    return valueCase_ == 5;
+    return valueCase_ == 6;
   }
   /**
-   * <code>double double_val = 5;</code>
+   * <code>double double_val = 6;</code>
    * @return The doubleVal.
    */
   @java.lang.Override
   public double getDoubleVal() {
-    if (valueCase_ == 5) {
+    if (valueCase_ == 6) {
       return (java.lang.Double) value_;
     }
     return 0D;
@@ -376,16 +423,19 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, (org.mojolang.mojo.core.Object) value_);
     }
     if (valueCase_ == 3) {
-      output.writeBool(
-          3, (boolean)((java.lang.Boolean) value_));
+      output.writeMessage(3, (org.mojolang.mojo.core.Null) value_);
     }
     if (valueCase_ == 4) {
-      output.writeInt64(
-          4, (long)((java.lang.Long) value_));
+      output.writeBool(
+          4, (boolean)((java.lang.Boolean) value_));
     }
     if (valueCase_ == 5) {
+      output.writeInt64(
+          5, (long)((java.lang.Long) value_));
+    }
+    if (valueCase_ == 6) {
       output.writeDouble(
-          5, (double)((java.lang.Double) value_));
+          6, (double)((java.lang.Double) value_));
     }
     if (valueCase_ == 7) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, value_);
@@ -409,18 +459,22 @@ private static final long serialVersionUID = 0L;
     }
     if (valueCase_ == 3) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(
-            3, (boolean)((java.lang.Boolean) value_));
+        .computeMessageSize(3, (org.mojolang.mojo.core.Null) value_);
     }
     if (valueCase_ == 4) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(
-            4, (long)((java.lang.Long) value_));
+        .computeBoolSize(
+            4, (boolean)((java.lang.Boolean) value_));
     }
     if (valueCase_ == 5) {
       size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(
+            5, (long)((java.lang.Long) value_));
+    }
+    if (valueCase_ == 6) {
+      size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(
-            5, (double)((java.lang.Double) value_));
+            6, (double)((java.lang.Double) value_));
     }
     if (valueCase_ == 7) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, value_);
@@ -451,14 +505,18 @@ private static final long serialVersionUID = 0L;
             .equals(other.getObjectVal())) return false;
         break;
       case 3:
+        if (!getNullVal()
+            .equals(other.getNullVal())) return false;
+        break;
+      case 4:
         if (getBoolVal()
             != other.getBoolVal()) return false;
         break;
-      case 4:
+      case 5:
         if (getInt64Val()
             != other.getInt64Val()) return false;
         break;
-      case 5:
+      case 6:
         if (java.lang.Double.doubleToLongBits(getDoubleVal())
             != java.lang.Double.doubleToLongBits(
                 other.getDoubleVal())) return false;
@@ -491,16 +549,20 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getObjectVal().hashCode();
         break;
       case 3:
+        hash = (37 * hash) + NULL_VAL_FIELD_NUMBER;
+        hash = (53 * hash) + getNullVal().hashCode();
+        break;
+      case 4:
         hash = (37 * hash) + BOOL_VAL_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getBoolVal());
         break;
-      case 4:
+      case 5:
         hash = (37 * hash) + INT64_VAL_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getInt64Val());
         break;
-      case 5:
+      case 6:
         hash = (37 * hash) + DOUBLE_VAL_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getDoubleVal()));
@@ -688,12 +750,19 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (valueCase_ == 3) {
-        result.value_ = value_;
+        if (nullValBuilder_ == null) {
+          result.value_ = value_;
+        } else {
+          result.value_ = nullValBuilder_.build();
+        }
       }
       if (valueCase_ == 4) {
         result.value_ = value_;
       }
       if (valueCase_ == 5) {
+        result.value_ = value_;
+      }
+      if (valueCase_ == 6) {
         result.value_ = value_;
       }
       if (valueCase_ == 7) {
@@ -755,6 +824,10 @@ private static final long serialVersionUID = 0L;
         }
         case OBJECT_VAL: {
           mergeObjectVal(other.getObjectVal());
+          break;
+        }
+        case NULL_VAL: {
+          mergeNullVal(other.getNullVal());
           break;
         }
         case BOOL_VAL: {
@@ -1105,80 +1178,180 @@ private static final long serialVersionUID = 0L;
       return objectValBuilder_;
     }
 
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.core.Null, org.mojolang.mojo.core.Null.Builder, org.mojolang.mojo.core.NullOrBuilder> nullValBuilder_;
     /**
-     * <code>bool bool_val = 3;</code>
-     * @return Whether the boolVal field is set.
+     * <code>.mojo.core.Null null_val = 3;</code>
+     * @return Whether the nullVal field is set.
      */
-    public boolean hasBoolVal() {
+    @java.lang.Override
+    public boolean hasNullVal() {
       return valueCase_ == 3;
     }
     /**
-     * <code>bool bool_val = 3;</code>
+     * <code>.mojo.core.Null null_val = 3;</code>
+     * @return The nullVal.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.core.Null getNullVal() {
+      if (nullValBuilder_ == null) {
+        if (valueCase_ == 3) {
+          return (org.mojolang.mojo.core.Null) value_;
+        }
+        return org.mojolang.mojo.core.Null.getDefaultInstance();
+      } else {
+        if (valueCase_ == 3) {
+          return nullValBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.core.Null.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    public Builder setNullVal(org.mojolang.mojo.core.Null value) {
+      if (nullValBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        value_ = value;
+        onChanged();
+      } else {
+        nullValBuilder_.setMessage(value);
+      }
+      valueCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    public Builder setNullVal(
+        org.mojolang.mojo.core.Null.Builder builderForValue) {
+      if (nullValBuilder_ == null) {
+        value_ = builderForValue.build();
+        onChanged();
+      } else {
+        nullValBuilder_.setMessage(builderForValue.build());
+      }
+      valueCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    public Builder mergeNullVal(org.mojolang.mojo.core.Null value) {
+      if (nullValBuilder_ == null) {
+        if (valueCase_ == 3 &&
+            value_ != org.mojolang.mojo.core.Null.getDefaultInstance()) {
+          value_ = org.mojolang.mojo.core.Null.newBuilder((org.mojolang.mojo.core.Null) value_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          value_ = value;
+        }
+        onChanged();
+      } else {
+        if (valueCase_ == 3) {
+          nullValBuilder_.mergeFrom(value);
+        }
+        nullValBuilder_.setMessage(value);
+      }
+      valueCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    public Builder clearNullVal() {
+      if (nullValBuilder_ == null) {
+        if (valueCase_ == 3) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+      } else {
+        if (valueCase_ == 3) {
+          valueCase_ = 0;
+          value_ = null;
+        }
+        nullValBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    public org.mojolang.mojo.core.Null.Builder getNullValBuilder() {
+      return getNullValFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.core.NullOrBuilder getNullValOrBuilder() {
+      if ((valueCase_ == 3) && (nullValBuilder_ != null)) {
+        return nullValBuilder_.getMessageOrBuilder();
+      } else {
+        if (valueCase_ == 3) {
+          return (org.mojolang.mojo.core.Null) value_;
+        }
+        return org.mojolang.mojo.core.Null.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.core.Null null_val = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.core.Null, org.mojolang.mojo.core.Null.Builder, org.mojolang.mojo.core.NullOrBuilder> 
+        getNullValFieldBuilder() {
+      if (nullValBuilder_ == null) {
+        if (!(valueCase_ == 3)) {
+          value_ = org.mojolang.mojo.core.Null.getDefaultInstance();
+        }
+        nullValBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.core.Null, org.mojolang.mojo.core.Null.Builder, org.mojolang.mojo.core.NullOrBuilder>(
+                (org.mojolang.mojo.core.Null) value_,
+                getParentForChildren(),
+                isClean());
+        value_ = null;
+      }
+      valueCase_ = 3;
+      onChanged();;
+      return nullValBuilder_;
+    }
+
+    /**
+     * <code>bool bool_val = 4;</code>
+     * @return Whether the boolVal field is set.
+     */
+    public boolean hasBoolVal() {
+      return valueCase_ == 4;
+    }
+    /**
+     * <code>bool bool_val = 4;</code>
      * @return The boolVal.
      */
     public boolean getBoolVal() {
-      if (valueCase_ == 3) {
+      if (valueCase_ == 4) {
         return (java.lang.Boolean) value_;
       }
       return false;
     }
     /**
-     * <code>bool bool_val = 3;</code>
+     * <code>bool bool_val = 4;</code>
      * @param value The boolVal to set.
      * @return This builder for chaining.
      */
     public Builder setBoolVal(boolean value) {
-      valueCase_ = 3;
-      value_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool bool_val = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBoolVal() {
-      if (valueCase_ == 3) {
-        valueCase_ = 0;
-        value_ = null;
-        onChanged();
-      }
-      return this;
-    }
-
-    /**
-     * <code>int64 int64_val = 4;</code>
-     * @return Whether the int64Val field is set.
-     */
-    public boolean hasInt64Val() {
-      return valueCase_ == 4;
-    }
-    /**
-     * <code>int64 int64_val = 4;</code>
-     * @return The int64Val.
-     */
-    public long getInt64Val() {
-      if (valueCase_ == 4) {
-        return (java.lang.Long) value_;
-      }
-      return 0L;
-    }
-    /**
-     * <code>int64 int64_val = 4;</code>
-     * @param value The int64Val to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInt64Val(long value) {
       valueCase_ = 4;
       value_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 int64_val = 4;</code>
+     * <code>bool bool_val = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearInt64Val() {
+    public Builder clearBoolVal() {
       if (valueCase_ == 4) {
         valueCase_ = 0;
         value_ = null;
@@ -1188,39 +1361,80 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>double double_val = 5;</code>
-     * @return Whether the doubleVal field is set.
+     * <code>int64 int64_val = 5;</code>
+     * @return Whether the int64Val field is set.
      */
-    public boolean hasDoubleVal() {
+    public boolean hasInt64Val() {
       return valueCase_ == 5;
     }
     /**
-     * <code>double double_val = 5;</code>
-     * @return The doubleVal.
+     * <code>int64 int64_val = 5;</code>
+     * @return The int64Val.
      */
-    public double getDoubleVal() {
+    public long getInt64Val() {
       if (valueCase_ == 5) {
-        return (java.lang.Double) value_;
+        return (java.lang.Long) value_;
       }
-      return 0D;
+      return 0L;
     }
     /**
-     * <code>double double_val = 5;</code>
-     * @param value The doubleVal to set.
+     * <code>int64 int64_val = 5;</code>
+     * @param value The int64Val to set.
      * @return This builder for chaining.
      */
-    public Builder setDoubleVal(double value) {
+    public Builder setInt64Val(long value) {
       valueCase_ = 5;
       value_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double double_val = 5;</code>
+     * <code>int64 int64_val = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInt64Val() {
+      if (valueCase_ == 5) {
+        valueCase_ = 0;
+        value_ = null;
+        onChanged();
+      }
+      return this;
+    }
+
+    /**
+     * <code>double double_val = 6;</code>
+     * @return Whether the doubleVal field is set.
+     */
+    public boolean hasDoubleVal() {
+      return valueCase_ == 6;
+    }
+    /**
+     * <code>double double_val = 6;</code>
+     * @return The doubleVal.
+     */
+    public double getDoubleVal() {
+      if (valueCase_ == 6) {
+        return (java.lang.Double) value_;
+      }
+      return 0D;
+    }
+    /**
+     * <code>double double_val = 6;</code>
+     * @param value The doubleVal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDoubleVal(double value) {
+      valueCase_ = 6;
+      value_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double double_val = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearDoubleVal() {
-      if (valueCase_ == 5) {
+      if (valueCase_ == 6) {
         valueCase_ = 0;
         value_ = null;
         onChanged();
