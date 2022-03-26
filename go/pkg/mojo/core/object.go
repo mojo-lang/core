@@ -1,7 +1,35 @@
 package core
 
+import jsoniter "github.com/json-iterator/go"
+
 const ObjectTypeName = "Object"
 const ObjectTypeFullName = "mojo.core.Object"
+
+func NewObject() *Object {
+    return &Object{}
+}
+
+func (m *Object) To(value interface{}) error {
+    if m != nil {
+        if json, err := jsoniter.ConfigFastest.Marshal(m); err != nil {
+            return err
+        } else {
+            return jsoniter.ConfigFastest.Unmarshal(json, value)
+        }
+    }
+    return nil
+}
+
+func (m *Object) From(value interface{}) error {
+    if m != nil {
+        if json, err := jsoniter.ConfigFastest.Marshal(value); err != nil {
+            return err
+        } else {
+            return jsoniter.ConfigFastest.Unmarshal(json, m)
+        }
+    }
+    return nil
+}
 
 func (m *Object) GetValue(key string) *Value {
     if m != nil && m.Vals != nil {
@@ -12,9 +40,8 @@ func (m *Object) GetValue(key string) *Value {
 
 func (m *Object) GetString(key string) string {
     if m.Vals != nil {
-        m := m.Vals[key]
-        if m != nil {
-            return m.GetString()
+        if v, ok := m.Vals[key]; ok {
+            return v.GetString()
         }
     }
     return ""
@@ -22,12 +49,38 @@ func (m *Object) GetString(key string) string {
 
 func (m *Object) GetBool(key string) bool {
     if m.Vals != nil {
-        m := m.Vals[key]
-        if m != nil {
-            return m.GetBool()
+        if v, ok := m.Vals[key]; ok {
+            return v.GetBool()
         }
     }
     return false
+}
+
+func (m *Object) GetInt32(key string) int32 {
+    if m.Vals != nil {
+        if v, ok := m.Vals[key]; ok {
+            return v.GetInt32()
+        }
+    }
+    return 0
+}
+
+func (m *Object) GetInt64(key string) int64 {
+    if m.Vals != nil {
+        if v, ok := m.Vals[key]; ok {
+            return v.GetInt64()
+        }
+    }
+    return 0
+}
+
+func (m *Object) GetUint64(key string) uint64 {
+    if m.Vals != nil {
+        if v, ok := m.Vals[key]; ok {
+            return v.GetUint64()
+        }
+    }
+    return 0
 }
 
 func (m *Object) GetInt32Array(key string) []int32 {
