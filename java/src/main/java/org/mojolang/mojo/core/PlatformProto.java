@@ -28,17 +28,20 @@ public final class PlatformProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030mojo/core/platform.proto\022\tmojo.core\"X\n" +
-      "\010Platform\022\035\n\004arch\030\001 \001(\0162\017.mojo.core.Arch" +
-      "\022\031\n\002os\030\002 \001(\0162\r.mojo.core.OS\022\022\n\nos_versio" +
-      "n\030\003 \001(\t*g\n\004Arch\022\024\n\020ARCH_UNSPECIFIED\020\000\022\014\n" +
-      "\010ARCH_X86\020\001\022\016\n\nARCH_AMD64\020\002\022\014\n\010ARCH_ARM\020" +
-      "\005\022\016\n\nARCH_ARM64\020\006\022\r\n\tARCH_WASM\020\n*a\n\002OS\022\022" +
-      "\n\016OS_UNSPECIFIED\020\000\022\016\n\nOS_ANDROID\020\001\022\r\n\tOS" +
-      "_DARWIN\020\002\022\n\n\006OS_IOS\020\006\022\014\n\010OS_LINUX\020\n\022\016\n\nO" +
-      "S_WINDOWS\020\024BZ\n\026org.mojolang.mojo.coreB\rP" +
-      "latformProtoP\001Z/github.com/mojo-lang/cor" +
-      "e/go/pkg/mojo/core;coreb\006proto3"
+      "\n\030mojo/core/platform.proto\022\tmojo.core\"\212\001" +
+      "\n\010Platform\022-\n\014architecture\030\001 \001(\0162\027.mojo." +
+      "core.Architecture\022\017\n\007variant\030\002 \001(\t\022\031\n\002os" +
+      "\030\n \001(\0162\r.mojo.core.OS\022\017\n\007os_name\030\013 \001(\t\022\022" +
+      "\n\nos_version\030\014 \001(\t*\237\001\n\014Architecture\022\034\n\030A" +
+      "RCHITECTURE_UNSPECIFIED\020\000\022\024\n\020ARCHITECTUR" +
+      "E_X86\020\001\022\026\n\022ARCHITECTURE_AMD64\020\002\022\024\n\020ARCHI" +
+      "TECTURE_ARM\020\005\022\026\n\022ARCHITECTURE_ARM64\020\006\022\025\n" +
+      "\021ARCHITECTURE_WASM\020\n*a\n\002OS\022\022\n\016OS_UNSPECI" +
+      "FIED\020\000\022\016\n\nOS_ANDROID\020\001\022\r\n\tOS_DARWIN\020\002\022\n\n" +
+      "\006OS_IOS\020\006\022\014\n\010OS_LINUX\020\n\022\016\n\nOS_WINDOWS\020\024B" +
+      "Z\n\026org.mojolang.mojo.coreB\rPlatformProto" +
+      "P\001Z/github.com/mojo-lang/core/go/pkg/moj" +
+      "o/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -49,7 +52,7 @@ public final class PlatformProto {
     internal_static_mojo_core_Platform_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Platform_descriptor,
-        new java.lang.String[] { "Arch", "Os", "OsVersion", });
+        new java.lang.String[] { "Architecture", "Variant", "Os", "OsName", "OsVersion", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
