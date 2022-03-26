@@ -2,80 +2,77 @@ package core
 
 import (
     jsoniter "github.com/json-iterator/go"
-    "strconv"
-    "strings"
     "unsafe"
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Version", &VersionCodec{})
-    jsoniter.RegisterTypeEncoder("core.Version", &VersionCodec{})
+    jsoniter.RegisterTypeDecoder("core.Version", &VersionStringCodec{})
+    jsoniter.RegisterTypeEncoder("core.Version", &VersionStringCodec{})
 }
 
-type VersionCodec struct {
+// BareVersion will be jsonify to raw, without any codec
+type BareVersion Version
+
+type VersionStringCodec struct {
+    IsFieldPointer bool
 }
 
-func (codec *VersionCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+func (codec *VersionStringCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
     value := iter.ReadString()
-    version := (*Version)(ptr)
+    version := codec.version(ptr)
+    if version == nil {
+        version = &Version{}
+        *(**Version)(ptr) = version
+    }
 
-    if len(value) > 0 {
-        segments := strings.Split(value, "+")
-        if len(segments) > 1 {
-            version.Builds = strings.Split(segments[1], ".")
-        }
-
-        segments = strings.Split(segments[0], "-")
-        if len(segments) > 1 {
-            version.PreReleases = strings.Split(segments[1], ".")
-        }
-
-        segments = strings.Split(segments[0], ".")
-        if len(segments) == 3 {
-            major, err := strconv.Atoi(segments[0])
-            if err != nil {
-                iter.ReportError("VersionCodec.DecodeMajor", err.Error())
-            } else {
-                version.Major = uint64(major)
-            }
-
-            minor, err := strconv.Atoi(segments[1])
-            if err != nil {
-                iter.ReportError("VersionCodec.DecodeMinor", err.Error())
-            } else {
-                version.Minor = uint64(minor)
-            }
-
-            patch, err := strconv.Atoi(segments[2])
-            if err != nil {
-                iter.ReportError("VersionCodec.DecodePatch", err.Error())
-            } else {
-                version.Patch = uint64(patch)
-            }
-        }
+    if err := version.Parse(value); err != nil {
+        iter.ReportError("VersionStringCodec", err.Error())
     }
 }
 
-func (codec *VersionCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    version := (*Version)(ptr)
+func (codec *VersionStringCodec) IsEmpty(ptr unsafe.Pointer) bool {
+    return codec.version(ptr).IsEmpty()
+}
+
+func (codec *VersionStringCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+    version := codec.version(ptr)
+    stream.WriteString(version.Format())
+}
+
+func (codec *VersionStringCodec) version(ptr unsafe.Pointer) *Version {
+    if codec.IsFieldPointer {
+        return *(**Version)(ptr)
+    }
+    return (*Version)(ptr)
+}
+
+type VersionStructCodec struct {
+    IsFieldPointer bool
+}
+
+func (codec *VersionStructCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
+    version := codec.bareVersion(ptr)
+    if value := iter.ReadAny(); value.ValueType() == jsoniter.ObjectValue {
+        if version == nil {
+            version = &BareVersion{}
+            *(**BareVersion)(ptr) = version
+        }
+        value.ToVal(version)
+    }
+}
+
+func (codec *VersionStructCodec) IsEmpty(ptr unsafe.Pointer) bool {
+    version := codec.bareVersion(ptr)
     return version == nil || (version.Major == 0 && version.Minor == 0 && version.Patch == 0)
 }
 
-func (codec *VersionCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    version := (*Version)(ptr)
-    stream.WriteUint64(version.Major)
-    stream.WriteRaw(".")
-    stream.WriteUint64(version.Minor)
-    stream.WriteRaw(".")
-    stream.WriteUint64(version.Patch)
+func (codec *VersionStructCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
+    stream.WriteVal(codec.bareVersion(ptr))
+}
 
-    if len(version.PreReleases) > 0 {
-        stream.WriteInt8('-')
-        stream.WriteString(strings.Join(version.PreReleases, "."))
+func (codec *VersionStructCodec) bareVersion(ptr unsafe.Pointer) *BareVersion {
+    if codec.IsFieldPointer {
+        return *(**BareVersion)(ptr)
     }
-
-    if len(version.Builds) > 0 {
-        stream.WriteInt8('+')
-        stream.WriteString(strings.Join(version.PreReleases, "."))
-    }
+    return (*BareVersion)(ptr)
 }

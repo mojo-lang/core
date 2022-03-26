@@ -103,8 +103,6 @@ attribute irregular_case_rule {
 
 attribute pagination: Object
 
-attribute format: TemplateString
-
 //@target(DeclType.attribute)
 attribute target: [DeclType]
 

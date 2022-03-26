@@ -2,6 +2,7 @@ package core
 
 import (
     "bytes"
+    "fmt"
     "strconv"
     "strings"
 )
@@ -16,45 +17,43 @@ func ParseVersion(version string) (*Version, error) {
 }
 
 func (m *Version) Parse(version string) error {
-    if m != nil {
-        if len(version) > 0 {
-            segments := strings.Split(version, "+")
-            if len(segments) > 1 {
-                m.Builds = strings.Split(segments[1], ".")
-            }
+    if m != nil && len(version) > 0 {
+        segments := strings.Split(version, "+")
+        if len(segments) > 1 {
+            m.Builds = strings.Split(segments[1], ".")
+        }
 
-            segments = strings.Split(segments[0], "-")
-            if len(segments) > 1 {
-                segments[1] = strings.Join(segments[1:], "-")
-                segments = segments[:2]
-                m.PreReleases = strings.Split(segments[1], ".")
-            }
+        segments = strings.Split(segments[0], "-")
+        if len(segments) > 1 {
+            segments[1] = strings.Join(segments[1:], "-")
+            segments = segments[:2]
+            m.PreReleases = strings.Split(segments[1], ".")
+        }
 
-            segments = strings.Split(segments[0], ".")
-            m.Level = int32(len(segments))
-            if m.Level > 0 {
-                major, err := strconv.Atoi(segments[0])
-                if err != nil {
-                    return err
-                } else {
-                    m.Major = uint64(major)
-                }
+        segments = strings.Split(segments[0], ".")
+        m.Level = int32(len(segments))
+        if m.Level > 0 {
+            major, err := strconv.Atoi(segments[0])
+            if err != nil {
+                return fmt.Errorf("failed to parse version in major (%s) part, error: %w", segments[0], err)
+            } else {
+                m.Major = uint64(major)
             }
-            if m.Level > 1 {
-                minor, err := strconv.Atoi(segments[1])
-                if err != nil {
-                    return err
-                } else {
-                    m.Minor = uint64(minor)
-                }
+        }
+        if m.Level > 1 {
+            minor, err := strconv.Atoi(segments[1])
+            if err != nil {
+                return fmt.Errorf("failed to parse version in minor (%s) part, error: %w", segments[1], err)
+            } else {
+                m.Minor = uint64(minor)
             }
-            if m.Level > 2 {
-                patch, err := strconv.Atoi(segments[2])
-                if err != nil {
-                    return err
-                } else {
-                    m.Patch = uint64(patch)
-                }
+        }
+        if m.Level > 2 {
+            patch, err := strconv.Atoi(segments[2])
+            if err != nil {
+                return fmt.Errorf("failed to parse version in patch (%s) part, error: %w", segments[2], err)
+            } else {
+                m.Patch = uint64(patch)
             }
         }
     }
