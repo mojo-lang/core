@@ -1,6 +1,5 @@
 
-@case("camel")
-enum Arch {
+enum Architecture {
     unspecified @0
 
     x86 @1
@@ -12,7 +11,6 @@ enum Arch {
     wasm @10
 }
 
-@case("camel")
 enum OS {
     unspecified @0
 
@@ -28,8 +26,47 @@ enum OS {
 }
 
 /// the platform information
+///
+/// Normalization
+///
+/// Because not all users are familiar with the way the Go runtime represents
+/// platforms, several normalizations have been provided to make this package
+/// easier to user.
+///
+/// The following are performed for architectures:
+///
+///   Value    Normalized
+///   aarch64  arm64
+///   armhf    arm
+///   armel    arm/v6
+///   i386     386
+///   x86_64   amd64
+///   x86-64   amd64
+///
+/// We also normalize the operating system `macos` to `darwin`.
+///
+/// ARM Support
+///
+/// To qualify ARM architecture, the Variant field is used to qualify the arm
+/// version. The most common arm version, v7, is represented without the variant
+/// unless it is explicitly provided. This is treated as equivalent to armhf. A
+/// previous architecture, armel, will be normalized to arm/v6.
+@format("{os}/{architecture}{/variant}{-os_name/os_version}")
 type Platform {
-    arch: Arch @1
-    os: OS @2
-    os_version: String @3
+    /// the CPU architecture, such as "x86" or "amd64".
+    architecture: Architecture @1 @required
+    
+    /// to qualify ARM architecture, the Variant field is used to qualify the arm version.
+    variant: String @2
+
+    /// the os type in the platform.
+    os: OS @10 @required
+
+    /// a string identifying the operating system, such as "Windows NT",
+    /// "Mac OS X", or "Ubutun".
+    os_name: String @11
+    
+    /// A string identifying the version of the operating system, such as
+    /// "5.1.2600 Service Pack 2" or "10.4.8 8L2127", or "14.02".
+    os_version: String @12
 }

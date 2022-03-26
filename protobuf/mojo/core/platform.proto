@@ -9,13 +9,13 @@ option java_multiple_files = true;
 option java_outer_classname = "PlatformProto";
 option java_package = "org.mojolang.mojo.core";
 
-enum Arch {
-    ARCH_UNSPECIFIED=0;
-    ARCH_X86=1;
-    ARCH_AMD64=2;
-    ARCH_ARM=5;
-    ARCH_ARM64=6;
-    ARCH_WASM=10;
+enum Architecture {
+    ARCHITECTURE_UNSPECIFIED=0;
+    ARCHITECTURE_X86=1;
+    ARCHITECTURE_AMD64=2;
+    ARCHITECTURE_ARM=5;
+    ARCHITECTURE_ARM64=6;
+    ARCHITECTURE_WASM=10;
 }
 
 enum OS {
@@ -28,7 +28,9 @@ enum OS {
 }
 
 message Platform {
-    Arch arch = 1;
-    OS os = 2;
-    string os_version = 3;
+    Architecture architecture = 1;
+    string variant = 2;
+    OS os = 10;
+    string os_name = 11;
+    string os_version = 12;
 }
