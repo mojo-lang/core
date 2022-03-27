@@ -1,4 +1,4 @@
 | 类型 | 说明 |
 |---|---|
-| `mojo.core.Error` |  |
+| `Error` | Error |
 | `null` |  |

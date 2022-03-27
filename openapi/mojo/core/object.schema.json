@@ -1,1 +1,0 @@
-{"title":"mojo.core.Object","description":"Object type","type":"object","additionalProperties":{"title":"Value","oneOf":[{"type":"null"},{"type":"boolean"},{"type":"number"},{"type":"string"},{"type":"array"},{"type":"object"}]}}
