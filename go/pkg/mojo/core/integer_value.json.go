@@ -26,13 +26,13 @@ func (codec *Int32ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator
 }
 
 func (codec *Int32ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    e := (*Int32Value)(ptr)
-    stream.WriteString(strconv.FormatInt(int64(e.Val), 10))
+    v := (*Int32Value)(ptr)
+    stream.WriteRaw(strconv.FormatInt(int64(v.Val), 10))
 }
 
 func (codec *Int32ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    e := (*Int32Value)(ptr)
-    return e == nil
+    v := (*Int32Value)(ptr)
+    return v == nil
 }
 
 type UInt32ValueCodec struct {
@@ -44,13 +44,13 @@ func (codec *UInt32ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 }
 
 func (codec *UInt32ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    e := (*UInt32Value)(ptr)
-    stream.WriteString(strconv.FormatUint(uint64(e.Val), 10))
+    v := (*UInt32Value)(ptr)
+    stream.WriteRaw(strconv.FormatUint(uint64(v.Val), 10))
 }
 
 func (codec *UInt32ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    e := (*UInt32Value)(ptr)
-    return e == nil
+    v := (*UInt32Value)(ptr)
+    return v == nil
 }
 
 type Int64ValueCodec struct {
@@ -62,13 +62,13 @@ func (codec *Int64ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator
 }
 
 func (codec *Int64ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    e := (*Int64Value)(ptr)
-    stream.WriteString(strconv.FormatInt(e.Val, 10))
+    v := (*Int64Value)(ptr)
+    stream.WriteRaw(strconv.FormatInt(v.Val, 10))
 }
 
 func (codec *Int64ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    e := (*Int64Value)(ptr)
-    return e == nil
+    v := (*Int64Value)(ptr)
+    return v == nil
 }
 
 type UInt64ValueCodec struct {
@@ -80,11 +80,11 @@ func (codec *UInt64ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 }
 
 func (codec *UInt64ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    e := (*UInt64Value)(ptr)
-    stream.WriteString(strconv.FormatUint(e.Val, 10))
+    v := (*UInt64Value)(ptr)
+    stream.WriteRaw(strconv.FormatUint(v.Val, 10))
 }
 
 func (codec *UInt64ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    e := (*UInt64Value)(ptr)
-    return e == nil
+    v := (*UInt64Value)(ptr)
+    return v == nil
 }

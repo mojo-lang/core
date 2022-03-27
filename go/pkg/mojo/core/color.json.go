@@ -68,26 +68,7 @@ func (codec *ColorStructCodec) IsEmpty(ptr unsafe.Pointer) bool {
 
 func (codec *ColorStructCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
     c := codec.bareColor(ptr)
-    stream.WriteObjectStart()
-
-    stream.WriteObjectField("red")
-    stream.WriteVal(c.Red)
-
-    stream.WriteMore()
-    stream.WriteObjectField("green")
-    stream.WriteVal(c.Green)
-
-    stream.WriteMore()
-    stream.WriteObjectField("blue")
-    stream.WriteVal(c.Blue)
-
-    if c.Alpha != nil {
-        stream.WriteMore()
-        stream.WriteObjectField("alpha")
-        stream.WriteVal(c.Alpha.Val)
-    }
-
-    stream.WriteObjectEnd()
+    stream.WriteVal(c)
 }
 
 func (codec *ColorStructCodec) bareColor(ptr unsafe.Pointer) *BareColor {

@@ -15,7 +15,7 @@
 /// Checksum
 /// 
 /// MD5, SHA1, SHA256 and SHA512.
-@format('{algorithm} {val}')
+@format('{algorithm} {value}')
 type Checksum {
     /// commonly used algorithm for Checksum
     @case_style("screaming_snake")

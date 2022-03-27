@@ -21,7 +21,7 @@ func (codec *Float32ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 }
 
 func (codec *Float32ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    stream.WriteString(fmt.Sprint((*Float32Value)(ptr).Val))
+    stream.WriteRaw(fmt.Sprint((*Float32Value)(ptr).Val))
 }
 
 func (codec *Float32ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
@@ -37,7 +37,7 @@ func (codec *Float64ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 }
 
 func (codec *Float64ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    stream.WriteString(fmt.Sprint((*Float64Value)(ptr).Val))
+    stream.WriteRaw(fmt.Sprint((*Float64Value)(ptr).Val))
 }
 
 func (codec *Float64ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {

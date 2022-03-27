@@ -2,12 +2,18 @@ package core
 
 import (
     "fmt"
+    jsoniter "github.com/json-iterator/go"
 
     "github.com/golang/protobuf/proto"
 )
 
 const ErrorTypeName = "Error"
 const ErrorTypeFullName = "mojo.core.Error"
+
+func init() {
+    jsoniter.RegisterFieldDecoder("core.Error", "Code", &ErrorCodeStringCodec{})
+    jsoniter.RegisterFieldDecoder("core.Error", "Code", &ErrorCodeStringCodec{})
+}
 
 func NewError(code *ErrorCode, message string, arguments ...interface{}) *Error {
     msg := message
