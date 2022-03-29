@@ -12,19 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:','}')
-type Ordering {
-    enum Sort {
-        unspecified @0
-        asc  @1
-        desc @2
-    }
 
-    @format('{field}{ sort}')
-    type Value {
-        field: String @1
-        sort: Sort @2
-    }
+attribute case_style: CaseStyle
 
-    vals: [Value] @1
+attribute irregular_case_rule {
+    rule: Regex @1
+    replacement: String @2
 }

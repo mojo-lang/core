@@ -12,19 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:','}')
-type Ordering {
-    enum Sort {
-        unspecified @0
-        asc  @1
-        desc @2
-    }
+/// 
+@target(DeclType.value)
+attribute ignore: Bool
 
-    @format('{field}{ sort}')
-    type Value {
-        field: String @1
-        sort: Sort @2
-    }
+/// will not encode when the field is empty
+@target(DeclType.value)
+attribute ignore_empty: Bool @default(true)
 
-    vals: [Value] @1
-}
+/// ingore the types in the Union type when the declaration inherites the Union type.
+@target(DeclType.type)
+attribute ignore_types: [String]
+
+/// ignore the fields in the struct type when the declaration inherites the struct type.
+@target(DeclType.type)
+attribute ignore_fields: FieldMask

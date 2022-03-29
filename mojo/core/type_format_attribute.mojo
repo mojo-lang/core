@@ -12,19 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:','}')
-type Ordering {
-    enum Sort {
-        unspecified @0
-        asc  @1
-        desc @2
-    }
-
-    @format('{field}{ sort}')
-    type Value {
-        field: String @1
-        sort: Sort @2
-    }
-
-    vals: [Value] @1
-}
+/// using the specified type for format in encoding like json, yaml
+attribute type_format<T>: Bool

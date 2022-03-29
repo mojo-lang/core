@@ -3,6 +3,7 @@ package core
 import "github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
 
 const CaseStyleAttributeName = "case_style"
+const CaseStyleAttributeFullName = "mojo.core.case_style"
 
 func CaseStyler(style string) func(string) string {
     switch style {

@@ -12,19 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:','}')
-type Ordering {
-    enum Sort {
-        unspecified @0
-        asc  @1
-        desc @2
-    }
 
-    @format('{field}{ sort}')
-    type Value {
-        field: String @1
-        sort: Sort @2
-    }
+attribute label: String
 
-    vals: [Value] @1
-}
+/// 对于union，转换成protobuf时，每个union的类型对于的字段名，如果是`{}`,则是类型名snake化
+/// 如果是其他的，则会给每个字段附加`_val`后缀
+attribute label_format: String

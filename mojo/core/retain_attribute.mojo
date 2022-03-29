@@ -12,19 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:','}')
-type Ordering {
-    enum Sort {
-        unspecified @0
-        asc  @1
-        desc @2
-    }
+/// retain the types in the Union type when the declaration inherites the Union type, other types will be ignored.
+/// #see
+///  - `ignore_types`
+@target(DeclType.type)
+attribute retain_types: [String]
 
-    @format('{field}{ sort}')
-    type Value {
-        field: String @1
-        sort: Sort @2
-    }
+/// only retain the fields in the struct type when the declaration inherites the struct type, other fields will be ingored
+/// #see
+///  - `ignore_fields`
+@target(DeclType.type)
+attribute retain_fields: FieldMask
 
-    vals: [Value] @1
-}
+/// alias to the retain_types
+@target(DeclType.type)
+attribute types: [String]
+
+/// alias to the retain_fields
+@target(DeclType.type)
+attribute fields: FieldMask

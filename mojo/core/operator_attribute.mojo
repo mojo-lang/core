@@ -12,19 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:','}')
-type Ordering {
-    enum Sort {
-        unspecified @0
-        asc  @1
-        desc @2
-    }
+/// attribute for the operator functions
+///
+/// #example
+/// ```
+/// @infix
+/// func +(left: String, right: String) -> String
+///
+/// // r'.*'
+/// @literal
+/// @prefix
+/// func r(str: String) -> Regex
+///
+/// // 5ms
+/// @literal
+/// @postfix
+/// func ms(number: Int) -> Duration
+/// ```
+attribute prefix: Bool
 
-    @format('{field}{ sort}')
-    type Value {
-        field: String @1
-        sort: Sort @2
-    }
+/// attribute for the postfix operator functions
+attribute postfix: Bool
 
-    vals: [Value] @1
-}
+/// attribute for the infix operator functions
+attribute infix: Bool
+
+/// attribute for the literal operator functions
+attribute literal: Bool
