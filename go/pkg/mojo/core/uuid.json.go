@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Uuid", &UuidCodec{})
-    jsoniter.RegisterTypeEncoder("core.Uuid", &UuidCodec{})
+    RegisterJSONTypeDecoder("core.Uuid", &UuidCodec{})
+    RegisterJSONTypeEncoder("core.Uuid", &UuidCodec{})
 }
 
 type UuidCodec struct {

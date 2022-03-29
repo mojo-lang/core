@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Platform", &PlatformStringCodec{})
-    jsoniter.RegisterTypeEncoder("core.Platform", &PlatformStringCodec{})
+    RegisterJSONTypeDecoder("core.Platform", &PlatformStringCodec{})
+    RegisterJSONTypeEncoder("core.Platform", &PlatformStringCodec{})
 }
 
 // BarePlatform will be jsonify to raw, without any codec

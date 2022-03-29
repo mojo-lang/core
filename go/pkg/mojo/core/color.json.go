@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Color", &ColorStringCodec{})
-    jsoniter.RegisterTypeEncoder("core.Color", &ColorStringCodec{})
+    RegisterJSONTypeDecoder("core.Color", &ColorStringCodec{})
+    RegisterJSONTypeEncoder("core.Color", &ColorStringCodec{})
 }
 
 // BareColor will be jsonify to raw, without any codec
@@ -31,7 +31,7 @@ func (codec *ColorStringCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 }
 
 func (codec *ColorStringCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    return codec.color(ptr) != nil
+    return codec.color(ptr) == nil
 }
 
 func (codec *ColorStringCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {

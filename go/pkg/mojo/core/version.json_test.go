@@ -29,8 +29,8 @@ type VersionWrap struct {
 }
 
 func init() {
-    jsoniter.RegisterFieldEncoder("core.VersionWrap", "Version", &VersionStructCodec{IsFieldPointer: true})
-    jsoniter.RegisterFieldDecoder("core.VersionWrap", "Version", &VersionStructCodec{IsFieldPointer: true})
+    RegisterJSONFieldEncoder("core.VersionWrap", "Version", &VersionStructCodec{IsFieldPointer: true})
+    RegisterJSONFieldDecoder("core.VersionWrap", "Version", &VersionStructCodec{IsFieldPointer: true})
 }
 
 const versionWrapJson = `{"version":{"major":1,"minor":2,"patch":3}}`

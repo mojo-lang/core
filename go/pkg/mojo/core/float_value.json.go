@@ -7,10 +7,10 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Float32Value", &Float32ValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.Float32Value", &Float32ValueCodec{})
-    jsoniter.RegisterTypeDecoder("core.Float64Value", &Float64ValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.Float64Value", &Float64ValueCodec{})
+    RegisterJSONTypeDecoder("core.Float32Value", &Float32ValueCodec{})
+    RegisterJSONTypeEncoder("core.Float32Value", &Float32ValueCodec{})
+    RegisterJSONTypeDecoder("core.Float64Value", &Float64ValueCodec{})
+    RegisterJSONTypeEncoder("core.Float64Value", &Float64ValueCodec{})
 }
 
 type Float32ValueCodec struct {

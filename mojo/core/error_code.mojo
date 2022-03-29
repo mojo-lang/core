@@ -20,7 +20,7 @@
 /// code `[100..599]` is reserved by duplicated with http status code
 /// code `0` is also reserved because of it usually has success meaning
 @format('{domain.}{val}')
-@encoding_type('struct')
+@encoding_as_struct
 type ErrorCode {
     ///
     val: Int32 @1 @required

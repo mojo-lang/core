@@ -7,14 +7,14 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Int32Value", &Int32ValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.Int32Value", &Int32ValueCodec{})
-    jsoniter.RegisterTypeDecoder("core.UInt32Value", &UInt32ValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.UInt32Value", &UInt32ValueCodec{})
-    jsoniter.RegisterTypeDecoder("core.Int64Value", &Int64ValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.Int64Value", &Int64ValueCodec{})
-    jsoniter.RegisterTypeDecoder("core.UInt64Value", &UInt64ValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.UInt64Value", &UInt64ValueCodec{})
+    RegisterJSONTypeDecoder("core.Int32Value", &Int32ValueCodec{})
+    RegisterJSONTypeEncoder("core.Int32Value", &Int32ValueCodec{})
+    RegisterJSONTypeDecoder("core.UInt32Value", &UInt32ValueCodec{})
+    RegisterJSONTypeEncoder("core.UInt32Value", &UInt32ValueCodec{})
+    RegisterJSONTypeDecoder("core.Int64Value", &Int64ValueCodec{})
+    RegisterJSONTypeEncoder("core.Int64Value", &Int64ValueCodec{})
+    RegisterJSONTypeDecoder("core.UInt64Value", &UInt64ValueCodec{})
+    RegisterJSONTypeEncoder("core.UInt64Value", &UInt64ValueCodec{})
 }
 
 type Int32ValueCodec struct {

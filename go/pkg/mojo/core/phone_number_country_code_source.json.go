@@ -18,13 +18,14 @@
 package core
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.PhoneNumber_CountryCodeSource", &PhoneNumberCountryCodeSourceCodec{})
-	jsoniter.RegisterTypeEncoder("core.PhoneNumber_CountryCodeSource", &PhoneNumberCountryCodeSourceCodec{})
+	RegisterJSONTypeDecoder("core.PhoneNumber_CountryCodeSource", &PhoneNumberCountryCodeSourceCodec{})
+	RegisterJSONTypeEncoder("core.PhoneNumber_CountryCodeSource", &PhoneNumberCountryCodeSourceCodec{})
 }
 
 type PhoneNumberCountryCodeSourceCodec struct {

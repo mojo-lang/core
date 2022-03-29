@@ -3,17 +3,30 @@ package core
 import (
     "github.com/golang/protobuf/proto"
     jsoniter "github.com/json-iterator/go"
+    "github.com/modern-go/reflect2"
+    "github.com/mojo-lang/core/go/pkg/logs"
     "github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
     "google.golang.org/protobuf/reflect/protoreflect"
     "google.golang.org/protobuf/reflect/protoregistry"
     "reflect"
     "sort"
+    "sync"
     "unsafe"
 )
 
+var anyFieldEncoders map[string]jsoniter.ValEncoder
+
+func RegisterAnyFieldEncoder(typ string, field string, encoder jsoniter.ValEncoder) {
+    (&sync.Once{}).Do(func() {
+        anyFieldEncoders = make(map[string]jsoniter.ValEncoder)
+    })
+
+    anyFieldEncoders[typ+"."+field] = encoder
+}
+
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Any", &AnyCodec{})
-    jsoniter.RegisterTypeEncoder("core.Any", &AnyCodec{})
+    RegisterJSONTypeDecoder("core.Any", &AnyCodec{})
+    RegisterJSONTypeEncoder("core.Any", &AnyCodec{})
 }
 
 type AnyCodec struct {
@@ -76,25 +89,41 @@ func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
         if value, ok := any.typeVal.(ScalarType); ok {
             kvWriter(string(reflectMsg.Descriptor().FullName()), value.AsScalarType())
         } else {
+            fullName := string(reflectMsg.Descriptor().FullName())
+
             stream.WriteObjectStart()
             stream.WriteObjectField("@type")
-            stream.WriteVal(reflectMsg.Descriptor().FullName())
+            stream.WriteVal(fullName)
 
-            obj := reflect.Indirect(reflect.ValueOf(any.typeVal))
-            var fields Fields
-            reflectMsg.Range(func(descriptor protoreflect.FieldDescriptor, value protoreflect.Value) bool {
-                fields = append(fields, descriptor)
-                return true
-            })
+            t := reflect2.TypeOf(any.typeVal)
+            if t.Kind() == reflect.Ptr {
+                t = t.(*reflect2.UnsafePtrType).Elem()
+            }
+            if obj, ok := t.(*reflect2.UnsafeStructType); ok {
+                var fields Fields
+                reflectMsg.Range(func(descriptor protoreflect.FieldDescriptor, value protoreflect.Value) bool {
+                    fields = append(fields, descriptor)
+                    return true
+                })
 
-            sort.Sort(fields)
-            for _, descriptor := range fields {
-                stream.WriteMore()
-                stream.WriteObjectField(descriptor.JSONName())
+                sort.Sort(fields)
+                for _, descriptor := range fields {
+                    stream.WriteMore()
+                    stream.WriteObjectField(descriptor.JSONName())
 
-                fieldName := strcase.ToCamel(string(descriptor.Name()))
-                field := obj.FieldByName(fieldName)
-                stream.WriteVal(field.Interface())
+                    fieldName := strcase.ToCamel(string(descriptor.Name()))
+                    field := obj.FieldByName(fieldName)
+                    if encoder, ok := anyFieldEncoders[t.String()+"."+fieldName]; ok {
+                        f := field.UnsafeGet(reflect2.PtrOf(any.typeVal))
+                        if !encoder.IsEmpty(f) {
+                            encoder.Encode(f, stream)
+                        }
+                    } else {
+                        stream.WriteVal(field.Get(any.typeVal))
+                    }
+                }
+            } else {
+                logs.Errorw("invalid the struct type for any object", "type", fullName)
             }
 
             stream.WriteObjectEnd()

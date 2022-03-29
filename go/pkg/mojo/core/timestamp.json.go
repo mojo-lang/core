@@ -11,8 +11,8 @@ const MaxInt = int(MaxUint >> 1)
 const MinInt = -MaxInt - 1
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Timestamp", &TimestampCodec{})
-    jsoniter.RegisterTypeEncoder("core.Timestamp", &TimestampCodec{})
+    RegisterJSONTypeDecoder("core.Timestamp", &TimestampCodec{})
+    RegisterJSONTypeEncoder("core.Timestamp", &TimestampCodec{})
 }
 
 type TimestampCodec struct {

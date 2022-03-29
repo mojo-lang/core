@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Version", &VersionStringCodec{})
-    jsoniter.RegisterTypeEncoder("core.Version", &VersionStringCodec{})
+    RegisterJSONTypeDecoder("core.Version", &VersionStringCodec{})
+    RegisterJSONTypeEncoder("core.Version", &VersionStringCodec{})
 }
 
 // BareVersion will be jsonify to raw, without any codec

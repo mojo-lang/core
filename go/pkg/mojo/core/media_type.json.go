@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.MediaType", &MediaTypeCodec{})
-    jsoniter.RegisterTypeEncoder("core.MediaType", &MediaTypeCodec{})
+    RegisterJSONTypeDecoder("core.MediaType", &MediaTypeCodec{})
+    RegisterJSONTypeEncoder("core.MediaType", &MediaTypeCodec{})
 }
 
 type MediaTypeCodec struct {

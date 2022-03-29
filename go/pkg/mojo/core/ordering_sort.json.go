@@ -18,13 +18,14 @@
 package core
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.Ordering_Sort", &OrderingSortCodec{})
-	jsoniter.RegisterTypeEncoder("core.Ordering_Sort", &OrderingSortCodec{})
+	RegisterJSONTypeDecoder("core.Ordering_Sort", &OrderingSortCodec{})
+	RegisterJSONTypeEncoder("core.Ordering_Sort", &OrderingSortCodec{})
 }
 
 type OrderingSortCodec struct {

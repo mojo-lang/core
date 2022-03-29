@@ -26,7 +26,7 @@ func (codec *ErrorCodeStringCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Ite
 }
 
 func (codec *ErrorCodeStringCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    return codec.errorCode(ptr) != nil
+    return codec.errorCode(ptr) == nil
 }
 
 func (codec *ErrorCodeStringCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {

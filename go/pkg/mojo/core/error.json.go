@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Error", &ErrorCodec{})
-    jsoniter.RegisterTypeEncoder("core.Error", &ErrorCodec{})
+    RegisterJSONTypeDecoder("core.Error", &ErrorCodec{})
+    RegisterJSONTypeEncoder("core.Error", &ErrorCodec{})
 }
 
 type ErrorCodec struct {

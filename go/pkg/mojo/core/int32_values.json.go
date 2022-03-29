@@ -18,13 +18,14 @@
 package core
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.Int32Values", &Int32ValuesCodec{})
-	jsoniter.RegisterTypeEncoder("core.Int32Values", &Int32ValuesCodec{})
+	RegisterJSONTypeDecoder("core.Int32Values", &Int32ValuesCodec{})
+	RegisterJSONTypeEncoder("core.Int32Values", &Int32ValuesCodec{})
 }
 
 type Int32ValuesCodec struct {

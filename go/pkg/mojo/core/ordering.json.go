@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Ordering", &OrderingCodec{})
-    jsoniter.RegisterTypeEncoder("core.Ordering", &OrderingCodec{})
+    RegisterJSONTypeDecoder("core.Ordering", &OrderingCodec{})
+    RegisterJSONTypeEncoder("core.Ordering", &OrderingCodec{})
 }
 
 type OrderingCodec struct {

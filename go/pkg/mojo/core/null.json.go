@@ -6,7 +6,7 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeEncoder("core.Null", &NullCodec{})
+    RegisterJSONTypeEncoder("core.Null", &NullCodec{})
 }
 
 type NullCodec struct {

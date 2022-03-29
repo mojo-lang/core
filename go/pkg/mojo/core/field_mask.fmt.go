@@ -7,6 +7,14 @@ func ParseFieldMask(fieldMask string) (*FieldMask, error) {
     return mask, nil
 }
 
+func (m *FieldMask) Format() string {
+    if m != nil && len(m.Paths) > 0 {
+        return strings.Join(m.Paths, ",")
+    } else {
+        return ""
+    }
+}
+
 func (m *FieldMask) Parse(field string) error {
     var paths []string
     paths = parseFields(field, paths)

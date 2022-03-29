@@ -18,13 +18,14 @@
 package core
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.Checksum_Algorithm", &ChecksumAlgorithmCodec{})
-	jsoniter.RegisterTypeEncoder("core.Checksum_Algorithm", &ChecksumAlgorithmCodec{})
+	RegisterJSONTypeDecoder("core.Checksum_Algorithm", &ChecksumAlgorithmCodec{})
+	RegisterJSONTypeEncoder("core.Checksum_Algorithm", &ChecksumAlgorithmCodec{})
 }
 
 type ChecksumAlgorithmCodec struct {

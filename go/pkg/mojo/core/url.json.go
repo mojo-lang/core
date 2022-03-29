@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Url", &UrlCodec{})
-    jsoniter.RegisterTypeEncoder("core.Url", &UrlCodec{})
+    RegisterJSONTypeDecoder("core.Url", &UrlCodec{})
+    RegisterJSONTypeEncoder("core.Url", &UrlCodec{})
 }
 
 type UrlCodec struct {

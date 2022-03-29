@@ -25,8 +25,8 @@ type ColorWrap struct {
 }
 
 func init() {
-    jsoniter.RegisterFieldEncoder("core.ColorWrap", "Color", &ColorStructCodec{IsFieldPointer: true})
-    jsoniter.RegisterFieldDecoder("core.ColorWrap", "Color", &ColorStructCodec{IsFieldPointer: true})
+    RegisterJSONFieldEncoder("core.ColorWrap", "Color", &ColorStructCodec{IsFieldPointer: true})
+    RegisterJSONFieldDecoder("core.ColorWrap", "Color", &ColorStructCodec{IsFieldPointer: true})
 }
 
 const colorWrapJson = `{"color":{"red":255,"green":240,"blue":245,"alpha":0.1}}`

@@ -18,13 +18,14 @@
 package core
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("core.DayOfWeek", &DayOfWeekCodec{})
-	jsoniter.RegisterTypeEncoder("core.DayOfWeek", &DayOfWeekCodec{})
+	RegisterJSONTypeDecoder("core.DayOfWeek", &DayOfWeekCodec{})
+	RegisterJSONTypeEncoder("core.DayOfWeek", &DayOfWeekCodec{})
 }
 
 type DayOfWeekCodec struct {

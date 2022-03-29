@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Checksum", &ChecksumStringCodec{})
-    jsoniter.RegisterTypeEncoder("core.Checksum", &ChecksumStringCodec{})
+    RegisterJSONTypeDecoder("core.Checksum", &ChecksumStringCodec{})
+    RegisterJSONTypeEncoder("core.Checksum", &ChecksumStringCodec{})
 }
 
 // BareChecksum will be jsonify to raw, without any codec

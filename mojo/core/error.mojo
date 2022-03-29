@@ -16,7 +16,7 @@
 ///
 type Error {
     /// The error code
-    code: ErrorCode @1 @encoding_type('string')
+    code: ErrorCode @1 @encoding_as_string
     
     /// A developer-facing error message, which should be in English. Any
     /// user-facing error message should be localized and sent in the

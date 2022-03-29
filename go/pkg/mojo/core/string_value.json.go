@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.StringValue", &StringValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.StringValue", &StringValueCodec{})
+    RegisterJSONTypeDecoder("core.StringValue", &StringValueCodec{})
+    RegisterJSONTypeEncoder("core.StringValue", &StringValueCodec{})
 }
 
 type StringValueCodec struct {

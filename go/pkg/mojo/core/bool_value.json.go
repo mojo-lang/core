@@ -7,8 +7,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.BoolValue", &BoolValueCodec{})
-    jsoniter.RegisterTypeEncoder("core.BoolValue", &BoolValueCodec{})
+    RegisterJSONTypeDecoder("core.BoolValue", &BoolValueCodec{})
+    RegisterJSONTypeEncoder("core.BoolValue", &BoolValueCodec{})
 }
 
 type BoolValueCodec struct {

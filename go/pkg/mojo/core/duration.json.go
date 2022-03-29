@@ -6,8 +6,8 @@ import (
 )
 
 func init() {
-    jsoniter.RegisterTypeDecoder("core.Duration", &DurationCodec{})
-    jsoniter.RegisterTypeEncoder("core.Duration", &DurationCodec{})
+    RegisterJSONTypeDecoder("core.Duration", &DurationCodec{})
+    RegisterJSONTypeEncoder("core.Duration", &DurationCodec{})
 }
 
 type DurationCodec struct {
