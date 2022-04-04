@@ -16,9 +16,9 @@ func NewUuid() *Uuid {
     return uuid
 }
 
-func (m *Uuid) ToUUID() uuid.UUID {
-    if m != nil && len(m.Val) > 0 {
-        id, err := uuid.ParseBytes(m.Val)
+func (x *Uuid) ToUUID() uuid.UUID {
+    if x != nil && len(x.Val) > 0 {
+        id, err := uuid.ParseBytes(x.Val)
         if err != nil {
             return uuid.New()
         }
@@ -28,14 +28,14 @@ func (m *Uuid) ToUUID() uuid.UUID {
 }
 
 //// MarshalText implements encoding.TextMarshaler.
-//func (m *Uuid) MarshalText() ([]byte, error) {
+//func (x *Uuid) MarshalText() ([]byte, error) {
 //	var js [36]byte
 //	encodeHex(js[:], uuid)
 //	return js[:], nil
 //}
 //
 //// UnmarshalText implements encoding.TextUnmarshaler.
-//func (m *Uuid UnmarshalText(data []byte) error {
+//func (x *Uuid UnmarshalText(data []byte) error {
 //	id, err := ParseBytes(data)
 //	if err != nil {
 //		return err
@@ -45,15 +45,15 @@ func (m *Uuid) ToUUID() uuid.UUID {
 //}
 
 // MarshalBinary implements encoding.BinaryMarshaler.
-func (m *Uuid) MarshalBinary() ([]byte, error) {
-    return m.Val[:], nil
+func (x *Uuid) MarshalBinary() ([]byte, error) {
+    return x.Val[:], nil
 }
 
 // UnmarshalBinary implements encoding.BinaryUnmarshaler.
-func (m *Uuid) UnmarshalBinary(data []byte) error {
+func (x *Uuid) UnmarshalBinary(data []byte) error {
     if len(data) != 16 {
         return fmt.Errorf("invalid UUID (got %d bytes)", len(data))
     }
-    copy(m.Val[:], data)
+    copy(x.Val[:], data)
     return nil
 }

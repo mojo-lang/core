@@ -7,14 +7,14 @@ import (
 )
 
 // Value Implement driver.Valuer and sql.Scanner interfaces on Brand
-func (m *Url) Value() (driver.Value, error) {
-    if m == nil {
+func (x *Url) Value() (driver.Value, error) {
+    if x == nil {
         return nil, nil
     }
-    return m.Format(), nil
+    return x.Format(), nil
 }
 
-func (m *Url) Scan(src interface{}) error {
+func (x *Url) Scan(src interface{}) error {
     v := reflect.ValueOf(src)
     if !v.IsValid() || (v.CanAddr() && v.IsNil()) {
         return nil
@@ -22,9 +22,9 @@ func (m *Url) Scan(src interface{}) error {
 
     switch bs := src.(type) {
     case string:
-        m.Parse(bs)
+        x.Parse(bs)
         return nil
     default:
-        return fmt.Errorf("failed to Decode type %T -> %T", src, m)
+        return fmt.Errorf("failed to Decode type %T -> %T", src, x)
     }
 }

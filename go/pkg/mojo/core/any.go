@@ -1,11 +1,8 @@
 package core
 
 import (
-    "bytes"
     "errors"
-    "reflect"
-
-    "github.com/golang/protobuf/proto"
+    "google.golang.org/protobuf/proto"
 )
 
 const AnyTypeName = "Any"
@@ -17,100 +14,67 @@ func NewAny(i interface{}) *Any {
     return any
 }
 
-func (m *Any) Get() interface{} {
-    return m.typeVal
+func (x *Any) Get() interface{} {
+    return x.typedVal
 }
 
-func (m *Any) Set(v interface{}) error {
-    if m != nil {
-        m.Type = GetMojoTypeFullName(v)
-        if len(m.Type) == 0 {
+func (x *Any) Set(v interface{}) error {
+    if x != nil {
+        x.Type = GetMojoTypeName(v)
+        if len(x.Type) == 0 {
             return errors.New("unsupported type")
         }
-        m.typeVal = v
+        x.typedVal = v
     }
     return nil
 }
 
-func (m *Any) Empty() bool {
-    if m != nil {
-        return len(m.Type) == 0 && m.typeVal == nil
+func (x *Any) Empty() bool {
+    if x != nil {
+        return len(x.Type) == 0 && x.typedVal == nil
     }
     return true
 }
 
-func (m *Any) Message() proto.Message {
-    return m.typeVal.(proto.Message)
-}
-
-func (m *Any) Unmarshal(bytes []byte) error {
-    err := m.XXX_Unmarshal(bytes)
-    if err != nil {
-        return err
+func (x *Any) GetMessage() proto.Message {
+    if msg, ok := x.typedVal.(proto.Message); ok {
+        return msg
     }
-
-    t := proto.MessageType(m.Type)
-    msg := reflect.New(t).Interface().(proto.Message)
-    err = proto.Unmarshal(m.Val, msg)
-    if err != nil {
-        return err
-    }
-
-    m.typeVal = msg
     return nil
 }
 
-func (m *Any) Marshal() ([]byte, error) {
-    if m != nil {
-        switch msg := m.typeVal.(type) {
-        case proto.Message:
-            b, err := proto.Marshal(msg)
-            if err != nil {
-                return nil, err
-            }
-            m.Val = b
-        }
-
-        size := m.XXX_Size()
-        buffer := bytes.Buffer{}
-        buffer.Grow(size)
-        return m.XXX_Marshal(buffer.Bytes(), false)
-    }
-    return nil, errors.New("`Any` is null")
-}
-
-func GetMojoTypeFullName(i interface{}) string {
+func GetMojoTypeName(i interface{}) string {
     switch v := i.(type) {
     case nil:
-        return NullTypeFullName
+        return NullTypeName
     case int8:
-        return Int8TypeFullName
+        return Int8TypeName
     case uint8:
-        return UInt8TypeFullName
+        return UInt8TypeName
     case int16:
-        return Int16TypeFullName
+        return Int16TypeName
     case uint16:
-        return UInt16TypeFullName
+        return UInt16TypeName
     case int32:
-        return Int32TypeFullName
+        return Int32TypeName
     case uint32:
-        return UInt32TypeFullName
+        return UInt32TypeName
     case int64:
-        return Int64TypeFullName
+        return Int64TypeName
     case uint64:
-        return UInt64TypeFullName
+        return UInt64TypeName
     case int:
-        return IntTypeFullName
+        return IntTypeName
     case uint:
-        return UIntTypeFullName
+        return UIntTypeName
     case float32:
-        return FloatTypeFullName
+        return Float32TypeName
     case float64:
-        return DoubleTypeFullName
+        return Float64TypeName
     case string:
-        return StringTypeFullName
+        return StringTypeName
     case proto.Message:
-        return string(proto.MessageReflect(v).Descriptor().FullName())
+        return string(proto.MessageName(v))
     default:
         return ""
     }

@@ -8,14 +8,14 @@ import (
 )
 
 // Implement driver.Valuer and sql.Scanner interfaces on Brand
-func (m *Timestamp) Value() (driver.Value, error) {
-    if m == nil {
+func (x *Timestamp) Value() (driver.Value, error) {
+    if x == nil {
         return nil, nil
     }
-    return m.ToTime(), nil
+    return x.ToTime(), nil
 }
 
-func (m *Timestamp) Scan(src interface{}) error {
+func (x *Timestamp) Scan(src interface{}) error {
     v := reflect.ValueOf(src)
     if !v.IsValid() || (v.CanAddr() && v.IsNil()) {
         return nil
@@ -23,9 +23,9 @@ func (m *Timestamp) Scan(src interface{}) error {
 
     switch bs := src.(type) {
     case time.Time:
-        m.FromTime(bs)
+        x.FromTime(bs)
         return nil
     default:
-        return fmt.Errorf("Could not not Decode type %T -> %T", src, m)
+        return fmt.Errorf("Could not not Decode type %T -> %T", src, x)
     }
 }

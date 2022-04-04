@@ -18,39 +18,39 @@ func NewDurationFromSeconds(seconds float64) *Duration {
     return duration.FromSeconds(seconds)
 }
 
-func (m Duration) ToDuration() time.Duration {
-    return time.Duration(m.Seconds)*time.Second + time.Duration(m.Nanoseconds)
+func (x Duration) ToDuration() time.Duration {
+    return time.Duration(x.Seconds)*time.Second + time.Duration(x.Nanoseconds)
 }
 
-func (m *Duration) FromDuration(d time.Duration) *Duration {
-    if m != nil {
-        m.Seconds = int64(d) / int64(time.Second)
-        m.Nanoseconds = int32(int64(d) - m.Seconds*int64(time.Second))
+func (x *Duration) FromDuration(d time.Duration) *Duration {
+    if x != nil {
+        x.Seconds = int64(d) / int64(time.Second)
+        x.Nanoseconds = int32(int64(d) - x.Seconds*int64(time.Second))
     }
-    return m
+    return x
 }
 
-func (m *Duration) FromSeconds(seconds float64) *Duration {
-    if m != nil {
-        m.Seconds = int64(seconds)
-        delta := seconds - float64(m.Seconds)
-        m.Nanoseconds = int32(math.Round(delta * float64(time.Second)))
+func (x *Duration) FromSeconds(seconds float64) *Duration {
+    if x != nil {
+        x.Seconds = int64(seconds)
+        delta := seconds - float64(x.Seconds)
+        x.Nanoseconds = int32(math.Round(delta * float64(time.Second)))
     }
-    return m
+    return x
 }
 
-func (m Duration) ToHours() float64 {
-    return m.ToDuration().Hours()
+func (x Duration) ToHours() float64 {
+    return x.ToDuration().Hours()
 }
 
-func (m Duration) ToMinutes() float64 {
-    return m.ToDuration().Minutes()
+func (x Duration) ToMinutes() float64 {
+    return x.ToDuration().Minutes()
 }
 
-func (m Duration) ToSeconds() float64 {
-    return m.ToDuration().Seconds()
+func (x Duration) ToSeconds() float64 {
+    return x.ToDuration().Seconds()
 }
 
-func (m Duration) ToNanoseconds() int64 {
-    return m.ToDuration().Nanoseconds()
+func (x Duration) ToNanoseconds() int64 {
+    return x.ToDuration().Nanoseconds()
 }

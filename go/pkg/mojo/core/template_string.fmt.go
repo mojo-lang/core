@@ -11,8 +11,8 @@ func init() {
     segmentRegex = regexp.MustCompile(`\{[a-z0-9_.]+\}`)
 }
 
-func (m *TemplateString) Parse(str string) error {
-    if m != nil && len(str) > 0 {
+func (x *TemplateString) Parse(str string) error {
+    if x != nil && len(str) > 0 {
         index := segmentRegex.FindAllStringIndex(str, -1)
         cur := 0
         for _, i := range index {
@@ -25,25 +25,25 @@ func (m *TemplateString) Parse(str string) error {
             }
 
             if left > cur {
-                m.Segments = append(m.Segments, &TemplateString_Segment{Content: str[cur:left]})
+                x.Segments = append(x.Segments, &TemplateString_Segment{Content: str[cur:left]})
             }
 
             content := str[left+1 : right-1]
-            m.Segments = append(m.Segments, &TemplateString_Segment{Content: content, Templated: true})
+            x.Segments = append(x.Segments, &TemplateString_Segment{Content: content, Templated: true})
             cur = right
         }
 
         if cur < len(str) {
-            m.Segments = append(m.Segments, &TemplateString_Segment{Content: str[cur:]})
+            x.Segments = append(x.Segments, &TemplateString_Segment{Content: str[cur:]})
         }
     }
     return nil
 }
 
-func (m *TemplateString) Format() string {
-    if m != nil {
+func (x *TemplateString) Format() string {
+    if x != nil {
         buffer := bytes.Buffer{}
-        for _, segment := range m.Segments {
+        for _, segment := range x.Segments {
             if segment.Templated {
                 buffer.WriteByte('{')
                 buffer.WriteString(segment.Content)

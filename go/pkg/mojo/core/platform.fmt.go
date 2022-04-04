@@ -6,49 +6,49 @@ import (
     "strings"
 )
 
-func (m *Platform) Format() string {
-    if m != nil {
+func (x *Platform) Format() string {
+    if x != nil {
         firstPart := ""
-        if len(m.Variant) > 0 {
-            firstPart = path.Join(m.Os.Format(), m.Architecture.Format(), m.Variant)
+        if len(x.Variant) > 0 {
+            firstPart = path.Join(x.Os.Format(), x.Architecture.Format(), x.Variant)
         } else {
-            firstPart = path.Join(m.Os.Format(), m.Architecture.Format())
+            firstPart = path.Join(x.Os.Format(), x.Architecture.Format())
         }
-        if len(m.OsName) > 0 {
-            if len(m.OsVersion) > 0 {
-                return strings.Join([]string{firstPart, path.Join(m.OsName, m.OsVersion)}, "-")
+        if len(x.OsName) > 0 {
+            if len(x.OsVersion) > 0 {
+                return strings.Join([]string{firstPart, path.Join(x.OsName, x.OsVersion)}, "-")
             }
-            return strings.Join([]string{firstPart, m.OsName}, "-")
+            return strings.Join([]string{firstPart, x.OsName}, "-")
         }
         return firstPart
     }
     return ""
 }
 
-func (m *Platform) Parse(value string) error {
-    if m != nil && len(value) > 0 {
+func (x *Platform) Parse(value string) error {
+    if x != nil && len(value) > 0 {
         parts := strings.Split(value, "-")
         if len(parts) > 0 {
             segments := strings.Split(parts[0], "/")
             if len(segments) >= 2 {
-                if err := m.Os.Parse(segments[0]); err != nil {
+                if err := x.Os.Parse(segments[0]); err != nil {
                     return fmt.Errorf("failed to parse platfrom in os (%s) part, error: %w", segments[0], err)
                 }
-                if err := m.Architecture.Parse(segments[1]); err != nil {
+                if err := x.Architecture.Parse(segments[1]); err != nil {
                     return fmt.Errorf("failed to parse platfrom in cpu (%s) part, error: %w", segments[1], err)
                 }
             }
             if len(segments) == 3 {
-                m.Variant = segments[2]
+                x.Variant = segments[2]
             }
         }
         if len(parts) > 1 {
             segments := strings.Split(parts[1], "/")
             if len(segments) > 0 {
-                m.OsName = segments[0]
+                x.OsName = segments[0]
             }
             if len(segments) > 1 {
-                m.OsVersion = segments[1]
+                x.OsVersion = segments[1]
             }
         }
     }

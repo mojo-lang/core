@@ -11,8 +11,8 @@ func ParseId(id string) (*Id, error) {
     return i, nil
 }
 
-func (m *Id) Format() string {
-    switch x := m.Id.(type) {
+func (x *Id) Format() string {
+    switch x := x.Id.(type) {
     case *Id_Uint64Val:
         return strconv.FormatUint(x.Uint64Val, 10)
     case *Id_StringVal:
@@ -24,16 +24,16 @@ func (m *Id) Format() string {
     }
 }
 
-func (m *Id) Parse(value string) error {
+func (x *Id) Parse(value string) error {
     v, err := strconv.Atoi(value)
     if err == nil {
-        m.SetInt(uint64(v))
+        x.SetInt(uint64(v))
     } else {
         uuid, err := ParseUuid(value)
         if err != nil {
-            m.SetUuid(uuid)
+            x.SetUuid(uuid)
         } else {
-            m.SetString(value)
+            x.SetString(value)
         }
     }
 

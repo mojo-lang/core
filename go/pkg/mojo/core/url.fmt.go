@@ -16,8 +16,8 @@ func ParseUrl(raw string) (*Url, error) {
     return url, nil
 }
 
-func (m *Url) Parse(raw string) error {
-    if m == nil {
+func (x *Url) Parse(raw string) error {
+    if x == nil {
         return errors.New("")
     }
 
@@ -26,19 +26,19 @@ func (m *Url) Parse(raw string) error {
         return err
     }
 
-    m.Scheme = url.Scheme
-    m.Authority = &Url_Authority{
+    x.Scheme = url.Scheme
+    x.Authority = &Url_Authority{
         Host: url.Hostname(),
     }
 
-    if len(m.Authority.Host) == 0 {
+    if len(x.Authority.Host) == 0 {
         url, err = url.Parse("http://" + raw)
         if err != nil {
             return err
         }
-        m.Scheme = ""
-        m.Authority.Host = url.Hostname()
-        if len(m.Authority.Host) == 0 {
+        x.Scheme = ""
+        x.Authority.Host = url.Hostname()
+        if len(x.Authority.Host) == 0 {
             return errors.New("failed to parse the url")
         }
     }
@@ -49,18 +49,18 @@ func (m *Url) Parse(raw string) error {
         if err != nil {
             return err
         }
-        m.Authority.Port = int64(v)
+        x.Authority.Port = int64(v)
     }
 
-    m.Path = url.Path
-    m.Fragment = url.Fragment
+    x.Path = url.Path
+    x.Fragment = url.Fragment
 
-    m.Query = &Url_Query{
+    x.Query = &Url_Query{
         Vals: make(map[string]*Strings),
     }
     query := url.Query()
     for k, v := range query {
-        m.Query.Vals[k] = &Strings{
+        x.Query.Vals[k] = &Strings{
             Vals: v,
         }
     }
@@ -68,29 +68,29 @@ func (m *Url) Parse(raw string) error {
     return nil
 }
 
-func (m *Url) Format() string {
-    if m == nil {
+func (x *Url) Format() string {
+    if x == nil {
         return ""
     }
 
     host := ""
-    if m.Authority != nil {
-        host = m.Authority.Host
-        if m.Authority.Port > 0 {
-            host = host + ":" + strconv.FormatInt(m.Authority.Port, 10)
+    if x.Authority != nil {
+        host = x.Authority.Host
+        if x.Authority.Port > 0 {
+            host = host + ":" + strconv.FormatInt(x.Authority.Port, 10)
         }
     }
 
     u := url.URL{
-        Scheme:   m.Scheme,
+        Scheme:   x.Scheme,
         Host:     host,
-        Path:     m.Path,
-        Fragment: m.Fragment,
+        Path:     x.Path,
+        Fragment: x.Fragment,
     }
 
-    if m.Query != nil {
+    if x.Query != nil {
         query := url.Values{}
-        for k, v := range m.Query.Vals {
+        for k, v := range x.Query.Vals {
             if v != nil {
                 query[k] = v.Vals
             }
@@ -102,20 +102,20 @@ func (m *Url) Format() string {
 }
 
 // get url like: "apis.company.com/path/to/resource"
-func (m *Url) FormatWithoutSchema() string {
-    if m == nil {
+func (x *Url) FormatWithoutSchema() string {
+    if x == nil {
         return ""
     }
 
     url := &Url{
         Authority: &Url_Authority{
-            Host: m.GetAuthority().GetHost(),
-            Port: m.GetAuthority().GetPort(),
-            //UserInfo: m.GetAuthority().GetUserInfo(),
+            Host: x.GetAuthority().GetHost(),
+            Port: x.GetAuthority().GetPort(),
+            //UserInfo: x.GetAuthority().GetUserInfo(),
         },
-        Path:     m.Path,
-        Query:    m.Query,
-        Fragment: m.Fragment,
+        Path:     x.Path,
+        Query:    x.Query,
+        Fragment: x.Fragment,
     }
     return strings.TrimPrefix(url.Format(), "//")
 }

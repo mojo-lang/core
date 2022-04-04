@@ -21,14 +21,14 @@ func (codec *ObjectCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
         obj := (*Object)(ptr)
         obj.Vals = make(map[string]*Value)
         for _, key := range any.Keys() {
-            m := any.Get(key)
-            switch m.ValueType() {
+            x := any.Get(key)
+            switch x.ValueType() {
             case jsoniter.BoolValue:
-                obj.Vals[key] = NewBoolValue(m.ToBool())
+                obj.Vals[key] = NewBoolValue(x.ToBool())
             case jsoniter.NumberValue:
-                int64V := m.ToInt64()
-                uint64V := m.ToUint64()
-                floatV := m.ToFloat64()
+                int64V := x.ToInt64()
+                uint64V := x.ToUint64()
+                floatV := x.ToFloat64()
                 if floatV == float64(int64V) {
                     if uint64V == uint64(int64V) {
                         obj.Vals[key] = NewUint64Value(uint64V)
@@ -39,14 +39,14 @@ func (codec *ObjectCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
                     obj.Vals[key] = NewFloat64Value(floatV)
                 }
             case jsoniter.StringValue:
-                obj.Vals[key] = NewStringValue(m.ToString())
+                obj.Vals[key] = NewStringValue(x.ToString())
             case jsoniter.ArrayValue:
-                values := make([]*Value, 0, m.Size())
-                m.ToVal(&values)
+                values := make([]*Value, 0, x.Size())
+                x.ToVal(&values)
                 obj.Vals[key] = NewArrayValue(values...)
             case jsoniter.ObjectValue:
                 object := &Object{}
-                m.ToVal(object)
+                x.ToVal(object)
                 obj.Vals[key] = NewObjectValue(object)
             }
         }

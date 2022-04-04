@@ -2,7 +2,7 @@ package core
 
 import (
     "fmt"
-    "github.com/golang/protobuf/proto"
+    "google.golang.org/protobuf/proto"
 )
 
 const ErrorTypeName = "Error"
@@ -106,25 +106,25 @@ func NewDataLossError(format string, arguments ...interface{}) *Error {
     return NewError(DataLoss, format, arguments...)
 }
 
-func (m *Error) Error() string {
-    if len(m.Message) == 0 {
-        return m.Code.Name
+func (x *Error) Error() string {
+    if len(x.Message) == 0 {
+        return x.Code.Name
     }
-    return m.Message
+    return x.Message
 }
 
-func (m *Error) StatusCode() int32 {
-    if m != nil && m.Code != nil {
-        if m.Code.HttpStatusCode > 0 {
-            return m.Code.HttpStatusCode
+func (x *Error) StatusCode() int32 {
+    if x != nil && x.Code != nil {
+        if x.Code.HttpStatusCode > 0 {
+            return x.Code.HttpStatusCode
         }
-        return m.Code.Val
+        return x.Code.Val
     }
     return 0
 }
 
-func (m *Error) AddDetail(detail interface{}) *Error {
+func (x *Error) AddDetail(detail interface{}) *Error {
     if _, ok := detail.(*proto.Message); ok {
     }
-    return m
+    return x
 }

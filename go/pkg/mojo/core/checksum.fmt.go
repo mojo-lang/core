@@ -8,13 +8,13 @@ import (
 
 const maxChecksumLength = 128 + 7
 
-func (m *Checksum) Format() string {
-    if !m.IsEmpty() {
+func (x *Checksum) Format() string {
+    if !x.IsEmpty() {
         buf := bytes.NewBuffer(make([]byte, 0, maxChecksumLength))
 
-        buf.WriteString(m.Algorithm.Format())
+        buf.WriteString(x.Algorithm.Format())
         buf.WriteByte(' ')
-        buf.WriteString(m.Value)
+        buf.WriteString(x.Value)
 
         return buf.String()
     }
@@ -22,16 +22,16 @@ func (m *Checksum) Format() string {
     return ""
 }
 
-func (m *Checksum) Parse(value string) error {
-    if m != nil && len(value) > 0 {
+func (x *Checksum) Parse(value string) error {
+    if x != nil && len(value) > 0 {
         segments := strings.Split(value, " ")
         if len(segments) == 2 {
-            if err := m.Algorithm.Parse(segments[0]); err != nil {
+            if err := x.Algorithm.Parse(segments[0]); err != nil {
                 return fmt.Errorf("failed to parse the checksum alogorithm: %s, error: %w", segments[0], err)
             }
 
-            m.Value = segments[1]
-            if !m.IsValid() {
+            x.Value = segments[1]
+            if !x.IsValid() {
                 return fmt.Errorf("invalid checksum string: %s", value)
             }
         } else {

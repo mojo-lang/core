@@ -19,16 +19,16 @@ func Rgba(r uint32, g uint32, b uint32, alpha float32) *Color {
     return NewColor(r, g, b).SetAlphaValue(alpha)
 }
 
-func (m *Color) SetAlphaValue(value float32) *Color {
-    if m != nil {
-        m.Alpha = &Float32Value{Val: value}
+func (x *Color) SetAlphaValue(value float32) *Color {
+    if x != nil {
+        x.Alpha = &Float32Value{Val: value}
     }
-    return m
+    return x
 }
 
-func (m *Color) GetAlphaValue() float32 {
-    if m != nil && m.Alpha != nil {
-        return m.Alpha.Val
+func (x *Color) GetAlphaValue() float32 {
+    if x != nil && x.Alpha != nil {
+        return x.Alpha.Val
     }
     return 1
 }

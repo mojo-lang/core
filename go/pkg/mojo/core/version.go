@@ -24,6 +24,6 @@ func NewVersion(major int, minor int, patch int) *Version {
     }
 }
 
-func (m *Version) IsEmpty() bool {
-    return m == nil || (m.Major == 0 && m.Minor == 0 && m.Patch == 0)
+func (x *Version) IsEmpty() bool {
+    return x == nil || (x.Major == 0 && x.Minor == 0 && x.Patch == 0)
 }

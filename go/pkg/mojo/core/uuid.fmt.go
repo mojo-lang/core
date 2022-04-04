@@ -8,14 +8,14 @@ func ParseUuid(value string) (*Uuid, error) {
     return id, err
 }
 
-func (m *Uuid) Format() string {
-    return m.ToUUID().String()
+func (x *Uuid) Format() string {
+    return x.ToUUID().String()
 }
 
-func (m *Uuid) Parse(value string) error {
+func (x *Uuid) Parse(value string) error {
     id, err := uuid.Parse(value)
     if err == nil {
-        m.Val = append(m.Val, id[:]...)
+        x.Val = append(x.Val, id[:]...)
     }
     return err
 }

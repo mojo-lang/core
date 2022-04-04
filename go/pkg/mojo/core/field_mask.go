@@ -12,8 +12,8 @@ func NewFieldMask(fields string) *FieldMask {
     return mask
 }
 
-func (m *FieldMask) HasField(field string) bool {
-    for _, f := range m.Paths {
+func (x *FieldMask) HasField(field string) bool {
+    for _, f := range x.Paths {
         if f == field {
             return true
         }

@@ -4,10 +4,10 @@ import (
     "strings"
 )
 
-func (m Ordering) Format() string {
-    if len(m.Vals) > 0 {
+func (x Ordering) Format() string {
+    if len(x.Vals) > 0 {
         var values []string
-        for _, v := range m.Vals {
+        for _, v := range x.Vals {
             values = append(values, v.Format())
         }
         return strings.Join(values, ", ")
@@ -23,38 +23,38 @@ func ParseOrdering(value string) (*Ordering, error) {
     return o, nil
 }
 
-func (m *Ordering) Parse(value string) error {
-    if m != nil {
+func (x *Ordering) Parse(value string) error {
+    if x != nil {
         segments := strings.Split(value, ",")
         for _, segment := range segments {
             v := &Ordering_Value{}
             if err := v.Parse(segment); err != nil {
                 return err
             }
-            m.Vals = append(m.Vals, v)
+            x.Vals = append(x.Vals, v)
         }
     }
     return nil
 }
 
-func (m Ordering_Value) Format() string {
-    if m.Sort != Ordering_SORT_UNSPECIFIED {
-        return m.Field + " " + m.Sort.Format()
+func (x Ordering_Value) Format() string {
+    if x.Sort != Ordering_SORT_UNSPECIFIED {
+        return x.Field + " " + x.Sort.Format()
     } else {
-        return m.Field
+        return x.Field
     }
 }
 
-func (m *Ordering_Value) Parse(value string) error {
+func (x *Ordering_Value) Parse(value string) error {
     value = strings.TrimSpace(value)
     if len(value) > 0 {
         pos := strings.Index(value, " ")
         if pos < 0 {
-            m.Field = value
+            x.Field = value
         } else {
-            m.Field = value[:pos]
+            x.Field = value[:pos]
             value = strings.TrimSpace(value[pos:])
-            if err := m.Sort.Parse(strings.TrimSpace(value)); err != nil {
+            if err := x.Sort.Parse(strings.TrimSpace(value)); err != nil {
                 return err
             }
         }

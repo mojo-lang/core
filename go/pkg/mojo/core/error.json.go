@@ -50,15 +50,14 @@ func (codec *ErrorCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
     }
 
     if len(err.Details) > 0 {
-
     }
     stream.WriteObjectEnd()
 }
 
-func (m *Error) MarshalJSON() ([]byte, error) {
-    return jsoniter.ConfigFastest.Marshal(m)
+func (x *Error) MarshalJSON() ([]byte, error) {
+    return jsoniter.ConfigFastest.Marshal(x)
 }
 
-func (m *Error) UnmarshalJSON(err []byte) error {
-    return jsoniter.ConfigFastest.Unmarshal(err, m)
+func (x *Error) UnmarshalJSON(err []byte) error {
+    return jsoniter.ConfigFastest.Unmarshal(err, x)
 }

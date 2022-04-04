@@ -16,44 +16,44 @@ func ParseVersion(version string) (*Version, error) {
     return v, nil
 }
 
-func (m *Version) Parse(version string) error {
-    if m != nil && len(version) > 0 {
+func (x *Version) Parse(version string) error {
+    if x != nil && len(version) > 0 {
         segments := strings.Split(version, "+")
         if len(segments) > 1 {
-            m.Builds = strings.Split(segments[1], ".")
+            x.Builds = strings.Split(segments[1], ".")
         }
 
         segments = strings.Split(segments[0], "-")
         if len(segments) > 1 {
             segments[1] = strings.Join(segments[1:], "-")
             segments = segments[:2]
-            m.PreReleases = strings.Split(segments[1], ".")
+            x.PreReleases = strings.Split(segments[1], ".")
         }
 
         segments = strings.Split(segments[0], ".")
-        m.Level = int32(len(segments))
-        if m.Level > 0 {
+        x.Level = int32(len(segments))
+        if x.Level > 0 {
             major, err := strconv.Atoi(segments[0])
             if err != nil {
                 return fmt.Errorf("failed to parse version in major (%s) part, error: %w", segments[0], err)
             } else {
-                m.Major = uint64(major)
+                x.Major = uint64(major)
             }
         }
-        if m.Level > 1 {
+        if x.Level > 1 {
             minor, err := strconv.Atoi(segments[1])
             if err != nil {
                 return fmt.Errorf("failed to parse version in minor (%s) part, error: %w", segments[1], err)
             } else {
-                m.Minor = uint64(minor)
+                x.Minor = uint64(minor)
             }
         }
-        if m.Level > 2 {
+        if x.Level > 2 {
             patch, err := strconv.Atoi(segments[2])
             if err != nil {
                 return fmt.Errorf("failed to parse version in patch (%s) part, error: %w", segments[2], err)
             } else {
-                m.Patch = uint64(patch)
+                x.Patch = uint64(patch)
             }
         }
     }
@@ -61,28 +61,28 @@ func (m *Version) Parse(version string) error {
     return nil
 }
 
-func (m *Version) Format() string {
-    if m != nil {
+func (x *Version) Format() string {
+    if x != nil {
         buffer := bytes.Buffer{}
-        buffer.WriteString(strconv.FormatUint(m.Major, 10))
+        buffer.WriteString(strconv.FormatUint(x.Major, 10))
 
-        if m.Level == 0 || m.Level > 1 {
+        if x.Level == 0 || x.Level > 1 {
             buffer.WriteByte('.')
-            buffer.WriteString(strconv.FormatUint(m.Minor, 10))
+            buffer.WriteString(strconv.FormatUint(x.Minor, 10))
         }
-        if m.Level == 0 || m.Level > 2 {
+        if x.Level == 0 || x.Level > 2 {
             buffer.WriteByte('.')
-            buffer.WriteString(strconv.FormatUint(m.Patch, 10))
+            buffer.WriteString(strconv.FormatUint(x.Patch, 10))
         }
 
-        if len(m.PreReleases) > 0 {
+        if len(x.PreReleases) > 0 {
             buffer.WriteByte('-')
-            buffer.WriteString(strings.Join(m.PreReleases, "."))
+            buffer.WriteString(strings.Join(x.PreReleases, "."))
         }
 
-        if len(m.Builds) > 0 {
+        if len(x.Builds) > 0 {
             buffer.WriteByte('+')
-            buffer.WriteString(strings.Join(m.PreReleases, "."))
+            buffer.WriteString(strings.Join(x.PreReleases, "."))
         }
 
         return buffer.String()

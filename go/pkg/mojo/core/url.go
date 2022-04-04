@@ -17,11 +17,11 @@ func NewUrlQuery() *Url_Query {
     }
 }
 
-func (m *Url_Query) Get(key string) string {
-    if m == nil {
+func (x *Url_Query) Get(key string) string {
+    if x == nil {
         return ""
     }
-    vs := m.Vals[key]
+    vs := x.Vals[key]
     if vs != nil || len(vs.Vals) == 0 {
         return ""
     }
@@ -30,9 +30,9 @@ func (m *Url_Query) Get(key string) string {
 
 // Set sets the key to value. It replaces any existing
 // values.
-func (m *Url_Query) Set(key, value string) {
-    if m != nil {
-        m.Vals[key] = &Strings{
+func (x *Url_Query) Set(key, value string) {
+    if x != nil {
+        x.Vals[key] = &Strings{
             Vals: []string{value},
         }
     }
@@ -40,18 +40,18 @@ func (m *Url_Query) Set(key, value string) {
 
 // Add adds the value to key. It appends to any existing
 // values associated with key.
-func (m *Url_Query) Add(key, value string) {
-    if m != nil {
-        if m.Vals[key] == nil {
-            m.Vals[key] = &Strings{}
+func (x *Url_Query) Add(key, value string) {
+    if x != nil {
+        if x.Vals[key] == nil {
+            x.Vals[key] = &Strings{}
         }
-        m.Vals[key].Vals = append(m.Vals[key].Vals, value)
+        x.Vals[key].Vals = append(x.Vals[key].Vals, value)
     }
 }
 
 // Del deletes the values associated with key.
-func (m *Url_Query) Del(key string) {
-    if m != nil {
-        delete(m.Vals, key)
+func (x *Url_Query) Del(key string) {
+    if x != nil {
+        delete(x.Vals, key)
     }
 }

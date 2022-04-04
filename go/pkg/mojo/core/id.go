@@ -31,25 +31,25 @@ func UuidId() *Id {
     return NewUuidId(NewUuid())
 }
 
-func (m *Id) SetInt(id uint64) {
-    m.Id = &Id_Uint64Val{Uint64Val: id}
+func (x *Id) SetInt(id uint64) {
+    x.Id = &Id_Uint64Val{Uint64Val: id}
 }
 
-func (m *Id) SetString(id string) {
-    m.Id = &Id_StringVal{StringVal: id}
+func (x *Id) SetString(id string) {
+    x.Id = &Id_StringVal{StringVal: id}
 }
 
-func (m *Id) SetUuid(id *Uuid) {
-    m.Id = &Id_UuidVal{UuidVal: id}
+func (x *Id) SetUuid(id *Uuid) {
+    x.Id = &Id_UuidVal{UuidVal: id}
 }
 
-func (m *Id) SetUuidString(id string) {
+func (x *Id) SetUuidString(id string) {
     uuid, err := ParseUuid(id)
     if err == nil {
-        m.SetUuid(uuid)
+        x.SetUuid(uuid)
     }
 }
 
-func (m *Id) RegenerateUuid() {
-    m.SetUuid(NewUuid())
+func (x *Id) RegenerateUuid() {
+    x.SetUuid(NewUuid())
 }

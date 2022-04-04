@@ -310,17 +310,17 @@ func Fatalw(msg string, keysAndValues ...interface{}) {
 }
 
 func NewError(args ...interface{}) error {
-    Error(args...)
+    Logger().Error(args...)
     return errors.New(fmt.Sprint(args...))
 }
 
 func NewErrorf(template string, args ...interface{}) error {
-    Errorf(template, args...)
+    Logger().Errorf(template, args...)
     return fmt.Errorf(template, args...)
 }
 
 func NewErrorw(msg string, keysAndValues ...interface{}) error {
-    Errorw(msg, keysAndValues...)
+    Logger().Errorw(msg, keysAndValues...)
 
     buffer := bytes.NewBufferString(msg)
     buffer.WriteString(" ")

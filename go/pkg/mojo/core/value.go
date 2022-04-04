@@ -132,105 +132,105 @@ func NewObjectArrayValue(vals ...*Object) *Value {
     return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func (m *Value) GetBool() bool {
-    if m == nil {
+func (x *Value) GetBool() bool {
+    if x == nil {
         return false
     }
-    return m.GetBoolVal()
+    return x.GetBoolVal()
 }
 
-func (m *Value) GetInt() int {
-    if m == nil {
+func (x *Value) GetInt() int {
+    if x == nil {
         return 0
     }
-    return int(m.GetInt64())
+    return int(x.GetInt64())
 }
 
-func (m *Value) GetInt32() int32 {
-    if m == nil {
-        return 0
-    }
-
-    return int32(m.GetInt64())
-}
-
-func (m *Value) GetInt64() int64 {
-    if m == nil {
+func (x *Value) GetInt32() int32 {
+    if x == nil {
         return 0
     }
 
-    return m.GetInt64Val()
+    return int32(x.GetInt64())
 }
 
-func (m *Value) GetUint() uint {
-    if m == nil {
+func (x *Value) GetInt64() int64 {
+    if x == nil {
         return 0
     }
 
-    return uint(m.GetInt64())
+    return x.GetInt64Val()
 }
 
-func (m *Value) GetUint32() uint32 {
-    if m == nil {
+func (x *Value) GetUint() uint {
+    if x == nil {
         return 0
     }
 
-    return uint32(m.GetInt64())
+    return uint(x.GetInt64())
 }
 
-func (m *Value) GetUint64() uint64 {
-    if m == nil {
+func (x *Value) GetUint32() uint32 {
+    if x == nil {
         return 0
     }
 
-    return uint64(m.GetInt64())
+    return uint32(x.GetInt64())
 }
 
-func (m *Value) GetFloat32() float32 {
-    if m == nil {
+func (x *Value) GetUint64() uint64 {
+    if x == nil {
         return 0
     }
 
-    return float32(m.GetFloat64())
+    return uint64(x.GetInt64())
 }
 
-func (m *Value) GetFloat64() float64 {
-    if m == nil {
+func (x *Value) GetFloat32() float32 {
+    if x == nil {
         return 0
     }
 
-    return m.GetDoubleVal()
+    return float32(x.GetFloat64())
 }
 
-func (m *Value) GetDouble() float64 {
-    if m == nil {
+func (x *Value) GetFloat64() float64 {
+    if x == nil {
         return 0
     }
 
-    return m.GetDoubleVal()
+    return x.GetDoubleVal()
 }
 
-func (m *Value) GetString() string {
-    if m == nil {
+func (x *Value) GetDouble() float64 {
+    if x == nil {
+        return 0
+    }
+
+    return x.GetDoubleVal()
+}
+
+func (x *Value) GetString() string {
+    if x == nil {
         return ""
     }
 
-    return m.GetStringVal()
+    return x.GetStringVal()
 }
 
-func (m *Value) GetObject() *Object {
-    if m == nil {
+func (x *Value) GetObject() *Object {
+    if x == nil {
         return nil
     }
 
-    return m.GetObjectVal()
+    return x.GetObjectVal()
 }
 
-func (m *Value) GetValues() []*Value {
-    if m == nil {
+func (x *Value) GetValues() []*Value {
+    if x == nil {
         return []*Value{}
     }
-    values := m.GetValuesVal()
+    values := x.GetValuesVal()
     if values == nil {
         return []*Value{}
     }
@@ -238,8 +238,8 @@ func (m *Value) GetValues() []*Value {
     return values.Vals
 }
 
-func (m *Value) GetObjectArray() []*Object {
-    values := m.GetValues()
+func (x *Value) GetObjectArray() []*Object {
+    values := x.GetValues()
     objects := make([]*Object, 0, len(values))
     for _, value := range values {
         objects = append(objects, value.GetObject())
@@ -247,8 +247,8 @@ func (m *Value) GetObjectArray() []*Object {
     return objects
 }
 
-func (m *Value) GetStringArray() []string {
-    values := m.GetValues()
+func (x *Value) GetStringArray() []string {
+    values := x.GetValues()
     array := make([]string, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetString())
@@ -256,8 +256,8 @@ func (m *Value) GetStringArray() []string {
     return array
 }
 
-func (m *Value) GetIntArray() []int {
-    values := m.GetValues()
+func (x *Value) GetIntArray() []int {
+    values := x.GetValues()
     array := make([]int, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetInt())
@@ -265,8 +265,8 @@ func (m *Value) GetIntArray() []int {
     return array
 }
 
-func (m *Value) GetInt32Array() []int32 {
-    values := m.GetValues()
+func (x *Value) GetInt32Array() []int32 {
+    values := x.GetValues()
     array := make([]int32, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetInt32())
@@ -274,8 +274,8 @@ func (m *Value) GetInt32Array() []int32 {
     return array
 }
 
-func (m *Value) GetInt64Array() []int64 {
-    values := m.GetValues()
+func (x *Value) GetInt64Array() []int64 {
+    values := x.GetValues()
     array := make([]int64, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetInt64())
@@ -283,8 +283,8 @@ func (m *Value) GetInt64Array() []int64 {
     return array
 }
 
-func (m *Value) GetUintArray() []uint {
-    values := m.GetValues()
+func (x *Value) GetUintArray() []uint {
+    values := x.GetValues()
     array := make([]uint, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetUint())
@@ -292,8 +292,8 @@ func (m *Value) GetUintArray() []uint {
     return array
 }
 
-func (m *Value) GetUint32Array() []uint32 {
-    values := m.GetValues()
+func (x *Value) GetUint32Array() []uint32 {
+    values := x.GetValues()
     array := make([]uint32, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetUint32())
@@ -301,8 +301,8 @@ func (m *Value) GetUint32Array() []uint32 {
     return array
 }
 
-func (m *Value) GetUint64Array() []uint64 {
-    values := m.GetValues()
+func (x *Value) GetUint64Array() []uint64 {
+    values := x.GetValues()
     array := make([]uint64, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetUint64())
@@ -310,8 +310,8 @@ func (m *Value) GetUint64Array() []uint64 {
     return array
 }
 
-func (m *Value) GetFloat32Array() []float32 {
-    values := m.GetValues()
+func (x *Value) GetFloat32Array() []float32 {
+    values := x.GetValues()
     array := make([]float32, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetFloat32())
@@ -319,8 +319,8 @@ func (m *Value) GetFloat32Array() []float32 {
     return array
 }
 
-func (m *Value) GetFloat64Array() []float64 {
-    values := m.GetValues()
+func (x *Value) GetFloat64Array() []float64 {
+    values := x.GetValues()
     array := make([]float64, 0, len(values))
     for _, value := range values {
         array = append(array, value.GetFloat64())

@@ -7,17 +7,17 @@ func NewStringValues(values ...string) *StringValues {
     return &StringValues{Vals: values}
 }
 
-func (m *StringValues) Unique() *StringValues {
-    if m != nil {
+func (x *StringValues) Unique() *StringValues {
+    if x != nil {
         keys := make(map[string]bool)
         var list []string
-        for _, entry := range m.Vals {
+        for _, entry := range x.Vals {
             if _, ok := keys[entry]; !ok {
                 keys[entry] = true
                 list = append(list, entry)
             }
         }
-        m.Vals = list
+        x.Vals = list
     }
-    return m
+    return x
 }

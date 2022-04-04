@@ -16,12 +16,12 @@ func ParseErrorCode(code string) (*ErrorCode, error) {
     return ec, nil
 }
 
-func (m *ErrorCode) Parse(code string) error {
-    if m != nil && len(code) > 0 {
+func (x *ErrorCode) Parse(code string) error {
+    if x != nil && len(code) > 0 {
         segments := strings.Split(code, ".")
         value := ""
         if len(segments) > 1 {
-            m.Domain = segments[0]
+            x.Domain = segments[0]
             value = segments[1]
         } else {
             value = segments[0]
@@ -32,20 +32,20 @@ func (m *ErrorCode) Parse(code string) error {
             return fmt.Errorf("failed to parse error code %w", err)
         }
 
-        m.Val = int32(v)
+        x.Val = int32(v)
     }
     return nil
 }
 
-func (m *ErrorCode) Format() string {
-    if m != nil {
+func (x *ErrorCode) Format() string {
+    if x != nil {
         buffer := bytes.Buffer{}
 
-        if len(m.Domain) > 0 {
-            buffer.WriteString(m.Domain)
+        if len(x.Domain) > 0 {
+            buffer.WriteString(x.Domain)
             buffer.WriteByte('.')
         }
-        buffer.WriteString(strconv.FormatInt(int64(m.Val), 10))
+        buffer.WriteString(strconv.FormatInt(int64(x.Val), 10))
         return buffer.String()
     }
     return ""

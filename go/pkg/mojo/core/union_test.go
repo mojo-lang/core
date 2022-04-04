@@ -45,7 +45,7 @@ type Expression struct {
     Expression isExpressionExpression
 }
 
-func (m *Expression) IsUnion() {
+func (x *Expression) IsUnion() {
 }
 
 type ExpressionNullLiteralExpr struct {
@@ -78,7 +78,7 @@ type Statement struct {
     Statement isStatementStatement
 }
 
-func (m *Statement) IsUnion() {
+func (x *Statement) IsUnion() {
 }
 
 type isStatementStatement interface {
@@ -99,14 +99,14 @@ func TestGetUnionPrimeType(t *testing.T) {
     null := &NullLiteralExpr{Implicit: true}
     union := &Statement{Statement: &StatementExpression{Expression: &Expression{Expression: &ExpressionNullLiteralExpr{null}}}}
 
-    assert.Equal(t, GetUnionPrimeType(union), null)
+    assert.Equal(t, null, GetUnionPrimeType(union))
 }
 
 func TestGetUnionPrimeType2(t *testing.T) {
     enum := &EnumDecl{Implicit: true}
     union := &Statement{Statement: &StatementDeclaration{Declaration: &Declaration{Declaration: &DeclarationEnumDecl{enum}}}}
 
-    assert.Equal(t, GetUnionPrimeType(union), enum)
+    assert.Equal(t, enum, GetUnionPrimeType(union))
 }
 
 func TestGetUnionField(t *testing.T) {

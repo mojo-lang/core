@@ -16,30 +16,30 @@ func NewPlatform(os OS, arch Architecture, variant string) *Platform {
     }
 }
 
-func (m *Platform) SetOsName(name string) *Platform {
-    if m != nil {
-        m.OsName = name
+func (x *Platform) SetOsName(name string) *Platform {
+    if x != nil {
+        x.OsName = name
     }
-    return m
+    return x
 }
 
-func (m *Platform) SetOsVersion(version string) *Platform {
-    if m != nil {
-        m.OsVersion = version
+func (x *Platform) SetOsVersion(version string) *Platform {
+    if x != nil {
+        x.OsVersion = version
     }
-    return m
+    return x
 }
 
-func (m *Platform) IsLinux() bool {
-    return m != nil && m.Os == OS_OS_LINUX
+func (x *Platform) IsLinux() bool {
+    return x != nil && x.Os == OS_OS_LINUX
 }
 
-func (m *Platform) IsArmArch() bool {
-    return m != nil && (m.Architecture == Architecture_ARCHITECTURE_ARM || m.Architecture == Architecture_ARCHITECTURE_ARM64)
+func (x *Platform) IsArmArch() bool {
+    return x != nil && (x.Architecture == Architecture_ARCHITECTURE_ARM || x.Architecture == Architecture_ARCHITECTURE_ARM64)
 }
 
-func (m *Platform) Is64Arch() bool {
-    return m != nil && (m.Architecture == Architecture_ARCHITECTURE_AMD64 || m.Architecture == Architecture_ARCHITECTURE_ARM64)
+func (x *Platform) Is64Arch() bool {
+    return x != nil && (x.Architecture == Architecture_ARCHITECTURE_AMD64 || x.Architecture == Architecture_ARCHITECTURE_ARM64)
 }
 
 // https://github.com/containerd/containerd/blob/main/platforms/platforms.go

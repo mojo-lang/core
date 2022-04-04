@@ -12,15 +12,15 @@ func NewTemplateString(str string) *TemplateString {
     return ts
 }
 
-func (m *TemplateString) AppendSegment(segment string) {
-    if m != nil {
-        m.Segments = append(m.Segments, &TemplateString_Segment{Content: segment})
+func (x *TemplateString) AppendSegment(segment string) {
+    if x != nil {
+        x.Segments = append(x.Segments, &TemplateString_Segment{Content: segment})
     }
 }
 
-func (m *TemplateString) AppendTemplatedSegment(segment string) {
-    if m != nil {
-        m.Segments = append(m.Segments,
+func (x *TemplateString) AppendTemplatedSegment(segment string) {
+    if x != nil {
+        x.Segments = append(x.Segments,
             &TemplateString_Segment{Content: segment, Templated: true},
         )
     }

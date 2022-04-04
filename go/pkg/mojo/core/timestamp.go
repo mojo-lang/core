@@ -11,8 +11,8 @@ func Now() *Timestamp {
     return FromTime(time.Now())
 }
 
-func (m Timestamp) ToTime() time.Time {
-    return time.Unix(m.Seconds, int64(m.Nanoseconds)).In(loc)
+func (x Timestamp) ToTime() time.Time {
+    return time.Unix(x.Seconds, int64(x.Nanoseconds)).In(loc)
 }
 
 func FromTime(t time.Time) *Timestamp {
@@ -23,8 +23,8 @@ func FromTime(t time.Time) *Timestamp {
     }
 }
 
-func (m *Timestamp) FromTime(t time.Time) {
+func (x *Timestamp) FromTime(t time.Time) {
     ts := FromTime(t)
-    m.Seconds = ts.Seconds
-    m.Nanoseconds = ts.Nanoseconds
+    x.Seconds = ts.Seconds
+    x.Nanoseconds = ts.Nanoseconds
 }
