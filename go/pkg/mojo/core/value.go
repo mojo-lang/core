@@ -3,25 +3,30 @@ package core
 const ValueTypeName = "Value"
 const ValueTypeFullName = "mojo.core.Value"
 
-//TODO add more convenience new func
+//TODO
 //func NewValue(v interface{}) *Value {
+//    switch value := v.(type) {
+//    case int8:
+//        return NewInt64Value(int64(value))
+//    }
 //
+//    return nil
 //}
 
 func NewObjectValue(obj *Object) *Value {
-    return &Value{Value: &Value_ObjectVal{ObjectVal: obj}}
+    return &Value{Val: &Value_ObjectVal{ObjectVal: obj}}
 }
 
 func NewArrayValue(values ...*Value) *Value {
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func NewMapValue(values map[string]*Value) *Value {
-    return &Value{Value: &Value_ObjectVal{ObjectVal: &Object{Vals: values}}}
+    return &Value{Val: &Value_ObjectVal{ObjectVal: &Object{Vals: values}}}
 }
 
 func NewBoolValue(val bool) *Value {
-    return &Value{Value: &Value_BoolVal{BoolVal: val}}
+    return &Value{Val: &Value_BoolVal{BoolVal: val}}
 }
 
 func NewIntValue(val int) *Value {
@@ -33,7 +38,7 @@ func NewInt32Value(val int32) *Value {
 }
 
 func NewInt64Value(val int64) *Value {
-    return &Value{Value: &Value_Int64Val{Int64Val: val}}
+    return &Value{Val: &Value_Int64Val{Int64Val: val}}
 }
 
 func NewUintValue(val uint) *Value {
@@ -45,7 +50,7 @@ func NewUint32Value(val uint32) *Value {
 }
 
 func NewUint64Value(val uint64) *Value {
-    return &Value{Value: &Value_Int64Val{Int64Val: int64(val)}}
+    return &Value{Val: &Value_Int64Val{Int64Val: int64(val)}}
 }
 
 func NewFloat32Value(val float32) *Value {
@@ -53,112 +58,98 @@ func NewFloat32Value(val float32) *Value {
 }
 
 func NewFloat64Value(val float64) *Value {
-    return &Value{Value: &Value_DoubleVal{DoubleVal: val}}
+    return &Value{Val: &Value_DoubleVal{DoubleVal: val}}
 }
 
 func NewStringValue(val string) *Value {
-    return &Value{Value: &Value_StringVal{StringVal: val}}
+    return &Value{Val: &Value_StringVal{StringVal: val}}
 }
 
-func NewIntArrayValue(vals ...int) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewIntArrayValue(ints ...int) *Value {
+    values := make([]*Value, 0, len(ints))
+    for _, v := range ints {
         values = append(values, NewIntValue(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewInt32ArrayValue(vals ...int32) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewInt32ArrayValue(int32s ...int32) *Value {
+    values := make([]*Value, 0, len(int32s))
+    for _, v := range int32s {
         values = append(values, NewInt32Value(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewInt64ArrayValue(vals ...int64) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewInt64ArrayValue(int64s ...int64) *Value {
+    values := make([]*Value, 0, len(int64s))
+    for _, v := range int64s {
         values = append(values, NewInt64Value(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewUint32ArrayValue(vals ...uint32) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewUint32ArrayValue(uint32s ...uint32) *Value {
+    values := make([]*Value, 0, len(uint32s))
+    for _, v := range uint32s {
         values = append(values, NewUint32Value(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewUint64ArrayValue(vals ...uint64) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewUint64ArrayValue(uint64s ...uint64) *Value {
+    values := make([]*Value, 0, len(uint64s))
+    for _, v := range uint64s {
         values = append(values, NewUint64Value(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewFloat32ArrayValue(vals ...float32) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewFloat32ArrayValue(float32s ...float32) *Value {
+    values := make([]*Value, 0, len(float32s))
+    for _, v := range float32s {
         values = append(values, NewFloat32Value(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewFloat64ArrayValue(vals ...float64) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewFloat64ArrayValue(float64s ...float64) *Value {
+    values := make([]*Value, 0, len(float64s))
+    for _, v := range float64s {
         values = append(values, NewFloat64Value(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewStringArrayValue(vals ...string) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewStringArrayValue(strings ...string) *Value {
+    values := make([]*Value, 0, len(strings))
+    for _, v := range strings {
         values = append(values, NewStringValue(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewObjectArrayValue(vals ...*Object) *Value {
-    values := make([]*Value, 0, len(vals))
-    for _, v := range vals {
+func NewObjectArrayValue(objects ...*Object) *Value {
+    values := make([]*Value, 0, len(objects))
+    for _, v := range objects {
         values = append(values, NewObjectValue(v))
     }
-    return &Value{Value: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
 func (x *Value) GetBool() bool {
-    if x == nil {
-        return false
-    }
     return x.GetBoolVal()
 }
 
 func (x *Value) GetInt() int {
-    if x == nil {
-        return 0
-    }
     return int(x.GetInt64())
 }
 
 func (x *Value) GetInt32() int32 {
-    if x == nil {
-        return 0
-    }
-
     return int32(x.GetInt64())
 }
 
 func (x *Value) GetInt64() int64 {
-    if x == nil {
-        return 0
-    }
-
     return x.GetInt64Val()
 }
 
@@ -227,24 +218,21 @@ func (x *Value) GetObject() *Object {
 }
 
 func (x *Value) GetValues() []*Value {
-    if x == nil {
-        return []*Value{}
+    if values := x.GetValuesVal(); values != nil {
+        return values.Vals
     }
-    values := x.GetValuesVal()
-    if values == nil {
-        return []*Value{}
-    }
-
-    return values.Vals
+    return nil
 }
 
 func (x *Value) GetObjectArray() []*Object {
-    values := x.GetValues()
-    objects := make([]*Object, 0, len(values))
-    for _, value := range values {
-        objects = append(objects, value.GetObject())
+    if values := x.GetValues(); len(values) > 0 {
+        objects := make([]*Object, 0, len(values))
+        for _, value := range values {
+            objects = append(objects, value.GetObject())
+        }
+        return objects
     }
-    return objects
+    return nil
 }
 
 func (x *Value) GetStringArray() []string {

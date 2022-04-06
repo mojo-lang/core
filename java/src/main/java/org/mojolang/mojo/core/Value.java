@@ -50,65 +50,65 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             org.mojolang.mojo.core.Values.Builder subBuilder = null;
-            if (valueCase_ == 1) {
-              subBuilder = ((org.mojolang.mojo.core.Values) value_).toBuilder();
+            if (valCase_ == 1) {
+              subBuilder = ((org.mojolang.mojo.core.Values) val_).toBuilder();
             }
-            value_ =
+            val_ =
                 input.readMessage(org.mojolang.mojo.core.Values.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.core.Values) value_);
-              value_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom((org.mojolang.mojo.core.Values) val_);
+              val_ = subBuilder.buildPartial();
             }
-            valueCase_ = 1;
+            valCase_ = 1;
             break;
           }
           case 18: {
             org.mojolang.mojo.core.Object.Builder subBuilder = null;
-            if (valueCase_ == 2) {
-              subBuilder = ((org.mojolang.mojo.core.Object) value_).toBuilder();
+            if (valCase_ == 2) {
+              subBuilder = ((org.mojolang.mojo.core.Object) val_).toBuilder();
             }
-            value_ =
+            val_ =
                 input.readMessage(org.mojolang.mojo.core.Object.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.core.Object) value_);
-              value_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom((org.mojolang.mojo.core.Object) val_);
+              val_ = subBuilder.buildPartial();
             }
-            valueCase_ = 2;
+            valCase_ = 2;
             break;
           }
           case 26: {
             org.mojolang.mojo.core.Null.Builder subBuilder = null;
-            if (valueCase_ == 3) {
-              subBuilder = ((org.mojolang.mojo.core.Null) value_).toBuilder();
+            if (valCase_ == 3) {
+              subBuilder = ((org.mojolang.mojo.core.Null) val_).toBuilder();
             }
-            value_ =
+            val_ =
                 input.readMessage(org.mojolang.mojo.core.Null.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.core.Null) value_);
-              value_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom((org.mojolang.mojo.core.Null) val_);
+              val_ = subBuilder.buildPartial();
             }
-            valueCase_ = 3;
+            valCase_ = 3;
             break;
           }
           case 32: {
-            value_ = input.readBool();
-            valueCase_ = 4;
+            val_ = input.readBool();
+            valCase_ = 4;
             break;
           }
           case 40: {
-            value_ = input.readInt64();
-            valueCase_ = 5;
+            val_ = input.readInt64();
+            valCase_ = 5;
             break;
           }
           case 49: {
-            value_ = input.readDouble();
-            valueCase_ = 6;
+            val_ = input.readDouble();
+            valCase_ = 6;
             break;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
-            valueCase_ = 7;
-            value_ = s;
+            valCase_ = 7;
+            val_ = s;
             break;
           }
           default: {
@@ -143,9 +143,9 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.Value.class, org.mojolang.mojo.core.Value.Builder.class);
   }
 
-  private int valueCase_ = 0;
-  private java.lang.Object value_;
-  public enum ValueCase
+  private int valCase_ = 0;
+  private java.lang.Object val_;
+  public enum ValCase
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     VALUES_VAL(1),
@@ -155,9 +155,9 @@ private static final long serialVersionUID = 0L;
     INT64_VAL(5),
     DOUBLE_VAL(6),
     STRING_VAL(7),
-    VALUE_NOT_SET(0);
+    VAL_NOT_SET(0);
     private final int value;
-    private ValueCase(int value) {
+    private ValCase(int value) {
       this.value = value;
     }
     /**
@@ -166,11 +166,11 @@ private static final long serialVersionUID = 0L;
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
-    public static ValueCase valueOf(int value) {
+    public static ValCase valueOf(int value) {
       return forNumber(value);
     }
 
-    public static ValueCase forNumber(int value) {
+    public static ValCase forNumber(int value) {
       switch (value) {
         case 1: return VALUES_VAL;
         case 2: return OBJECT_VAL;
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
         case 5: return INT64_VAL;
         case 6: return DOUBLE_VAL;
         case 7: return STRING_VAL;
-        case 0: return VALUE_NOT_SET;
+        case 0: return VAL_NOT_SET;
         default: return null;
       }
     }
@@ -188,10 +188,10 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public ValueCase
-  getValueCase() {
-    return ValueCase.forNumber(
-        valueCase_);
+  public ValCase
+  getValCase() {
+    return ValCase.forNumber(
+        valCase_);
   }
 
   public static final int VALUES_VAL_FIELD_NUMBER = 1;
@@ -201,7 +201,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasValuesVal() {
-    return valueCase_ == 1;
+    return valCase_ == 1;
   }
   /**
    * <code>.mojo.core.Values values_val = 1;</code>
@@ -209,8 +209,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.Values getValuesVal() {
-    if (valueCase_ == 1) {
-       return (org.mojolang.mojo.core.Values) value_;
+    if (valCase_ == 1) {
+       return (org.mojolang.mojo.core.Values) val_;
     }
     return org.mojolang.mojo.core.Values.getDefaultInstance();
   }
@@ -219,8 +219,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.ValuesOrBuilder getValuesValOrBuilder() {
-    if (valueCase_ == 1) {
-       return (org.mojolang.mojo.core.Values) value_;
+    if (valCase_ == 1) {
+       return (org.mojolang.mojo.core.Values) val_;
     }
     return org.mojolang.mojo.core.Values.getDefaultInstance();
   }
@@ -232,7 +232,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasObjectVal() {
-    return valueCase_ == 2;
+    return valCase_ == 2;
   }
   /**
    * <code>.mojo.core.Object object_val = 2;</code>
@@ -240,8 +240,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.Object getObjectVal() {
-    if (valueCase_ == 2) {
-       return (org.mojolang.mojo.core.Object) value_;
+    if (valCase_ == 2) {
+       return (org.mojolang.mojo.core.Object) val_;
     }
     return org.mojolang.mojo.core.Object.getDefaultInstance();
   }
@@ -250,8 +250,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.ObjectOrBuilder getObjectValOrBuilder() {
-    if (valueCase_ == 2) {
-       return (org.mojolang.mojo.core.Object) value_;
+    if (valCase_ == 2) {
+       return (org.mojolang.mojo.core.Object) val_;
     }
     return org.mojolang.mojo.core.Object.getDefaultInstance();
   }
@@ -263,7 +263,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasNullVal() {
-    return valueCase_ == 3;
+    return valCase_ == 3;
   }
   /**
    * <code>.mojo.core.Null null_val = 3;</code>
@@ -271,8 +271,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.Null getNullVal() {
-    if (valueCase_ == 3) {
-       return (org.mojolang.mojo.core.Null) value_;
+    if (valCase_ == 3) {
+       return (org.mojolang.mojo.core.Null) val_;
     }
     return org.mojolang.mojo.core.Null.getDefaultInstance();
   }
@@ -281,8 +281,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.NullOrBuilder getNullValOrBuilder() {
-    if (valueCase_ == 3) {
-       return (org.mojolang.mojo.core.Null) value_;
+    if (valCase_ == 3) {
+       return (org.mojolang.mojo.core.Null) val_;
     }
     return org.mojolang.mojo.core.Null.getDefaultInstance();
   }
@@ -294,7 +294,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasBoolVal() {
-    return valueCase_ == 4;
+    return valCase_ == 4;
   }
   /**
    * <code>bool bool_val = 4;</code>
@@ -302,8 +302,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean getBoolVal() {
-    if (valueCase_ == 4) {
-      return (java.lang.Boolean) value_;
+    if (valCase_ == 4) {
+      return (java.lang.Boolean) val_;
     }
     return false;
   }
@@ -315,7 +315,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasInt64Val() {
-    return valueCase_ == 5;
+    return valCase_ == 5;
   }
   /**
    * <code>int64 int64_val = 5;</code>
@@ -323,8 +323,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public long getInt64Val() {
-    if (valueCase_ == 5) {
-      return (java.lang.Long) value_;
+    if (valCase_ == 5) {
+      return (java.lang.Long) val_;
     }
     return 0L;
   }
@@ -336,7 +336,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasDoubleVal() {
-    return valueCase_ == 6;
+    return valCase_ == 6;
   }
   /**
    * <code>double double_val = 6;</code>
@@ -344,8 +344,8 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public double getDoubleVal() {
-    if (valueCase_ == 6) {
-      return (java.lang.Double) value_;
+    if (valCase_ == 6) {
+      return (java.lang.Double) val_;
     }
     return 0D;
   }
@@ -356,7 +356,7 @@ private static final long serialVersionUID = 0L;
    * @return Whether the stringVal field is set.
    */
   public boolean hasStringVal() {
-    return valueCase_ == 7;
+    return valCase_ == 7;
   }
   /**
    * <code>string string_val = 7;</code>
@@ -364,8 +364,8 @@ private static final long serialVersionUID = 0L;
    */
   public java.lang.String getStringVal() {
     java.lang.Object ref = "";
-    if (valueCase_ == 7) {
-      ref = value_;
+    if (valCase_ == 7) {
+      ref = val_;
     }
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
@@ -373,8 +373,8 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      if (valueCase_ == 7) {
-        value_ = s;
+      if (valCase_ == 7) {
+        val_ = s;
       }
       return s;
     }
@@ -386,15 +386,15 @@ private static final long serialVersionUID = 0L;
   public com.google.protobuf.ByteString
       getStringValBytes() {
     java.lang.Object ref = "";
-    if (valueCase_ == 7) {
-      ref = value_;
+    if (valCase_ == 7) {
+      ref = val_;
     }
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      if (valueCase_ == 7) {
-        value_ = b;
+      if (valCase_ == 7) {
+        val_ = b;
       }
       return b;
     } else {
@@ -416,29 +416,29 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (valueCase_ == 1) {
-      output.writeMessage(1, (org.mojolang.mojo.core.Values) value_);
+    if (valCase_ == 1) {
+      output.writeMessage(1, (org.mojolang.mojo.core.Values) val_);
     }
-    if (valueCase_ == 2) {
-      output.writeMessage(2, (org.mojolang.mojo.core.Object) value_);
+    if (valCase_ == 2) {
+      output.writeMessage(2, (org.mojolang.mojo.core.Object) val_);
     }
-    if (valueCase_ == 3) {
-      output.writeMessage(3, (org.mojolang.mojo.core.Null) value_);
+    if (valCase_ == 3) {
+      output.writeMessage(3, (org.mojolang.mojo.core.Null) val_);
     }
-    if (valueCase_ == 4) {
+    if (valCase_ == 4) {
       output.writeBool(
-          4, (boolean)((java.lang.Boolean) value_));
+          4, (boolean)((java.lang.Boolean) val_));
     }
-    if (valueCase_ == 5) {
+    if (valCase_ == 5) {
       output.writeInt64(
-          5, (long)((java.lang.Long) value_));
+          5, (long)((java.lang.Long) val_));
     }
-    if (valueCase_ == 6) {
+    if (valCase_ == 6) {
       output.writeDouble(
-          6, (double)((java.lang.Double) value_));
+          6, (double)((java.lang.Double) val_));
     }
-    if (valueCase_ == 7) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, value_);
+    if (valCase_ == 7) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -449,35 +449,35 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (valueCase_ == 1) {
+    if (valCase_ == 1) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, (org.mojolang.mojo.core.Values) value_);
+        .computeMessageSize(1, (org.mojolang.mojo.core.Values) val_);
     }
-    if (valueCase_ == 2) {
+    if (valCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (org.mojolang.mojo.core.Object) value_);
+        .computeMessageSize(2, (org.mojolang.mojo.core.Object) val_);
     }
-    if (valueCase_ == 3) {
+    if (valCase_ == 3) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, (org.mojolang.mojo.core.Null) value_);
+        .computeMessageSize(3, (org.mojolang.mojo.core.Null) val_);
     }
-    if (valueCase_ == 4) {
+    if (valCase_ == 4) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(
-            4, (boolean)((java.lang.Boolean) value_));
+            4, (boolean)((java.lang.Boolean) val_));
     }
-    if (valueCase_ == 5) {
+    if (valCase_ == 5) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(
-            5, (long)((java.lang.Long) value_));
+            5, (long)((java.lang.Long) val_));
     }
-    if (valueCase_ == 6) {
+    if (valCase_ == 6) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(
-            6, (double)((java.lang.Double) value_));
+            6, (double)((java.lang.Double) val_));
     }
-    if (valueCase_ == 7) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, value_);
+    if (valCase_ == 7) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -494,8 +494,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Value other = (org.mojolang.mojo.core.Value) obj;
 
-    if (!getValueCase().equals(other.getValueCase())) return false;
-    switch (valueCase_) {
+    if (!getValCase().equals(other.getValCase())) return false;
+    switch (valCase_) {
       case 1:
         if (!getValuesVal()
             .equals(other.getValuesVal())) return false;
@@ -539,7 +539,7 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    switch (valueCase_) {
+    switch (valCase_) {
       case 1:
         hash = (37 * hash) + VALUES_VAL_FIELD_NUMBER;
         hash = (53 * hash) + getValuesVal().hashCode();
@@ -707,8 +707,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      valueCase_ = 0;
-      value_ = null;
+      valCase_ = 0;
+      val_ = null;
       return this;
     }
 
@@ -735,40 +735,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Value buildPartial() {
       org.mojolang.mojo.core.Value result = new org.mojolang.mojo.core.Value(this);
-      if (valueCase_ == 1) {
+      if (valCase_ == 1) {
         if (valuesValBuilder_ == null) {
-          result.value_ = value_;
+          result.val_ = val_;
         } else {
-          result.value_ = valuesValBuilder_.build();
+          result.val_ = valuesValBuilder_.build();
         }
       }
-      if (valueCase_ == 2) {
+      if (valCase_ == 2) {
         if (objectValBuilder_ == null) {
-          result.value_ = value_;
+          result.val_ = val_;
         } else {
-          result.value_ = objectValBuilder_.build();
+          result.val_ = objectValBuilder_.build();
         }
       }
-      if (valueCase_ == 3) {
+      if (valCase_ == 3) {
         if (nullValBuilder_ == null) {
-          result.value_ = value_;
+          result.val_ = val_;
         } else {
-          result.value_ = nullValBuilder_.build();
+          result.val_ = nullValBuilder_.build();
         }
       }
-      if (valueCase_ == 4) {
-        result.value_ = value_;
+      if (valCase_ == 4) {
+        result.val_ = val_;
       }
-      if (valueCase_ == 5) {
-        result.value_ = value_;
+      if (valCase_ == 5) {
+        result.val_ = val_;
       }
-      if (valueCase_ == 6) {
-        result.value_ = value_;
+      if (valCase_ == 6) {
+        result.val_ = val_;
       }
-      if (valueCase_ == 7) {
-        result.value_ = value_;
+      if (valCase_ == 7) {
+        result.val_ = val_;
       }
-      result.valueCase_ = valueCase_;
+      result.valCase_ = valCase_;
       onBuilt();
       return result;
     }
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Value other) {
       if (other == org.mojolang.mojo.core.Value.getDefaultInstance()) return this;
-      switch (other.getValueCase()) {
+      switch (other.getValCase()) {
         case VALUES_VAL: {
           mergeValuesVal(other.getValuesVal());
           break;
@@ -843,12 +843,12 @@ private static final long serialVersionUID = 0L;
           break;
         }
         case STRING_VAL: {
-          valueCase_ = 7;
-          value_ = other.value_;
+          valCase_ = 7;
+          val_ = other.val_;
           onChanged();
           break;
         }
-        case VALUE_NOT_SET: {
+        case VAL_NOT_SET: {
           break;
         }
       }
@@ -880,17 +880,17 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int valueCase_ = 0;
-    private java.lang.Object value_;
-    public ValueCase
-        getValueCase() {
-      return ValueCase.forNumber(
-          valueCase_);
+    private int valCase_ = 0;
+    private java.lang.Object val_;
+    public ValCase
+        getValCase() {
+      return ValCase.forNumber(
+          valCase_);
     }
 
-    public Builder clearValue() {
-      valueCase_ = 0;
-      value_ = null;
+    public Builder clearVal() {
+      valCase_ = 0;
+      val_ = null;
       onChanged();
       return this;
     }
@@ -904,7 +904,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasValuesVal() {
-      return valueCase_ == 1;
+      return valCase_ == 1;
     }
     /**
      * <code>.mojo.core.Values values_val = 1;</code>
@@ -913,12 +913,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Values getValuesVal() {
       if (valuesValBuilder_ == null) {
-        if (valueCase_ == 1) {
-          return (org.mojolang.mojo.core.Values) value_;
+        if (valCase_ == 1) {
+          return (org.mojolang.mojo.core.Values) val_;
         }
         return org.mojolang.mojo.core.Values.getDefaultInstance();
       } else {
-        if (valueCase_ == 1) {
+        if (valCase_ == 1) {
           return valuesValBuilder_.getMessage();
         }
         return org.mojolang.mojo.core.Values.getDefaultInstance();
@@ -932,12 +932,12 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        value_ = value;
+        val_ = value;
         onChanged();
       } else {
         valuesValBuilder_.setMessage(value);
       }
-      valueCase_ = 1;
+      valCase_ = 1;
       return this;
     }
     /**
@@ -946,12 +946,12 @@ private static final long serialVersionUID = 0L;
     public Builder setValuesVal(
         org.mojolang.mojo.core.Values.Builder builderForValue) {
       if (valuesValBuilder_ == null) {
-        value_ = builderForValue.build();
+        val_ = builderForValue.build();
         onChanged();
       } else {
         valuesValBuilder_.setMessage(builderForValue.build());
       }
-      valueCase_ = 1;
+      valCase_ = 1;
       return this;
     }
     /**
@@ -959,21 +959,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeValuesVal(org.mojolang.mojo.core.Values value) {
       if (valuesValBuilder_ == null) {
-        if (valueCase_ == 1 &&
-            value_ != org.mojolang.mojo.core.Values.getDefaultInstance()) {
-          value_ = org.mojolang.mojo.core.Values.newBuilder((org.mojolang.mojo.core.Values) value_)
+        if (valCase_ == 1 &&
+            val_ != org.mojolang.mojo.core.Values.getDefaultInstance()) {
+          val_ = org.mojolang.mojo.core.Values.newBuilder((org.mojolang.mojo.core.Values) val_)
               .mergeFrom(value).buildPartial();
         } else {
-          value_ = value;
+          val_ = value;
         }
         onChanged();
       } else {
-        if (valueCase_ == 1) {
+        if (valCase_ == 1) {
           valuesValBuilder_.mergeFrom(value);
         }
         valuesValBuilder_.setMessage(value);
       }
-      valueCase_ = 1;
+      valCase_ = 1;
       return this;
     }
     /**
@@ -981,15 +981,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearValuesVal() {
       if (valuesValBuilder_ == null) {
-        if (valueCase_ == 1) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valCase_ == 1) {
+          valCase_ = 0;
+          val_ = null;
           onChanged();
         }
       } else {
-        if (valueCase_ == 1) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valCase_ == 1) {
+          valCase_ = 0;
+          val_ = null;
         }
         valuesValBuilder_.clear();
       }
@@ -1006,11 +1006,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.ValuesOrBuilder getValuesValOrBuilder() {
-      if ((valueCase_ == 1) && (valuesValBuilder_ != null)) {
+      if ((valCase_ == 1) && (valuesValBuilder_ != null)) {
         return valuesValBuilder_.getMessageOrBuilder();
       } else {
-        if (valueCase_ == 1) {
-          return (org.mojolang.mojo.core.Values) value_;
+        if (valCase_ == 1) {
+          return (org.mojolang.mojo.core.Values) val_;
         }
         return org.mojolang.mojo.core.Values.getDefaultInstance();
       }
@@ -1022,17 +1022,17 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Values, org.mojolang.mojo.core.Values.Builder, org.mojolang.mojo.core.ValuesOrBuilder> 
         getValuesValFieldBuilder() {
       if (valuesValBuilder_ == null) {
-        if (!(valueCase_ == 1)) {
-          value_ = org.mojolang.mojo.core.Values.getDefaultInstance();
+        if (!(valCase_ == 1)) {
+          val_ = org.mojolang.mojo.core.Values.getDefaultInstance();
         }
         valuesValBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.core.Values, org.mojolang.mojo.core.Values.Builder, org.mojolang.mojo.core.ValuesOrBuilder>(
-                (org.mojolang.mojo.core.Values) value_,
+                (org.mojolang.mojo.core.Values) val_,
                 getParentForChildren(),
                 isClean());
-        value_ = null;
+        val_ = null;
       }
-      valueCase_ = 1;
+      valCase_ = 1;
       onChanged();;
       return valuesValBuilder_;
     }
@@ -1045,7 +1045,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasObjectVal() {
-      return valueCase_ == 2;
+      return valCase_ == 2;
     }
     /**
      * <code>.mojo.core.Object object_val = 2;</code>
@@ -1054,12 +1054,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Object getObjectVal() {
       if (objectValBuilder_ == null) {
-        if (valueCase_ == 2) {
-          return (org.mojolang.mojo.core.Object) value_;
+        if (valCase_ == 2) {
+          return (org.mojolang.mojo.core.Object) val_;
         }
         return org.mojolang.mojo.core.Object.getDefaultInstance();
       } else {
-        if (valueCase_ == 2) {
+        if (valCase_ == 2) {
           return objectValBuilder_.getMessage();
         }
         return org.mojolang.mojo.core.Object.getDefaultInstance();
@@ -1073,12 +1073,12 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        value_ = value;
+        val_ = value;
         onChanged();
       } else {
         objectValBuilder_.setMessage(value);
       }
-      valueCase_ = 2;
+      valCase_ = 2;
       return this;
     }
     /**
@@ -1087,12 +1087,12 @@ private static final long serialVersionUID = 0L;
     public Builder setObjectVal(
         org.mojolang.mojo.core.Object.Builder builderForValue) {
       if (objectValBuilder_ == null) {
-        value_ = builderForValue.build();
+        val_ = builderForValue.build();
         onChanged();
       } else {
         objectValBuilder_.setMessage(builderForValue.build());
       }
-      valueCase_ = 2;
+      valCase_ = 2;
       return this;
     }
     /**
@@ -1100,21 +1100,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeObjectVal(org.mojolang.mojo.core.Object value) {
       if (objectValBuilder_ == null) {
-        if (valueCase_ == 2 &&
-            value_ != org.mojolang.mojo.core.Object.getDefaultInstance()) {
-          value_ = org.mojolang.mojo.core.Object.newBuilder((org.mojolang.mojo.core.Object) value_)
+        if (valCase_ == 2 &&
+            val_ != org.mojolang.mojo.core.Object.getDefaultInstance()) {
+          val_ = org.mojolang.mojo.core.Object.newBuilder((org.mojolang.mojo.core.Object) val_)
               .mergeFrom(value).buildPartial();
         } else {
-          value_ = value;
+          val_ = value;
         }
         onChanged();
       } else {
-        if (valueCase_ == 2) {
+        if (valCase_ == 2) {
           objectValBuilder_.mergeFrom(value);
         }
         objectValBuilder_.setMessage(value);
       }
-      valueCase_ = 2;
+      valCase_ = 2;
       return this;
     }
     /**
@@ -1122,15 +1122,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearObjectVal() {
       if (objectValBuilder_ == null) {
-        if (valueCase_ == 2) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valCase_ == 2) {
+          valCase_ = 0;
+          val_ = null;
           onChanged();
         }
       } else {
-        if (valueCase_ == 2) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valCase_ == 2) {
+          valCase_ = 0;
+          val_ = null;
         }
         objectValBuilder_.clear();
       }
@@ -1147,11 +1147,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.ObjectOrBuilder getObjectValOrBuilder() {
-      if ((valueCase_ == 2) && (objectValBuilder_ != null)) {
+      if ((valCase_ == 2) && (objectValBuilder_ != null)) {
         return objectValBuilder_.getMessageOrBuilder();
       } else {
-        if (valueCase_ == 2) {
-          return (org.mojolang.mojo.core.Object) value_;
+        if (valCase_ == 2) {
+          return (org.mojolang.mojo.core.Object) val_;
         }
         return org.mojolang.mojo.core.Object.getDefaultInstance();
       }
@@ -1163,17 +1163,17 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Object, org.mojolang.mojo.core.Object.Builder, org.mojolang.mojo.core.ObjectOrBuilder> 
         getObjectValFieldBuilder() {
       if (objectValBuilder_ == null) {
-        if (!(valueCase_ == 2)) {
-          value_ = org.mojolang.mojo.core.Object.getDefaultInstance();
+        if (!(valCase_ == 2)) {
+          val_ = org.mojolang.mojo.core.Object.getDefaultInstance();
         }
         objectValBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.core.Object, org.mojolang.mojo.core.Object.Builder, org.mojolang.mojo.core.ObjectOrBuilder>(
-                (org.mojolang.mojo.core.Object) value_,
+                (org.mojolang.mojo.core.Object) val_,
                 getParentForChildren(),
                 isClean());
-        value_ = null;
+        val_ = null;
       }
-      valueCase_ = 2;
+      valCase_ = 2;
       onChanged();;
       return objectValBuilder_;
     }
@@ -1186,7 +1186,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasNullVal() {
-      return valueCase_ == 3;
+      return valCase_ == 3;
     }
     /**
      * <code>.mojo.core.Null null_val = 3;</code>
@@ -1195,12 +1195,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Null getNullVal() {
       if (nullValBuilder_ == null) {
-        if (valueCase_ == 3) {
-          return (org.mojolang.mojo.core.Null) value_;
+        if (valCase_ == 3) {
+          return (org.mojolang.mojo.core.Null) val_;
         }
         return org.mojolang.mojo.core.Null.getDefaultInstance();
       } else {
-        if (valueCase_ == 3) {
+        if (valCase_ == 3) {
           return nullValBuilder_.getMessage();
         }
         return org.mojolang.mojo.core.Null.getDefaultInstance();
@@ -1214,12 +1214,12 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        value_ = value;
+        val_ = value;
         onChanged();
       } else {
         nullValBuilder_.setMessage(value);
       }
-      valueCase_ = 3;
+      valCase_ = 3;
       return this;
     }
     /**
@@ -1228,12 +1228,12 @@ private static final long serialVersionUID = 0L;
     public Builder setNullVal(
         org.mojolang.mojo.core.Null.Builder builderForValue) {
       if (nullValBuilder_ == null) {
-        value_ = builderForValue.build();
+        val_ = builderForValue.build();
         onChanged();
       } else {
         nullValBuilder_.setMessage(builderForValue.build());
       }
-      valueCase_ = 3;
+      valCase_ = 3;
       return this;
     }
     /**
@@ -1241,21 +1241,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNullVal(org.mojolang.mojo.core.Null value) {
       if (nullValBuilder_ == null) {
-        if (valueCase_ == 3 &&
-            value_ != org.mojolang.mojo.core.Null.getDefaultInstance()) {
-          value_ = org.mojolang.mojo.core.Null.newBuilder((org.mojolang.mojo.core.Null) value_)
+        if (valCase_ == 3 &&
+            val_ != org.mojolang.mojo.core.Null.getDefaultInstance()) {
+          val_ = org.mojolang.mojo.core.Null.newBuilder((org.mojolang.mojo.core.Null) val_)
               .mergeFrom(value).buildPartial();
         } else {
-          value_ = value;
+          val_ = value;
         }
         onChanged();
       } else {
-        if (valueCase_ == 3) {
+        if (valCase_ == 3) {
           nullValBuilder_.mergeFrom(value);
         }
         nullValBuilder_.setMessage(value);
       }
-      valueCase_ = 3;
+      valCase_ = 3;
       return this;
     }
     /**
@@ -1263,15 +1263,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearNullVal() {
       if (nullValBuilder_ == null) {
-        if (valueCase_ == 3) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valCase_ == 3) {
+          valCase_ = 0;
+          val_ = null;
           onChanged();
         }
       } else {
-        if (valueCase_ == 3) {
-          valueCase_ = 0;
-          value_ = null;
+        if (valCase_ == 3) {
+          valCase_ = 0;
+          val_ = null;
         }
         nullValBuilder_.clear();
       }
@@ -1288,11 +1288,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.NullOrBuilder getNullValOrBuilder() {
-      if ((valueCase_ == 3) && (nullValBuilder_ != null)) {
+      if ((valCase_ == 3) && (nullValBuilder_ != null)) {
         return nullValBuilder_.getMessageOrBuilder();
       } else {
-        if (valueCase_ == 3) {
-          return (org.mojolang.mojo.core.Null) value_;
+        if (valCase_ == 3) {
+          return (org.mojolang.mojo.core.Null) val_;
         }
         return org.mojolang.mojo.core.Null.getDefaultInstance();
       }
@@ -1304,17 +1304,17 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Null, org.mojolang.mojo.core.Null.Builder, org.mojolang.mojo.core.NullOrBuilder> 
         getNullValFieldBuilder() {
       if (nullValBuilder_ == null) {
-        if (!(valueCase_ == 3)) {
-          value_ = org.mojolang.mojo.core.Null.getDefaultInstance();
+        if (!(valCase_ == 3)) {
+          val_ = org.mojolang.mojo.core.Null.getDefaultInstance();
         }
         nullValBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.core.Null, org.mojolang.mojo.core.Null.Builder, org.mojolang.mojo.core.NullOrBuilder>(
-                (org.mojolang.mojo.core.Null) value_,
+                (org.mojolang.mojo.core.Null) val_,
                 getParentForChildren(),
                 isClean());
-        value_ = null;
+        val_ = null;
       }
-      valueCase_ = 3;
+      valCase_ = 3;
       onChanged();;
       return nullValBuilder_;
     }
@@ -1324,15 +1324,15 @@ private static final long serialVersionUID = 0L;
      * @return Whether the boolVal field is set.
      */
     public boolean hasBoolVal() {
-      return valueCase_ == 4;
+      return valCase_ == 4;
     }
     /**
      * <code>bool bool_val = 4;</code>
      * @return The boolVal.
      */
     public boolean getBoolVal() {
-      if (valueCase_ == 4) {
-        return (java.lang.Boolean) value_;
+      if (valCase_ == 4) {
+        return (java.lang.Boolean) val_;
       }
       return false;
     }
@@ -1342,8 +1342,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBoolVal(boolean value) {
-      valueCase_ = 4;
-      value_ = value;
+      valCase_ = 4;
+      val_ = value;
       onChanged();
       return this;
     }
@@ -1352,9 +1352,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBoolVal() {
-      if (valueCase_ == 4) {
-        valueCase_ = 0;
-        value_ = null;
+      if (valCase_ == 4) {
+        valCase_ = 0;
+        val_ = null;
         onChanged();
       }
       return this;
@@ -1365,15 +1365,15 @@ private static final long serialVersionUID = 0L;
      * @return Whether the int64Val field is set.
      */
     public boolean hasInt64Val() {
-      return valueCase_ == 5;
+      return valCase_ == 5;
     }
     /**
      * <code>int64 int64_val = 5;</code>
      * @return The int64Val.
      */
     public long getInt64Val() {
-      if (valueCase_ == 5) {
-        return (java.lang.Long) value_;
+      if (valCase_ == 5) {
+        return (java.lang.Long) val_;
       }
       return 0L;
     }
@@ -1383,8 +1383,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInt64Val(long value) {
-      valueCase_ = 5;
-      value_ = value;
+      valCase_ = 5;
+      val_ = value;
       onChanged();
       return this;
     }
@@ -1393,9 +1393,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInt64Val() {
-      if (valueCase_ == 5) {
-        valueCase_ = 0;
-        value_ = null;
+      if (valCase_ == 5) {
+        valCase_ = 0;
+        val_ = null;
         onChanged();
       }
       return this;
@@ -1406,15 +1406,15 @@ private static final long serialVersionUID = 0L;
      * @return Whether the doubleVal field is set.
      */
     public boolean hasDoubleVal() {
-      return valueCase_ == 6;
+      return valCase_ == 6;
     }
     /**
      * <code>double double_val = 6;</code>
      * @return The doubleVal.
      */
     public double getDoubleVal() {
-      if (valueCase_ == 6) {
-        return (java.lang.Double) value_;
+      if (valCase_ == 6) {
+        return (java.lang.Double) val_;
       }
       return 0D;
     }
@@ -1424,8 +1424,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDoubleVal(double value) {
-      valueCase_ = 6;
-      value_ = value;
+      valCase_ = 6;
+      val_ = value;
       onChanged();
       return this;
     }
@@ -1434,9 +1434,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDoubleVal() {
-      if (valueCase_ == 6) {
-        valueCase_ = 0;
-        value_ = null;
+      if (valCase_ == 6) {
+        valCase_ = 0;
+        val_ = null;
         onChanged();
       }
       return this;
@@ -1448,7 +1448,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasStringVal() {
-      return valueCase_ == 7;
+      return valCase_ == 7;
     }
     /**
      * <code>string string_val = 7;</code>
@@ -1457,15 +1457,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public java.lang.String getStringVal() {
       java.lang.Object ref = "";
-      if (valueCase_ == 7) {
-        ref = value_;
+      if (valCase_ == 7) {
+        ref = val_;
       }
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (valueCase_ == 7) {
-          value_ = s;
+        if (valCase_ == 7) {
+          val_ = s;
         }
         return s;
       } else {
@@ -1480,15 +1480,15 @@ private static final long serialVersionUID = 0L;
     public com.google.protobuf.ByteString
         getStringValBytes() {
       java.lang.Object ref = "";
-      if (valueCase_ == 7) {
-        ref = value_;
+      if (valCase_ == 7) {
+        ref = val_;
       }
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        if (valueCase_ == 7) {
-          value_ = b;
+        if (valCase_ == 7) {
+          val_ = b;
         }
         return b;
       } else {
@@ -1505,8 +1505,8 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  valueCase_ = 7;
-      value_ = value;
+  valCase_ = 7;
+      val_ = value;
       onChanged();
       return this;
     }
@@ -1515,9 +1515,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStringVal() {
-      if (valueCase_ == 7) {
-        valueCase_ = 0;
-        value_ = null;
+      if (valCase_ == 7) {
+        valCase_ = 0;
+        val_ = null;
         onChanged();
       }
       return this;
@@ -1533,8 +1533,8 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      valueCase_ = 7;
-      value_ = value;
+      valCase_ = 7;
+      val_ = value;
       onChanged();
       return this;
     }

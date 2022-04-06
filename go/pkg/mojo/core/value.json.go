@@ -51,17 +51,17 @@ func (codec *ValueCodec) DecodeAny(any jsoniter.Any) (*Value, error) {
 func (codec *ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
     any := iter.ReadAny()
     v, _ := codec.DecodeAny(any)
-    (*Value)(ptr).Value = v.Value
+    (*Value)(ptr).Val = v.Val
 }
 
 func (codec *ValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
     value := (*Value)(ptr)
-    return value == nil || value.Value == nil
+    return value == nil || value.Val == nil
 }
 
 func (codec *ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
     value := (*Value)(ptr)
-    switch val := value.Value.(type) {
+    switch val := value.Val.(type) {
     case *Value_BoolVal:
         stream.WriteBool(val.BoolVal)
     case *Value_Int64Val:

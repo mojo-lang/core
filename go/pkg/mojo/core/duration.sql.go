@@ -7,7 +7,7 @@ import (
     "strconv"
 )
 
-// Implement driver.Valuer and sql.Scanner interfaces on Duration
+// Value Implement driver.Valuer and sql.Scanner interfaces on Duration
 func (x *Duration) Value() (driver.Value, error) {
     if x == nil {
         return nil, nil

@@ -20,7 +20,7 @@ message Values {
 }
 
 message Value {
-    oneof value {
+    oneof val {
         Values values_val = 1;
         Object object_val = 2;
         Null null_val = 3;

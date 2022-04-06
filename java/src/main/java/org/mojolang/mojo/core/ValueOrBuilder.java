@@ -102,5 +102,5 @@ public interface ValueOrBuilder extends
   com.google.protobuf.ByteString
       getStringValBytes();
 
-  public org.mojolang.mojo.core.Value.ValueCase getValueCase();
+  public org.mojolang.mojo.core.Value.ValCase getValCase();
 }
