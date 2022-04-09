@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private Checksum() {
     algorithm_ = 0;
-    value_ = "";
+    val_ = "";
   }
 
   @java.lang.Override
@@ -59,7 +59,7 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            value_ = s;
+            val_ = s;
             break;
           }
           default: {
@@ -248,38 +248,38 @@ private static final long serialVersionUID = 0L;
     return result == null ? org.mojolang.mojo.core.Checksum.Algorithm.UNRECOGNIZED : result;
   }
 
-  public static final int VALUE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object value_;
+  public static final int VAL_FIELD_NUMBER = 2;
+  private volatile java.lang.Object val_;
   /**
-   * <code>string value = 2;</code>
-   * @return The value.
+   * <code>string val = 2;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public java.lang.String getValue() {
-    java.lang.Object ref = value_;
+  public java.lang.String getVal() {
+    java.lang.Object ref = val_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      value_ = s;
+      val_ = s;
       return s;
     }
   }
   /**
-   * <code>string value = 2;</code>
-   * @return The bytes for value.
+   * <code>string val = 2;</code>
+   * @return The bytes for val.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getValueBytes() {
-    java.lang.Object ref = value_;
+      getValBytes() {
+    java.lang.Object ref = val_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      value_ = b;
+      val_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -303,8 +303,8 @@ private static final long serialVersionUID = 0L;
     if (algorithm_ != org.mojolang.mojo.core.Checksum.Algorithm.ALGORITHM_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, algorithm_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(val_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -319,8 +319,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, algorithm_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(val_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -338,8 +338,8 @@ private static final long serialVersionUID = 0L;
     org.mojolang.mojo.core.Checksum other = (org.mojolang.mojo.core.Checksum) obj;
 
     if (algorithm_ != other.algorithm_) return false;
-    if (!getValue()
-        .equals(other.getValue())) return false;
+    if (!getVal()
+        .equals(other.getVal())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -353,8 +353,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ALGORITHM_FIELD_NUMBER;
     hash = (53 * hash) + algorithm_;
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
-    hash = (53 * hash) + getValue().hashCode();
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
+    hash = (53 * hash) + getVal().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -490,7 +490,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       algorithm_ = 0;
 
-      value_ = "";
+      val_ = "";
 
       return this;
     }
@@ -519,7 +519,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.core.Checksum buildPartial() {
       org.mojolang.mojo.core.Checksum result = new org.mojolang.mojo.core.Checksum(this);
       result.algorithm_ = algorithm_;
-      result.value_ = value_;
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -571,8 +571,8 @@ private static final long serialVersionUID = 0L;
       if (other.algorithm_ != 0) {
         setAlgorithmValue(other.getAlgorithmValue());
       }
-      if (!other.getValue().isEmpty()) {
-        value_ = other.value_;
+      if (!other.getVal().isEmpty()) {
+        val_ = other.val_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -658,78 +658,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object value_ = "";
+    private java.lang.Object val_ = "";
     /**
-     * <code>string value = 2;</code>
-     * @return The value.
+     * <code>string val = 2;</code>
+     * @return The val.
      */
-    public java.lang.String getValue() {
-      java.lang.Object ref = value_;
+    public java.lang.String getVal() {
+      java.lang.Object ref = val_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        value_ = s;
+        val_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string value = 2;</code>
-     * @return The bytes for value.
+     * <code>string val = 2;</code>
+     * @return The bytes for val.
      */
     public com.google.protobuf.ByteString
-        getValueBytes() {
-      java.lang.Object ref = value_;
+        getValBytes() {
+      java.lang.Object ref = val_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        value_ = b;
+        val_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string value = 2;</code>
-     * @param value The value to set.
+     * <code>string val = 2;</code>
+     * @param value The val to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(
+    public Builder setVal(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string value = 2;</code>
+     * <code>string val = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearValue() {
+    public Builder clearVal() {
       
-      value_ = getDefaultInstance().getValue();
+      val_ = getDefaultInstance().getVal();
       onChanged();
       return this;
     }
     /**
-     * <code>string value = 2;</code>
-     * @param value The bytes for value to set.
+     * <code>string val = 2;</code>
+     * @param value The bytes for val to set.
      * @return This builder for chaining.
      */
-    public Builder setValueBytes(
+    public Builder setValBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      value_ = value;
+      val_ = value;
       onChanged();
       return this;
     }

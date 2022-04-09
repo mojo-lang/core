@@ -7,12 +7,13 @@ import (
     "time"
 )
 
-// Implement driver.Valuer and sql.Scanner interfaces on Brand
+// Value Implement driver.Valuer and sql.Scanner interfaces on Brand
 func (x *Timestamp) Value() (driver.Value, error) {
     if x == nil {
-        return nil, nil
+        return x.ToTime(), nil
     }
-    return x.ToTime(), nil
+
+    return nil, nil
 }
 
 func (x *Timestamp) Scan(src interface{}) error {
@@ -24,8 +25,13 @@ func (x *Timestamp) Scan(src interface{}) error {
     switch bs := src.(type) {
     case time.Time:
         x.FromTime(bs)
-        return nil
     default:
         return fmt.Errorf("Could not not Decode type %T -> %T", src, x)
     }
+
+    return nil
+}
+
+func (x *Timestamp) GormDataType() string {
+    return "time"
 }

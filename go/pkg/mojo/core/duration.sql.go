@@ -9,10 +9,10 @@ import (
 
 // Value Implement driver.Valuer and sql.Scanner interfaces on Duration
 func (x *Duration) Value() (driver.Value, error) {
-    if x == nil {
-        return nil, nil
+    if x != nil {
+        return x.ToSeconds(), nil
     }
-    return x.ToSeconds(), nil
+    return nil, nil
 }
 
 func (x *Duration) Scan(src interface{}) error {
@@ -33,4 +33,8 @@ func (x *Duration) Scan(src interface{}) error {
         return fmt.Errorf("could not not Decode type %T -> %T", src, x)
     }
     return nil
+}
+
+func (x *Duration) GormDataType() string {
+    return "float"
 }

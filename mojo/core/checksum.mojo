@@ -32,5 +32,5 @@ type Checksum {
     algorithm: Algorithm @1
     
     /// the checksum value
-    value: String @2
+    val: String @2
 }

@@ -29,6 +29,10 @@ func (x *Value) Scan(src interface{}) error {
     return nil
 }
 
+func (x Value) GormDataType() string {
+    return "string"
+}
+
 func (x *Value) GormDBDataType(db *gorm.DB, field *schema.Field) string {
     return GormDBJSONType(db)
 }

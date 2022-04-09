@@ -8,11 +8,6 @@ import (
 const ErrorTypeName = "Error"
 const ErrorTypeFullName = "mojo.core.Error"
 
-func init() {
-    RegisterJSONFieldEncoder("core.Error", "Code", &ErrorCodeStringCodec{IsFieldPointer: true})
-    RegisterJSONFieldDecoder("core.Error", "Code", &ErrorCodeStringCodec{IsFieldPointer: true})
-}
-
 func NewError(code *ErrorCode, message string, arguments ...interface{}) *Error {
     msg := message
     if len(arguments) > 0 {

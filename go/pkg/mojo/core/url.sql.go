@@ -8,10 +8,10 @@ import (
 
 // Value Implement driver.Valuer and sql.Scanner interfaces on Brand
 func (x *Url) Value() (driver.Value, error) {
-    if x == nil {
-        return nil, nil
+    if x != nil {
+        return x.Format(), nil
     }
-    return x.Format(), nil
+    return nil, nil
 }
 
 func (x *Url) Scan(src interface{}) error {
@@ -21,10 +21,17 @@ func (x *Url) Scan(src interface{}) error {
     }
 
     switch bs := src.(type) {
+    case []byte:
+        x.Parse(string(bs))
     case string:
         x.Parse(bs)
-        return nil
     default:
         return fmt.Errorf("failed to Decode type %T -> %T", src, x)
     }
+
+    return nil
+}
+
+func (x *Url) GormDataType() string {
+    return "string"
 }

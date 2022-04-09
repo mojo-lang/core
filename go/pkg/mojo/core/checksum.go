@@ -23,16 +23,16 @@ func NewChecksum(algorithm Checksum_Algorithm, data []byte) *Checksum {
 }
 
 func (x *Checksum) Check(data []byte) bool {
-    if x != nil && x.Algorithm > 0 && len(x.Value) > 0 {
+    if x != nil && x.Algorithm > 0 && len(x.Val) > 0 {
         switch x.Algorithm {
         case Checksum_ALGORITHM_MD5:
-            return x.Value == fmt.Sprintf("%x", md5.Sum(data))
+            return x.Val == fmt.Sprintf("%x", md5.Sum(data))
         case Checksum_ALGORITHM_SHA1:
-            return x.Value == fmt.Sprintf("%x", sha1.Sum(data))
+            return x.Val == fmt.Sprintf("%x", sha1.Sum(data))
         case Checksum_ALGORITHM_SHA256:
-            return x.Value == fmt.Sprintf("%x", sha256.Sum256(data))
+            return x.Val == fmt.Sprintf("%x", sha256.Sum256(data))
         case Checksum_ALGORITHM_SHA512:
-            return x.Value == fmt.Sprintf("%x", sha512.Sum512(data))
+            return x.Val == fmt.Sprintf("%x", sha512.Sum512(data))
         }
     }
     return false
@@ -45,13 +45,13 @@ func (x *Checksum) Sum(data []byte) *Checksum {
         }
         switch x.Algorithm {
         case Checksum_ALGORITHM_MD5:
-            x.Value = fmt.Sprintf("%x", md5.Sum(data))
+            x.Val = fmt.Sprintf("%x", md5.Sum(data))
         case Checksum_ALGORITHM_SHA1:
-            x.Value = fmt.Sprintf("%x", sha1.Sum(data))
+            x.Val = fmt.Sprintf("%x", sha1.Sum(data))
         case Checksum_ALGORITHM_SHA256:
-            x.Value = fmt.Sprintf("%x", sha256.Sum256(data))
+            x.Val = fmt.Sprintf("%x", sha256.Sum256(data))
         case Checksum_ALGORITHM_SHA512:
-            x.Value = fmt.Sprintf("%x", sha512.Sum512(data))
+            x.Val = fmt.Sprintf("%x", sha512.Sum512(data))
         }
     }
     return x
@@ -59,11 +59,18 @@ func (x *Checksum) Sum(data []byte) *Checksum {
 
 func (x *Checksum) IsValid() bool {
     if !x.IsEmpty() {
-        return len(x.Value) == checksumLength[x.Algorithm]
+        return len(x.Val) == checksumLength[x.Algorithm]
     }
     return false
 }
 
 func (x *Checksum) IsEmpty() bool {
-    return x == nil || x.Algorithm == 0 || len(x.Value) == 0
+    return x == nil || x.Algorithm == 0 || len(x.Val) == 0
+}
+
+func (x *Checksum) GetValue() string {
+    if x != nil {
+        return x.Val
+    }
+    return ""
 }

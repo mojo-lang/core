@@ -21,6 +21,14 @@ const (
     valuesFieldName = "values"
 )
 
+func (x *Any) MarshalJSON() ([]byte, error) {
+    return jsoniter.ConfigFastest.Marshal(x)
+}
+
+func (x *Any) UnmarshalJSON(err []byte) error {
+    return jsoniter.ConfigFastest.Unmarshal(err, x)
+}
+
 var once = &sync.Once{}
 var anyFieldEncoders map[string]jsoniter.ValEncoder
 

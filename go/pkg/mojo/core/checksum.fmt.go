@@ -14,7 +14,7 @@ func (x *Checksum) Format() string {
 
         buf.WriteString(x.Algorithm.Format())
         buf.WriteByte(' ')
-        buf.WriteString(x.Value)
+        buf.WriteString(x.Val)
 
         return buf.String()
     }
@@ -30,7 +30,7 @@ func (x *Checksum) Parse(value string) error {
                 return fmt.Errorf("failed to parse the checksum alogorithm: %s, error: %w", segments[0], err)
             }
 
-            x.Value = segments[1]
+            x.Val = segments[1]
             if !x.IsValid() {
                 return fmt.Errorf("invalid checksum string: %s", value)
             }

@@ -28,7 +28,7 @@ func TestAny_Marshal_Scalar(t *testing.T) {
 func TestAny_Marshal_Struct(t *testing.T) {
     any := NewAny(&Checksum{
         Algorithm: Checksum_ALGORITHM_MD5,
-        Value:     "md5",
+        Val:       "md5",
     })
 
     b, err := proto.Marshal(any)
@@ -41,5 +41,5 @@ func TestAny_Marshal_Struct(t *testing.T) {
     v, ok := a.Get().(*Checksum)
     assert.True(t, ok)
     assert.Equal(t, Checksum_ALGORITHM_MD5, v.Algorithm)
-    assert.Equal(t, "md5", v.Value)
+    assert.Equal(t, "md5", v.Val)
 }

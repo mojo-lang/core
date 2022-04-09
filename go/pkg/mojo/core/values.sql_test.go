@@ -9,7 +9,7 @@ import (
     "testing"
 )
 
-type User2 struct {
+type ValuesItem struct {
     ID     uint
     Name   string
     Values *Values
@@ -22,19 +22,19 @@ func TestValues_Scan(t *testing.T) {
         t.Errorf("failed to connect database")
     }
 
-    user := User2{Name: "mojo", Values: NewValues().AppendString("foo").AppendInt64(100).AppendString("bar")}
-    DB.Migrator().DropTable(&User2{})
-    DB.AutoMigrate(&User2{})
+    user := ValuesItem{Name: "mojo", Values: NewValues().AppendString("foo").AppendInt64(100).AppendString("bar")}
+    DB.Migrator().DropTable(&ValuesItem{})
+    DB.AutoMigrate(&ValuesItem{})
     DB.Save(&user)
 
     var count int64
 
-    if DB.Model(&User2{}).Where("name = ?", user.Name).Count(&count).Error != nil || count != 1 {
+    if DB.Model(&ValuesItem{}).Where("name = ?", user.Name).Count(&count).Error != nil || count != 1 {
         t.Errorf("Count soft deleted record, expects: %v, got: %v", 1, count)
     }
 
     var values Values
-    err = DB.Model(&User2{}).Select("values").Where("name = ?", user.Name).Scan(&values).Error
+    err = DB.Model(&ValuesItem{}).Select("values").Where("name = ?", user.Name).Scan(&values).Error
     assert.NoError(t, err)
 
     assert.Equal(t, 3, values.Len())
