@@ -11,3 +11,17 @@ const FloatValuesTypeFullName = "mojo.core.FloatValues"
 
 const DoubleValuesTypeName = "DoubleValues"
 const DoubleValuesTypeFullName = "mojo.core.DoubleValues"
+
+func (x *Float32Values) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []float32{}
+}
+
+func (x *Float64Values) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []float64{}
+}

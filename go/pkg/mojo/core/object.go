@@ -225,3 +225,10 @@ func (x *Object) SetObjectArray(key string, vals ...*Object) *Object {
     }
     return x
 }
+
+func (x *Object) ToMap() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return nil
+}

@@ -31,3 +31,31 @@ const (
     UIntValuesTypeName     = "UIntValues"
     UIntValuesTypeFullName = "mojo.core.UIntValues"
 )
+
+func (x *Int32Values) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []int32{}
+}
+
+func (x *Int64Values) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []int64{}
+}
+
+func (x *UInt32Values) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []uint32{}
+}
+
+func (x *UInt64Values) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []uint64{}
+}

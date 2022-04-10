@@ -1,6 +1,7 @@
 package core
 
 import (
+    "fmt"
     "google.golang.org/protobuf/reflect/protoregistry"
     "reflect"
     "sort"
@@ -55,9 +56,13 @@ func (codec *AnyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
     anyVal := (*Any)(ptr)
     if any.ValueType() == jsoniter.ObjectValue {
         anyVal.Type = any.Get(typeFieldName).ToString()
+        tn, err := ParseTypeName(anyVal.Type)
+        if err != nil {
+            iter.ReportError("Any Decode", err.Error())
+        }
 
-        switch anyVal.Type {
-        case Int64TypeName:
+        switch tn.GetFullName() {
+        case Int64TypeName, Int64TypeFullName:
             anyVal.typedVal = any.Get(valueFieldName).ToInt64()
         case StringTypeName:
             anyVal.typedVal = any.Get(valueFieldName).ToString()
@@ -67,7 +72,24 @@ func (codec *AnyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
                 return
             } else {
                 msg := msgType.New().Interface()
-                any.ToVal(msg)
+                if _, ok := msg.(ScalarType); ok {
+                    if parser, ok := msg.(Parser); ok {
+                        if err = parser.Parse(any.Get(valueFieldName).ToString()); err != nil {
+                            iter.ReportError("Any Decode", err.Error())
+                        }
+                    } else if float64Convert, ok := msg.(FromFloat64Converter); ok {
+                        if err = float64Convert.FromFloat64(any.Get(valueFieldName).ToFloat64()); err != nil {
+                            iter.ReportError("Any Decode", err.Error())
+                        }
+                    } else {
+                        iter.ReportError("Any Decode", fmt.Sprintf("not support type for %s", anyVal.Type))
+                    }
+                } else if _, ok = msg.(ArrayType); ok {
+                    any.Get(valuesFieldName).ToVal(msg)
+                } else {
+                    any.ToVal(msg)
+                }
+
                 anyVal.typedVal = msg
             }
         }
@@ -76,18 +98,6 @@ func (codec *AnyCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 
 func (codec *AnyCodec) IsEmpty(ptr unsafe.Pointer) bool {
     return (*Any)(ptr).Empty()
-}
-
-type Fields []protoreflect.FieldDescriptor
-
-func (f Fields) Len() int {
-    return len(f)
-}
-func (f Fields) Swap(i, j int) {
-    f[i], f[j] = f[j], f[i]
-}
-func (f Fields) Less(i, j int) bool {
-    return f[i].JSONName() < f[j].JSONName()
 }
 
 func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
@@ -106,12 +116,13 @@ func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
     }
 
     any := (*Any)(ptr)
+    t := reflect2.TypeOf(any.typedVal)
     switch v := any.typedVal.(type) {
     case proto.Message:
         reflectMsg := v.ProtoReflect()
 
         if value, ok := any.typedVal.(ScalarType); ok {
-            kvWriter(string(reflectMsg.Descriptor().FullName()), value.AsScalarType())
+            kvWriter(string(reflectMsg.Descriptor().FullName()), value.ToScalar())
         } else {
             fullName := string(reflectMsg.Descriptor().FullName())
 
@@ -119,7 +130,6 @@ func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
             stream.WriteObjectField(typeFieldName)
             stream.WriteVal(fullName)
 
-            t := reflect2.TypeOf(any.typedVal)
             if t.Kind() == reflect.Ptr {
                 t = t.(*reflect2.UnsafePtrType).Elem()
             }
@@ -153,6 +163,36 @@ func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
             stream.WriteObjectEnd()
         }
     default:
-        kvWriter(GetMojoTypeName(any.typedVal), v)
+        if t.Kind() == reflect.Map {
+            if um, ok := t.(*reflect2.UnsafeMapType); ok && !um.IsNil(any.typedVal) {
+                itr := um.Iterate(um.Indirect(any.typedVal))
+                stream.WriteObjectStart()
+                stream.WriteObjectField(typeFieldName)
+                stream.WriteVal(GetMojoTypeName(any.typedVal))
+
+                for itr.HasNext() {
+                    stream.WriteMore()
+
+                    k, value := itr.Next()
+                    stream.WriteObjectField(ToString(k))
+                    stream.WriteVal(value)
+                }
+                stream.WriteObjectEnd()
+            }
+        } else {
+            kvWriter(GetMojoTypeName(any.typedVal), v)
+        }
     }
+}
+
+type Fields []protoreflect.FieldDescriptor
+
+func (f Fields) Len() int {
+    return len(f)
+}
+func (f Fields) Swap(i, j int) {
+    f[i], f[j] = f[j], f[i]
+}
+func (f Fields) Less(i, j int) bool {
+    return f[i].JSONName() < f[j].JSONName()
 }

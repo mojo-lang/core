@@ -74,3 +74,11 @@ func (x *Checksum) GetValue() string {
     }
     return ""
 }
+
+func (x *Checksum) ToString() string {
+    return x.Format()
+}
+
+func (x *Checksum) ToScalar() interface{} {
+    return x.ToString()
+}

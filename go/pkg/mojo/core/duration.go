@@ -54,3 +54,12 @@ func (x Duration) ToSeconds() float64 {
 func (x Duration) ToNanoseconds() int64 {
     return x.ToDuration().Nanoseconds()
 }
+
+func (x *Duration) FromFloat64(seconds float64) error {
+    if x != nil {
+        x.Seconds = int64(seconds)
+        delta := seconds - float64(x.Seconds)
+        x.Nanoseconds = int32(math.Round(delta * float64(time.Second)))
+    }
+    return nil
+}

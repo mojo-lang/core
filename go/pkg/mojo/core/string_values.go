@@ -21,3 +21,10 @@ func (x *StringValues) Unique() *StringValues {
     }
     return x
 }
+
+func (x *StringValues) ToArray() interface{} {
+    if x != nil {
+        return x.Vals
+    }
+    return []string{}
+}

@@ -3,6 +3,7 @@ package core
 import (
     "errors"
     "google.golang.org/protobuf/proto"
+    "reflect"
 )
 
 const AnyTypeName = "Any"
@@ -47,6 +48,8 @@ func GetMojoTypeName(i interface{}) string {
     switch v := i.(type) {
     case nil:
         return NullTypeName
+    case bool:
+        return BoolTypeName
     case int8:
         return Int8TypeName
     case uint8:
@@ -73,8 +76,88 @@ func GetMojoTypeName(i interface{}) string {
         return Float64TypeName
     case string:
         return StringTypeName
+    case []byte, *[]byte:
+        return BytesTypeName
     case proto.Message:
         return string(proto.MessageName(v))
+    default:
+        value := reflect.ValueOf(i)
+        if value.Kind() == reflect.Ptr && value.IsNil() {
+            value = reflect.New(value.Type().Elem())
+        }
+
+        typ := reflect.Indirect(value).Type()
+        if typ.Kind() == reflect.Interface {
+            typ = reflect.Indirect(reflect.ValueOf(i)).Elem().Type()
+        }
+        if typ.Kind() == reflect.Ptr {
+            typ = typ.Elem()
+        }
+
+        if typ.Kind() == reflect.Slice || typ.Kind() == reflect.Array {
+            typ = typ.Elem()
+            if typ.Kind() == reflect.Ptr {
+                typ = typ.Elem()
+            }
+
+            if name := getMojoTypeName(typ.Kind()); len(name) > 0 {
+                return "Array<" + name + ">"
+            }
+            return "Array<" + GetMojoTypeName(reflect.New(typ).Interface()) + ">"
+        } else if typ.Kind() == reflect.Map {
+            kt := typ.Key()
+            vt := typ.Elem()
+
+            if vt.Kind() == reflect.Ptr {
+                vt = vt.Elem()
+            }
+
+            kn := getMojoTypeName(kt.Kind())
+            if len(kn) == 0 {
+                kn = GetMojoTypeName(reflect.New(kt).Interface())
+            }
+            vn := getMojoTypeName(vt.Kind())
+            if len(vn) == 0 {
+                vn = GetMojoTypeName(reflect.New(vt).Interface())
+            }
+            return "Map<" + kn + "," + vn + ">"
+        } else if typ.Kind() == reflect.Struct {
+            panic("not support user defined go struct")
+        }
+        return ""
+    }
+}
+
+func getMojoTypeName(kind reflect.Kind) string {
+    switch kind {
+    case reflect.Bool:
+        return BoolTypeName
+    case reflect.Int8:
+        return Int8TypeName
+    case reflect.Uint8:
+        return UInt8TypeName
+    case reflect.Int16:
+        return Int16TypeName
+    case reflect.Uint16:
+        return UInt16TypeName
+    case reflect.Int32:
+        return Int32TypeName
+    case reflect.Uint32:
+        return UInt32TypeName
+    case reflect.Int64:
+        return Int64TypeName
+    case reflect.Uint64:
+        return UInt64TypeName
+    case reflect.Int:
+        return IntTypeName
+    case reflect.Uint:
+        return UIntTypeName
+    case reflect.Float32:
+        return Float32TypeName
+    case reflect.Float64:
+        return Float64TypeName
+    case reflect.String:
+        return StringTypeName
     default:
         return ""
     }
