@@ -59,8 +59,9 @@ extend google.protobuf.FieldOptions {
 
 	optional bool db_ignore = 75100;
 	optional bool db_json = 75101;
+	optional bool db_key = 75102;
 
-	optional string db_index = 75102;
-	optional string db_explode = 75103;
-	optional string db_reference = 75104;
+	optional string db_index = 75105;
+	optional string db_explode = 75106;
+	optional string db_reference = 75107;
 }
