@@ -23,6 +23,10 @@ func (x *Timestamp) Scan(src interface{}) error {
     }
 
     switch bs := src.(type) {
+    case []byte:
+        return x.Parse(string(bs))
+    case string:
+        return x.Parse(bs)
     case time.Time:
         x.FromTime(bs)
     default:
