@@ -9,7 +9,7 @@ import (
 
 // Value Implement driver.Valuer and sql.Scanner interfaces on Brand
 func (x *Timestamp) Value() (driver.Value, error) {
-    if x == nil {
+    if x != nil {
         return x.ToTime(), nil
     }
 

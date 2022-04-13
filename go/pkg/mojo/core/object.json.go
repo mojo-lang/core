@@ -16,9 +16,8 @@ type ObjectCodec struct {
 
 func (codec *ObjectCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
     any := iter.ReadAny()
-
-    if any.ValueType() == jsoniter.ObjectValue {
-        obj := (*Object)(ptr)
+    obj := (*Object)(ptr)
+    if any.ValueType() == jsoniter.ObjectValue && any.Size() > 0 {
         obj.Vals = make(map[string]*Value)
         for _, key := range any.Keys() {
             x := any.Get(key)
@@ -54,7 +53,8 @@ func (codec *ObjectCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 }
 
 func (codec *ObjectCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    return len(((*Object)(ptr)).Vals) == 0
+    object := (*Object)(ptr)
+    return object == nil || len(object.Vals) == 0
 }
 
 func (codec *ObjectCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {

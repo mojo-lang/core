@@ -9,6 +9,11 @@ func NewObject() *Object {
     return &Object{}
 }
 
+func NewObjectFrom(value interface{}) (*Object, error) {
+    obj := &Object{}
+    return obj, obj.From(value)
+}
+
 func (x *Object) To(value interface{}) error {
     if x != nil {
         if json, err := jsoniter.ConfigFastest.Marshal(x); err != nil {
