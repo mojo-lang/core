@@ -1,11 +1,24 @@
 package core
 
-import "os"
+import (
+    "os"
+    "syscall"
+)
 
-// CreateDir create dir with recursively
+// CreateDir create dir with recursively, with default os.ModePerm and os mask (022 in mac)
 func CreateDir(filePath string) error {
     if !IsExist(filePath) {
         return os.MkdirAll(filePath, os.ModePerm)
+    }
+    return nil
+}
+
+// MkDir create dir with recursively, with the perm but no os mask
+func MkDir(filePath string, perm os.FileMode) error {
+    if !IsExist(filePath) {
+        mask := syscall.Umask(0)
+        defer syscall.Umask(mask)
+        return os.MkdirAll(filePath, perm)
     }
     return nil
 }
