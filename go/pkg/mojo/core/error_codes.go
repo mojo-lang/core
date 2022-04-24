@@ -20,20 +20,12 @@ func init() {
         Unavailable, DataLoss)
 }
 
-var Cancelled = &ErrorCode{
-    Val:            499,
-    Name:           "CANCELLED",
-    Description:    "The operation was cancelled, typically by the caller.",
-    Document:       nil,
-    HttpStatusCode: 499,
-}
-
-var UnknownError = &ErrorCode{
-    Val:            2,
-    Name:           "UNKNOWN_ERROR",
-    Description:    "Unknown error.  For example, this error may be returned when a `Status` Val received from another address space belongs to an error space that is not known in this address space.",
-    HttpStatusCode: 500,
-}
+//var BadRequest = &ErrorCode{
+//    Val:            400,
+//    Name:           "Bad_Request",
+//    Description:    "The request could not be understood by the server due to malformed syntax. ",
+//    HttpStatusCode: 400,
+//}
 
 var InvalidArgument = &ErrorCode{
     Val:            3,
@@ -42,11 +34,32 @@ var InvalidArgument = &ErrorCode{
     HttpStatusCode: 400,
 }
 
-var DeadlineExceeded = &ErrorCode{
-    Val:            504,
-    Name:           "DEADLINE_EXCEEDED",
-    Description:    "The deadline expired before the operation could complete.",
-    HttpStatusCode: 504,
+var FailedPrecondition = &ErrorCode{
+    Val:            9,
+    Name:           "FAILED_PRECONDITION",
+    Description:    "The operation was rejected because the system is not in a state required for the operation's execution.",
+    HttpStatusCode: 400,
+}
+
+var OutOfRange = &ErrorCode{
+    Val:            11,
+    Name:           "OUT_OF_RANGE",
+    Description:    "The operation was attempted past the valid range.",
+    HttpStatusCode: 400,
+}
+
+var Unauthenticated = &ErrorCode{
+    Val:            401,
+    Name:           "UNAUTHENTICATED",
+    Description:    "The request does not have valid authentication credentials for the operation.",
+    HttpStatusCode: 401,
+}
+
+var PermissionDenied = &ErrorCode{
+    Val:            403,
+    Name:           "PERMISSION_DENIED",
+    Description:    "The caller does not have permission to execute the specified operation.",
+    HttpStatusCode: 403,
 }
 
 var NotFound = &ErrorCode{
@@ -64,18 +77,11 @@ var AlreadyExists = &ErrorCode{
     HttpStatusCode: 409,
 }
 
-var PermissionDenied = &ErrorCode{
-    Val:            403,
-    Name:           "PERMISSION_DENIED",
-    Description:    "The caller does not have permission to execute the specified operation.",
-    HttpStatusCode: 403,
-}
-
-var Unauthenticated = &ErrorCode{
-    Val:            401,
-    Name:           "UNAUTHENTICATED",
-    Description:    "The request does not have valid authentication credentials for the operation.",
-    HttpStatusCode: 401,
+var Aborted = &ErrorCode{
+    Val:            10,
+    Name:           "ABORTED",
+    Description:    "The operation was aborted, typically due to a concurrency issue such as a sequencer check failure or transaction abort.",
+    HttpStatusCode: 409,
 }
 
 var ResourceExhausted = &ErrorCode{
@@ -85,32 +91,19 @@ var ResourceExhausted = &ErrorCode{
     HttpStatusCode: 429,
 }
 
-var FailedPrecondition = &ErrorCode{
-    Val:            9,
-    Name:           "FAILED_PRECONDITION",
-    Description:    "The operation was rejected because the system is not in a state required for the operation's execution.",
-    HttpStatusCode: 400,
+var Cancelled = &ErrorCode{
+    Val:            499,
+    Name:           "CANCELLED",
+    Description:    "The operation was cancelled, typically by the caller.",
+    Document:       nil,
+    HttpStatusCode: 499,
 }
 
-var Aborted = &ErrorCode{
-    Val:            10,
-    Name:           "ABORTED",
-    Description:    "The operation was aborted, typically due to a concurrency issue such as a sequencer check failure or transaction abort.",
-    HttpStatusCode: 409,
-}
-
-var OutOfRange = &ErrorCode{
-    Val:            11,
-    Name:           "OUT_OF_RANGE",
-    Description:    "The operation was attempted past the valid range.",
-    HttpStatusCode: 400,
-}
-
-var Unimplemented = &ErrorCode{
-    Val:            501,
-    Name:           "UNIMPLEMENTED",
-    Description:    "The operation is not implemented or is not supported/enabled in this service.",
-    HttpStatusCode: 501,
+var UnknownError = &ErrorCode{
+    Val:            2,
+    Name:           "UNKNOWN_ERROR",
+    Description:    "Unknown error.  For example, this error may be returned when a `Status` Val received from another address space belongs to an error space that is not known in this address space.",
+    HttpStatusCode: 500,
 }
 
 var InternalError = &ErrorCode{
@@ -120,6 +113,20 @@ var InternalError = &ErrorCode{
     HttpStatusCode: 500,
 }
 
+var DataLoss = &ErrorCode{
+    Val:            15,
+    Name:           "DATA_LOSS",
+    Description:    "Unrecoverable data loss or corruption.",
+    HttpStatusCode: 500,
+}
+
+var Unimplemented = &ErrorCode{
+    Val:            501,
+    Name:           "UNIMPLEMENTED",
+    Description:    "The operation is not implemented or is not supported/enabled in this service.",
+    HttpStatusCode: 501,
+}
+
 var Unavailable = &ErrorCode{
     Val:            503,
     Name:           "UNAVAILABLE",
@@ -127,9 +134,9 @@ var Unavailable = &ErrorCode{
     HttpStatusCode: 503,
 }
 
-var DataLoss = &ErrorCode{
-    Val:            15,
-    Name:           "DATA_LOSS",
-    Description:    "Unrecoverable data loss or corruption.",
-    HttpStatusCode: 500,
+var DeadlineExceeded = &ErrorCode{
+    Val:            504,
+    Name:           "DEADLINE_EXCEEDED",
+    Description:    "The deadline expired before the operation could complete.",
+    HttpStatusCode: 504,
 }
