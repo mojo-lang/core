@@ -1,9 +1,11 @@
 | 类型 | 说明 |
 |---|---|
 | `array` | Values |
-| `object` | object |
+| `Object` | Object |
 | `null` |  |
 | `boolean` |  |
-| `integer` |  |
+| `number` | mojo.core.Positive |
+| `number` | mojo.core.Negative |
 | `number` | Float64 |
+| `string` |  |
 | `string` |  |

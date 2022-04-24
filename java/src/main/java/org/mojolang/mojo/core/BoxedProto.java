@@ -140,11 +140,6 @@ public final class BoxedProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_Float64Values_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_Strings_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_Strings_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_StringValues_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -176,11 +171,10 @@ public final class BoxedProto {
       "es\022\014\n\004vals\030\001 \003(\r\"\033\n\013Int64Values\022\014\n\004vals\030" +
       "\001 \003(\003\"\034\n\014UInt64Values\022\014\n\004vals\030\001 \003(\004\"\035\n\rF" +
       "loat32Values\022\014\n\004vals\030\001 \003(\002\"\035\n\rFloat64Val" +
-      "ues\022\014\n\004vals\030\001 \003(\001\"\027\n\007Strings\022\014\n\004vals\030\001 \003" +
-      "(\t\"\034\n\014StringValues\022\014\n\004vals\030\001 \003(\tBW\n\026org." +
-      "mojolang.mojo.coreB\nBoxedProtoP\001Z/github" +
-      ".com/mojo-lang/core/go/pkg/mojo/core;cor" +
-      "eb\006proto3"
+      "ues\022\014\n\004vals\030\001 \003(\001\"\034\n\014StringValues\022\014\n\004val" +
+      "s\030\001 \003(\tBW\n\026org.mojolang.mojo.coreB\nBoxed" +
+      "ProtoP\001Z/github.com/mojo-lang/core/go/pk" +
+      "g/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -336,14 +330,8 @@ public final class BoxedProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_Float64Values_descriptor,
         new java.lang.String[] { "Vals", });
-    internal_static_mojo_core_Strings_descriptor =
-      getDescriptor().getMessageTypes().get(25);
-    internal_static_mojo_core_Strings_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_Strings_descriptor,
-        new java.lang.String[] { "Vals", });
     internal_static_mojo_core_StringValues_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_mojo_core_StringValues_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_StringValues_descriptor,

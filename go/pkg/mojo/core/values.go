@@ -3,11 +3,24 @@ package core
 const ValuesTypeName = "Values"
 const ValuesTypeFullName = "mojo.core.Values"
 
-func NewValues(values ...*Value) *Values {
-    if len(values) > 0 {
-        return &Values{Vals: values}
+func NewValues(values ...interface{}) (*Values, error) {
+    vs := make([]*Value, 0, len(values))
+    for _, v := range values {
+        value, err := NewValue(v)
+        if err != nil {
+            return nil, err
+        }
+        vs = append(vs, value)
     }
-    return &Values{}
+    return &Values{Vals: vs}, nil
+}
+
+func (x *Values) ToSlice() []interface{} {
+    vs := make([]interface{}, len(x.GetVals()))
+    for i, v := range x.GetVals() {
+        vs[i] = v.ToInterface()
+    }
+    return vs
 }
 
 func (x *Values) Len() int {
@@ -109,14 +122,14 @@ func (x *Values) AppendInt64(value int64) *Values {
 
 func (x *Values) AppendUint32(value uint32) *Values {
     if x != nil {
-        return x.AppendValue(NewUint32Value(value))
+        return x.AppendValue(NewUInt32Value(value))
     }
     return x
 }
 
 func (x *Values) AppendUint64(value uint64) *Values {
     if x != nil {
-        return x.AppendValue(NewUint64Value(value))
+        return x.AppendValue(NewUInt64Value(value))
     }
     return x
 }

@@ -48,3 +48,5 @@ attribute multiple_of: UInt64
 attribute unique: Bool
 
 attribute nonempty: Bool
+
+attribute precision: Int32

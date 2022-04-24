@@ -1,28 +1,83 @@
 package core
 
+import (
+    "google.golang.org/protobuf/runtime/protoimpl"
+    "math"
+    "unicode/utf8"
+)
+
 const ValueTypeName = "Value"
 const ValueTypeFullName = "mojo.core.Value"
 
-//TODO
-//func NewValue(v interface{}) *Value {
-//    switch value := v.(type) {
-//    case int8:
-//        return NewInt64Value(int64(value))
-//    }
+// NewValue constructs a Value from a general-purpose Go interface.
 //
-//    return nil
-//}
-
-func NewObjectValue(obj *Object) *Value {
-    return &Value{Val: &Value_ObjectVal{ObjectVal: obj}}
+//	╔════════════════════════╤════════════════════════════════════════════╗
+//	║ Go type                │ Conversion                                 ║
+//	╠════════════════════════╪════════════════════════════════════════════╣
+//	║ nil                    │ stored as NullVal                          ║
+//	║ bool                   │ stored as BoolVal                          ║
+//	║ int, int32, int64      │ stored as NegativeVal/PositiveVal          ║
+//	║ uint, uint32, uint64   │ stored as NegativeVal/PositiveVal          ║
+//	║ float32, float64       │ stored as DoubleVal                        ║
+//	║ string                 │ stored as StringVal; must be valid UTF-8   ║
+//	║ []byte                 │ stored as BytesVal; base64-encoded to json ║
+//	║ map[string]interface{} │ stored as ObjectVal                        ║
+//	║ []interface{}          │ stored as ValuesVal                        ║
+//	╚════════════════════════╧════════════════════════════════════════════╝
+func NewValue(v interface{}) (*Value, error) {
+    switch v := v.(type) {
+    case nil:
+        return NewNullValue(), nil
+    case bool:
+        return NewBoolValue(v), nil
+    case int:
+        return NewIntValue(v), nil
+    case int32:
+        return NewInt32Value(v), nil
+    case int64:
+        return NewInt64Value(v), nil
+    case uint:
+        return NewUIntValue(v), nil
+    case uint32:
+        return NewUInt32Value(v), nil
+    case uint64:
+        return NewUInt64Value(v), nil
+    case float32:
+        return NewFloat32Value(v), nil
+    case float64:
+        return NewFloat64Value(v), nil
+    case string:
+        if !utf8.ValidString(v) {
+            return nil, protoimpl.X.NewError("invalid UTF-8 in string: %q", v)
+        }
+        return NewStringValue(v), nil
+    case []byte:
+        return NewBytesValue(v), nil
+    case map[string]interface{}:
+        obj, err := NewObjectFromMap(v)
+        if err != nil {
+            return nil, err
+        }
+        return NewObjectValue(obj), nil
+    case []interface{}:
+        array, err := NewValues(v...)
+        if err != nil {
+            return nil, err
+        }
+        return NewValuesValue(array), nil
+    case *Value:
+        return v, nil
+    case *Object:
+        return NewObjectValue(v), nil
+    case *Values:
+        return NewValuesValue(v), nil
+    default:
+        return nil, protoimpl.X.NewError("invalid type: %T", v)
+    }
 }
 
-func NewArrayValue(values ...*Value) *Value {
-    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
-}
-
-func NewMapValue(values map[string]*Value) *Value {
-    return &Value{Val: &Value_ObjectVal{ObjectVal: &Object{Vals: values}}}
+func NewNullValue() *Value {
+    return &Value{Val: &Value_NullVal{NullVal: &Null{}}}
 }
 
 func NewBoolValue(val bool) *Value {
@@ -38,19 +93,22 @@ func NewInt32Value(val int32) *Value {
 }
 
 func NewInt64Value(val int64) *Value {
-    return &Value{Val: &Value_Int64Val{Int64Val: val}}
+    if val >= 0 {
+        return &Value{Val: &Value_PositiveVal{PositiveVal: uint64(val)}}
+    }
+    return &Value{Val: &Value_NegativeVal{NegativeVal: -val}}
 }
 
-func NewUintValue(val uint) *Value {
-    return NewUint64Value(uint64(val))
+func NewUIntValue(val uint) *Value {
+    return NewUInt64Value(uint64(val))
 }
 
-func NewUint32Value(val uint32) *Value {
-    return NewUint64Value(uint64(val))
+func NewUInt32Value(val uint32) *Value {
+    return NewUInt64Value(uint64(val))
 }
 
-func NewUint64Value(val uint64) *Value {
-    return &Value{Val: &Value_Int64Val{Int64Val: int64(val)}}
+func NewUInt64Value(val uint64) *Value {
+    return &Value{Val: &Value_PositiveVal{PositiveVal: val}}
 }
 
 func NewFloat32Value(val float32) *Value {
@@ -63,6 +121,26 @@ func NewFloat64Value(val float64) *Value {
 
 func NewStringValue(val string) *Value {
     return &Value{Val: &Value_StringVal{StringVal: val}}
+}
+
+func NewBytesValue(val []byte) *Value {
+    return &Value{Val: &Value_BytesVal{BytesVal: val}}
+}
+
+func NewObjectValue(obj *Object) *Value {
+    return &Value{Val: &Value_ObjectVal{ObjectVal: obj}}
+}
+
+func NewValuesValue(array *Values) *Value {
+    return &Value{Val: &Value_ValuesVal{ValuesVal: array}}
+}
+
+func NewArrayValue(values ...*Value) *Value {
+    return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
+}
+
+func NewMapValue(values map[string]*Value) *Value {
+    return &Value{Val: &Value_ObjectVal{ObjectVal: &Object{Vals: values}}}
 }
 
 func NewIntArrayValue(ints ...int) *Value {
@@ -89,18 +167,18 @@ func NewInt64ArrayValue(int64s ...int64) *Value {
     return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewUint32ArrayValue(uint32s ...uint32) *Value {
+func NewUInt32ArrayValue(uint32s ...uint32) *Value {
     values := make([]*Value, 0, len(uint32s))
     for _, v := range uint32s {
-        values = append(values, NewUint32Value(v))
+        values = append(values, NewUInt32Value(v))
     }
     return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
-func NewUint64ArrayValue(uint64s ...uint64) *Value {
+func NewUInt64ArrayValue(uint64s ...uint64) *Value {
     values := make([]*Value, 0, len(uint64s))
     for _, v := range uint64s {
-        values = append(values, NewUint64Value(v))
+        values = append(values, NewUInt64Value(v))
     }
     return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
@@ -137,6 +215,60 @@ func NewObjectArrayValue(objects ...*Object) *Value {
     return &Value{Val: &Value_ValuesVal{ValuesVal: &Values{Vals: values}}}
 }
 
+// ToInterface converts x to a general-purpose Go interface.
+//
+// Calling Value.MarshalJSON and "encoding/json".Marshal on this output produce
+// semantically equivalent JSON (assuming no errors occur).
+//
+// Floating-point values (i.e., "NaN", "Infinity", and "-Infinity") are
+// converted as strings to remain compatible with MarshalJSON.
+func (x *Value) ToInterface() interface{} {
+    switch v := x.GetVal().(type) {
+    case *Value_BoolVal:
+        if v != nil {
+            return v.BoolVal
+        }
+    case *Value_NegativeVal:
+        if v != nil {
+            return -v.NegativeVal
+        }
+    case *Value_PositiveVal:
+        if v != nil {
+            return v.PositiveVal
+        }
+    case *Value_DoubleVal:
+        if v != nil {
+            switch {
+            case math.IsNaN(v.DoubleVal):
+                return "NaN"
+            case math.IsInf(v.DoubleVal, +1):
+                return "Infinity"
+            case math.IsInf(v.DoubleVal, -1):
+                return "-Infinity"
+            default:
+                return v.DoubleVal
+            }
+        }
+    case *Value_StringVal:
+        if v != nil {
+            return v.StringVal
+        }
+    case *Value_BytesVal:
+        if v != nil {
+            return v.BytesVal
+        }
+    case *Value_ObjectVal:
+        if v != nil {
+            return v.ObjectVal.ToMap()
+        }
+    case *Value_ValuesVal:
+        if v != nil {
+            return v.ValuesVal.ToSlice()
+        }
+    }
+    return nil
+}
+
 func (x *Value) GetBool() bool {
     return x.GetBoolVal()
 }
@@ -150,70 +282,45 @@ func (x *Value) GetInt32() int32 {
 }
 
 func (x *Value) GetInt64() int64 {
-    return x.GetInt64Val()
+    if negative := x.GetNegativeVal(); negative > 0 {
+        return -negative
+    }
+    return int64(x.GetPositiveVal())
 }
 
 func (x *Value) GetUint() uint {
-    if x == nil {
-        return 0
-    }
-
-    return uint(x.GetInt64())
+    return uint(x.GetPositiveVal())
 }
 
 func (x *Value) GetUint32() uint32 {
-    if x == nil {
-        return 0
-    }
-
-    return uint32(x.GetInt64())
+    return uint32(x.GetPositiveVal())
 }
 
 func (x *Value) GetUint64() uint64 {
-    if x == nil {
-        return 0
-    }
-
-    return uint64(x.GetInt64())
+    return x.GetPositiveVal()
 }
 
 func (x *Value) GetFloat32() float32 {
-    if x == nil {
-        return 0
-    }
-
     return float32(x.GetFloat64())
 }
 
 func (x *Value) GetFloat64() float64 {
-    if x == nil {
-        return 0
-    }
-
     return x.GetDoubleVal()
 }
 
 func (x *Value) GetDouble() float64 {
-    if x == nil {
-        return 0
-    }
-
     return x.GetDoubleVal()
 }
 
 func (x *Value) GetString() string {
-    if x == nil {
-        return ""
-    }
-
     return x.GetStringVal()
 }
 
-func (x *Value) GetObject() *Object {
-    if x == nil {
-        return nil
-    }
+func (x *Value) GetBytes() []byte {
+    return x.GetBytesVal()
+}
 
+func (x *Value) GetObject() *Object {
     return x.GetObjectVal()
 }
 

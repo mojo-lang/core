@@ -109,10 +109,6 @@ message Float64Values {
     repeated double vals = 1;
 }
 
-message Strings {
-    repeated string vals = 1;
-}
-
 message StringValues {
     repeated string vals = 1;
 }

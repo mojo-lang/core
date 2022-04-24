@@ -921,11 +921,11 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     int getValsCount();
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     boolean containsVals(
         java.lang.String key);
@@ -933,25 +933,25 @@ private static final long serialVersionUID = 0L;
      * Use {@link #getValsMap()} instead.
      */
     @java.lang.Deprecated
-    java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings>
+    java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues>
     getVals();
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
-    java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings>
+    java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues>
     getValsMap();
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
 
-    org.mojolang.mojo.core.Strings getValsOrDefault(
+    org.mojolang.mojo.core.StringValues getValsOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.core.Strings defaultValue);
+        org.mojolang.mojo.core.StringValues defaultValue);
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
 
-    org.mojolang.mojo.core.Strings getValsOrThrow(
+    org.mojolang.mojo.core.StringValues getValsOrThrow(
         java.lang.String key);
   }
   /**
@@ -1006,7 +1006,7 @@ private static final long serialVersionUID = 0L;
                     ValsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.core.Strings>
+              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.core.StringValues>
               vals__ = input.readMessage(
                   ValsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               vals_.getMutableMap().put(
@@ -1060,18 +1060,18 @@ private static final long serialVersionUID = 0L;
     public static final int VALS_FIELD_NUMBER = 1;
     private static final class ValsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          java.lang.String, org.mojolang.mojo.core.Strings> defaultEntry =
+          java.lang.String, org.mojolang.mojo.core.StringValues> defaultEntry =
               com.google.protobuf.MapEntry
-              .<java.lang.String, org.mojolang.mojo.core.Strings>newDefaultInstance(
+              .<java.lang.String, org.mojolang.mojo.core.StringValues>newDefaultInstance(
                   org.mojolang.mojo.core.UrlProto.internal_static_mojo_core_Url_Query_ValsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  org.mojolang.mojo.core.Strings.getDefaultInstance());
+                  org.mojolang.mojo.core.StringValues.getDefaultInstance());
     }
     private com.google.protobuf.MapField<
-        java.lang.String, org.mojolang.mojo.core.Strings> vals_;
-    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Strings>
+        java.lang.String, org.mojolang.mojo.core.StringValues> vals_;
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.StringValues>
     internalGetVals() {
       if (vals_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -1084,7 +1084,7 @@ private static final long serialVersionUID = 0L;
       return internalGetVals().getMap().size();
     }
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
 
     @java.lang.Override
@@ -1098,39 +1098,39 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> getVals() {
+    public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> getVals() {
       return getValsMap();
     }
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> getValsMap() {
+    public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> getValsMap() {
       return internalGetVals().getMap();
     }
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     @java.lang.Override
 
-    public org.mojolang.mojo.core.Strings getValsOrDefault(
+    public org.mojolang.mojo.core.StringValues getValsOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.core.Strings defaultValue) {
+        org.mojolang.mojo.core.StringValues defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> map =
+      java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> map =
           internalGetVals().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+     * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     @java.lang.Override
 
-    public org.mojolang.mojo.core.Strings getValsOrThrow(
+    public org.mojolang.mojo.core.StringValues getValsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> map =
+      java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> map =
           internalGetVals().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -1167,9 +1167,9 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.core.Strings> entry
+      for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.core.StringValues> entry
            : internalGetVals().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.core.Strings>
+        com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.core.StringValues>
         vals__ = ValsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -1475,8 +1475,8 @@ private static final long serialVersionUID = 0L;
       private int bitField0_;
 
       private com.google.protobuf.MapField<
-          java.lang.String, org.mojolang.mojo.core.Strings> vals_;
-      private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Strings>
+          java.lang.String, org.mojolang.mojo.core.StringValues> vals_;
+      private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.StringValues>
       internalGetVals() {
         if (vals_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -1484,7 +1484,7 @@ private static final long serialVersionUID = 0L;
         }
         return vals_;
       }
-      private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Strings>
+      private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.StringValues>
       internalGetMutableVals() {
         onChanged();;
         if (vals_ == null) {
@@ -1501,7 +1501,7 @@ private static final long serialVersionUID = 0L;
         return internalGetVals().getMap().size();
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
 
       @java.lang.Override
@@ -1515,39 +1515,39 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> getVals() {
+      public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> getVals() {
         return getValsMap();
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       @java.lang.Override
 
-      public java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> getValsMap() {
+      public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> getValsMap() {
         return internalGetVals().getMap();
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       @java.lang.Override
 
-      public org.mojolang.mojo.core.Strings getValsOrDefault(
+      public org.mojolang.mojo.core.StringValues getValsOrDefault(
           java.lang.String key,
-          org.mojolang.mojo.core.Strings defaultValue) {
+          org.mojolang.mojo.core.StringValues defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> map =
+        java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> map =
             internalGetVals().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       @java.lang.Override
 
-      public org.mojolang.mojo.core.Strings getValsOrThrow(
+      public org.mojolang.mojo.core.StringValues getValsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
-        java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> map =
+        java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> map =
             internalGetVals().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
@@ -1561,7 +1561,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
 
       public Builder removeVals(
@@ -1575,16 +1575,16 @@ private static final long serialVersionUID = 0L;
        * Use alternate mutation accessors instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings>
+      public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues>
       getMutableVals() {
         return internalGetMutableVals().getMutableMap();
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       public Builder putVals(
           java.lang.String key,
-          org.mojolang.mojo.core.Strings value) {
+          org.mojolang.mojo.core.StringValues value) {
         if (key == null) { throw new NullPointerException("map key"); }
         if (value == null) {
   throw new NullPointerException("map value");
@@ -1595,11 +1595,11 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>map&lt;string, .mojo.core.Strings&gt; vals = 1;</code>
+       * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
 
       public Builder putAllVals(
-          java.util.Map<java.lang.String, org.mojolang.mojo.core.Strings> values) {
+          java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> values) {
         internalGetMutableVals().getMutableMap()
             .putAll(values);
         return this;

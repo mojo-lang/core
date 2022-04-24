@@ -22,7 +22,7 @@ func TestValues_Scan(t *testing.T) {
         t.Errorf("failed to connect database")
     }
 
-    user := ValuesItem{Name: "mojo", Values: NewValues().AppendString("foo").AppendInt64(100).AppendString("bar")}
+    user := ValuesItem{Name: "mojo", Values: (&Values{}).AppendString("foo").AppendInt64(100).AppendString("bar")}
     DB.Migrator().DropTable(&ValuesItem{})
     DB.AutoMigrate(&ValuesItem{})
     DB.Save(&user)

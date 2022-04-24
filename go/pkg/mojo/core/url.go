@@ -13,7 +13,7 @@ func NewUrl(url string) *Url {
 
 func NewUrlQuery() *Url_Query {
     return &Url_Query{
-        Vals: make(map[string]*Strings),
+        Vals: make(map[string]*StringValues),
     }
 }
 
@@ -32,7 +32,7 @@ func (x *Url_Query) Get(key string) string {
 // values.
 func (x *Url_Query) Set(key, value string) {
     if x != nil {
-        x.Vals[key] = &Strings{
+        x.Vals[key] = &StringValues{
             Vals: []string{value},
         }
     }
@@ -43,7 +43,7 @@ func (x *Url_Query) Set(key, value string) {
 func (x *Url_Query) Add(key, value string) {
     if x != nil {
         if x.Vals[key] == nil {
-            x.Vals[key] = &Strings{}
+            x.Vals[key] = &StringValues{}
         }
         x.Vals[key].Vals = append(x.Vals[key].Vals, value)
     }

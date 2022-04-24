@@ -64,43 +64,65 @@ public interface ValueOrBuilder extends
   boolean getBoolVal();
 
   /**
-   * <code>int64 int64_val = 5;</code>
-   * @return Whether the int64Val field is set.
+   * <code>uint64 positive_val = 5;</code>
+   * @return Whether the positiveVal field is set.
    */
-  boolean hasInt64Val();
+  boolean hasPositiveVal();
   /**
-   * <code>int64 int64_val = 5;</code>
-   * @return The int64Val.
+   * <code>uint64 positive_val = 5;</code>
+   * @return The positiveVal.
    */
-  long getInt64Val();
+  long getPositiveVal();
 
   /**
-   * <code>double double_val = 6;</code>
+   * <code>int64 negative_val = 6;</code>
+   * @return Whether the negativeVal field is set.
+   */
+  boolean hasNegativeVal();
+  /**
+   * <code>int64 negative_val = 6;</code>
+   * @return The negativeVal.
+   */
+  long getNegativeVal();
+
+  /**
+   * <code>double double_val = 7;</code>
    * @return Whether the doubleVal field is set.
    */
   boolean hasDoubleVal();
   /**
-   * <code>double double_val = 6;</code>
+   * <code>double double_val = 7;</code>
    * @return The doubleVal.
    */
   double getDoubleVal();
 
   /**
-   * <code>string string_val = 7;</code>
+   * <code>string string_val = 8;</code>
    * @return Whether the stringVal field is set.
    */
   boolean hasStringVal();
   /**
-   * <code>string string_val = 7;</code>
+   * <code>string string_val = 8;</code>
    * @return The stringVal.
    */
   java.lang.String getStringVal();
   /**
-   * <code>string string_val = 7;</code>
+   * <code>string string_val = 8;</code>
    * @return The bytes for stringVal.
    */
   com.google.protobuf.ByteString
       getStringValBytes();
+
+  /**
+   * <code>bytes bytes_val = 9;</code>
+   * @return Whether the bytesVal field is set.
+   */
+  boolean hasBytesVal();
+  /**
+   * <code>bytes bytes_val = 9;</code>
+   * @return The bytesVal.
+   */
+  com.google.protobuf.ByteString getBytesVal();
 
   public org.mojolang.mojo.core.Value.ValCase getValCase();
 }

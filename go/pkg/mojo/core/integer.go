@@ -30,4 +30,16 @@ const (
 
     UIntTypeName     = "UInt"
     UIntTypeFullName = "mojo.core.UInt"
+
+    ByteTypeName     = "Byte"
+    ByteTypeFullName = "mojo.core.Byte"
+
+    SizeTypeName     = "Size"
+    SizeTypeFullName = "mojo.core.Size"
+
+    PositiveTypeName     = "Positive"
+    PositiveTypeFullName = "mojo.core.Positive"
+
+    NegativeTypeName     = "Negative"
+    NegativeTypeFullName = "mojo.core.Negative"
 )

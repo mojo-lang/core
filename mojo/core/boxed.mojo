@@ -131,22 +131,22 @@ type BoxedBytes = Boxed<Bytes>
 /// The JSON representation for `BytesValue` is JSON string.
 type BytesValue = Boxed<Bytes>
 
-/// Wrapper type for `Array<String>`
+/// Wrapper type for `Array<Bool>`
 ///
 /// The JSON representation for `BoolValues` is JSON boolean array.
 type BoolValues: [Bool]
 
-/// Wrapper type for `Array<String>`
+/// Wrapper type for `Array<Int32>`
 ///
 /// The JSON representation for `Int32Values` is JSON number array.
 type Int32Values: [Int32]
 
-/// Wrapper type for `Array<String>`
+/// Wrapper type for `Array<UInt32>`
 ///
 /// The JSON representation for `UInt32Values` is JSON number array.
 type UInt32Values: [UInt32]
 
-/// Wrapper type for `Array<String>`
+/// Wrapper type for `Array<Int64>`
 ///
 /// The JSON representation for `Int64s` is JSON number array.
 type Int64Values: [Int64]
@@ -156,7 +156,7 @@ type Int64Values: [Int64]
 /// The JSON representation for `IntValues` is JSON number array.
 type IntValues = Int64Values
 
-/// Wrapper type for `Array<String>`
+/// Wrapper type for `Array<UInt64>`
 ///
 /// The JSON representation for `UInt64Values` is JSON number array.
 type UInt64Values: [UInt64]
@@ -189,8 +189,8 @@ type DoubleValues = Float64Values
 /// Wrapper type for `Array<String>`
 ///
 /// The JSON representation for `Strings` is JSON string array.
-@deprecated
-type Strings: [String]
+//@deprecated
+//type Strings: [String]
 
 /// Wrapper type for `Array<String>`
 ///

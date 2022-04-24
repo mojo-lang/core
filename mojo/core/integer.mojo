@@ -37,6 +37,12 @@ type UInt32
 type UInt64
 
 ///
+type Negative: Int64
+
+///
+type Positive = UInt64
+
+///
 type Byte = UInt8
 
 ///

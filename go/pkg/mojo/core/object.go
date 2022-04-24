@@ -1,6 +1,10 @@
 package core
 
-import jsoniter "github.com/json-iterator/go"
+import (
+    jsoniter "github.com/json-iterator/go"
+    "google.golang.org/protobuf/runtime/protoimpl"
+    "unicode/utf8"
+)
 
 const ObjectTypeName = "Object"
 const ObjectTypeFullName = "mojo.core.Object"
@@ -9,9 +13,38 @@ func NewObject() *Object {
     return &Object{}
 }
 
+// NewObjectFromMap constructs a Struct from a general-purpose Go map.
+// The map keys must be valid UTF-8.
+// The map values are converted using NewValue.
+func NewObjectFromMap(v map[string]interface{}) (*Object, error) {
+    x := &Object{Vals: make(map[string]*Value, len(v))}
+    for k, v := range v {
+        if !utf8.ValidString(k) {
+            return nil, protoimpl.X.NewError("invalid UTF-8 in string: %q", k)
+        }
+        var err error
+        x.Vals[k], err = NewValue(v)
+        if err != nil {
+            return nil, err
+        }
+    }
+    return x, nil
+}
+
 func NewObjectFrom(value interface{}) (*Object, error) {
     obj := &Object{}
     return obj, obj.From(value)
+}
+
+func (x *Object) ToMap() map[string]interface{} {
+    if x != nil && x.Vals != nil {
+        vs := make(map[string]interface{})
+        for k, v := range x.Vals {
+            vs[k] = v.ToInterface()
+        }
+        return vs
+    }
+    return nil
 }
 
 func (x *Object) To(value interface{}) error {
@@ -138,7 +171,7 @@ func (x *Object) SetInt64(key string, value int64) *Object {
 func (x *Object) SetUint32(key string, value uint32) *Object {
     if x != nil {
         x.init()
-        x.Vals[key] = NewUint32Value(value)
+        x.Vals[key] = NewUInt32Value(value)
     }
     return x
 }
@@ -146,7 +179,7 @@ func (x *Object) SetUint32(key string, value uint32) *Object {
 func (x *Object) SetUint64(key string, value uint64) *Object {
     if x != nil {
         x.init()
-        x.Vals[key] = NewUint64Value(value)
+        x.Vals[key] = NewUInt64Value(value)
     }
     return x
 }
@@ -202,7 +235,7 @@ func (x *Object) SetInt64Array(key string, vals ...int64) *Object {
 func (x *Object) SetUint32Array(key string, vals ...uint32) *Object {
     if x != nil {
         x.init()
-        x.Vals[key] = NewUint32ArrayValue(vals...)
+        x.Vals[key] = NewUInt32ArrayValue(vals...)
     }
     return x
 }
@@ -210,7 +243,7 @@ func (x *Object) SetUint32Array(key string, vals ...uint32) *Object {
 func (x *Object) SetUint64Array(key string, vals ...uint64) *Object {
     if x != nil {
         x.init()
-        x.Vals[key] = NewUint64ArrayValue(vals...)
+        x.Vals[key] = NewUInt64ArrayValue(vals...)
     }
     return x
 }
@@ -229,11 +262,4 @@ func (x *Object) SetObjectArray(key string, vals ...*Object) *Object {
         x.Vals[key] = NewObjectArrayValue(vals...)
     }
     return x
-}
-
-func (x *Object) ToMap() interface{} {
-    if x != nil {
-        return x.Vals
-    }
-    return nil
 }

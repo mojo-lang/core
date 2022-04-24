@@ -96,19 +96,29 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 40: {
-            val_ = input.readInt64();
+            val_ = input.readUInt64();
             valCase_ = 5;
             break;
           }
-          case 49: {
-            val_ = input.readDouble();
+          case 48: {
+            val_ = input.readInt64();
             valCase_ = 6;
             break;
           }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 57: {
+            val_ = input.readDouble();
             valCase_ = 7;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+            valCase_ = 8;
             val_ = s;
+            break;
+          }
+          case 74: {
+            val_ = input.readBytes();
+            valCase_ = 9;
             break;
           }
           default: {
@@ -152,9 +162,11 @@ private static final long serialVersionUID = 0L;
     OBJECT_VAL(2),
     NULL_VAL(3),
     BOOL_VAL(4),
-    INT64_VAL(5),
-    DOUBLE_VAL(6),
-    STRING_VAL(7),
+    POSITIVE_VAL(5),
+    NEGATIVE_VAL(6),
+    DOUBLE_VAL(7),
+    STRING_VAL(8),
+    BYTES_VAL(9),
     VAL_NOT_SET(0);
     private final int value;
     private ValCase(int value) {
@@ -176,9 +188,11 @@ private static final long serialVersionUID = 0L;
         case 2: return OBJECT_VAL;
         case 3: return NULL_VAL;
         case 4: return BOOL_VAL;
-        case 5: return INT64_VAL;
-        case 6: return DOUBLE_VAL;
-        case 7: return STRING_VAL;
+        case 5: return POSITIVE_VAL;
+        case 6: return NEGATIVE_VAL;
+        case 7: return DOUBLE_VAL;
+        case 8: return STRING_VAL;
+        case 9: return BYTES_VAL;
         case 0: return VAL_NOT_SET;
         default: return null;
       }
@@ -308,63 +322,84 @@ private static final long serialVersionUID = 0L;
     return false;
   }
 
-  public static final int INT64_VAL_FIELD_NUMBER = 5;
+  public static final int POSITIVE_VAL_FIELD_NUMBER = 5;
   /**
-   * <code>int64 int64_val = 5;</code>
-   * @return Whether the int64Val field is set.
+   * <code>uint64 positive_val = 5;</code>
+   * @return Whether the positiveVal field is set.
    */
   @java.lang.Override
-  public boolean hasInt64Val() {
+  public boolean hasPositiveVal() {
     return valCase_ == 5;
   }
   /**
-   * <code>int64 int64_val = 5;</code>
-   * @return The int64Val.
+   * <code>uint64 positive_val = 5;</code>
+   * @return The positiveVal.
    */
   @java.lang.Override
-  public long getInt64Val() {
+  public long getPositiveVal() {
     if (valCase_ == 5) {
       return (java.lang.Long) val_;
     }
     return 0L;
   }
 
-  public static final int DOUBLE_VAL_FIELD_NUMBER = 6;
+  public static final int NEGATIVE_VAL_FIELD_NUMBER = 6;
   /**
-   * <code>double double_val = 6;</code>
+   * <code>int64 negative_val = 6;</code>
+   * @return Whether the negativeVal field is set.
+   */
+  @java.lang.Override
+  public boolean hasNegativeVal() {
+    return valCase_ == 6;
+  }
+  /**
+   * <code>int64 negative_val = 6;</code>
+   * @return The negativeVal.
+   */
+  @java.lang.Override
+  public long getNegativeVal() {
+    if (valCase_ == 6) {
+      return (java.lang.Long) val_;
+    }
+    return 0L;
+  }
+
+  public static final int DOUBLE_VAL_FIELD_NUMBER = 7;
+  /**
+   * <code>double double_val = 7;</code>
    * @return Whether the doubleVal field is set.
    */
   @java.lang.Override
   public boolean hasDoubleVal() {
-    return valCase_ == 6;
+    return valCase_ == 7;
   }
   /**
-   * <code>double double_val = 6;</code>
+   * <code>double double_val = 7;</code>
    * @return The doubleVal.
    */
   @java.lang.Override
   public double getDoubleVal() {
-    if (valCase_ == 6) {
+    if (valCase_ == 7) {
       return (java.lang.Double) val_;
     }
     return 0D;
   }
 
-  public static final int STRING_VAL_FIELD_NUMBER = 7;
+  public static final int STRING_VAL_FIELD_NUMBER = 8;
   /**
-   * <code>string string_val = 7;</code>
+   * <code>string string_val = 8;</code>
    * @return Whether the stringVal field is set.
    */
   public boolean hasStringVal() {
-    return valCase_ == 7;
+    return valCase_ == 8;
   }
   /**
-   * <code>string string_val = 7;</code>
+   * <code>string string_val = 8;</code>
    * @return The stringVal.
    */
   public java.lang.String getStringVal() {
     java.lang.Object ref = "";
-    if (valCase_ == 7) {
+    if (valCase_ == 8) {
       ref = val_;
     }
     if (ref instanceof java.lang.String) {
@@ -373,33 +408,54 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      if (valCase_ == 7) {
+      if (valCase_ == 8) {
         val_ = s;
       }
       return s;
     }
   }
   /**
-   * <code>string string_val = 7;</code>
+   * <code>string string_val = 8;</code>
    * @return The bytes for stringVal.
    */
   public com.google.protobuf.ByteString
       getStringValBytes() {
     java.lang.Object ref = "";
-    if (valCase_ == 7) {
+    if (valCase_ == 8) {
       ref = val_;
     }
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      if (valCase_ == 7) {
+      if (valCase_ == 8) {
         val_ = b;
       }
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int BYTES_VAL_FIELD_NUMBER = 9;
+  /**
+   * <code>bytes bytes_val = 9;</code>
+   * @return Whether the bytesVal field is set.
+   */
+  @java.lang.Override
+  public boolean hasBytesVal() {
+    return valCase_ == 9;
+  }
+  /**
+   * <code>bytes bytes_val = 9;</code>
+   * @return The bytesVal.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString getBytesVal() {
+    if (valCase_ == 9) {
+      return (com.google.protobuf.ByteString) val_;
+    }
+    return com.google.protobuf.ByteString.EMPTY;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -430,15 +486,23 @@ private static final long serialVersionUID = 0L;
           4, (boolean)((java.lang.Boolean) val_));
     }
     if (valCase_ == 5) {
-      output.writeInt64(
+      output.writeUInt64(
           5, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 6) {
-      output.writeDouble(
-          6, (double)((java.lang.Double) val_));
+      output.writeInt64(
+          6, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 7) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, val_);
+      output.writeDouble(
+          7, (double)((java.lang.Double) val_));
+    }
+    if (valCase_ == 8) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, val_);
+    }
+    if (valCase_ == 9) {
+      output.writeBytes(
+          9, (com.google.protobuf.ByteString) val_);
     }
     unknownFields.writeTo(output);
   }
@@ -468,16 +532,26 @@ private static final long serialVersionUID = 0L;
     }
     if (valCase_ == 5) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(
+        .computeUInt64Size(
             5, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 6) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(
-            6, (double)((java.lang.Double) val_));
+        .computeInt64Size(
+            6, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 7) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, val_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(
+            7, (double)((java.lang.Double) val_));
+    }
+    if (valCase_ == 8) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, val_);
+    }
+    if (valCase_ == 9) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(
+            9, (com.google.protobuf.ByteString) val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -513,17 +587,25 @@ private static final long serialVersionUID = 0L;
             != other.getBoolVal()) return false;
         break;
       case 5:
-        if (getInt64Val()
-            != other.getInt64Val()) return false;
+        if (getPositiveVal()
+            != other.getPositiveVal()) return false;
         break;
       case 6:
+        if (getNegativeVal()
+            != other.getNegativeVal()) return false;
+        break;
+      case 7:
         if (java.lang.Double.doubleToLongBits(getDoubleVal())
             != java.lang.Double.doubleToLongBits(
                 other.getDoubleVal())) return false;
         break;
-      case 7:
+      case 8:
         if (!getStringVal()
             .equals(other.getStringVal())) return false;
+        break;
+      case 9:
+        if (!getBytesVal()
+            .equals(other.getBytesVal())) return false;
         break;
       case 0:
       default:
@@ -558,18 +640,27 @@ private static final long serialVersionUID = 0L;
             getBoolVal());
         break;
       case 5:
-        hash = (37 * hash) + INT64_VAL_FIELD_NUMBER;
+        hash = (37 * hash) + POSITIVE_VAL_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getInt64Val());
+            getPositiveVal());
         break;
       case 6:
+        hash = (37 * hash) + NEGATIVE_VAL_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getNegativeVal());
+        break;
+      case 7:
         hash = (37 * hash) + DOUBLE_VAL_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getDoubleVal()));
         break;
-      case 7:
+      case 8:
         hash = (37 * hash) + STRING_VAL_FIELD_NUMBER;
         hash = (53 * hash) + getStringVal().hashCode();
+        break;
+      case 9:
+        hash = (37 * hash) + BYTES_VAL_FIELD_NUMBER;
+        hash = (53 * hash) + getBytesVal().hashCode();
         break;
       case 0:
       default:
@@ -768,6 +859,12 @@ private static final long serialVersionUID = 0L;
       if (valCase_ == 7) {
         result.val_ = val_;
       }
+      if (valCase_ == 8) {
+        result.val_ = val_;
+      }
+      if (valCase_ == 9) {
+        result.val_ = val_;
+      }
       result.valCase_ = valCase_;
       onBuilt();
       return result;
@@ -834,8 +931,12 @@ private static final long serialVersionUID = 0L;
           setBoolVal(other.getBoolVal());
           break;
         }
-        case INT64_VAL: {
-          setInt64Val(other.getInt64Val());
+        case POSITIVE_VAL: {
+          setPositiveVal(other.getPositiveVal());
+          break;
+        }
+        case NEGATIVE_VAL: {
+          setNegativeVal(other.getNegativeVal());
           break;
         }
         case DOUBLE_VAL: {
@@ -843,9 +944,13 @@ private static final long serialVersionUID = 0L;
           break;
         }
         case STRING_VAL: {
-          valCase_ = 7;
+          valCase_ = 8;
           val_ = other.val_;
           onChanged();
+          break;
+        }
+        case BYTES_VAL: {
+          setBytesVal(other.getBytesVal());
           break;
         }
         case VAL_NOT_SET: {
@@ -1361,38 +1466,38 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>int64 int64_val = 5;</code>
-     * @return Whether the int64Val field is set.
+     * <code>uint64 positive_val = 5;</code>
+     * @return Whether the positiveVal field is set.
      */
-    public boolean hasInt64Val() {
+    public boolean hasPositiveVal() {
       return valCase_ == 5;
     }
     /**
-     * <code>int64 int64_val = 5;</code>
-     * @return The int64Val.
+     * <code>uint64 positive_val = 5;</code>
+     * @return The positiveVal.
      */
-    public long getInt64Val() {
+    public long getPositiveVal() {
       if (valCase_ == 5) {
         return (java.lang.Long) val_;
       }
       return 0L;
     }
     /**
-     * <code>int64 int64_val = 5;</code>
-     * @param value The int64Val to set.
+     * <code>uint64 positive_val = 5;</code>
+     * @param value The positiveVal to set.
      * @return This builder for chaining.
      */
-    public Builder setInt64Val(long value) {
+    public Builder setPositiveVal(long value) {
       valCase_ = 5;
       val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 int64_val = 5;</code>
+     * <code>uint64 positive_val = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearInt64Val() {
+    public Builder clearPositiveVal() {
       if (valCase_ == 5) {
         valCase_ = 0;
         val_ = null;
@@ -1402,38 +1507,38 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>double double_val = 6;</code>
-     * @return Whether the doubleVal field is set.
+     * <code>int64 negative_val = 6;</code>
+     * @return Whether the negativeVal field is set.
      */
-    public boolean hasDoubleVal() {
+    public boolean hasNegativeVal() {
       return valCase_ == 6;
     }
     /**
-     * <code>double double_val = 6;</code>
-     * @return The doubleVal.
+     * <code>int64 negative_val = 6;</code>
+     * @return The negativeVal.
      */
-    public double getDoubleVal() {
+    public long getNegativeVal() {
       if (valCase_ == 6) {
-        return (java.lang.Double) val_;
+        return (java.lang.Long) val_;
       }
-      return 0D;
+      return 0L;
     }
     /**
-     * <code>double double_val = 6;</code>
-     * @param value The doubleVal to set.
+     * <code>int64 negative_val = 6;</code>
+     * @param value The negativeVal to set.
      * @return This builder for chaining.
      */
-    public Builder setDoubleVal(double value) {
+    public Builder setNegativeVal(long value) {
       valCase_ = 6;
       val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double double_val = 6;</code>
+     * <code>int64 negative_val = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDoubleVal() {
+    public Builder clearNegativeVal() {
       if (valCase_ == 6) {
         valCase_ = 0;
         val_ = null;
@@ -1443,28 +1548,69 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>string string_val = 7;</code>
+     * <code>double double_val = 7;</code>
+     * @return Whether the doubleVal field is set.
+     */
+    public boolean hasDoubleVal() {
+      return valCase_ == 7;
+    }
+    /**
+     * <code>double double_val = 7;</code>
+     * @return The doubleVal.
+     */
+    public double getDoubleVal() {
+      if (valCase_ == 7) {
+        return (java.lang.Double) val_;
+      }
+      return 0D;
+    }
+    /**
+     * <code>double double_val = 7;</code>
+     * @param value The doubleVal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDoubleVal(double value) {
+      valCase_ = 7;
+      val_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double double_val = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDoubleVal() {
+      if (valCase_ == 7) {
+        valCase_ = 0;
+        val_ = null;
+        onChanged();
+      }
+      return this;
+    }
+
+    /**
+     * <code>string string_val = 8;</code>
      * @return Whether the stringVal field is set.
      */
     @java.lang.Override
     public boolean hasStringVal() {
-      return valCase_ == 7;
+      return valCase_ == 8;
     }
     /**
-     * <code>string string_val = 7;</code>
+     * <code>string string_val = 8;</code>
      * @return The stringVal.
      */
     @java.lang.Override
     public java.lang.String getStringVal() {
       java.lang.Object ref = "";
-      if (valCase_ == 7) {
+      if (valCase_ == 8) {
         ref = val_;
       }
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (valCase_ == 7) {
+        if (valCase_ == 8) {
           val_ = s;
         }
         return s;
@@ -1473,21 +1619,21 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_val = 7;</code>
+     * <code>string string_val = 8;</code>
      * @return The bytes for stringVal.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
         getStringValBytes() {
       java.lang.Object ref = "";
-      if (valCase_ == 7) {
+      if (valCase_ == 8) {
         ref = val_;
       }
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        if (valCase_ == 7) {
+        if (valCase_ == 8) {
           val_ = b;
         }
         return b;
@@ -1496,7 +1642,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_val = 7;</code>
+     * <code>string string_val = 8;</code>
      * @param value The stringVal to set.
      * @return This builder for chaining.
      */
@@ -1505,17 +1651,17 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  valCase_ = 7;
+  valCase_ = 8;
       val_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string string_val = 7;</code>
+     * <code>string string_val = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearStringVal() {
-      if (valCase_ == 7) {
+      if (valCase_ == 8) {
         valCase_ = 0;
         val_ = null;
         onChanged();
@@ -1523,7 +1669,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_val = 7;</code>
+     * <code>string string_val = 8;</code>
      * @param value The bytes for stringVal to set.
      * @return This builder for chaining.
      */
@@ -1533,9 +1679,53 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      valCase_ = 7;
+      valCase_ = 8;
       val_ = value;
       onChanged();
+      return this;
+    }
+
+    /**
+     * <code>bytes bytes_val = 9;</code>
+     * @return Whether the bytesVal field is set.
+     */
+    public boolean hasBytesVal() {
+      return valCase_ == 9;
+    }
+    /**
+     * <code>bytes bytes_val = 9;</code>
+     * @return The bytesVal.
+     */
+    public com.google.protobuf.ByteString getBytesVal() {
+      if (valCase_ == 9) {
+        return (com.google.protobuf.ByteString) val_;
+      }
+      return com.google.protobuf.ByteString.EMPTY;
+    }
+    /**
+     * <code>bytes bytes_val = 9;</code>
+     * @param value The bytesVal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBytesVal(com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  valCase_ = 9;
+      val_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bytes bytes_val = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBytesVal() {
+      if (valCase_ == 9) {
+        valCase_ = 0;
+        val_ = null;
+        onChanged();
+      }
       return this;
     }
     @java.lang.Override
