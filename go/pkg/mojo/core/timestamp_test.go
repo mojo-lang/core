@@ -8,6 +8,7 @@ import (
 
 const (
     TimestampString1       = "2019-10-13T19:52:25+08:00"
+    TimestampString2       = "2019-10-13T19:53:25+08:00"
     TimestampString1Json   = `"2019-10-13T19:52:25+08:00"`
     TimestampString1Number = "1570967545"
     Timestamp1             = int64(1570967545)
@@ -57,4 +58,35 @@ func TestTimestampParse(t *testing.T) {
         assert.Equal(t, Timestamp1, ts.Seconds, "%s seconds not equal", exampleFormats[i])
         assert.Equal(t, int32(0), ts.Nanoseconds, "%s nanos not equal", exampleFormats[i])
     }
+}
+
+func TestTimestamp_Equal(t *testing.T) {
+    t1, _ := ParseTimestamp(TimestampString1)
+    t12, _ := ParseTimestamp(TimestampString1)
+    t2, _ := ParseTimestamp(TimestampString2)
+
+    assert.True(t, t1.Equal(t12))
+    assert.False(t, t1.Equal(t2))
+}
+
+func TestTimestamp_Sub(t *testing.T) {
+    t1, _ := ParseTimestamp(TimestampString1)
+    t2, _ := ParseTimestamp(TimestampString2)
+
+    assert.Equal(t, 1.0, t2.Sub(t1).ToMinutes())
+    assert.Equal(t, -1.0, t1.Sub(t2).ToMinutes())
+}
+
+func TestTimestamp_After(t *testing.T) {
+    t1, _ := ParseTimestamp(TimestampString1)
+    t2, _ := ParseTimestamp(TimestampString2)
+
+    assert.True(t, t2.After(t1))
+}
+
+func TestTimestamp_Before(t *testing.T) {
+    t1, _ := ParseTimestamp(TimestampString1)
+    t2, _ := ParseTimestamp(TimestampString2)
+
+    assert.True(t, t1.Before(t2))
 }
