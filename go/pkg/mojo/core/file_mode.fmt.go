@@ -40,6 +40,10 @@ func (x File_Mode) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x File_Mode) ToString() string {
+	return x.Format()
+}
+
 func (x *File_Mode) Parse(value string) error {
 	if x != nil {
 		s, ok := FileModeValues[value]

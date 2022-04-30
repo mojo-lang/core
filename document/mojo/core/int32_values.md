@@ -1,3 +1,3 @@
-| 类型 | 说明 |
+| type | description |
 |---|---|
 | `Array<integer>` |

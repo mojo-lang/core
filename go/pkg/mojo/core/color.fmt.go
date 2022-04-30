@@ -24,6 +24,10 @@ func (x *Color) Format() string {
     return ""
 }
 
+func (x *Color) ToString() string {
+    return x.Format()
+}
+
 func (x *Color) Parse(value string) error {
     if x != nil && len(value) > 0 {
         if value[0] == '#' && len(value) >= 7 {

@@ -36,7 +36,14 @@ func NewObjectFrom(value interface{}) (*Object, error) {
     return obj, obj.From(value)
 }
 
-func (x *Object) ToMap() map[string]interface{} {
+func (x *Object) ToMap() interface{} {
+    if x != nil && x.Vals != nil {
+        return x.Vals
+    }
+    return nil
+}
+
+func (x *Object) ToMapInterface() map[string]interface{} {
     if x != nil && x.Vals != nil {
         vs := make(map[string]interface{})
         for k, v := range x.Vals {

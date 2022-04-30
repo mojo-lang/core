@@ -42,6 +42,10 @@ func (x Ordering_Sort) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x Ordering_Sort) ToString() string {
+	return x.Format()
+}
+
 func (x *Ordering_Sort) Parse(value string) error {
 	if x != nil {
 		s, ok := OrderingSortValues[value]

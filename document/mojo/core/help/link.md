@@ -1,4 +1,4 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `description` | `string` |  | 否 |  | Describes what the link offers. |
-| `url` | `string` | `Url` | 否 |  | The URL of the link. |
+| `description` | `string` |  | N |  | Describes what the link offers. |
+| `url` | `string` | `Url` | N |  | The URL of the link. |

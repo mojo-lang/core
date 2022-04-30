@@ -46,6 +46,10 @@ func (x PhoneNumber_CountryCodeSource) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x PhoneNumber_CountryCodeSource) ToString() string {
+	return x.Format()
+}
+
 func (x *PhoneNumber_CountryCodeSource) Parse(value string) error {
 	if x != nil {
 		s, ok := PhoneNumberCountryCodeSourceValues[value]

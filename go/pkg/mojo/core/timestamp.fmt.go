@@ -12,6 +12,10 @@ func (x Timestamp) Format() string {
     return x.ToTime().Format(time.RFC3339)
 }
 
+func (x Timestamp) ToString() string {
+    return x.Format()
+}
+
 func ParseTimestamp(value string) (*Timestamp, error) {
     ts := &Timestamp{}
     if err := ts.Parse(value); err != nil {

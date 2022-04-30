@@ -35,6 +35,10 @@ func (x *Platform) Format() string {
     return ""
 }
 
+func (x *Platform) ToString() string {
+    return x.Format()
+}
+
 func (x *Platform) Parse(value string) error {
     if x != nil && len(value) > 0 {
         parts := strings.Split(value, "-")

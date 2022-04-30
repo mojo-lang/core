@@ -52,6 +52,10 @@ func (x DeclType) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x DeclType) ToString() string {
+	return x.Format()
+}
+
 func (x *DeclType) Parse(value string) error {
 	if x != nil {
 		s, ok := DeclTypeValues[value]

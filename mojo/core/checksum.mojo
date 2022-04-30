@@ -12,9 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// Checksum
-/// 
-/// MD5, SHA1, SHA256 and SHA512.
+/// The format is: `{algorithm} {value}` and the algorithm should be one of the `MD5`, `SHA1`, `SHA256` and `SHA512`.
 @format('{algorithm} {value}')
 type Checksum {
     /// commonly used algorithm for Checksum

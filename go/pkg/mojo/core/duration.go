@@ -39,20 +39,57 @@ func (x *Duration) FromSeconds(seconds float64) *Duration {
     return x
 }
 
-func (x Duration) ToHours() float64 {
-    return x.ToDuration().Hours()
+func (x *Duration) ToHours() float64 {
+    if x != nil {
+        return x.ToDuration().Hours()
+    }
+    return 0
 }
 
-func (x Duration) ToMinutes() float64 {
-    return x.ToDuration().Minutes()
+func (x *Duration) ToMinutes() float64 {
+    if x != nil {
+        return x.ToDuration().Minutes()
+    }
+    return 0
 }
 
-func (x Duration) ToSeconds() float64 {
-    return x.ToDuration().Seconds()
+func (x *Duration) ToSeconds() float64 {
+    if x != nil {
+        return x.ToDuration().Seconds()
+    }
+    return 0
 }
 
-func (x Duration) ToNanoseconds() int64 {
-    return x.ToDuration().Nanoseconds()
+func (x *Duration) ToNanoseconds() int64 {
+    if x != nil {
+        return x.ToDuration().Nanoseconds()
+    }
+    return 0
+}
+
+func (x *Duration) Compare(d *Duration) int {
+    if x != nil {
+        if d != nil {
+            if x.Seconds == d.Seconds {
+                if x.Nanoseconds == d.Nanoseconds {
+                    return 0
+                } else if x.Nanoseconds > d.Nanoseconds {
+                    return 1
+                } else {
+                    return -1
+                }
+            } else if x.Seconds > d.Seconds {
+                return 1
+            } else {
+                return -1
+            }
+        } else {
+            return 1
+        }
+    } else if d != nil {
+        return -1
+    }
+    return 0
 }
 
 func (x *Duration) FromFloat64(seconds float64) error {

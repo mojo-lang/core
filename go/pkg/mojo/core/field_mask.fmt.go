@@ -15,6 +15,10 @@ func (x *FieldMask) Format() string {
     }
 }
 
+func (x *FieldMask) ToString() string {
+    return x.Format()
+}
+
 func (x *FieldMask) Parse(field string) error {
     var paths []string
     paths = parseFields(field, paths)

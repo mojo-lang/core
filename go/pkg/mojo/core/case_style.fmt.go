@@ -50,6 +50,10 @@ func (x CaseStyle) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x CaseStyle) ToString() string {
+	return x.Format()
+}
+
 func (x *CaseStyle) Parse(value string) error {
 	if x != nil {
 		s, ok := CaseStyleValues[value]

@@ -62,6 +62,10 @@ func (x Month) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x Month) ToString() string {
+	return x.Format()
+}
+
 func (x *Month) Parse(value string) error {
 	if x != nil {
 		s, ok := MonthValues[value]

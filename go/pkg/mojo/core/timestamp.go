@@ -11,6 +11,7 @@ func Now() *Timestamp {
     return FromTime(time.Now())
 }
 
+// FromTime convert from time.Time to Timestamp
 func FromTime(t time.Time) *Timestamp {
     seconds := t.Unix()
     return &Timestamp{
@@ -19,6 +20,8 @@ func FromTime(t time.Time) *Timestamp {
     }
 }
 
+// Since returns the time elapsed since t.
+// It is shorthand for Now().Sub(t).
 func Since(t *Timestamp) *Duration {
     if t != nil {
         return FromDuration(time.Since(t.ToTime()))
@@ -26,6 +29,8 @@ func Since(t *Timestamp) *Duration {
     return nil
 }
 
+// Until returns the duration until t.
+// It is shorthand for t.Sub(Now()).
 func Until(t *Timestamp) *Duration {
     if t != nil {
         return FromDuration(time.Until(t.ToTime()))
@@ -33,16 +38,19 @@ func Until(t *Timestamp) *Duration {
     return nil
 }
 
+// FromTime convert from time.Time to Timestamp
 func (x *Timestamp) FromTime(t time.Time) {
     ts := FromTime(t)
     x.Seconds = ts.Seconds
     x.Nanoseconds = ts.Nanoseconds
 }
 
+// ToTime convert the Timestamp to time.Time
 func (x *Timestamp) ToTime() time.Time {
     return time.Unix(x.Seconds, int64(x.Nanoseconds)).In(loc)
 }
 
+// After reports whether the time instant t is after u.
 func (x *Timestamp) After(u *Timestamp) bool {
     if x != nil && u != nil {
         if x != u {
@@ -65,8 +73,6 @@ func (x *Timestamp) Before(u *Timestamp) bool {
 // Equal reports whether t and u represent the same time instant.
 // Two times can be equal even if they are in different locations.
 // For example, 6:00 +0200 and 4:00 UTC are Equal.
-// See the documentation on the Time type for the pitfalls of using == with
-// Time values; most code should use Equal instead.
 func (x *Timestamp) Equal(u *Timestamp) bool {
     if x != nil && u != nil {
         if x == u {
@@ -85,12 +91,4 @@ func (x *Timestamp) Sub(u *Timestamp) *Duration {
         return FromDuration(x.ToTime().Sub(u.ToTime()))
     }
     return nil
-}
-
-func (x *Timestamp) SinceNow() *Duration {
-    return Since(x)
-}
-
-func (x *Timestamp) UntilNow() *Duration {
-    return Until(x)
 }

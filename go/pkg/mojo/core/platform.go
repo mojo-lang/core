@@ -42,7 +42,7 @@ func (x *Platform) Is64Arch() bool {
     return x != nil && (x.Architecture == Architecture_ARCHITECTURE_AMD64 || x.Architecture == Architecture_ARCHITECTURE_ARM64)
 }
 
-// https://github.com/containerd/containerd/blob/main/platforms/platforms.go
+// normalizeOS https://github.com/containerd/containerd/blob/main/platforms/platforms.go
 func normalizeOS(os string) string {
     if os == "" {
         return runtime.GOOS

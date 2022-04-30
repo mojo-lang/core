@@ -13,4 +13,6 @@
 // limitations under the License.
 
 @format("")
-type Id = UInt64 @1 | String @2 | Uuid @3
+type Id = UInt64 @1 //< the integer type id
+        | String @2 //< the normal string type id
+        | Uuid   @3 //< the uuid type id

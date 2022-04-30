@@ -4,7 +4,15 @@ import (
     "strings"
 )
 
-func (x Ordering) Format() string {
+func ParseOrdering(value string) (*Ordering, error) {
+    o := &Ordering{}
+    if err := o.Parse(value); err != nil {
+        return nil, err
+    }
+    return o, nil
+}
+
+func (x *Ordering) Format() string {
     if len(x.Vals) > 0 {
         var values []string
         for _, v := range x.Vals {
@@ -15,12 +23,8 @@ func (x Ordering) Format() string {
     return ""
 }
 
-func ParseOrdering(value string) (*Ordering, error) {
-    o := &Ordering{}
-    if err := o.Parse(value); err != nil {
-        return nil, err
-    }
-    return o, nil
+func (x *Ordering) ToString() string {
+    return x.Format()
 }
 
 func (x *Ordering) Parse(value string) error {

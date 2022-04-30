@@ -1,4 +1,4 @@
-| 类型 | 说明 |
-|---|---|
-| `Error` | Error |
-| `null` |  |
+| type | format | description |
+|---|---|---|
+| `mojo.core.Error` |  | @lang('zh-CN') |
+| `null` |  |  |

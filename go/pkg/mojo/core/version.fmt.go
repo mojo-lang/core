@@ -89,3 +89,7 @@ func (x *Version) Format() string {
     }
     return ""
 }
+
+func (x *Version) ToString() string {
+    return x.Format()
+}

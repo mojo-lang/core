@@ -1,6 +1,6 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `hours` | `integer` | `int32` | 否 |  |
-| `minutes` | `integer` | `int32` | 否 |  |
-| `seconds` | `integer` | `int32` | 否 |  |
-| `nanos` | `integer` | `int32` | 否 |  |
+| `hours` | `integer` | `Int32` | N |  |
+| `minutes` | `integer` | `Int32` | N |  |
+| `seconds` | `integer` | `Int32` | N |  |
+| `nanos` | `integer` | `Int32` | N |  |

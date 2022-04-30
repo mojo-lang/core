@@ -1,5 +1,5 @@
-| 类型 | 说明 |
-|---|---|
-| `integer` |  |
-| `string` |  |
-| `string` |  |
+| type | format | description |
+|---|---|---|
+| `integer` | `UInt64` |  |
+| `string` |  |  |
+| `string` | `Uuid` | Uuid type |

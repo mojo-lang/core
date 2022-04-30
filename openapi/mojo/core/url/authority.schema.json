@@ -1,1 +1,1 @@
-{"title":"mojo.core.Url.Authority","description":"","type":"object","properties":{"host":{"type":"string"},"port":{"type":"integer","format":"int64"},"userInfo":{"type":"string"}}}
+{"title":"mojo.core.Url.Authority","description":"","type":"object","properties":{"host":{"title":"mojo.core.String","type":"string"},"port":{"title":"mojo.core.Int64","type":"integer","format":"Int64"},"userInfo":{"title":"mojo.core.String","type":"string"}}}

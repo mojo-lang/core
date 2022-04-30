@@ -1,1 +1,1 @@
-{"title":"mojo.core.Timestamp","description":"","type":"object","properties":{"nanoseconds":{"type":"integer","format":"int32"},"seconds":{"type":"integer","format":"int64"}}}
+{"title":"mojo.core.Timestamp","description":"","type":"string","format":"Timestamp"}

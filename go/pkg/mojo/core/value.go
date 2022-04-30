@@ -259,7 +259,7 @@ func (x *Value) ToInterface() interface{} {
         }
     case *Value_ObjectVal:
         if v != nil {
-            return v.ObjectVal.ToMap()
+            return v.ObjectVal.ToMapInterface()
         }
     case *Value_ValuesVal:
         if v != nil {

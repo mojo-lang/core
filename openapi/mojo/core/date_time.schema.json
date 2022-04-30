@@ -1,1 +1,1 @@
-{"title":"mojo.core.DateTime","description":"","type":"object","properties":{"day":{"type":"integer","format":"int32"},"hour":{"type":"integer","format":"int32"},"minute":{"type":"integer","format":"int32"},"month":{"type":"integer","format":"int32"},"nanoseconds":{"type":"integer","format":"int32"},"seconds":{"type":"integer","format":"int64"},"timeZone":{"$ref":"#/components/schemas/mojo.core.TimeZone"},"year":{"type":"integer","format":"int32"}}}
+{"title":"mojo.core.DateTime","description":"","type":"string","format":"DateTime"}

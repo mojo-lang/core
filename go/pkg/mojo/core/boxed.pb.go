@@ -22,53 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type BoxedBool struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val bool `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedBool) Reset() {
-	*x = BoxedBool{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedBool) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedBool) ProtoMessage() {}
-
-func (x *BoxedBool) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedBool.ProtoReflect.Descriptor instead.
-func (*BoxedBool) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *BoxedBool) GetVal() bool {
-	if x != nil {
-		return x.Val
-	}
-	return false
-}
-
 type BoolValue struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -80,7 +33,7 @@ type BoolValue struct {
 func (x *BoolValue) Reset() {
 	*x = BoolValue{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[1]
+		mi := &file_mojo_core_boxed_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -93,7 +46,7 @@ func (x *BoolValue) String() string {
 func (*BoolValue) ProtoMessage() {}
 
 func (x *BoolValue) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[1]
+	mi := &file_mojo_core_boxed_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -106,7 +59,7 @@ func (x *BoolValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BoolValue.ProtoReflect.Descriptor instead.
 func (*BoolValue) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{1}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *BoolValue) GetVal() bool {
@@ -114,53 +67,6 @@ func (x *BoolValue) GetVal() bool {
 		return x.Val
 	}
 	return false
-}
-
-type BoxedInt32 struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val int32 `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedInt32) Reset() {
-	*x = BoxedInt32{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedInt32) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedInt32) ProtoMessage() {}
-
-func (x *BoxedInt32) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedInt32.ProtoReflect.Descriptor instead.
-func (*BoxedInt32) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *BoxedInt32) GetVal() int32 {
-	if x != nil {
-		return x.Val
-	}
-	return 0
 }
 
 type Int32Value struct {
@@ -174,7 +80,7 @@ type Int32Value struct {
 func (x *Int32Value) Reset() {
 	*x = Int32Value{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[3]
+		mi := &file_mojo_core_boxed_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -187,7 +93,7 @@ func (x *Int32Value) String() string {
 func (*Int32Value) ProtoMessage() {}
 
 func (x *Int32Value) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[3]
+	mi := &file_mojo_core_boxed_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -200,57 +106,10 @@ func (x *Int32Value) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Int32Value.ProtoReflect.Descriptor instead.
 func (*Int32Value) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{3}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Int32Value) GetVal() int32 {
-	if x != nil {
-		return x.Val
-	}
-	return 0
-}
-
-type BoxedUInt32 struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val uint32 `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedUInt32) Reset() {
-	*x = BoxedUInt32{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedUInt32) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedUInt32) ProtoMessage() {}
-
-func (x *BoxedUInt32) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedUInt32.ProtoReflect.Descriptor instead.
-func (*BoxedUInt32) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *BoxedUInt32) GetVal() uint32 {
 	if x != nil {
 		return x.Val
 	}
@@ -268,7 +127,7 @@ type UInt32Value struct {
 func (x *UInt32Value) Reset() {
 	*x = UInt32Value{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[5]
+		mi := &file_mojo_core_boxed_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -281,7 +140,7 @@ func (x *UInt32Value) String() string {
 func (*UInt32Value) ProtoMessage() {}
 
 func (x *UInt32Value) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[5]
+	mi := &file_mojo_core_boxed_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -294,57 +153,10 @@ func (x *UInt32Value) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UInt32Value.ProtoReflect.Descriptor instead.
 func (*UInt32Value) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{5}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *UInt32Value) GetVal() uint32 {
-	if x != nil {
-		return x.Val
-	}
-	return 0
-}
-
-type BoxedInt64 struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val int64 `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedInt64) Reset() {
-	*x = BoxedInt64{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedInt64) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedInt64) ProtoMessage() {}
-
-func (x *BoxedInt64) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedInt64.ProtoReflect.Descriptor instead.
-func (*BoxedInt64) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *BoxedInt64) GetVal() int64 {
 	if x != nil {
 		return x.Val
 	}
@@ -362,7 +174,7 @@ type Int64Value struct {
 func (x *Int64Value) Reset() {
 	*x = Int64Value{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[7]
+		mi := &file_mojo_core_boxed_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -375,7 +187,7 @@ func (x *Int64Value) String() string {
 func (*Int64Value) ProtoMessage() {}
 
 func (x *Int64Value) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[7]
+	mi := &file_mojo_core_boxed_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -388,57 +200,10 @@ func (x *Int64Value) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Int64Value.ProtoReflect.Descriptor instead.
 func (*Int64Value) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{7}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Int64Value) GetVal() int64 {
-	if x != nil {
-		return x.Val
-	}
-	return 0
-}
-
-type BoxedUInt64 struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val uint64 `protobuf:"varint,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedUInt64) Reset() {
-	*x = BoxedUInt64{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedUInt64) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedUInt64) ProtoMessage() {}
-
-func (x *BoxedUInt64) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedUInt64.ProtoReflect.Descriptor instead.
-func (*BoxedUInt64) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *BoxedUInt64) GetVal() uint64 {
 	if x != nil {
 		return x.Val
 	}
@@ -456,7 +221,7 @@ type UInt64Value struct {
 func (x *UInt64Value) Reset() {
 	*x = UInt64Value{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[9]
+		mi := &file_mojo_core_boxed_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -469,7 +234,7 @@ func (x *UInt64Value) String() string {
 func (*UInt64Value) ProtoMessage() {}
 
 func (x *UInt64Value) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[9]
+	mi := &file_mojo_core_boxed_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,57 +247,10 @@ func (x *UInt64Value) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UInt64Value.ProtoReflect.Descriptor instead.
 func (*UInt64Value) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{9}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UInt64Value) GetVal() uint64 {
-	if x != nil {
-		return x.Val
-	}
-	return 0
-}
-
-type BoxedFloat struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val float32 `protobuf:"fixed32,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedFloat) Reset() {
-	*x = BoxedFloat{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedFloat) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedFloat) ProtoMessage() {}
-
-func (x *BoxedFloat) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedFloat.ProtoReflect.Descriptor instead.
-func (*BoxedFloat) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *BoxedFloat) GetVal() float32 {
 	if x != nil {
 		return x.Val
 	}
@@ -550,7 +268,7 @@ type Float32Value struct {
 func (x *Float32Value) Reset() {
 	*x = Float32Value{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[11]
+		mi := &file_mojo_core_boxed_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -563,7 +281,7 @@ func (x *Float32Value) String() string {
 func (*Float32Value) ProtoMessage() {}
 
 func (x *Float32Value) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[11]
+	mi := &file_mojo_core_boxed_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -576,57 +294,10 @@ func (x *Float32Value) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Float32Value.ProtoReflect.Descriptor instead.
 func (*Float32Value) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{11}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Float32Value) GetVal() float32 {
-	if x != nil {
-		return x.Val
-	}
-	return 0
-}
-
-type BoxedDouble struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val float64 `protobuf:"fixed64,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedDouble) Reset() {
-	*x = BoxedDouble{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[12]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedDouble) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedDouble) ProtoMessage() {}
-
-func (x *BoxedDouble) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[12]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedDouble.ProtoReflect.Descriptor instead.
-func (*BoxedDouble) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *BoxedDouble) GetVal() float64 {
 	if x != nil {
 		return x.Val
 	}
@@ -644,7 +315,7 @@ type Float64Value struct {
 func (x *Float64Value) Reset() {
 	*x = Float64Value{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[13]
+		mi := &file_mojo_core_boxed_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -657,7 +328,7 @@ func (x *Float64Value) String() string {
 func (*Float64Value) ProtoMessage() {}
 
 func (x *Float64Value) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[13]
+	mi := &file_mojo_core_boxed_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -670,7 +341,7 @@ func (x *Float64Value) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Float64Value.ProtoReflect.Descriptor instead.
 func (*Float64Value) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{13}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Float64Value) GetVal() float64 {
@@ -678,53 +349,6 @@ func (x *Float64Value) GetVal() float64 {
 		return x.Val
 	}
 	return 0
-}
-
-type BoxedString struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val string `protobuf:"bytes,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedString) Reset() {
-	*x = BoxedString{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[14]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedString) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedString) ProtoMessage() {}
-
-func (x *BoxedString) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[14]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedString.ProtoReflect.Descriptor instead.
-func (*BoxedString) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *BoxedString) GetVal() string {
-	if x != nil {
-		return x.Val
-	}
-	return ""
 }
 
 type StringValue struct {
@@ -738,7 +362,7 @@ type StringValue struct {
 func (x *StringValue) Reset() {
 	*x = StringValue{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[15]
+		mi := &file_mojo_core_boxed_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -751,7 +375,7 @@ func (x *StringValue) String() string {
 func (*StringValue) ProtoMessage() {}
 
 func (x *StringValue) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[15]
+	mi := &file_mojo_core_boxed_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -764,7 +388,7 @@ func (x *StringValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StringValue.ProtoReflect.Descriptor instead.
 func (*StringValue) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{15}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *StringValue) GetVal() string {
@@ -772,53 +396,6 @@ func (x *StringValue) GetVal() string {
 		return x.Val
 	}
 	return ""
-}
-
-type BoxedBytes struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Val []byte `protobuf:"bytes,1,opt,name=val,proto3" json:"val,omitempty"`
-}
-
-func (x *BoxedBytes) Reset() {
-	*x = BoxedBytes{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[16]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BoxedBytes) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BoxedBytes) ProtoMessage() {}
-
-func (x *BoxedBytes) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[16]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BoxedBytes.ProtoReflect.Descriptor instead.
-func (*BoxedBytes) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *BoxedBytes) GetVal() []byte {
-	if x != nil {
-		return x.Val
-	}
-	return nil
 }
 
 type BytesValue struct {
@@ -832,7 +409,7 @@ type BytesValue struct {
 func (x *BytesValue) Reset() {
 	*x = BytesValue{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[17]
+		mi := &file_mojo_core_boxed_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -845,7 +422,7 @@ func (x *BytesValue) String() string {
 func (*BytesValue) ProtoMessage() {}
 
 func (x *BytesValue) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[17]
+	mi := &file_mojo_core_boxed_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -858,7 +435,7 @@ func (x *BytesValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BytesValue.ProtoReflect.Descriptor instead.
 func (*BytesValue) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{17}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *BytesValue) GetVal() []byte {
@@ -879,7 +456,7 @@ type BoolValues struct {
 func (x *BoolValues) Reset() {
 	*x = BoolValues{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[18]
+		mi := &file_mojo_core_boxed_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -892,7 +469,7 @@ func (x *BoolValues) String() string {
 func (*BoolValues) ProtoMessage() {}
 
 func (x *BoolValues) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[18]
+	mi := &file_mojo_core_boxed_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -905,7 +482,7 @@ func (x *BoolValues) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BoolValues.ProtoReflect.Descriptor instead.
 func (*BoolValues) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{18}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *BoolValues) GetVals() []bool {
@@ -926,7 +503,7 @@ type Int32Values struct {
 func (x *Int32Values) Reset() {
 	*x = Int32Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[19]
+		mi := &file_mojo_core_boxed_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -939,7 +516,7 @@ func (x *Int32Values) String() string {
 func (*Int32Values) ProtoMessage() {}
 
 func (x *Int32Values) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[19]
+	mi := &file_mojo_core_boxed_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -952,7 +529,7 @@ func (x *Int32Values) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Int32Values.ProtoReflect.Descriptor instead.
 func (*Int32Values) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{19}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Int32Values) GetVals() []int32 {
@@ -973,7 +550,7 @@ type UInt32Values struct {
 func (x *UInt32Values) Reset() {
 	*x = UInt32Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[20]
+		mi := &file_mojo_core_boxed_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -986,7 +563,7 @@ func (x *UInt32Values) String() string {
 func (*UInt32Values) ProtoMessage() {}
 
 func (x *UInt32Values) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[20]
+	mi := &file_mojo_core_boxed_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -999,7 +576,7 @@ func (x *UInt32Values) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UInt32Values.ProtoReflect.Descriptor instead.
 func (*UInt32Values) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{20}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *UInt32Values) GetVals() []uint32 {
@@ -1020,7 +597,7 @@ type Int64Values struct {
 func (x *Int64Values) Reset() {
 	*x = Int64Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[21]
+		mi := &file_mojo_core_boxed_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1033,7 +610,7 @@ func (x *Int64Values) String() string {
 func (*Int64Values) ProtoMessage() {}
 
 func (x *Int64Values) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[21]
+	mi := &file_mojo_core_boxed_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1046,7 +623,7 @@ func (x *Int64Values) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Int64Values.ProtoReflect.Descriptor instead.
 func (*Int64Values) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{21}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *Int64Values) GetVals() []int64 {
@@ -1067,7 +644,7 @@ type UInt64Values struct {
 func (x *UInt64Values) Reset() {
 	*x = UInt64Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[22]
+		mi := &file_mojo_core_boxed_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1080,7 +657,7 @@ func (x *UInt64Values) String() string {
 func (*UInt64Values) ProtoMessage() {}
 
 func (x *UInt64Values) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[22]
+	mi := &file_mojo_core_boxed_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1093,7 +670,7 @@ func (x *UInt64Values) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UInt64Values.ProtoReflect.Descriptor instead.
 func (*UInt64Values) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{22}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UInt64Values) GetVals() []uint64 {
@@ -1114,7 +691,7 @@ type Float32Values struct {
 func (x *Float32Values) Reset() {
 	*x = Float32Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[23]
+		mi := &file_mojo_core_boxed_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1127,7 +704,7 @@ func (x *Float32Values) String() string {
 func (*Float32Values) ProtoMessage() {}
 
 func (x *Float32Values) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[23]
+	mi := &file_mojo_core_boxed_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1140,7 +717,7 @@ func (x *Float32Values) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Float32Values.ProtoReflect.Descriptor instead.
 func (*Float32Values) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{23}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Float32Values) GetVals() []float32 {
@@ -1161,7 +738,7 @@ type Float64Values struct {
 func (x *Float64Values) Reset() {
 	*x = Float64Values{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[24]
+		mi := &file_mojo_core_boxed_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1174,7 +751,7 @@ func (x *Float64Values) String() string {
 func (*Float64Values) ProtoMessage() {}
 
 func (x *Float64Values) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[24]
+	mi := &file_mojo_core_boxed_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1187,7 +764,7 @@ func (x *Float64Values) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Float64Values.ProtoReflect.Descriptor instead.
 func (*Float64Values) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{24}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *Float64Values) GetVals() []float64 {
@@ -1208,7 +785,7 @@ type StringValues struct {
 func (x *StringValues) Reset() {
 	*x = StringValues{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mojo_core_boxed_proto_msgTypes[25]
+		mi := &file_mojo_core_boxed_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1221,7 +798,7 @@ func (x *StringValues) String() string {
 func (*StringValues) ProtoMessage() {}
 
 func (x *StringValues) ProtoReflect() protoreflect.Message {
-	mi := &file_mojo_core_boxed_proto_msgTypes[25]
+	mi := &file_mojo_core_boxed_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1234,7 +811,7 @@ func (x *StringValues) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StringValues.ProtoReflect.Descriptor instead.
 func (*StringValues) Descriptor() ([]byte, []int) {
-	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{25}
+	return file_mojo_core_boxed_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *StringValues) GetVals() []string {
@@ -1249,67 +826,49 @@ var File_mojo_core_boxed_proto protoreflect.FileDescriptor
 var file_mojo_core_boxed_proto_rawDesc = []byte{
 	0x0a, 0x15, 0x6d, 0x6f, 0x6a, 0x6f, 0x2f, 0x63, 0x6f, 0x72, 0x65, 0x2f, 0x62, 0x6f, 0x78, 0x65,
 	0x64, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x6d, 0x6f, 0x6a, 0x6f, 0x2e, 0x63, 0x6f,
-	0x72, 0x65, 0x22, 0x1d, 0x0a, 0x09, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x42, 0x6f, 0x6f, 0x6c, 0x12,
+	0x72, 0x65, 0x22, 0x1d, 0x0a, 0x09, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12,
 	0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x03, 0x76, 0x61,
-	0x6c, 0x22, 0x1d, 0x0a, 0x09, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10,
-	0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x03, 0x76, 0x61, 0x6c,
-	0x22, 0x1e, 0x0a, 0x0a, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x12, 0x10,
-	0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x76, 0x61, 0x6c,
-	0x22, 0x1e, 0x0a, 0x0a, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10,
-	0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x76, 0x61, 0x6c,
-	0x22, 0x1f, 0x0a, 0x0b, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x55, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x12,
-	0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x76, 0x61,
+	0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12,
+	0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x76, 0x61,
 	0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x55, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65,
 	0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x03, 0x76,
-	0x61, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x49, 0x6e, 0x74, 0x36, 0x34,
-	0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x03, 0x76,
 	0x61, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c, 0x75, 0x65,
 	0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x03, 0x76,
-	0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x55, 0x49, 0x6e, 0x74, 0x36,
-	0x34, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x03,
-	0x76, 0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x55, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c,
-	0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
-	0x03, 0x76, 0x61, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x46, 0x6c, 0x6f,
-	0x61, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x02, 0x52,
-	0x03, 0x76, 0x61, 0x6c, 0x22, 0x20, 0x0a, 0x0c, 0x46, 0x6c, 0x6f, 0x61, 0x74, 0x33, 0x32, 0x56,
-	0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x02, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x44,
-	0x6f, 0x75, 0x62, 0x6c, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x01, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x20, 0x0a, 0x0c, 0x46, 0x6c, 0x6f, 0x61, 0x74,
-	0x36, 0x34, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x01, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x42, 0x6f, 0x78,
-	0x65, 0x64, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x53, 0x74,
-	0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x42,
-	0x6f, 0x78, 0x65, 0x64, 0x42, 0x79, 0x74, 0x65, 0x73, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x42,
-	0x79, 0x74, 0x65, 0x73, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x20, 0x0a, 0x0a, 0x42,
-	0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c,
-	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x08, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x21, 0x0a,
-	0x0b, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04,
-	0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x05, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73,
-	0x22, 0x22, 0x0a, 0x0c, 0x55, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73,
-	0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0d, 0x52, 0x04,
-	0x76, 0x61, 0x6c, 0x73, 0x22, 0x21, 0x0a, 0x0b, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c,
-	0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
-	0x03, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x22, 0x0a, 0x0c, 0x55, 0x49, 0x6e, 0x74, 0x36,
-	0x34, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18,
-	0x01, 0x20, 0x03, 0x28, 0x04, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x23, 0x0a, 0x0d, 0x46,
-	0x6c, 0x6f, 0x61, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04,
-	0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x02, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73,
-	0x22, 0x23, 0x0a, 0x0d, 0x46, 0x6c, 0x6f, 0x61, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c, 0x75, 0x65,
-	0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x01, 0x52,
-	0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x22, 0x0a, 0x0c, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56,
-	0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20,
-	0x03, 0x28, 0x09, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x42, 0x57, 0x0a, 0x16, 0x6f, 0x72, 0x67,
-	0x2e, 0x6d, 0x6f, 0x6a, 0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2e, 0x6d, 0x6f, 0x6a, 0x6f, 0x2e, 0x63,
-	0x6f, 0x72, 0x65, 0x42, 0x0a, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50,
-	0x01, 0x5a, 0x2f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6d, 0x6f,
-	0x6a, 0x6f, 0x2d, 0x6c, 0x61, 0x6e, 0x67, 0x2f, 0x63, 0x6f, 0x72, 0x65, 0x2f, 0x67, 0x6f, 0x2f,
-	0x70, 0x6b, 0x67, 0x2f, 0x6d, 0x6f, 0x6a, 0x6f, 0x2f, 0x63, 0x6f, 0x72, 0x65, 0x3b, 0x63, 0x6f,
-	0x72, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x55, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c, 0x75,
+	0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x03,
+	0x76, 0x61, 0x6c, 0x22, 0x20, 0x0a, 0x0c, 0x46, 0x6c, 0x6f, 0x61, 0x74, 0x33, 0x32, 0x56, 0x61,
+	0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x02,
+	0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x20, 0x0a, 0x0c, 0x46, 0x6c, 0x6f, 0x61, 0x74, 0x36, 0x34,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x01, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1f, 0x0a, 0x0b, 0x53, 0x74, 0x72, 0x69, 0x6e,
+	0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x42, 0x79, 0x74, 0x65,
+	0x73, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x76, 0x61, 0x6c, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0c, 0x52, 0x03, 0x76, 0x61, 0x6c, 0x22, 0x20, 0x0a, 0x0a, 0x42, 0x6f, 0x6f, 0x6c,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x08, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x21, 0x0a, 0x0b, 0x49, 0x6e,
+	0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x05, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x22, 0x0a,
+	0x0c, 0x55, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a,
+	0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0d, 0x52, 0x04, 0x76, 0x61, 0x6c,
+	0x73, 0x22, 0x21, 0x0a, 0x0b, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73,
+	0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x03, 0x52, 0x04,
+	0x76, 0x61, 0x6c, 0x73, 0x22, 0x22, 0x0a, 0x0c, 0x55, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61,
+	0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x04, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x23, 0x0a, 0x0d, 0x46, 0x6c, 0x6f, 0x61,
+	0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x02, 0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x22, 0x23, 0x0a,
+	0x0d, 0x46, 0x6c, 0x6f, 0x61, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x12,
+	0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x01, 0x52, 0x04, 0x76, 0x61,
+	0x6c, 0x73, 0x22, 0x22, 0x0a, 0x0c, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75,
+	0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09,
+	0x52, 0x04, 0x76, 0x61, 0x6c, 0x73, 0x42, 0x57, 0x0a, 0x16, 0x6f, 0x72, 0x67, 0x2e, 0x6d, 0x6f,
+	0x6a, 0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2e, 0x6d, 0x6f, 0x6a, 0x6f, 0x2e, 0x63, 0x6f, 0x72, 0x65,
+	0x42, 0x0a, 0x42, 0x6f, 0x78, 0x65, 0x64, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x2f,
+	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6d, 0x6f, 0x6a, 0x6f, 0x2d,
+	0x6c, 0x61, 0x6e, 0x67, 0x2f, 0x63, 0x6f, 0x72, 0x65, 0x2f, 0x67, 0x6f, 0x2f, 0x70, 0x6b, 0x67,
+	0x2f, 0x6d, 0x6f, 0x6a, 0x6f, 0x2f, 0x63, 0x6f, 0x72, 0x65, 0x3b, 0x63, 0x6f, 0x72, 0x65, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1324,34 +883,25 @@ func file_mojo_core_boxed_proto_rawDescGZIP() []byte {
 	return file_mojo_core_boxed_proto_rawDescData
 }
 
-var file_mojo_core_boxed_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_mojo_core_boxed_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_mojo_core_boxed_proto_goTypes = []interface{}{
-	(*BoxedBool)(nil),     // 0: mojo.core.BoxedBool
-	(*BoolValue)(nil),     // 1: mojo.core.BoolValue
-	(*BoxedInt32)(nil),    // 2: mojo.core.BoxedInt32
-	(*Int32Value)(nil),    // 3: mojo.core.Int32Value
-	(*BoxedUInt32)(nil),   // 4: mojo.core.BoxedUInt32
-	(*UInt32Value)(nil),   // 5: mojo.core.UInt32Value
-	(*BoxedInt64)(nil),    // 6: mojo.core.BoxedInt64
-	(*Int64Value)(nil),    // 7: mojo.core.Int64Value
-	(*BoxedUInt64)(nil),   // 8: mojo.core.BoxedUInt64
-	(*UInt64Value)(nil),   // 9: mojo.core.UInt64Value
-	(*BoxedFloat)(nil),    // 10: mojo.core.BoxedFloat
-	(*Float32Value)(nil),  // 11: mojo.core.Float32Value
-	(*BoxedDouble)(nil),   // 12: mojo.core.BoxedDouble
-	(*Float64Value)(nil),  // 13: mojo.core.Float64Value
-	(*BoxedString)(nil),   // 14: mojo.core.BoxedString
-	(*StringValue)(nil),   // 15: mojo.core.StringValue
-	(*BoxedBytes)(nil),    // 16: mojo.core.BoxedBytes
-	(*BytesValue)(nil),    // 17: mojo.core.BytesValue
-	(*BoolValues)(nil),    // 18: mojo.core.BoolValues
-	(*Int32Values)(nil),   // 19: mojo.core.Int32Values
-	(*UInt32Values)(nil),  // 20: mojo.core.UInt32Values
-	(*Int64Values)(nil),   // 21: mojo.core.Int64Values
-	(*UInt64Values)(nil),  // 22: mojo.core.UInt64Values
-	(*Float32Values)(nil), // 23: mojo.core.Float32Values
-	(*Float64Values)(nil), // 24: mojo.core.Float64Values
-	(*StringValues)(nil),  // 25: mojo.core.StringValues
+	(*BoolValue)(nil),     // 0: mojo.core.BoolValue
+	(*Int32Value)(nil),    // 1: mojo.core.Int32Value
+	(*UInt32Value)(nil),   // 2: mojo.core.UInt32Value
+	(*Int64Value)(nil),    // 3: mojo.core.Int64Value
+	(*UInt64Value)(nil),   // 4: mojo.core.UInt64Value
+	(*Float32Value)(nil),  // 5: mojo.core.Float32Value
+	(*Float64Value)(nil),  // 6: mojo.core.Float64Value
+	(*StringValue)(nil),   // 7: mojo.core.StringValue
+	(*BytesValue)(nil),    // 8: mojo.core.BytesValue
+	(*BoolValues)(nil),    // 9: mojo.core.BoolValues
+	(*Int32Values)(nil),   // 10: mojo.core.Int32Values
+	(*UInt32Values)(nil),  // 11: mojo.core.UInt32Values
+	(*Int64Values)(nil),   // 12: mojo.core.Int64Values
+	(*UInt64Values)(nil),  // 13: mojo.core.UInt64Values
+	(*Float32Values)(nil), // 14: mojo.core.Float32Values
+	(*Float64Values)(nil), // 15: mojo.core.Float64Values
+	(*StringValues)(nil),  // 16: mojo.core.StringValues
 }
 var file_mojo_core_boxed_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -1368,18 +918,6 @@ func file_mojo_core_boxed_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_mojo_core_boxed_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedBool); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BoolValue); i {
 			case 0:
 				return &v.state
@@ -1391,19 +929,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedInt32); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Int32Value); i {
 			case 0:
 				return &v.state
@@ -1415,19 +941,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedUInt32); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UInt32Value); i {
 			case 0:
 				return &v.state
@@ -1439,19 +953,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedInt64); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Int64Value); i {
 			case 0:
 				return &v.state
@@ -1463,19 +965,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedUInt64); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UInt64Value); i {
 			case 0:
 				return &v.state
@@ -1487,19 +977,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedFloat); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Float32Value); i {
 			case 0:
 				return &v.state
@@ -1511,19 +989,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedDouble); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Float64Value); i {
 			case 0:
 				return &v.state
@@ -1535,19 +1001,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedString); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StringValue); i {
 			case 0:
 				return &v.state
@@ -1559,19 +1013,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BoxedBytes); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mojo_core_boxed_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BytesValue); i {
 			case 0:
 				return &v.state
@@ -1583,7 +1025,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BoolValues); i {
 			case 0:
 				return &v.state
@@ -1595,7 +1037,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Int32Values); i {
 			case 0:
 				return &v.state
@@ -1607,7 +1049,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UInt32Values); i {
 			case 0:
 				return &v.state
@@ -1619,7 +1061,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Int64Values); i {
 			case 0:
 				return &v.state
@@ -1631,7 +1073,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UInt64Values); i {
 			case 0:
 				return &v.state
@@ -1643,7 +1085,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Float32Values); i {
 			case 0:
 				return &v.state
@@ -1655,7 +1097,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Float64Values); i {
 			case 0:
 				return &v.state
@@ -1667,7 +1109,7 @@ func file_mojo_core_boxed_proto_init() {
 				return nil
 			}
 		}
-		file_mojo_core_boxed_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+		file_mojo_core_boxed_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StringValues); i {
 			case 0:
 				return &v.state
@@ -1686,7 +1128,7 @@ func file_mojo_core_boxed_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_mojo_core_boxed_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

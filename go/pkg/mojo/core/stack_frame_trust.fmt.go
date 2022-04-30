@@ -50,6 +50,10 @@ func (x StackFrame_Trust) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x StackFrame_Trust) ToString() string {
+	return x.Format()
+}
+
 func (x *StackFrame_Trust) Parse(value string) error {
 	if x != nil {
 		s, ok := StackFrameTrustValues[value]

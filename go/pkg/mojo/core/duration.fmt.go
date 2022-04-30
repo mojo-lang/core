@@ -2,8 +2,15 @@ package core
 
 import "time"
 
-func (x Duration) Format() string {
-    return x.ToDuration().String()
+func (x *Duration) Format() string {
+    if x != nil {
+        return x.ToDuration().String()
+    }
+    return ""
+}
+
+func (x *Duration) ToString() string {
+    return x.Format()
 }
 
 func ParseDuration(value string) (*Duration, error) {

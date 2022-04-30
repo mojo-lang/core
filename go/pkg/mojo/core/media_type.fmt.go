@@ -50,3 +50,7 @@ func (x *MediaType) Format() string {
     }
     return ""
 }
+
+func (x *MediaType) ToString() string {
+    return x.Format()
+}

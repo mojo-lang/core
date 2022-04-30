@@ -1,11 +1,10 @@
-| 类型 | 说明 |
-|---|---|
-| `array` | Values |
-| `Object` | Object |
-| `null` |  |
-| `boolean` |  |
-| `number` | mojo.core.Positive |
-| `number` | mojo.core.Negative |
-| `number` | Float64 |
-| `string` |  |
-| `string` |  |
+| type | format | description |
+|---|---|---|
+| `null` |  |  |
+| `boolean` |  |  |
+| `string` |  |  |
+| `string` | `Bytes` | the format is: `b64.{base64 encoded bytes}` |
+| `integer` | `Int64` |  |
+| `number` | `Float64` |  |
+| `mojo.core.Object` |  |  |
+| `array` |  |  |

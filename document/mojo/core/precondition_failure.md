@@ -1,3 +1,3 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `violations` | `Array<mojo.core.PreconditionFailure.Violation>` |  | 否 |  | Describes all precondition violations. |
+| `violations` | `Array<mojo.core.PreconditionFailure.Violation>` |  | N |  | Describes all precondition violations. |
