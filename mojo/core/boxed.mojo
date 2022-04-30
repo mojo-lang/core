@@ -24,20 +24,8 @@ type AssocValues<T> = {String: T}
 
 /// Wrapper type for `Bool`
 ///
-/// The JSON representation for `BoxedBool` is JSON boolean.
-@deprecated
-type BoxedBool = Boxed<Bool>
-
-/// Wrapper type for `Bool`
-///
 /// The JSON representation for `BoolValue` is JSON boolean.
 type BoolValue = Boxed<Bool>
-
-/// Wrapper type for `Int32`
-///
-/// The JSON representation for `BoxedInt32` is JSON number.
-@deprecated
-type BoxedInt32 = Boxed<Int32>
 
 /// Wrapper type for `Int32`
 ///
@@ -46,20 +34,8 @@ type Int32Value = Boxed<Int32>
 
 /// Wrapper type for `UInt32`
 ///
-/// The JSON representation for `BoxedUInt32` is JSON number.
-@deprecated
-type BoxedUInt32 = Boxed<UInt32>
-
-/// Wrapper type for `UInt32`
-///
 /// The JSON representation for `UInt32Value` is JSON number.
 type UInt32Value = Boxed<UInt32>
-
-/// Wrapper type for `Int64`
-///
-/// The JSON representation for `BoxedInt64` is JSON number.
-@deprecated
-type BoxedInt64 = Boxed<Int64>
 
 /// Wrapper type for `Int64`
 ///
@@ -68,20 +44,8 @@ type Int64Value = Boxed<Int64>
 
 /// Wrapper type for `UInt64`
 ///
-/// The JSON representation for `BoxedUInt64` is JSON number.
-@deprecated
-type BoxedUInt64 = Boxed<UInt64>
-
-/// Wrapper type for `UInt64`
-///
 /// The JSON representation for `UInt64Value` is JSON number.
 type UInt64Value = Boxed<UInt64>
-
-/// Wrapper type for `Float`
-///
-/// The JSON representation for `BoxedFloat` is JSON number.
-@deprecated
-type BoxedFloat = Boxed<Float>
 
 /// Wrapper type for `Float32`
 ///
@@ -95,12 +59,6 @@ type FloatValue = Float32Value
 
 /// Wrapper type for `Double`
 ///
-/// The JSON representation for `BoxedDouble` is JSON number.
-@deprecated
-type BoxedDouble = Boxed<Double>
-
-/// Wrapper type for `Double`
-///
 /// The JSON representation for `DoubleValue` is JSON number.
 type Float64Value = Boxed<Float64>
 
@@ -111,20 +69,8 @@ type DoubleValue = Float64Value
 
 /// Wrapper type for `String`
 ///
-/// The JSON representation for `BoxedString` is JSON string.
-@deprecated
-type BoxedString = Boxed<String>
-
-/// Wrapper type for `String`
-///
 /// The JSON representation for `StringValue` is JSON string.
 type StringValue = Boxed<String>
-
-/// Wrapper type for `Bytes`
-///
-/// The JSON representation for `BoxedBytes` is JSON string.
-@deprecated
-type BoxedBytes = Boxed<Bytes>
 
 /// Wrapper type for `Bytes`
 ///
@@ -185,12 +131,6 @@ type Float64Values: [Float64]
 ///
 /// The JSON representation for `DoubleValues` is JSON number array.
 type DoubleValues = Float64Values
-
-/// Wrapper type for `Array<String>`
-///
-/// The JSON representation for `Strings` is JSON string array.
-//@deprecated
-//type Strings: [String]
 
 /// Wrapper type for `Array<String>`
 ///

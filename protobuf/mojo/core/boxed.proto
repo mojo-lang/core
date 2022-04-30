@@ -9,72 +9,36 @@ option java_multiple_files = true;
 option java_outer_classname = "BoxedProto";
 option java_package = "org.mojolang.mojo.core";
 
-message BoxedBool {
-    bool val = 1;
-}
-
 message BoolValue {
     bool val = 1;
-}
-
-message BoxedInt32 {
-    int32 val = 1;
 }
 
 message Int32Value {
     int32 val = 1;
 }
 
-message BoxedUInt32 {
-    uint32 val = 1;
-}
-
 message UInt32Value {
     uint32 val = 1;
-}
-
-message BoxedInt64 {
-    int64 val = 1;
 }
 
 message Int64Value {
     int64 val = 1;
 }
 
-message BoxedUInt64 {
-    uint64 val = 1;
-}
-
 message UInt64Value {
     uint64 val = 1;
-}
-
-message BoxedFloat {
-    float val = 1;
 }
 
 message Float32Value {
     float val = 1;
 }
 
-message BoxedDouble {
-    double val = 1;
-}
-
 message Float64Value {
     double val = 1;
 }
 
-message BoxedString {
-    string val = 1;
-}
-
 message StringValue {
     string val = 1;
-}
-
-message BoxedBytes {
-    bytes val = 1;
 }
 
 message BytesValue {
