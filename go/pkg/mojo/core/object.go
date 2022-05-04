@@ -76,6 +76,13 @@ func (x *Object) From(value interface{}) error {
     return nil
 }
 
+func (x *Object) IsEmpty() bool {
+    if x != nil {
+        return len(x.Vals) == 0
+    }
+    return true
+}
+
 func (x *Object) GetValue(key string) *Value {
     if x != nil && x.Vals != nil {
         return x.Vals[key]
@@ -267,6 +274,13 @@ func (x *Object) SetObjectArray(key string, vals ...*Object) *Object {
     if x != nil {
         x.init()
         x.Vals[key] = NewObjectArrayValue(vals...)
+    }
+    return x
+}
+
+func (x *Object) Delete(key string) *Object {
+    if x != nil && len(x.Vals) > 0 {
+        delete(x.Vals, key)
     }
     return x
 }

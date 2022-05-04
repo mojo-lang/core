@@ -34,3 +34,9 @@ func TestObject_To(t *testing.T) {
     assert.Equal(t, "test", image.Title)
     assert.Equal(t, int32(1234), image.Properties["p1"].GetInt32())
 }
+
+func TestObject_Delete(t *testing.T) {
+    obj := NewObject().SetString("title", "test")
+    obj.Delete("title")
+    assert.True(t, obj.IsEmpty())
+}
