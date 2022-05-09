@@ -28,3 +28,10 @@ func (x *StringValues) ToArray() interface{} {
     }
     return []string{}
 }
+
+func (x *StringValues) Append(val string) *StringValues {
+    if x != nil {
+        x.Vals = append(x.Vals, val)
+    }
+    return x
+}

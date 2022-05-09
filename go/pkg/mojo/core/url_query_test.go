@@ -252,3 +252,13 @@ func TestUrl_Query_splitQuotedString(t *testing.T) {
     assert.Equal(t, `"y"`, vals[1])
     assert.Equal(t, `"z,x"`, vals[2])
 }
+
+func TestUrl_Query_Format(t *testing.T) {
+    query := &Url_Query{Vals: map[string]*StringValues{
+        "foo": NewStringValues("bar1", "bar2"),
+        "zar": NewStringValues("bar"),
+    }}
+
+    str := query.Format()
+    assert.True(t, "foo=bar1&foo=bar2&zar=bar" == str || "zar=bar&foo=bar1&foo=bar2" == str)
+}

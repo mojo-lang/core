@@ -93,6 +93,30 @@ func (x *Url_Query) Del(key string) {
     }
 }
 
+func (x *Url_Query) Format() string {
+    if x != nil {
+        sb := &strings.Builder{}
+        first := true
+        for k, vals := range x.Vals {
+            if vals != nil {
+                for _, v := range vals.Vals {
+                    if !first {
+                        sb.WriteString("&")
+                    } else {
+                        first = false
+                    }
+
+                    sb.WriteString(k)
+                    sb.WriteString("=")
+                    sb.WriteString(v)
+                }
+            }
+        }
+        return sb.String()
+    }
+    return ""
+}
+
 // Unmarshal
 // list type
 //      foo=bar&foo=baz
