@@ -38,10 +38,10 @@ public interface DateTimeOrBuilder extends
   int getMinute();
 
   /**
-   * <code>int64 seconds = 6;</code>
+   * <code>int32 seconds = 6;</code>
    * @return The seconds.
    */
-  long getSeconds();
+  int getSeconds();
 
   /**
    * <code>int32 nanoseconds = 7;</code>

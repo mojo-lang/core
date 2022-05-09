@@ -75,7 +75,7 @@ private static final long serialVersionUID = 0L;
           }
           case 48: {
 
-            seconds_ = input.readInt64();
+            seconds_ = input.readInt32();
             break;
           }
           case 56: {
@@ -184,13 +184,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDS_FIELD_NUMBER = 6;
-  private long seconds_;
+  private int seconds_;
   /**
-   * <code>int64 seconds = 6;</code>
+   * <code>int32 seconds = 6;</code>
    * @return The seconds.
    */
   @java.lang.Override
-  public long getSeconds() {
+  public int getSeconds() {
     return seconds_;
   }
 
@@ -260,8 +260,8 @@ private static final long serialVersionUID = 0L;
     if (minute_ != 0) {
       output.writeInt32(5, minute_);
     }
-    if (seconds_ != 0L) {
-      output.writeInt64(6, seconds_);
+    if (seconds_ != 0) {
+      output.writeInt32(6, seconds_);
     }
     if (nanoseconds_ != 0) {
       output.writeInt32(7, nanoseconds_);
@@ -298,9 +298,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, minute_);
     }
-    if (seconds_ != 0L) {
+    if (seconds_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, seconds_);
+        .computeInt32Size(6, seconds_);
     }
     if (nanoseconds_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -366,8 +366,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MINUTE_FIELD_NUMBER;
     hash = (53 * hash) + getMinute();
     hash = (37 * hash) + SECONDS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSeconds());
+    hash = (53 * hash) + getSeconds();
     hash = (37 * hash) + NANOSECONDS_FIELD_NUMBER;
     hash = (53 * hash) + getNanoseconds();
     if (hasTimeZone()) {
@@ -517,7 +516,7 @@ private static final long serialVersionUID = 0L;
 
       minute_ = 0;
 
-      seconds_ = 0L;
+      seconds_ = 0;
 
       nanoseconds_ = 0;
 
@@ -628,7 +627,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMinute() != 0) {
         setMinute(other.getMinute());
       }
-      if (other.getSeconds() != 0L) {
+      if (other.getSeconds() != 0) {
         setSeconds(other.getSeconds());
       }
       if (other.getNanoseconds() != 0) {
@@ -821,33 +820,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long seconds_ ;
+    private int seconds_ ;
     /**
-     * <code>int64 seconds = 6;</code>
+     * <code>int32 seconds = 6;</code>
      * @return The seconds.
      */
     @java.lang.Override
-    public long getSeconds() {
+    public int getSeconds() {
       return seconds_;
     }
     /**
-     * <code>int64 seconds = 6;</code>
+     * <code>int32 seconds = 6;</code>
      * @param value The seconds to set.
      * @return This builder for chaining.
      */
-    public Builder setSeconds(long value) {
+    public Builder setSeconds(int value) {
       
       seconds_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 seconds = 6;</code>
+     * <code>int32 seconds = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearSeconds() {
       
-      seconds_ = 0L;
+      seconds_ = 0;
       onChanged();
       return this;
     }
