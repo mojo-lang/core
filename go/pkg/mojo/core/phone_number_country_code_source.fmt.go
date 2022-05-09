@@ -63,3 +63,11 @@ func (x *PhoneNumber_CountryCodeSource) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParsePhoneNumber_CountryCodeSource(value string) (PhoneNumber_CountryCodeSource, error) {
+	var v PhoneNumber_CountryCodeSource
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

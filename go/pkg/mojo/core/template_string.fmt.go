@@ -56,3 +56,7 @@ func (x *TemplateString) Format() string {
     }
     return ""
 }
+
+func (x *TemplateString) ToString() string {
+    return x.Format()
+}

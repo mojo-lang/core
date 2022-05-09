@@ -67,3 +67,11 @@ func (x *StackFrame_Trust) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseStackFrame_Trust(value string) (StackFrame_Trust, error) {
+	var v StackFrame_Trust
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

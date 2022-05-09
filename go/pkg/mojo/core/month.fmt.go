@@ -79,3 +79,11 @@ func (x *Month) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseMonth(value string) (Month, error) {
+	var v Month
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

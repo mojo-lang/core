@@ -65,3 +65,11 @@ func (x *Architecture) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseArchitecture(value string) (Architecture, error) {
+	var v Architecture
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

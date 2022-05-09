@@ -69,3 +69,11 @@ func (x *DayOfWeek) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseDayOfWeek(value string) (DayOfWeek, error) {
+	var v DayOfWeek
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

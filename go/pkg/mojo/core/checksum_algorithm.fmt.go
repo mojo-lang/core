@@ -63,3 +63,11 @@ func (x *Checksum_Algorithm) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseChecksum_Algorithm(value string) (Checksum_Algorithm, error) {
+	var v Checksum_Algorithm
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

@@ -57,3 +57,11 @@ func (x *File_Mode) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseFile_Mode(value string) (File_Mode, error) {
+	var v File_Mode
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

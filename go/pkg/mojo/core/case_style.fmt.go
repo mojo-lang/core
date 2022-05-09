@@ -67,3 +67,11 @@ func (x *CaseStyle) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseCaseStyle(value string) (CaseStyle, error) {
+	var v CaseStyle
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

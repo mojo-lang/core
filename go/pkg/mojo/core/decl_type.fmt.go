@@ -69,3 +69,11 @@ func (x *DeclType) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseDeclType(value string) (DeclType, error) {
+	var v DeclType
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}
