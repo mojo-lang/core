@@ -21,3 +21,18 @@ type Values : [Value]
 /// Value type
 @disable_generate({"go": ["json"], "java": ["json"]})
 type Value = Values @1 | Object @2 | Null @3 | Bool @4 | Positive @5 | Negative @6 | Double @7 | String @8 | Bytes @9
+
+/// the kind of the Value
+enum ValueKind {
+    unspecified @0
+
+    null    @1
+    boolean @2
+    integer @3
+    number  @4
+    string  @5
+    bytes   @6
+
+    array   @10 //<  An ordered list of instances, from the JSON "array" production
+    object  @11 //< An unordered set of properties mapping a string to an instance, from the JSON "object" production
+}

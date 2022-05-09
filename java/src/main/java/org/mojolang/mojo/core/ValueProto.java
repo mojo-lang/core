@@ -55,9 +55,15 @@ public final class ValueProto {
       "\010H\000\022\026\n\014positive_val\030\005 \001(\004H\000\022\026\n\014negative_" +
       "val\030\006 \001(\003H\000\022\024\n\ndouble_val\030\007 \001(\001H\000\022\024\n\nstr" +
       "ing_val\030\010 \001(\tH\000\022\023\n\tbytes_val\030\t \001(\014H\000B\005\n\003" +
-      "valBW\n\026org.mojolang.mojo.coreB\nValueProt" +
-      "oP\001Z/github.com/mojo-lang/core/go/pkg/mo" +
-      "jo/core;coreb\006proto3"
+      "val*\335\001\n\tValueKind\022\032\n\026VALUE_KIND_UNSPECIF" +
+      "IED\020\000\022\023\n\017VALUE_KIND_NULL\020\001\022\026\n\022VALUE_KIND" +
+      "_BOOLEAN\020\002\022\026\n\022VALUE_KIND_INTEGER\020\003\022\025\n\021VA" +
+      "LUE_KIND_NUMBER\020\004\022\025\n\021VALUE_KIND_STRING\020\005" +
+      "\022\024\n\020VALUE_KIND_BYTES\020\006\022\024\n\020VALUE_KIND_ARR" +
+      "AY\020\n\022\025\n\021VALUE_KIND_OBJECT\020\013BW\n\026org.mojol" +
+      "ang.mojo.coreB\nValueProtoP\001Z/github.com/" +
+      "mojo-lang/core/go/pkg/mojo/core;coreb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

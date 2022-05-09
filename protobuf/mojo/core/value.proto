@@ -11,6 +11,18 @@ option java_multiple_files = true;
 option java_outer_classname = "ValueProto";
 option java_package = "org.mojolang.mojo.core";
 
+enum ValueKind {
+    VALUE_KIND_UNSPECIFIED=0;
+    VALUE_KIND_NULL=1;
+    VALUE_KIND_BOOLEAN=2;
+    VALUE_KIND_INTEGER=3;
+    VALUE_KIND_NUMBER=4;
+    VALUE_KIND_STRING=5;
+    VALUE_KIND_BYTES=6;
+    VALUE_KIND_ARRAY=10;
+    VALUE_KIND_OBJECT=11;
+}
+
 message Object {
     map<string, Value> vals = 1;
 }

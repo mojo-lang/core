@@ -269,6 +269,32 @@ func (x *Value) ToInterface() interface{} {
     return nil
 }
 
+func (x *Value) GetKind() ValueKind {
+    if x != nil {
+        switch x.Val.(type) {
+        case *Value_NullVal:
+            return ValueKind_VALUE_KIND_NULL
+        case *Value_BoolVal:
+            return ValueKind_VALUE_KIND_BOOLEAN
+        case *Value_NegativeVal, *Value_PositiveVal:
+            return ValueKind_VALUE_KIND_INTEGER
+        case *Value_DoubleVal:
+            return ValueKind_VALUE_KIND_NUMBER
+        case *Value_StringVal:
+            return ValueKind_VALUE_KIND_STRING
+        case *Value_BytesVal:
+            return ValueKind_VALUE_KIND_BYTES
+        case *Value_ValuesVal:
+            return ValueKind_VALUE_KIND_ARRAY
+        case *Value_ObjectVal:
+            return ValueKind_VALUE_KIND_OBJECT
+        default:
+            return ValueKind_VALUE_KIND_UNSPECIFIED
+        }
+    }
+    return ValueKind_VALUE_KIND_UNSPECIFIED
+}
+
 func (x *Value) GetBool() bool {
     return x.GetBoolVal()
 }
@@ -349,6 +375,14 @@ func (x *Value) GetStringArray() []string {
         array = append(array, value.GetString())
     }
     return array
+}
+
+func (x *Value) GetStringValues() *StringValues {
+    vals := x.GetStringArray()
+    if len(vals) > 0 {
+        return &StringValues{Vals: vals}
+    }
+    return nil
 }
 
 func (x *Value) GetIntArray() []int {
