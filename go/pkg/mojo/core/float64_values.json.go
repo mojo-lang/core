@@ -46,13 +46,5 @@ func (codec *Float64ValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
 
 func (codec *Float64ValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	float64Values := (*Float64Values)(ptr)
-
-	stream.WriteArrayStart()
-	for i, v := range float64Values.Vals {
-		if i > 0 {
-			stream.WriteMore()
-		}
-		stream.WriteVal(v)
-	}
-	stream.WriteArrayEnd()
+	stream.WriteVal(float64Values.Vals)
 }

@@ -46,13 +46,5 @@ func (codec *UInt32ValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
 
 func (codec *UInt32ValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	uint32Values := (*UInt32Values)(ptr)
-
-	stream.WriteArrayStart()
-	for i, v := range uint32Values.Vals {
-		if i > 0 {
-			stream.WriteMore()
-		}
-		stream.WriteVal(v)
-	}
-	stream.WriteArrayEnd()
+	stream.WriteVal(uint32Values.Vals)
 }

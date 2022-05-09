@@ -46,13 +46,5 @@ func (codec *BoolValuesCodec) IsEmpty(ptr unsafe.Pointer) bool {
 
 func (codec *BoolValuesCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	boolValues := (*BoolValues)(ptr)
-
-	stream.WriteArrayStart()
-	for i, v := range boolValues.Vals {
-		if i > 0 {
-			stream.WriteMore()
-		}
-		stream.WriteVal(v)
-	}
-	stream.WriteArrayEnd()
+	stream.WriteVal(boolValues.Vals)
 }
