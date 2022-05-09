@@ -34,7 +34,7 @@ type DateTime {
 
     hour: Int32 @4
     minute: Int32 @5
-    seconds: Int64 @6
+    seconds: Int32 @6
     nanoseconds: Int32 @7
 
     time_zone: TimeZone @15

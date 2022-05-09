@@ -48,7 +48,7 @@ message DateTime {
     int32 day = 3;
     int32 hour = 4;
     int32 minute = 5;
-    int64 seconds = 6;
+    int32 seconds = 6;
     int32 nanoseconds = 7;
     TimeZone time_zone = 15;
 }
