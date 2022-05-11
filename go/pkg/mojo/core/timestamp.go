@@ -47,7 +47,7 @@ func (x *Timestamp) FromTime(t time.Time) {
 
 // ToTime convert the Timestamp to time.Time
 func (x *Timestamp) ToTime() time.Time {
-    return time.Unix(x.Seconds, int64(x.Nanoseconds)).In(loc)
+    return time.Unix(x.Seconds, int64(x.Nanoseconds))
 }
 
 // After reports whether the time instant t is after u.

@@ -5,7 +5,6 @@ import (
     "time"
 )
 
-var loc, _ = time.LoadLocation("Asia/Shanghai")
 var normalFormatLen = len("2006-01-02 15:04:05")
 
 func (x Timestamp) Format() string {
@@ -32,7 +31,7 @@ func (x *Timestamp) Parse(value string) error {
             value = value[:normalFormatLen] + "+" + value[normalFormatLen+1:]
         }
 
-        t, err := dateparse.ParseIn(value, loc)
+        t, err := dateparse.ParseIn(value, time.UTC)
         if err != nil {
             return err
         }
