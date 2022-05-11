@@ -1,1 +1,19 @@
-{"title":"mojo.core.Ordering.Value","description":"","type":"object","properties":{"field":{"title":"mojo.core.String","type":"string"},"sort":{"title":"mojo.core.Ordering.Sort","type":"string","enum":["asc","desc"]}}}
+{
+    "title": "mojo.core.Ordering.Value",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "field": {
+            "title": "mojo.core.String",
+            "type": "string"
+        },
+        "sort": {
+            "title": "mojo.core.Ordering.Sort",
+            "type": "string",
+            "enum": [
+                "asc",
+                "desc"
+            ]
+        }
+    }
+}

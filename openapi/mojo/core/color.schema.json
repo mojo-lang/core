@@ -1,1 +1,6 @@
-{"title":"mojo.core.Color","description":"","type":"string","format":"Color"}
+{
+    "title": "mojo.core.Color",
+    "description": "",
+    "type": "string",
+    "format": "Color"
+}

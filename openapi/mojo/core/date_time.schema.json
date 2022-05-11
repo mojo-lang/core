@@ -1,1 +1,6 @@
-{"title":"mojo.core.DateTime","description":"","type":"string","format":"DateTime"}
+{
+    "title": "mojo.core.DateTime",
+    "description": "",
+    "type": "string",
+    "format": "DateTime"
+}

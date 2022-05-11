@@ -1,1 +1,6 @@
-{"title":"mojo.core.Uuid","description":"Uuid type\n","type":"string","format":"Uuid"}
+{
+    "title": "mojo.core.Uuid",
+    "description": "Uuid type\n",
+    "type": "string",
+    "format": "Uuid"
+}

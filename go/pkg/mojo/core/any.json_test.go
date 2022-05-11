@@ -11,7 +11,7 @@ const anyStr = `{"@type":"mojo.core.Error","code":"404","message":"something wro
 
 var anyError = &Error{Code: NotFound, Message: "something wrong"}
 
-const checksumStr = `{"@type":"mojo.core.Checksum","value":"SHA256 cd42404d52ad55ccfa9aca4adc828aa5800ad9d385a0671fbcbf724118320619"}`
+const checksumStr = `{"@type":"mojo.core.Checksum","value":"SHA256:cd42404d52ad55ccfa9aca4adc828aa5800ad9d385a0671fbcbf724118320619"}`
 
 var anyChecksum = NewChecksum(Checksum_ALGORITHM_SHA256, []byte("value"))
 

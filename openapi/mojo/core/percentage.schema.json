@@ -1,1 +1,6 @@
-{"title":"mojo.core.Percentage","description":"","type":"integer","format":"Percentage"}
+{
+    "title": "mojo.core.Percentage",
+    "description": "",
+    "type": "integer",
+    "format": "Percentage"
+}

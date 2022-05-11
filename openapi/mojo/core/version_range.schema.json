@@ -1,1 +1,21 @@
-{"title":"mojo.core.VersionRange","description":"","type":"object","properties":{"max":{"$ref":"#/components/schemas/mojo.core.Version"},"maxExcluded":{"title":"mojo.core.Bool","type":"boolean"},"min":{"$ref":"#/components/schemas/mojo.core.Version"},"minExcluded":{"title":"mojo.core.Bool","type":"boolean"}}}
+{
+    "title": "mojo.core.VersionRange",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "max": {
+            "$ref": "#/components/schemas/mojo.core.Version"
+        },
+        "maxExcluded": {
+            "title": "mojo.core.Bool",
+            "type": "boolean"
+        },
+        "min": {
+            "$ref": "#/components/schemas/mojo.core.Version"
+        },
+        "minExcluded": {
+            "title": "mojo.core.Bool",
+            "type": "boolean"
+        }
+    }
+}

@@ -1,1 +1,6 @@
-{"title":"mojo.core.Ratio","description":"","type":"number","format":"Ratio"}
+{
+    "title": "mojo.core.Ratio",
+    "description": "",
+    "type": "number",
+    "format": "Ratio"
+}
