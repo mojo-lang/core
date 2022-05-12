@@ -8,7 +8,7 @@ import (
 var normalFormatLen = len("2006-01-02 15:04:05")
 
 func (x Timestamp) Format() string {
-    return x.ToTime().Format(time.RFC3339)
+    return x.ToTime().Format("2006-01-02T15:04:05.999Z07:00")
 }
 
 func (x Timestamp) ToString() string {

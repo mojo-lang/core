@@ -38,4 +38,5 @@ func TestTimestamp_Scan(t *testing.T) {
     assert.NoError(t, err)
 
     assert.Equal(t, item.Timestamp.Seconds, timestamp.Seconds)
+    assert.Equal(t, item.Timestamp.Nanoseconds, timestamp.Nanoseconds)
 }
