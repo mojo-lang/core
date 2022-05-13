@@ -18,6 +18,7 @@
 package core
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -35,11 +36,15 @@ func (codec *OrderingSortCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 	any := iter.ReadAny()
 	e := (*Ordering_Sort)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("OrderingSortCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := OrderingSortNames[value]; ok {
 			*e = Ordering_Sort(value)
+		} else {
+			iter.ReportError("OrderingSortCodec.Decode", fmt.Sprintf("invalid enum value %d for Ordering_Sort", value))
 		}
 	}
 }

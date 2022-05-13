@@ -18,6 +18,7 @@
 package core
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -35,11 +36,15 @@ func (codec *StackFrameTrustCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Ite
 	any := iter.ReadAny()
 	e := (*StackFrame_Trust)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("StackFrameTrustCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := StackFrameTrustNames[value]; ok {
 			*e = StackFrame_Trust(value)
+		} else {
+			iter.ReportError("StackFrameTrustCodec.Decode", fmt.Sprintf("invalid enum value %d for StackFrame_Trust", value))
 		}
 	}
 }

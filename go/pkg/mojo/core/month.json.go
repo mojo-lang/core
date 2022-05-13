@@ -18,6 +18,7 @@
 package core
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -35,11 +36,15 @@ func (codec *MonthCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
 	any := iter.ReadAny()
 	e := (*Month)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("MonthCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := MonthNames[value]; ok {
 			*e = Month(value)
+		} else {
+			iter.ReportError("MonthCodec.Decode", fmt.Sprintf("invalid enum value %d for Month", value))
 		}
 	}
 }

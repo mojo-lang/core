@@ -18,6 +18,7 @@
 package core
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -35,11 +36,15 @@ func (codec *DayOfWeekCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator)
 	any := iter.ReadAny()
 	e := (*DayOfWeek)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("DayOfWeekCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := DayOfWeekNames[value]; ok {
 			*e = DayOfWeek(value)
+		} else {
+			iter.ReportError("DayOfWeekCodec.Decode", fmt.Sprintf("invalid enum value %d for DayOfWeek", value))
 		}
 	}
 }

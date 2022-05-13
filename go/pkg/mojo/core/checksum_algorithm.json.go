@@ -18,6 +18,7 @@
 package core
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -35,11 +36,15 @@ func (codec *ChecksumAlgorithmCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.I
 	any := iter.ReadAny()
 	e := (*Checksum_Algorithm)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("ChecksumAlgorithmCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := ChecksumAlgorithmNames[value]; ok {
 			*e = Checksum_Algorithm(value)
+		} else {
+			iter.ReportError("ChecksumAlgorithmCodec.Decode", fmt.Sprintf("invalid enum value %d for Checksum_Algorithm", value))
 		}
 	}
 }
