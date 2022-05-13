@@ -1,6 +1,7 @@
 package core
 
 import (
+    "errors"
     "fmt"
     "google.golang.org/protobuf/proto"
 )
@@ -20,7 +21,7 @@ func NewError(code *ErrorCode, message string, arguments ...interface{}) *Error 
     }
 }
 
-func NewErrorFrom(code int32, message string) *Error {
+func NewErrorFrom(code int32, message string, arguments ...interface{}) *Error {
     err := &Error{}
     if ec, ok := errorCodeIndex[code]; ok {
         err.Code = ec
@@ -34,71 +35,14 @@ func NewErrorFrom(code int32, message string) *Error {
         }
     }
     err.Message = message
+    if len(arguments) > 0 {
+        err.Message = fmt.Sprintf(message, arguments...)
+    }
     return err
 }
 
-func NewCancelledError(format string, arguments ...interface{}) *Error {
-    return NewError(Cancelled, format, arguments...)
-}
-
-func NewUnknownError(format string, arguments ...interface{}) *Error {
-    return NewError(UnknownError, format, arguments...)
-}
-
-func NewInvalidArgumentError(format string, arguments ...interface{}) *Error {
-    return NewError(InvalidArgument, format, arguments...)
-}
-
-func NewDeadlineExceededError(format string, arguments ...interface{}) *Error {
-    return NewError(DeadlineExceeded, format, arguments...)
-}
-
-func NewNotFoundError(format string, arguments ...interface{}) *Error {
-    return NewError(NotFound, format, arguments...)
-}
-
-func NewAlreadyExistsError(format string, arguments ...interface{}) *Error {
-    return NewError(AlreadyExists, format, arguments...)
-}
-
-func NewPermissionDeniedError(format string, arguments ...interface{}) *Error {
-    return NewError(PermissionDenied, format, arguments...)
-}
-
-func NewUnauthenticatedError(format string, arguments ...interface{}) *Error {
-    return NewError(Unauthenticated, format, arguments...)
-}
-
-func NewResourceExhaustedError(format string, arguments ...interface{}) *Error {
-    return NewError(ResourceExhausted, format, arguments...)
-}
-
-func NewFailedPreconditionError(format string, arguments ...interface{}) *Error {
-    return NewError(FailedPrecondition, format, arguments...)
-}
-
-func NewAbortedError(format string, arguments ...interface{}) *Error {
-    return NewError(Aborted, format, arguments...)
-}
-
-func NewOutOfRangeError(format string, arguments ...interface{}) *Error {
-    return NewError(OutOfRange, format, arguments...)
-}
-
-func NewUnimplementedError(format string, arguments ...interface{}) *Error {
-    return NewError(Unimplemented, format, arguments...)
-}
-
-func NewInternalError(format string, arguments ...interface{}) *Error {
-    return NewError(InternalError, format, arguments...)
-}
-
-func NewUnavailableError(format string, arguments ...interface{}) *Error {
-    return NewError(Unavailable, format, arguments...)
-}
-
-func NewDataLossError(format string, arguments ...interface{}) *Error {
-    return NewError(DataLoss, format, arguments...)
+func IsError(err error) bool {
+    return errors.Is(err, &Error{})
 }
 
 func (x *Error) Error() string {
@@ -122,4 +66,11 @@ func (x *Error) AddDetail(detail interface{}) *Error {
     if _, ok := detail.(*proto.Message); ok {
     }
     return x
+}
+
+func (*Error) Is(err error) bool {
+    if _, ok := err.(*Error); ok {
+        return true
+    }
+    return false
 }

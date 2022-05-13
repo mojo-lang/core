@@ -14,23 +14,30 @@ func init() {
         }
     }
 
-    addIndex(Cancelled, UnknownError, InvalidArgument, DeadlineExceeded, NotFound,
-        AlreadyExists, PermissionDenied, Unauthenticated, ResourceExhausted,
-        FailedPrecondition, Aborted, OutOfRange, Unimplemented, InternalError,
+    addIndex(BadRequest, InvalidArgument, MalformedSyntax, FailedPrecondition, OutOfRange, Unauthenticated, PermissionDenied,
+        NotFound, AlreadyExists, Aborted, ResourceExhausted, Cancelled, UnknownError, DeadlineExceeded,
+        Unimplemented, InternalError,
         Unavailable, DataLoss)
 }
 
-//var BadRequest = &ErrorCode{
-//    Val:            400,
-//    Name:           "Bad_Request",
-//    Description:    "The request could not be understood by the server due to malformed syntax. ",
-//    HttpStatusCode: 400,
-//}
+var BadRequest = &ErrorCode{
+    Val:            400,
+    Name:           "BAD_REQUEST",
+    Description:    "The request could not be understood by the server due to malformed syntax. ",
+    HttpStatusCode: 400,
+}
 
 var InvalidArgument = &ErrorCode{
     Val:            3,
     Name:           "INVALID_ARGUMENT",
     Description:    "The client specified an invalid argument.",
+    HttpStatusCode: 400,
+}
+
+var MalformedSyntax = &ErrorCode{
+    Val:            5,
+    Name:           "MALFORMED_SYNTAX",
+    Description:    "The syntax of the requested string is malformed.",
     HttpStatusCode: 400,
 }
 
@@ -44,7 +51,7 @@ var FailedPrecondition = &ErrorCode{
 var OutOfRange = &ErrorCode{
     Val:            11,
     Name:           "OUT_OF_RANGE",
-    Description:    "The operation was attempted past the valid range.",
+    Description:    "The operation was attempted past the invalid range.",
     HttpStatusCode: 400,
 }
 

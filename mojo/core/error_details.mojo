@@ -155,7 +155,7 @@ type PreconditionFailure {
 
 /// Describes violations in a client request. This error type focuses on the
 /// syntactic aspects of the request.
-type BadRequest {
+type MalformedRequest {
     /// A type type used to describe a single bad request field.
     type FieldViolation {
         /// A path leading to a field in the request body. The value will be a

@@ -55,15 +55,15 @@ public final class ErrorDetailsProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_PreconditionFailure_Violation_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_BadRequest_descriptor;
+    internal_static_mojo_core_MalformedRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_BadRequest_fieldAccessorTable;
+      internal_static_mojo_core_MalformedRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_core_BadRequest_FieldViolation_descriptor;
+    internal_static_mojo_core_MalformedRequest_FieldViolation_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_core_BadRequest_FieldViolation_fieldAccessorTable;
+      internal_static_mojo_core_MalformedRequest_FieldViolation_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_RequestInfo_descriptor;
   static final 
@@ -113,21 +113,21 @@ public final class ErrorDetailsProto {
       "Failure\022<\n\nviolations\030\001 \003(\0132(.mojo.core." +
       "PreconditionFailure.Violation\032?\n\tViolati" +
       "on\022\014\n\004type\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\022\023\n\013des" +
-      "cription\030\003 \001(\t\"\202\001\n\nBadRequest\022>\n\020field_v" +
-      "iolations\030\001 \003(\0132$.mojo.core.BadRequest.F" +
-      "ieldViolation\0324\n\016FieldViolation\022\r\n\005field" +
-      "\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\"7\n\013RequestIn" +
-      "fo\022\022\n\nrequest_id\030\001 \001(\t\022\024\n\014serving_data\030\002" +
-      " \001(\t\"`\n\014ResourceInfo\022\025\n\rresource_type\030\001 " +
-      "\001(\t\022\025\n\rresource_name\030\002 \001(\t\022\r\n\005owner\030\003 \001(" +
-      "\t\022\023\n\013description\030\004 \001(\t\"e\n\004Help\022#\n\005links\030" +
-      "\001 \003(\0132\024.mojo.core.Help.Link\0328\n\004Link\022\023\n\013d" +
-      "escription\030\001 \001(\t\022\033\n\003url\030\002 \001(\0132\016.mojo.cor" +
-      "e.Url\"3\n\020LocalizedMessage\022\016\n\006locale\030\001 \001(" +
-      "\t\022\017\n\007message\030\002 \001(\tB^\n\026org.mojolang.mojo." +
-      "coreB\021ErrorDetailsProtoP\001Z/github.com/mo" +
-      "jo-lang/core/go/pkg/mojo/core;coreb\006prot" +
-      "o3"
+      "cription\030\003 \001(\t\"\216\001\n\020MalformedRequest\022D\n\020f" +
+      "ield_violations\030\001 \003(\0132*.mojo.core.Malfor" +
+      "medRequest.FieldViolation\0324\n\016FieldViolat" +
+      "ion\022\r\n\005field\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\"" +
+      "7\n\013RequestInfo\022\022\n\nrequest_id\030\001 \001(\t\022\024\n\014se" +
+      "rving_data\030\002 \001(\t\"`\n\014ResourceInfo\022\025\n\rreso" +
+      "urce_type\030\001 \001(\t\022\025\n\rresource_name\030\002 \001(\t\022\r" +
+      "\n\005owner\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\"e\n\004He" +
+      "lp\022#\n\005links\030\001 \003(\0132\024.mojo.core.Help.Link\032" +
+      "8\n\004Link\022\023\n\013description\030\001 \001(\t\022\033\n\003url\030\002 \001(" +
+      "\0132\016.mojo.core.Url\"3\n\020LocalizedMessage\022\016\n" +
+      "\006locale\030\001 \001(\t\022\017\n\007message\030\002 \001(\tB^\n\026org.mo" +
+      "jolang.mojo.coreB\021ErrorDetailsProtoP\001Z/g" +
+      "ithub.com/mojo-lang/core/go/pkg/mojo/cor" +
+      "e;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -183,17 +183,17 @@ public final class ErrorDetailsProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_PreconditionFailure_Violation_descriptor,
         new java.lang.String[] { "Type", "Subject", "Description", });
-    internal_static_mojo_core_BadRequest_descriptor =
+    internal_static_mojo_core_MalformedRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_mojo_core_BadRequest_fieldAccessorTable = new
+    internal_static_mojo_core_MalformedRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_BadRequest_descriptor,
+        internal_static_mojo_core_MalformedRequest_descriptor,
         new java.lang.String[] { "FieldViolations", });
-    internal_static_mojo_core_BadRequest_FieldViolation_descriptor =
-      internal_static_mojo_core_BadRequest_descriptor.getNestedTypes().get(0);
-    internal_static_mojo_core_BadRequest_FieldViolation_fieldAccessorTable = new
+    internal_static_mojo_core_MalformedRequest_FieldViolation_descriptor =
+      internal_static_mojo_core_MalformedRequest_descriptor.getNestedTypes().get(0);
+    internal_static_mojo_core_MalformedRequest_FieldViolation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_core_BadRequest_FieldViolation_descriptor,
+        internal_static_mojo_core_MalformedRequest_FieldViolation_descriptor,
         new java.lang.String[] { "Field", "Description", });
     internal_static_mojo_core_RequestInfo_descriptor =
       getDescriptor().getMessageTypes().get(6);

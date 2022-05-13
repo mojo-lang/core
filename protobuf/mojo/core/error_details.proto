@@ -46,7 +46,7 @@ message PreconditionFailure {
     repeated Violation violations = 1;
 }
 
-message BadRequest {
+message MalformedRequest {
     
     message FieldViolation {
         string field = 1;

@@ -5,14 +5,6 @@ import (
     "testing"
 )
 
-func TestNewAbortedError(t *testing.T) {
-    err := NewAbortedError("test %s", "value")
-    assert.Equal(t, Aborted.Val, err.Code.Val)
-    assert.Equal(t, "test value", err.Message)
-}
-
-func TestNewAbortedError2(t *testing.T) {
-    err := NewAbortedError("test value")
-    assert.Equal(t, Aborted.Val, err.Code.Val)
-    assert.Equal(t, "test value", err.Message)
+func TestIsError(t *testing.T) {
+    assert.True(t, IsError(NewErrorFrom(400, "msg")))
 }
