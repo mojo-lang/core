@@ -23,9 +23,8 @@
 /// https://tools.ietf.org/html/rfc3986
 ///
 ///
-@format("{scheme}://{authority}/{path}{#fragment}{?query}")
+@format("{scheme}://{authority.user_info@}{authority.host}{:authority.port}/{path}{#fragment}{?query}")
 type Url {
-    @format('{user_info@}{host}{:port}')
     type Authority {
         user_info: String @1
         host: String @2 @format('')

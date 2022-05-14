@@ -11,8 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-@format("")
 type Id = UInt64 @1 //< the integer type id
         | String @2 //< the normal string type id
         | Uuid   @3 //< the uuid type id

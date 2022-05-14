@@ -1,4 +1,4 @@
 package core
 
-const EncodingAsStringAttributeName = "encoding_as_string"
-const EncodingAsStringAttributeFullName = "mojo.core.encoding_as_string"
+const EncodingAsStructAttributeName = "encoding_as_struct"
+const EncodingAsStructAttributeFullName = "mojo.core.encoding_as_struct"
