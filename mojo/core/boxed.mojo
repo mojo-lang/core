@@ -136,3 +136,13 @@ type DoubleValues = Float64Values
 ///
 /// The JSON representation for `StringValues` is JSON string array.
 type StringValues: [String]
+
+/// Wrapper type for `Map<String, String>`
+///
+/// The JSON representation for `StringMap` is JSON object.
+type StringMap: {String: String}
+
+/// Wrapper type for `Map<String, [String]>`
+///
+/// The JSON representation for `StringValues` is JSON object.
+type StringMultiMap: {String: [String]}

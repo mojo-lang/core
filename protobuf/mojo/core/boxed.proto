@@ -76,3 +76,11 @@ message Float64Values {
 message StringValues {
     repeated string vals = 1;
 }
+
+message StringMap {
+    map<string, string> vals = 1;
+}
+
+message StringMultiMap {
+    map<string, StringValues> vals = 1;
+}

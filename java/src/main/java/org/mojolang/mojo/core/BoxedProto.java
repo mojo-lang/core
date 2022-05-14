@@ -99,6 +99,26 @@ public final class BoxedProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_core_StringValues_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_StringMap_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_StringMap_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_StringMap_ValsEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_StringMap_ValsEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_StringMultiMap_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_StringMultiMap_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_StringMultiMap_ValsEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_StringMultiMap_ValsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -121,9 +141,15 @@ public final class BoxedProto {
       "\034\n\014UInt64Values\022\014\n\004vals\030\001 \003(\004\"\035\n\rFloat32" +
       "Values\022\014\n\004vals\030\001 \003(\002\"\035\n\rFloat64Values\022\014\n" +
       "\004vals\030\001 \003(\001\"\034\n\014StringValues\022\014\n\004vals\030\001 \003(" +
-      "\tBW\n\026org.mojolang.mojo.coreB\nBoxedProtoP" +
-      "\001Z/github.com/mojo-lang/core/go/pkg/mojo" +
-      "/core;coreb\006proto3"
+      "\t\"f\n\tStringMap\022,\n\004vals\030\001 \003(\0132\036.mojo.core" +
+      ".StringMap.ValsEntry\032+\n\tValsEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\211\001\n\016StringMult" +
+      "iMap\0221\n\004vals\030\001 \003(\0132#.mojo.core.StringMul" +
+      "tiMap.ValsEntry\032D\n\tValsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022&\n\005value\030\002 \001(\0132\027.mojo.core.StringValue" +
+      "s:\0028\001BW\n\026org.mojolang.mojo.coreB\nBoxedPr" +
+      "otoP\001Z/github.com/mojo-lang/core/go/pkg/" +
+      "mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -231,6 +257,30 @@ public final class BoxedProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_StringValues_descriptor,
         new java.lang.String[] { "Vals", });
+    internal_static_mojo_core_StringMap_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_mojo_core_StringMap_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_StringMap_descriptor,
+        new java.lang.String[] { "Vals", });
+    internal_static_mojo_core_StringMap_ValsEntry_descriptor =
+      internal_static_mojo_core_StringMap_descriptor.getNestedTypes().get(0);
+    internal_static_mojo_core_StringMap_ValsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_StringMap_ValsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_mojo_core_StringMultiMap_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_mojo_core_StringMultiMap_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_StringMultiMap_descriptor,
+        new java.lang.String[] { "Vals", });
+    internal_static_mojo_core_StringMultiMap_ValsEntry_descriptor =
+      internal_static_mojo_core_StringMultiMap_descriptor.getNestedTypes().get(0);
+    internal_static_mojo_core_StringMultiMap_ValsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_StringMultiMap_ValsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
