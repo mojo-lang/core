@@ -39,15 +39,22 @@ func Until(t *Timestamp) *Duration {
 }
 
 // FromTime convert from time.Time to Timestamp
-func (x *Timestamp) FromTime(t time.Time) {
-    ts := FromTime(t)
-    x.Seconds = ts.Seconds
-    x.Nanoseconds = ts.Nanoseconds
+func (x *Timestamp) FromTime(t time.Time) *Timestamp {
+    if x != nil {
+        ts := FromTime(t)
+        x.Seconds = ts.Seconds
+        x.Nanoseconds = ts.Nanoseconds
+    }
+    return x
 }
 
 // ToTime convert the Timestamp to time.Time
 func (x *Timestamp) ToTime() time.Time {
-    return time.Unix(x.Seconds, int64(x.Nanoseconds))
+    if x != nil {
+        return time.Unix(x.Seconds, int64(x.Nanoseconds))
+    } else {
+        return time.Time{}
+    }
 }
 
 // After reports whether the time instant t is after u.

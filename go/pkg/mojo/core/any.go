@@ -16,7 +16,10 @@ func NewAny(i interface{}) *Any {
 }
 
 func (x *Any) Get() interface{} {
-    return x.typedVal
+    if x != nil {
+        return x.typedVal
+    }
+    return nil
 }
 
 func (x *Any) Set(v interface{}) error {
