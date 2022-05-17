@@ -34,3 +34,23 @@ func IsExist(path string) bool {
     }
     return true
 }
+
+func IsOwnerExecutable(mode os.FileMode) bool {
+    return mode&0100 != 0
+}
+
+func IsGroupExecutable(mode os.FileMode) bool {
+    return mode&0010 != 0
+}
+
+func IsOtherExecutable(mode os.FileMode) bool {
+    return mode&0001 != 0
+}
+
+func IsAllExecutable(mode os.FileMode) bool {
+    return mode&0111 == 0111
+}
+
+func IsExecutable(mode os.FileMode) bool {
+    return mode&0111 != 0
+}
