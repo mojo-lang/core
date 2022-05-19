@@ -8,10 +8,10 @@ public interface ErrorCodeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 val = 1;</code>
-   * @return The val.
+   * <code>int32 code = 1;</code>
+   * @return The code.
    */
-  int getVal();
+  int getCode();
 
   /**
    * <code>string name = 2;</code>

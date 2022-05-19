@@ -53,7 +53,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            val_ = input.readInt32();
+            code_ = input.readInt32();
             break;
           }
           case 18: {
@@ -124,15 +124,15 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.ErrorCode.class, org.mojolang.mojo.core.ErrorCode.Builder.class);
   }
 
-  public static final int VAL_FIELD_NUMBER = 1;
-  private int val_;
+  public static final int CODE_FIELD_NUMBER = 1;
+  private int code_;
   /**
-   * <code>int32 val = 1;</code>
-   * @return The val.
+   * <code>int32 code = 1;</code>
+   * @return The code.
    */
   @java.lang.Override
-  public int getVal() {
-    return val_;
+  public int getCode() {
+    return code_;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
@@ -300,8 +300,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (val_ != 0) {
-      output.writeInt32(1, val_);
+    if (code_ != 0) {
+      output.writeInt32(1, code_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
@@ -327,9 +327,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (val_ != 0) {
+    if (code_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, val_);
+        .computeInt32Size(1, code_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
@@ -363,8 +363,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.ErrorCode other = (org.mojolang.mojo.core.ErrorCode) obj;
 
-    if (getVal()
-        != other.getVal()) return false;
+    if (getCode()
+        != other.getCode()) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (!getDomain()
@@ -389,8 +389,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VAL_FIELD_NUMBER;
-    hash = (53 * hash) + getVal();
+    hash = (37 * hash) + CODE_FIELD_NUMBER;
+    hash = (53 * hash) + getCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + DOMAIN_FIELD_NUMBER;
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      val_ = 0;
+      code_ = 0;
 
       name_ = "";
 
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.ErrorCode buildPartial() {
       org.mojolang.mojo.core.ErrorCode result = new org.mojolang.mojo.core.ErrorCode(this);
-      result.val_ = val_;
+      result.code_ = code_;
       result.name_ = name_;
       result.domain_ = domain_;
       result.description_ = description_;
@@ -636,8 +636,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.ErrorCode other) {
       if (other == org.mojolang.mojo.core.ErrorCode.getDefaultInstance()) return this;
-      if (other.getVal() != 0) {
-        setVal(other.getVal());
+      if (other.getCode() != 0) {
+        setCode(other.getCode());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -686,33 +686,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int val_ ;
+    private int code_ ;
     /**
-     * <code>int32 val = 1;</code>
-     * @return The val.
+     * <code>int32 code = 1;</code>
+     * @return The code.
      */
     @java.lang.Override
-    public int getVal() {
-      return val_;
+    public int getCode() {
+      return code_;
     }
     /**
-     * <code>int32 val = 1;</code>
-     * @param value The val to set.
+     * <code>int32 code = 1;</code>
+     * @param value The code to set.
      * @return This builder for chaining.
      */
-    public Builder setVal(int value) {
+    public Builder setCode(int value) {
       
-      val_ = value;
+      code_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 val = 1;</code>
+     * <code>int32 code = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearVal() {
+    public Builder clearCode() {
       
-      val_ = 0;
+      code_ = 0;
       onChanged();
       return this;
     }

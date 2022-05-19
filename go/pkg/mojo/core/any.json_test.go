@@ -1,10 +1,10 @@
 package core
 
 import (
-    "encoding/json"
-    jsoniter "github.com/json-iterator/go"
-    "github.com/stretchr/testify/assert"
-    "testing"
+	"encoding/json"
+	jsoniter "github.com/json-iterator/go"
+	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 const anyStr = `{"@type":"mojo.core.Error","code":"404","message":"something wrong"}`
@@ -16,52 +16,52 @@ const checksumStr = `{"@type":"mojo.core.Checksum","value":"SHA256:cd42404d52ad5
 var anyChecksum = NewChecksum(Checksum_ALGORITHM_SHA256, []byte("value"))
 
 func TestAnyCodec_Decode(t *testing.T) {
-    any := &Any{}
-    err := jsoniter.ConfigFastest.UnmarshalFromString(anyStr, any)
+	any := &Any{}
+	err := jsoniter.ConfigFastest.UnmarshalFromString(anyStr, any)
 
-    assert.NoError(t, err)
-    assert.Equal(t, anyError.Code.Val, any.Get().(*Error).Code.Val)
-    assert.Equal(t, anyError.Message, any.Get().(*Error).Message)
+	assert.NoError(t, err)
+	assert.Equal(t, anyError.Code.Code, any.Get().(*Error).Code.Code)
+	assert.Equal(t, anyError.Message, any.Get().(*Error).Message)
 }
 
 func TestAnyCodec_Decode2(t *testing.T) {
-    any := &Any{}
-    err := json.Unmarshal([]byte(anyStr), any)
+	any := &Any{}
+	err := json.Unmarshal([]byte(anyStr), any)
 
-    assert.NoError(t, err)
-    assert.Equal(t, anyError.Code.Val, any.Get().(*Error).Code.Val)
-    assert.Equal(t, anyError.Message, any.Get().(*Error).Message)
+	assert.NoError(t, err)
+	assert.Equal(t, anyError.Code.Code, any.Get().(*Error).Code.Code)
+	assert.Equal(t, anyError.Message, any.Get().(*Error).Message)
 }
 
 func TestAnyCodec_Decode3(t *testing.T) {
-    any := &Any{}
-    err := json.Unmarshal([]byte(checksumStr), any)
+	any := &Any{}
+	err := json.Unmarshal([]byte(checksumStr), any)
 
-    assert.NoError(t, err)
-    assert.Equal(t, anyChecksum.Algorithm, any.Get().(*Checksum).Algorithm)
-    assert.Equal(t, anyChecksum.Val, any.Get().(*Checksum).Val)
+	assert.NoError(t, err)
+	assert.Equal(t, anyChecksum.Algorithm, any.Get().(*Checksum).Algorithm)
+	assert.Equal(t, anyChecksum.Val, any.Get().(*Checksum).Val)
 }
 
 func TestAnyCodec_Encode(t *testing.T) {
-    any := NewAny(anyError)
-    out, err := jsoniter.ConfigFastest.MarshalToString(any)
+	any := NewAny(anyError)
+	out, err := jsoniter.ConfigFastest.MarshalToString(any)
 
-    assert.NoError(t, err)
-    assert.Equal(t, anyStr, out)
+	assert.NoError(t, err)
+	assert.Equal(t, anyStr, out)
 }
 
 func TestAnyCodec_Encode2(t *testing.T) {
-    any := NewAny(anyError)
-    out, err := json.Marshal(any)
+	any := NewAny(anyError)
+	out, err := json.Marshal(any)
 
-    assert.NoError(t, err)
-    assert.Equal(t, anyStr, string(out))
+	assert.NoError(t, err)
+	assert.Equal(t, anyStr, string(out))
 }
 
 func TestAnyCodec_Encode3(t *testing.T) {
-    any := NewAny(anyChecksum)
-    out, err := jsoniter.ConfigFastest.MarshalToString(any)
+	any := NewAny(anyChecksum)
+	out, err := jsoniter.ConfigFastest.MarshalToString(any)
 
-    assert.NoError(t, err)
-    assert.Equal(t, checksumStr, out)
+	assert.NoError(t, err)
+	assert.Equal(t, checksumStr, out)
 }

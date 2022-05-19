@@ -12,7 +12,7 @@ option java_outer_classname = "ErrorCodeProto";
 option java_package = "org.mojolang.mojo.core";
 
 message ErrorCode {
-    int32 val = 1;
+    int32 code = 1;
     string name = 2;
     string domain = 3;
     string description = 5;

@@ -6,8 +6,8 @@ const ErrorCodeTypeName = "ErrorCode"
 const ErrorCodeTypeFullName = "mojo.core.ErrorCode"
 
 func NewErrorCode(value int32) *ErrorCode {
-    if ec, ok := errorCodeIndex[value]; ok {
-        return proto.Clone(ec).(*ErrorCode)
-    }
-    return &ErrorCode{Val: value}
+	if ec, ok := errorCodeIndex[value]; ok {
+		return proto.Clone(ec).(*ErrorCode)
+	}
+	return &ErrorCode{Code: value}
 }

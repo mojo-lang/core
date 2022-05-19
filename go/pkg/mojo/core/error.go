@@ -28,7 +28,7 @@ func NewErrorFrom(code int32, message string, arguments ...interface{}) *Error {
 	} else {
 		if code >= 100 && code < 600 {
 			err.Code = &ErrorCode{
-				Val: code,
+				Code: code,
 			}
 		} else {
 			return nil
@@ -57,7 +57,7 @@ func (x *Error) StatusCode() int32 {
 		if x.Code.HttpStatusCode > 0 {
 			return x.Code.HttpStatusCode
 		}
-		return x.Code.Val
+		return x.Code.Code
 	}
 	return 0
 }
