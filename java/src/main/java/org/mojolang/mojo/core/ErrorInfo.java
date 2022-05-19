@@ -69,7 +69,7 @@ private static final long serialVersionUID = 0L;
                   MetadataDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000001;
             }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.core.Value>
             metadata__ = input.readMessage(
                 MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
             metadata_.getMutableMap().put(
@@ -199,18 +199,18 @@ private static final long serialVersionUID = 0L;
   public static final int METADATA_FIELD_NUMBER = 3;
   private static final class MetadataDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, java.lang.String> defaultEntry =
+        java.lang.String, org.mojolang.mojo.core.Value> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, java.lang.String>newDefaultInstance(
+            .<java.lang.String, org.mojolang.mojo.core.Value>newDefaultInstance(
                 org.mojolang.mojo.core.ErrorDetailsProto.internal_static_mojo_core_ErrorInfo_MetadataEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "");
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                org.mojolang.mojo.core.Value.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, java.lang.String> metadata_;
-  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      java.lang.String, org.mojolang.mojo.core.Value> metadata_;
+  private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
   internalGetMetadata() {
     if (metadata_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
@@ -223,7 +223,7 @@ private static final long serialVersionUID = 0L;
     return internalGetMetadata().getMap().size();
   }
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
 
   @java.lang.Override
@@ -237,39 +237,39 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.String> getMetadata() {
+  public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getMetadata() {
     return getMetadataMap();
   }
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   @java.lang.Override
 
-  public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
+  public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getMetadataMap() {
     return internalGetMetadata().getMap();
   }
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   @java.lang.Override
 
-  public java.lang.String getMetadataOrDefault(
+  public org.mojolang.mojo.core.Value getMetadataOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      org.mojolang.mojo.core.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, java.lang.String> map =
+    java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
         internalGetMetadata().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   @java.lang.Override
 
-  public java.lang.String getMetadataOrThrow(
+  public org.mojolang.mojo.core.Value getMetadataOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, java.lang.String> map =
+    java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
         internalGetMetadata().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
@@ -318,9 +318,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, domain_);
     }
-    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+    for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.core.Value> entry
          : internalGetMetadata().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.core.Value>
       metadata__ = MetadataDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
@@ -800,8 +800,8 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> metadata_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        java.lang.String, org.mojolang.mojo.core.Value> metadata_;
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
     internalGetMetadata() {
       if (metadata_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -809,7 +809,7 @@ private static final long serialVersionUID = 0L;
       }
       return metadata_;
     }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
     internalGetMutableMetadata() {
       onChanged();;
       if (metadata_ == null) {
@@ -826,7 +826,7 @@ private static final long serialVersionUID = 0L;
       return internalGetMetadata().getMap().size();
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
 
     @java.lang.Override
@@ -840,39 +840,39 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getMetadata() {
+    public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getMetadata() {
       return getMetadataMap();
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
+    public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getMetadataMap() {
       return internalGetMetadata().getMap();
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     @java.lang.Override
 
-    public java.lang.String getMetadataOrDefault(
+    public org.mojolang.mojo.core.Value getMetadataOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        org.mojolang.mojo.core.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+      java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
           internalGetMetadata().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     @java.lang.Override
 
-    public java.lang.String getMetadataOrThrow(
+    public org.mojolang.mojo.core.Value getMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+      java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
           internalGetMetadata().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -886,7 +886,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
 
     public Builder removeMetadata(
@@ -900,16 +900,16 @@ private static final long serialVersionUID = 0L;
      * Use alternate mutation accessors instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String>
+    public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value>
     getMutableMetadata() {
       return internalGetMutableMetadata().getMutableMap();
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     public Builder putMetadata(
         java.lang.String key,
-        java.lang.String value) {
+        org.mojolang.mojo.core.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
       if (value == null) {
   throw new NullPointerException("map value");
@@ -920,11 +920,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>map&lt;string, string&gt; metadata = 3;</code>
+     * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
 
     public Builder putAllMetadata(
-        java.util.Map<java.lang.String, java.lang.String> values) {
+        java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> values) {
       internalGetMutableMetadata().getMutableMap()
           .putAll(values);
       return this;

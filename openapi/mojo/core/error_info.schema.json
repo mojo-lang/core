@@ -13,8 +13,7 @@
             "description": "Additional structured details about this error.\n\nKeys should match /[a-zA-Z0-9-_]/ and be limited to 64 characters in\nlength. When identifying the current value of an exceeded limit, the units\nshould be contained in the key, not the value.  For example, rather than\n{\"instanceLimit\": \"100/request\"}, should be returned as,\n{\"instanceLimitPerRequest\": \"100\"}, if the client exceeds the number of\ninstances that can be created in a single (batch) request.",
             "type": "object",
             "additionalProperties": {
-                "title": "mojo.core.String",
-                "type": "string"
+                "$ref": "#/components/schemas/mojo.core.Value"
             }
         },
         "reason": {

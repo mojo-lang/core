@@ -32,11 +32,11 @@ public interface ErrorInfoOrBuilder extends
       getDomainBytes();
 
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   int getMetadataCount();
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   boolean containsMetadata(
       java.lang.String key);
@@ -44,24 +44,24 @@ public interface ErrorInfoOrBuilder extends
    * Use {@link #getMetadataMap()} instead.
    */
   @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<java.lang.String, org.mojolang.mojo.core.Value>
   getMetadata();
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
-  java.util.Map<java.lang.String, java.lang.String>
+  java.util.Map<java.lang.String, org.mojolang.mojo.core.Value>
   getMetadataMap();
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
 
-  java.lang.String getMetadataOrDefault(
+  org.mojolang.mojo.core.Value getMetadataOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue);
+      org.mojolang.mojo.core.Value defaultValue);
   /**
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
 
-  java.lang.String getMetadataOrThrow(
+  org.mojolang.mojo.core.Value getMetadataOrThrow(
       java.lang.String key);
 }

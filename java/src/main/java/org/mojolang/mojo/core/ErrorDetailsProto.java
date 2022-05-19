@@ -100,40 +100,42 @@ public final class ErrorDetailsProto {
     java.lang.String[] descriptorData = {
       "\n\035mojo/core/error_details.proto\022\tmojo.co" +
       "re\032\024mojo/core/time.proto\032\023mojo/core/url." +
-      "proto\"5\n\tRetryInfo\022(\n\013retry_delay\030\001 \001(\0132" +
-      "\023.mojo.core.Duration\"2\n\tDebugInfo\022\025\n\rsta" +
-      "ck_entries\030\001 \003(\t\022\016\n\006detail\030\002 \001(\t\"x\n\014Quot" +
-      "aFailure\0225\n\nviolations\030\001 \003(\0132!.mojo.core" +
-      ".QuotaFailure.Violation\0321\n\tViolation\022\017\n\007" +
-      "subject\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\"\222\001\n\tE" +
-      "rrorInfo\022\016\n\006reason\030\001 \001(\t\022\016\n\006domain\030\002 \001(\t" +
-      "\0224\n\010metadata\030\003 \003(\0132\".mojo.core.ErrorInfo" +
-      ".MetadataEntry\032/\n\rMetadataEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\224\001\n\023Precondition" +
-      "Failure\022<\n\nviolations\030\001 \003(\0132(.mojo.core." +
-      "PreconditionFailure.Violation\032?\n\tViolati" +
-      "on\022\014\n\004type\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\022\023\n\013des" +
-      "cription\030\003 \001(\t\"\216\001\n\020MalformedRequest\022D\n\020f" +
-      "ield_violations\030\001 \003(\0132*.mojo.core.Malfor" +
-      "medRequest.FieldViolation\0324\n\016FieldViolat" +
-      "ion\022\r\n\005field\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\"" +
-      "7\n\013RequestInfo\022\022\n\nrequest_id\030\001 \001(\t\022\024\n\014se" +
-      "rving_data\030\002 \001(\t\"`\n\014ResourceInfo\022\025\n\rreso" +
-      "urce_type\030\001 \001(\t\022\025\n\rresource_name\030\002 \001(\t\022\r" +
-      "\n\005owner\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\"e\n\004He" +
-      "lp\022#\n\005links\030\001 \003(\0132\024.mojo.core.Help.Link\032" +
-      "8\n\004Link\022\023\n\013description\030\001 \001(\t\022\033\n\003url\030\002 \001(" +
-      "\0132\016.mojo.core.Url\"3\n\020LocalizedMessage\022\016\n" +
-      "\006locale\030\001 \001(\t\022\017\n\007message\030\002 \001(\tB^\n\026org.mo" +
-      "jolang.mojo.coreB\021ErrorDetailsProtoP\001Z/g" +
-      "ithub.com/mojo-lang/core/go/pkg/mojo/cor" +
-      "e;coreb\006proto3"
+      "proto\032\025mojo/core/value.proto\"5\n\tRetryInf" +
+      "o\022(\n\013retry_delay\030\001 \001(\0132\023.mojo.core.Durat" +
+      "ion\"2\n\tDebugInfo\022\025\n\rstack_entries\030\001 \003(\t\022" +
+      "\016\n\006detail\030\002 \001(\t\"x\n\014QuotaFailure\0225\n\nviola" +
+      "tions\030\001 \003(\0132!.mojo.core.QuotaFailure.Vio" +
+      "lation\0321\n\tViolation\022\017\n\007subject\030\001 \001(\t\022\023\n\013" +
+      "description\030\002 \001(\t\"\244\001\n\tErrorInfo\022\016\n\006reaso" +
+      "n\030\001 \001(\t\022\016\n\006domain\030\002 \001(\t\0224\n\010metadata\030\003 \003(" +
+      "\0132\".mojo.core.ErrorInfo.MetadataEntry\032A\n" +
+      "\rMetadataEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 \001" +
+      "(\0132\020.mojo.core.Value:\0028\001\"\224\001\n\023Preconditio" +
+      "nFailure\022<\n\nviolations\030\001 \003(\0132(.mojo.core" +
+      ".PreconditionFailure.Violation\032?\n\tViolat" +
+      "ion\022\014\n\004type\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\022\023\n\013de" +
+      "scription\030\003 \001(\t\"\216\001\n\020MalformedRequest\022D\n\020" +
+      "field_violations\030\001 \003(\0132*.mojo.core.Malfo" +
+      "rmedRequest.FieldViolation\0324\n\016FieldViola" +
+      "tion\022\r\n\005field\030\001 \001(\t\022\023\n\013description\030\002 \001(\t" +
+      "\"7\n\013RequestInfo\022\022\n\nrequest_id\030\001 \001(\t\022\024\n\014s" +
+      "erving_data\030\002 \001(\t\"`\n\014ResourceInfo\022\025\n\rres" +
+      "ource_type\030\001 \001(\t\022\025\n\rresource_name\030\002 \001(\t\022" +
+      "\r\n\005owner\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\"e\n\004H" +
+      "elp\022#\n\005links\030\001 \003(\0132\024.mojo.core.Help.Link" +
+      "\0328\n\004Link\022\023\n\013description\030\001 \001(\t\022\033\n\003url\030\002 \001" +
+      "(\0132\016.mojo.core.Url\"3\n\020LocalizedMessage\022\016" +
+      "\n\006locale\030\001 \001(\t\022\017\n\007message\030\002 \001(\tB^\n\026org.m" +
+      "ojolang.mojo.coreB\021ErrorDetailsProtoP\001Z/" +
+      "github.com/mojo-lang/core/go/pkg/mojo/co" +
+      "re;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.mojolang.mojo.core.TimeProto.getDescriptor(),
           org.mojolang.mojo.core.UrlProto.getDescriptor(),
+          org.mojolang.mojo.core.ValueProto.getDescriptor(),
         });
     internal_static_mojo_core_RetryInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -227,6 +229,7 @@ public final class ErrorDetailsProto {
         new java.lang.String[] { "Locale", "Message", });
     org.mojolang.mojo.core.TimeProto.getDescriptor();
     org.mojolang.mojo.core.UrlProto.getDescriptor();
+    org.mojolang.mojo.core.ValueProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
