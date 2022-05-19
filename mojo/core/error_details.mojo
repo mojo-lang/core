@@ -121,7 +121,7 @@ type ErrorInfo {
     /// {"instanceLimit": "100/request"}, should be returned as,
     /// {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
     /// instances that can be created in a single (batch) request.
-    metadata: {String: String} @3
+    metadata: {String: Value} @3
 }
 
 /// Describes what preconditions have failed.
