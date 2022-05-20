@@ -146,6 +146,10 @@ func (x *Url_Query) Unmarshal(name string, value interface{}) error {
 }
 
 func UnmarshalParam(str string, value interface{}) error {
+    if len(str) == 0 {
+        return nil
+    }
+
     v := reflect.Indirect(reflect.ValueOf(value))
     switch v.Kind() {
     case reflect.String:
@@ -160,19 +164,22 @@ func UnmarshalParam(str string, value interface{}) error {
         }
 
         str = strings.TrimSpace(str)
-        if str[0] != '[' {
-            if isStringType {
-                vals := splitQuotedString(str)
-                for i := 0; i < len(vals); i++ {
-                    vals[i] = strings.TrimSpace(vals[i])
-                    vals[i] = QuoteString(vals[i])
+        if len(str) > 0 {
+            if str[0] != '[' {
+                if isStringType {
+                    vals := splitQuotedString(str)
+                    for i := 0; i < len(vals); i++ {
+                        vals[i] = strings.TrimSpace(vals[i])
+                        vals[i] = QuoteString(vals[i])
+                    }
+                    str = "[" + strings.Join(vals, ",") + "]"
+                } else {
+                    str = "[" + str + "]"
                 }
-                str = "[" + strings.Join(vals, ",") + "]"
-            } else {
-                str = "[" + str + "]"
             }
+            return jsoniter.Unmarshal([]byte(str), value)
         }
-        return jsoniter.Unmarshal([]byte(str), value)
+        return nil
     default:
         if _, ok := reflect.New(v.Type()).Interface().(StringLike); ok {
             str = QuoteString(str)
