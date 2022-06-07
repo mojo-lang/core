@@ -20,6 +20,8 @@ func (x *Checksum) Scan(src interface{}) error {
     }
 
     switch cs := src.(type) {
+    case []byte:
+        return x.Parse(string(cs))
     case string:
         return x.Parse(cs)
     default:

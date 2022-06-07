@@ -19,9 +19,11 @@ func (x *ErrorCode) Scan(src interface{}) error {
         return nil
     }
 
-    switch cs := src.(type) {
+    switch ec := src.(type) {
+    case []byte:
+        return x.Parse(string(ec))
     case string:
-        return x.Parse(cs)
+        return x.Parse(ec)
     default:
         return fmt.Errorf("could not not Decode type %T -> %T", src, x)
     }

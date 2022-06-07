@@ -19,9 +19,11 @@ func (x *FieldMask) Scan(src interface{}) error {
         return nil
     }
 
-    switch cs := src.(type) {
+    switch fm := src.(type) {
+    case []byte:
+        return x.Parse(string(fm))
     case string:
-        return x.Parse(cs)
+        return x.Parse(fm)
     default:
         return fmt.Errorf("could not not Decode type %T -> %T", src, x)
     }
