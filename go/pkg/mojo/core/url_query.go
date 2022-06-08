@@ -6,13 +6,19 @@ import (
     "net/url"
     "reflect"
     "regexp"
+    "strconv"
     "strings"
 )
 
-func NewUrlQuery() *Url_Query {
-    return &Url_Query{
+func NewUrlQuery(keysAndValues ...interface{}) *Url_Query {
+    query := &Url_Query{
         Vals: make(map[string]*StringValues),
     }
+    for i := 0; i < len(keysAndValues)-1; i += 2 {
+        key := keysAndValues[i].(string)
+        query.Add(key, keysAndValues[i+1])
+    }
+    return query
 }
 
 func NewUrlQueryFrom(values url.Values) *Url_Query {
@@ -59,39 +65,62 @@ func (x *Url_Query) Get(key string) string {
     if x == nil {
         return ""
     }
-    vs := x.Vals[key]
-    if vs != nil || len(vs.Vals) == 0 {
-        return ""
+    vs, ok := x.Vals[key]
+    if ok && vs != nil && len(vs.Vals) > 0 {
+        return vs.Vals[0]
     }
-    return vs.Vals[0]
+    return ""
+}
+
+func (x *Url_Query) GetBool(key string) bool {
+    v := x.Get(key)
+    if len(v) > 0 {
+        if v == "true" {
+            return true
+        }
+    }
+    return false
+}
+
+func (x *Url_Query) GetValues(key string) []string {
+    if x == nil {
+        return nil
+    }
+    if vs, ok := x.Vals[key]; ok {
+        return vs.Vals
+    }
+    return nil
 }
 
 // Set sets the key to value. It replaces any existing
 // values.
-func (x *Url_Query) Set(key, value string) {
+func (x *Url_Query) Set(key string, value interface{}) *Url_Query {
     if x != nil {
         x.Vals[key] = &StringValues{
-            Vals: []string{value},
+            Vals: queryValueToStrings(value),
         }
     }
+    return x
 }
 
 // Add adds the value to key. It appends to any existing
 // values associated with key.
-func (x *Url_Query) Add(key, value string) {
+func (x *Url_Query) Add(key string, value interface{}) *Url_Query {
     if x != nil {
         if x.Vals[key] == nil {
             x.Vals[key] = &StringValues{}
         }
-        x.Vals[key].Vals = append(x.Vals[key].Vals, value)
+        x.Vals[key].Vals = append(x.Vals[key].Vals, queryValueToStrings(value)...)
     }
+    return x
 }
 
 // Del deletes the values associated with key.
-func (x *Url_Query) Del(key string) {
+func (x *Url_Query) Del(key string) *Url_Query {
     if x != nil {
         delete(x.Vals, key)
     }
+    return x
 }
 
 // Unmarshal
@@ -210,4 +239,52 @@ func splitQuotedString(str string) []string {
         }
     }
     return vals
+}
+
+func queryValueToStrings(val interface{}) []string {
+    switch v := val.(type) {
+    case bool:
+        if v {
+            return []string{"true"}
+        } else {
+            return []string{"false"}
+        }
+    case int8:
+        return []string{strconv.Itoa(int(v))}
+    case uint8:
+        return []string{strconv.Itoa(int(v))}
+    case int16:
+        return []string{strconv.Itoa(int(v))}
+    case uint16:
+        return []string{strconv.Itoa(int(v))}
+    case int32:
+        return []string{strconv.Itoa(int(v))}
+    case uint32:
+        return []string{strconv.FormatUint(uint64(v), 10)}
+    case int64:
+        return []string{strconv.FormatInt(v, 10)}
+    case uint64:
+        return []string{strconv.FormatUint(v, 10)}
+    case int:
+        return []string{strconv.FormatInt(int64(v), 10)}
+    case uint:
+        return []string{strconv.FormatUint(uint64(v), 10)}
+    case float32:
+        return []string{strconv.FormatFloat(float64(v), 'g', -1, 32)}
+    case float64:
+        return []string{strconv.FormatFloat(v, 'g', -1, 64)}
+    case string:
+        return []string{v}
+    case []string:
+        return v
+    }
+
+    if v, ok := val.(ToStringConverter); ok {
+        return []string{v.ToString()}
+    }
+    if v, ok := val.(Formatter); ok {
+        return []string{v.Format()}
+    }
+
+    return []string{}
 }
