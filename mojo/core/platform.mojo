@@ -23,6 +23,8 @@ enum OS {
     linux @10
 
     windows @20
+
+    simulation @30
 }
 
 /// the platform information

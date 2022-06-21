@@ -32,6 +32,10 @@ public enum OS
    * <code>OS_WINDOWS = 20;</code>
    */
   OS_WINDOWS(20),
+  /**
+   * <code>OS_SIMULATION = 30;</code>
+   */
+  OS_SIMULATION(30),
   UNRECOGNIZED(-1),
   ;
 
@@ -59,6 +63,10 @@ public enum OS
    * <code>OS_WINDOWS = 20;</code>
    */
   public static final int OS_WINDOWS_VALUE = 20;
+  /**
+   * <code>OS_SIMULATION = 30;</code>
+   */
+  public static final int OS_SIMULATION_VALUE = 30;
 
 
   public final int getNumber() {
@@ -91,6 +99,7 @@ public enum OS
       case 6: return OS_IOS;
       case 10: return OS_LINUX;
       case 20: return OS_WINDOWS;
+      case 30: return OS_SIMULATION;
       default: return null;
     }
   }

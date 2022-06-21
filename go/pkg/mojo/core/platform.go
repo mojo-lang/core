@@ -16,6 +16,10 @@ func NewPlatform(os OS, arch Architecture, variant string) *Platform {
     }
 }
 
+func (x *Platform) IsEmpty() bool {
+    return x == nil || x.Os == 0
+}
+
 func (x *Platform) SetOsName(name string) *Platform {
     if x != nil {
         x.OsName = name

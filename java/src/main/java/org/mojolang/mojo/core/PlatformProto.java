@@ -36,12 +36,12 @@ public final class PlatformProto {
       "RCHITECTURE_UNSPECIFIED\020\000\022\024\n\020ARCHITECTUR" +
       "E_X86\020\001\022\026\n\022ARCHITECTURE_AMD64\020\002\022\024\n\020ARCHI" +
       "TECTURE_ARM\020\005\022\026\n\022ARCHITECTURE_ARM64\020\006\022\025\n" +
-      "\021ARCHITECTURE_WASM\020\n*a\n\002OS\022\022\n\016OS_UNSPECI" +
+      "\021ARCHITECTURE_WASM\020\n*t\n\002OS\022\022\n\016OS_UNSPECI" +
       "FIED\020\000\022\016\n\nOS_ANDROID\020\001\022\r\n\tOS_DARWIN\020\002\022\n\n" +
-      "\006OS_IOS\020\006\022\014\n\010OS_LINUX\020\n\022\016\n\nOS_WINDOWS\020\024B" +
-      "Z\n\026org.mojolang.mojo.coreB\rPlatformProto" +
-      "P\001Z/github.com/mojo-lang/core/go/pkg/moj" +
-      "o/core;coreb\006proto3"
+      "\006OS_IOS\020\006\022\014\n\010OS_LINUX\020\n\022\016\n\nOS_WINDOWS\020\024\022" +
+      "\021\n\rOS_SIMULATION\020\036BZ\n\026org.mojolang.mojo." +
+      "coreB\rPlatformProtoP\001Z/github.com/mojo-l" +
+      "ang/core/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -27,14 +27,16 @@ var OSNames = map[int32]string{
 	6:  "ios",
 	10: "linux",
 	20: "windows",
+	30: "simulation",
 }
 
 var OSValues = map[string]OS{
-	"android": OS_OS_ANDROID,
-	"darwin":  OS_OS_DARWIN,
-	"ios":     OS_OS_IOS,
-	"linux":   OS_OS_LINUX,
-	"windows": OS_OS_WINDOWS,
+	"android":    OS_OS_ANDROID,
+	"darwin":     OS_OS_DARWIN,
+	"ios":        OS_OS_IOS,
+	"linux":      OS_OS_LINUX,
+	"windows":    OS_OS_WINDOWS,
+	"simulation": OS_OS_SIMULATION,
 }
 
 func (x OS) Format() string {

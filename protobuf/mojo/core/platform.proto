@@ -25,6 +25,7 @@ enum OS {
     OS_IOS=6;
     OS_LINUX=10;
     OS_WINDOWS=20;
+    OS_SIMULATION=30;
 }
 
 message Platform {
