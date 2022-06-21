@@ -11,6 +11,11 @@ func TestIsError(t *testing.T) {
     assert.True(t, IsError(NewErrorFrom(400, "msg")))
 }
 
+func TestAsError(t *testing.T) {
+    err := AsError(NewErrorFrom(400, "client error"))
+    assert.Equal(t, int32(400), err.Code.Code)
+}
+
 func TestError_AddDetail(t *testing.T) {
     err := NewNotFoundError("not found")
     err.AddDetail(&RetryInfo{RetryDelay: NewDurationFromSeconds(100)})

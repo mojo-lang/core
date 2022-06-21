@@ -46,6 +46,14 @@ func IsError(err error) bool {
     return errors.Is(err, &Error{})
 }
 
+func AsError(err error) *Error {
+    e := &Error{}
+    if errors.As(err, &e) {
+        return e
+    }
+    return nil
+}
+
 func (x *Error) Error() string {
     if len(x.Message) == 0 {
         return x.Code.Name
