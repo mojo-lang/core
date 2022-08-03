@@ -18,26 +18,33 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var FileModeNames = map[int32]string{
+	0:  "unspecified",
 	10: "dir",
 }
 
 var FileModeValues = map[string]File_Mode{
-	"dir": File_MODE_DIR,
+	"unspecified": File_MODE_UNSPECIFIED,
+	"dir":         File_MODE_DIR,
 }
 
 func (x File_Mode) Format() string {
-	s, ok := FileModeNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := FileModeNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x File_Mode) ToString() string {
@@ -45,15 +52,17 @@ func (x File_Mode) ToString() string {
 }
 
 func (x *File_Mode) Parse(value string) error {
-	if x != nil {
-		s, ok := FileModeValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := FileModeValues[value]; ok {
 			*x = s
 		} else {
-			*x = File_MODE_DIR
+			v := CaseStyler("snake")(value)
+			if s, ok = FileModeValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid File_Mode: %s", value)
+			}
 		}
-	} else {
-		*x = File_MODE_DIR
 	}
 	return nil
 }

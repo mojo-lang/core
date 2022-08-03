@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var ArchitectureNames = map[int32]string{
+	0:  "unspecified",
 	1:  "x86",
 	2:  "amd64",
 	5:  "arm",
@@ -30,22 +33,26 @@ var ArchitectureNames = map[int32]string{
 }
 
 var ArchitectureValues = map[string]Architecture{
-	"x86":   Architecture_ARCHITECTURE_X86,
-	"amd64": Architecture_ARCHITECTURE_AMD64,
-	"arm":   Architecture_ARCHITECTURE_ARM,
-	"arm64": Architecture_ARCHITECTURE_ARM64,
-	"wasm":  Architecture_ARCHITECTURE_WASM,
+	"unspecified": Architecture_ARCHITECTURE_UNSPECIFIED,
+	"x86":         Architecture_ARCHITECTURE_X86,
+	"amd64":       Architecture_ARCHITECTURE_AMD64,
+	"arm":         Architecture_ARCHITECTURE_ARM,
+	"arm64":       Architecture_ARCHITECTURE_ARM64,
+	"wasm":        Architecture_ARCHITECTURE_WASM,
 }
 
 func (x Architecture) Format() string {
-	s, ok := ArchitectureNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := ArchitectureNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Architecture) ToString() string {
@@ -53,15 +60,17 @@ func (x Architecture) ToString() string {
 }
 
 func (x *Architecture) Parse(value string) error {
-	if x != nil {
-		s, ok := ArchitectureValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := ArchitectureValues[value]; ok {
 			*x = s
 		} else {
-			*x = Architecture_ARCHITECTURE_X86
+			v := CaseStyler("snake")(value)
+			if s, ok = ArchitectureValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Architecture: %s", value)
+			}
 		}
-	} else {
-		*x = Architecture_ARCHITECTURE_X86
 	}
 	return nil
 }

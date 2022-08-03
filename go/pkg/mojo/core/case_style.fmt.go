@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var CaseStyleNames = map[int32]string{
+	0: "unspecified",
 	1: "snake",
 	2: "screaming_snake",
 	3: "kebab",
@@ -31,6 +34,7 @@ var CaseStyleNames = map[int32]string{
 }
 
 var CaseStyleValues = map[string]CaseStyle{
+	"unspecified":     CaseStyle_CASE_STYLE_UNSPECIFIED,
 	"snake":           CaseStyle_CASE_STYLE_SNAKE,
 	"screaming_snake": CaseStyle_CASE_STYLE_SCREAMING_SNAKE,
 	"kebab":           CaseStyle_CASE_STYLE_KEBAB,
@@ -40,14 +44,17 @@ var CaseStyleValues = map[string]CaseStyle{
 }
 
 func (x CaseStyle) Format() string {
-	s, ok := CaseStyleNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := CaseStyleNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x CaseStyle) ToString() string {
@@ -55,15 +62,17 @@ func (x CaseStyle) ToString() string {
 }
 
 func (x *CaseStyle) Parse(value string) error {
-	if x != nil {
-		s, ok := CaseStyleValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := CaseStyleValues[value]; ok {
 			*x = s
 		} else {
-			*x = CaseStyle_CASE_STYLE_SNAKE
+			v := CaseStyler("snake")(value)
+			if s, ok = CaseStyleValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid CaseStyle: %s", value)
+			}
 		}
-	} else {
-		*x = CaseStyle_CASE_STYLE_SNAKE
 	}
 	return nil
 }

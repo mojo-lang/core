@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var StackFrameTrustNames = map[int32]string{
+	0: "unspecified",
 	1: "scan",
 	2: "cfi_scan",
 	3: "fp",
@@ -31,23 +34,27 @@ var StackFrameTrustNames = map[int32]string{
 }
 
 var StackFrameTrustValues = map[string]StackFrame_Trust{
-	"scan":      StackFrame_TRUST_SCAN,
-	"cfi_scan":  StackFrame_TRUST_CFI_SCAN,
-	"fp":        StackFrame_TRUST_FP,
-	"cfi":       StackFrame_TRUST_CFI,
-	"prewalked": StackFrame_TRUST_PREWALKED,
-	"context":   StackFrame_TRUST_CONTEXT,
+	"unspecified": StackFrame_TRUST_UNSPECIFIED,
+	"scan":        StackFrame_TRUST_SCAN,
+	"cfi_scan":    StackFrame_TRUST_CFI_SCAN,
+	"fp":          StackFrame_TRUST_FP,
+	"cfi":         StackFrame_TRUST_CFI,
+	"prewalked":   StackFrame_TRUST_PREWALKED,
+	"context":     StackFrame_TRUST_CONTEXT,
 }
 
 func (x StackFrame_Trust) Format() string {
-	s, ok := StackFrameTrustNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := StackFrameTrustNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x StackFrame_Trust) ToString() string {
@@ -55,15 +62,17 @@ func (x StackFrame_Trust) ToString() string {
 }
 
 func (x *StackFrame_Trust) Parse(value string) error {
-	if x != nil {
-		s, ok := StackFrameTrustValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := StackFrameTrustValues[value]; ok {
 			*x = s
 		} else {
-			*x = StackFrame_TRUST_SCAN
+			v := CaseStyler("snake")(value)
+			if s, ok = StackFrameTrustValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid StackFrame_Trust: %s", value)
+			}
 		}
-	} else {
-		*x = StackFrame_TRUST_SCAN
 	}
 	return nil
 }

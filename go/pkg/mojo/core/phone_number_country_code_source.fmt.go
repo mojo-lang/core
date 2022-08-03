@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var PhoneNumberCountryCodeSourceNames = map[int32]string{
+	0:  "unspecified",
 	1:  "from_number_with_plus_sign",
 	5:  "from_number_with_idd",
 	10: "from_number_without_plus_sign",
@@ -29,6 +32,7 @@ var PhoneNumberCountryCodeSourceNames = map[int32]string{
 }
 
 var PhoneNumberCountryCodeSourceValues = map[string]PhoneNumber_CountryCodeSource{
+	"unspecified":                   PhoneNumber_COUNTRY_CODE_SOURCE_UNSPECIFIED,
 	"from_number_with_plus_sign":    PhoneNumber_COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN,
 	"from_number_with_idd":          PhoneNumber_COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_IDD,
 	"from_number_without_plus_sign": PhoneNumber_COUNTRY_CODE_SOURCE_FROM_NUMBER_WITHOUT_PLUS_SIGN,
@@ -36,14 +40,17 @@ var PhoneNumberCountryCodeSourceValues = map[string]PhoneNumber_CountryCodeSourc
 }
 
 func (x PhoneNumber_CountryCodeSource) Format() string {
-	s, ok := PhoneNumberCountryCodeSourceNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := PhoneNumberCountryCodeSourceNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x PhoneNumber_CountryCodeSource) ToString() string {
@@ -51,15 +58,17 @@ func (x PhoneNumber_CountryCodeSource) ToString() string {
 }
 
 func (x *PhoneNumber_CountryCodeSource) Parse(value string) error {
-	if x != nil {
-		s, ok := PhoneNumberCountryCodeSourceValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := PhoneNumberCountryCodeSourceValues[value]; ok {
 			*x = s
 		} else {
-			*x = PhoneNumber_COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN
+			v := CaseStyler("snake")(value)
+			if s, ok = PhoneNumberCountryCodeSourceValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid PhoneNumber_CountryCodeSource: %s", value)
+			}
 		}
-	} else {
-		*x = PhoneNumber_COUNTRY_CODE_SOURCE_FROM_NUMBER_WITH_PLUS_SIGN
 	}
 	return nil
 }

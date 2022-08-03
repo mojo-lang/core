@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var DeclTypeNames = map[int32]string{
+	0: "unspecified",
 	1: "type",
 	2: "value",
 	3: "function",
@@ -32,6 +35,7 @@ var DeclTypeNames = map[int32]string{
 }
 
 var DeclTypeValues = map[string]DeclType{
+	"unspecified": DeclType_DECL_TYPE_UNSPECIFIED,
 	"type":        DeclType_DECL_TYPE_TYPE,
 	"value":       DeclType_DECL_TYPE_VALUE,
 	"function":    DeclType_DECL_TYPE_FUNCTION,
@@ -42,14 +46,17 @@ var DeclTypeValues = map[string]DeclType{
 }
 
 func (x DeclType) Format() string {
-	s, ok := DeclTypeNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := DeclTypeNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x DeclType) ToString() string {
@@ -57,15 +64,17 @@ func (x DeclType) ToString() string {
 }
 
 func (x *DeclType) Parse(value string) error {
-	if x != nil {
-		s, ok := DeclTypeValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := DeclTypeValues[value]; ok {
 			*x = s
 		} else {
-			*x = DeclType_DECL_TYPE_TYPE
+			v := CaseStyler("snake")(value)
+			if s, ok = DeclTypeValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid DeclType: %s", value)
+			}
 		}
-	} else {
-		*x = DeclType_DECL_TYPE_TYPE
 	}
 	return nil
 }

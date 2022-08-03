@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var MonthNames = map[int32]string{
+	0:  "Unspecified",
 	1:  "January",
 	2:  "February",
 	3:  "March",
@@ -37,29 +40,33 @@ var MonthNames = map[int32]string{
 }
 
 var MonthValues = map[string]Month{
-	"January":   Month_MONTH_JANUARY,
-	"February":  Month_MONTH_FEBRUARY,
-	"March":     Month_MONTH_MARCH,
-	"April":     Month_MONTH_APRIL,
-	"May":       Month_MONTH_MAY,
-	"June":      Month_MONTH_JUNE,
-	"July":      Month_MONTH_JULY,
-	"August":    Month_MONTH_AUGUST,
-	"September": Month_MONTH_SEPTEMBER,
-	"October":   Month_MONTH_OCTOBER,
-	"November":  Month_MONTH_NOVEMBER,
-	"December":  Month_MONTH_DECEMBER,
+	"Unspecified": Month_MONTH_UNSPECIFIED,
+	"January":     Month_MONTH_JANUARY,
+	"February":    Month_MONTH_FEBRUARY,
+	"March":       Month_MONTH_MARCH,
+	"April":       Month_MONTH_APRIL,
+	"May":         Month_MONTH_MAY,
+	"June":        Month_MONTH_JUNE,
+	"July":        Month_MONTH_JULY,
+	"August":      Month_MONTH_AUGUST,
+	"September":   Month_MONTH_SEPTEMBER,
+	"October":     Month_MONTH_OCTOBER,
+	"November":    Month_MONTH_NOVEMBER,
+	"December":    Month_MONTH_DECEMBER,
 }
 
 func (x Month) Format() string {
-	s, ok := MonthNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := MonthNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Month) ToString() string {
@@ -67,15 +74,17 @@ func (x Month) ToString() string {
 }
 
 func (x *Month) Parse(value string) error {
-	if x != nil {
-		s, ok := MonthValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := MonthValues[value]; ok {
 			*x = s
 		} else {
-			*x = Month_MONTH_JANUARY
+			v := CaseStyler("camel")(value)
+			if s, ok = MonthValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Month: %s", value)
+			}
 		}
-	} else {
-		*x = Month_MONTH_JANUARY
 	}
 	return nil
 }

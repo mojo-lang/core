@@ -25,5 +25,5 @@ func TestFormatJson(t *testing.T) {
         "foo": 1
     }
 }`
-    assert.True(t, string(output) == expect1 || string(output) == expect2)
+    assert.True(t, string(output) == expect1 || string(output) == expect2, "output: %s", output)
 }

@@ -18,28 +18,35 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var OrderingSortNames = map[int32]string{
+	0: "unspecified",
 	1: "asc",
 	2: "desc",
 }
 
 var OrderingSortValues = map[string]Ordering_Sort{
-	"asc":  Ordering_SORT_ASC,
-	"desc": Ordering_SORT_DESC,
+	"unspecified": Ordering_SORT_UNSPECIFIED,
+	"asc":         Ordering_SORT_ASC,
+	"desc":        Ordering_SORT_DESC,
 }
 
 func (x Ordering_Sort) Format() string {
-	s, ok := OrderingSortNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := OrderingSortNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Ordering_Sort) ToString() string {
@@ -47,15 +54,17 @@ func (x Ordering_Sort) ToString() string {
 }
 
 func (x *Ordering_Sort) Parse(value string) error {
-	if x != nil {
-		s, ok := OrderingSortValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := OrderingSortValues[value]; ok {
 			*x = s
 		} else {
-			*x = Ordering_SORT_ASC
+			v := CaseStyler("snake")(value)
+			if s, ok = OrderingSortValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Ordering_Sort: %s", value)
+			}
 		}
-	} else {
-		*x = Ordering_SORT_ASC
 	}
 	return nil
 }

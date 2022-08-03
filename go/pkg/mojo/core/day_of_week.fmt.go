@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var DayOfWeekNames = map[int32]string{
+	0: "Unspecified",
 	1: "Monday",
 	2: "Tuesday",
 	3: "Wednesday",
@@ -32,24 +35,28 @@ var DayOfWeekNames = map[int32]string{
 }
 
 var DayOfWeekValues = map[string]DayOfWeek{
-	"Monday":    DayOfWeek_DAY_OF_WEEK_MONDAY,
-	"Tuesday":   DayOfWeek_DAY_OF_WEEK_TUESDAY,
-	"Wednesday": DayOfWeek_DAY_OF_WEEK_WEDNESDAY,
-	"Thursday":  DayOfWeek_DAY_OF_WEEK_THURSDAY,
-	"Friday":    DayOfWeek_DAY_OF_WEEK_FRIDAY,
-	"Saturday":  DayOfWeek_DAY_OF_WEEK_SATURDAY,
-	"Sunday":    DayOfWeek_DAY_OF_WEEK_SUNDAY,
+	"Unspecified": DayOfWeek_DAY_OF_WEEK_UNSPECIFIED,
+	"Monday":      DayOfWeek_DAY_OF_WEEK_MONDAY,
+	"Tuesday":     DayOfWeek_DAY_OF_WEEK_TUESDAY,
+	"Wednesday":   DayOfWeek_DAY_OF_WEEK_WEDNESDAY,
+	"Thursday":    DayOfWeek_DAY_OF_WEEK_THURSDAY,
+	"Friday":      DayOfWeek_DAY_OF_WEEK_FRIDAY,
+	"Saturday":    DayOfWeek_DAY_OF_WEEK_SATURDAY,
+	"Sunday":      DayOfWeek_DAY_OF_WEEK_SUNDAY,
 }
 
 func (x DayOfWeek) Format() string {
-	s, ok := DayOfWeekNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := DayOfWeekNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x DayOfWeek) ToString() string {
@@ -57,15 +64,17 @@ func (x DayOfWeek) ToString() string {
 }
 
 func (x *DayOfWeek) Parse(value string) error {
-	if x != nil {
-		s, ok := DayOfWeekValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := DayOfWeekValues[value]; ok {
 			*x = s
 		} else {
-			*x = DayOfWeek_DAY_OF_WEEK_MONDAY
+			v := CaseStyler("camel")(value)
+			if s, ok = DayOfWeekValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid DayOfWeek: %s", value)
+			}
 		}
-	} else {
-		*x = DayOfWeek_DAY_OF_WEEK_MONDAY
 	}
 	return nil
 }

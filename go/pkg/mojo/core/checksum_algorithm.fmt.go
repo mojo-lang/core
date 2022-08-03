@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var ChecksumAlgorithmNames = map[int32]string{
+	0: "UNSPECIFIED",
 	1: "MD5",
 	2: "SHA1",
 	3: "SHA256",
@@ -29,21 +32,25 @@ var ChecksumAlgorithmNames = map[int32]string{
 }
 
 var ChecksumAlgorithmValues = map[string]Checksum_Algorithm{
-	"MD5":    Checksum_ALGORITHM_MD5,
-	"SHA1":   Checksum_ALGORITHM_SHA1,
-	"SHA256": Checksum_ALGORITHM_SHA256,
-	"SHA512": Checksum_ALGORITHM_SHA512,
+	"UNSPECIFIED": Checksum_ALGORITHM_UNSPECIFIED,
+	"MD5":         Checksum_ALGORITHM_MD5,
+	"SHA1":        Checksum_ALGORITHM_SHA1,
+	"SHA256":      Checksum_ALGORITHM_SHA256,
+	"SHA512":      Checksum_ALGORITHM_SHA512,
 }
 
 func (x Checksum_Algorithm) Format() string {
-	s, ok := ChecksumAlgorithmNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := ChecksumAlgorithmNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Checksum_Algorithm) ToString() string {
@@ -51,15 +58,17 @@ func (x Checksum_Algorithm) ToString() string {
 }
 
 func (x *Checksum_Algorithm) Parse(value string) error {
-	if x != nil {
-		s, ok := ChecksumAlgorithmValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := ChecksumAlgorithmValues[value]; ok {
 			*x = s
 		} else {
-			*x = Checksum_ALGORITHM_MD5
+			v := CaseStyler("screaming_snake")(value)
+			if s, ok = ChecksumAlgorithmValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Checksum_Algorithm: %s", value)
+			}
 		}
-	} else {
-		*x = Checksum_ALGORITHM_MD5
 	}
 	return nil
 }

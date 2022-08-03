@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var ValueKindNames = map[int32]string{
+	0:  "unspecified",
 	1:  "null",
 	2:  "boolean",
 	3:  "integer",
@@ -33,25 +36,29 @@ var ValueKindNames = map[int32]string{
 }
 
 var ValueKindValues = map[string]ValueKind{
-	"null":    ValueKind_VALUE_KIND_NULL,
-	"boolean": ValueKind_VALUE_KIND_BOOLEAN,
-	"integer": ValueKind_VALUE_KIND_INTEGER,
-	"number":  ValueKind_VALUE_KIND_NUMBER,
-	"string":  ValueKind_VALUE_KIND_STRING,
-	"bytes":   ValueKind_VALUE_KIND_BYTES,
-	"array":   ValueKind_VALUE_KIND_ARRAY,
-	"object":  ValueKind_VALUE_KIND_OBJECT,
+	"unspecified": ValueKind_VALUE_KIND_UNSPECIFIED,
+	"null":        ValueKind_VALUE_KIND_NULL,
+	"boolean":     ValueKind_VALUE_KIND_BOOLEAN,
+	"integer":     ValueKind_VALUE_KIND_INTEGER,
+	"number":      ValueKind_VALUE_KIND_NUMBER,
+	"string":      ValueKind_VALUE_KIND_STRING,
+	"bytes":       ValueKind_VALUE_KIND_BYTES,
+	"array":       ValueKind_VALUE_KIND_ARRAY,
+	"object":      ValueKind_VALUE_KIND_OBJECT,
 }
 
 func (x ValueKind) Format() string {
-	s, ok := ValueKindNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := ValueKindNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x ValueKind) ToString() string {
@@ -59,15 +66,17 @@ func (x ValueKind) ToString() string {
 }
 
 func (x *ValueKind) Parse(value string) error {
-	if x != nil {
-		s, ok := ValueKindValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := ValueKindValues[value]; ok {
 			*x = s
 		} else {
-			*x = ValueKind_VALUE_KIND_NULL
+			v := CaseStyler("snake")(value)
+			if s, ok = ValueKindValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid ValueKind: %s", value)
+			}
 		}
-	} else {
-		*x = ValueKind_VALUE_KIND_NULL
 	}
 	return nil
 }

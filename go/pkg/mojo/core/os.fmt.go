@@ -18,10 +18,13 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 var OSNames = map[int32]string{
+	0:  "unspecified",
 	1:  "android",
 	2:  "darwin",
 	6:  "ios",
@@ -31,23 +34,27 @@ var OSNames = map[int32]string{
 }
 
 var OSValues = map[string]OS{
-	"android":    OS_OS_ANDROID,
-	"darwin":     OS_OS_DARWIN,
-	"ios":        OS_OS_IOS,
-	"linux":      OS_OS_LINUX,
-	"windows":    OS_OS_WINDOWS,
-	"simulation": OS_OS_SIMULATION,
+	"unspecified": OS_OS_UNSPECIFIED,
+	"android":     OS_OS_ANDROID,
+	"darwin":      OS_OS_DARWIN,
+	"ios":         OS_OS_IOS,
+	"linux":       OS_OS_LINUX,
+	"windows":     OS_OS_WINDOWS,
+	"simulation":  OS_OS_SIMULATION,
 }
 
 func (x OS) Format() string {
-	s, ok := OSNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := OSNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x OS) ToString() string {
@@ -55,15 +62,17 @@ func (x OS) ToString() string {
 }
 
 func (x *OS) Parse(value string) error {
-	if x != nil {
-		s, ok := OSValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := OSValues[value]; ok {
 			*x = s
 		} else {
-			*x = OS_OS_ANDROID
+			v := CaseStyler("snake")(value)
+			if s, ok = OSValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid OS: %s", value)
+			}
 		}
-	} else {
-		*x = OS_OS_ANDROID
 	}
 	return nil
 }
