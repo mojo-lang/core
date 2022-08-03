@@ -8,7 +8,7 @@ public interface PercentageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint32 val = 1;</code>
+   * <code>int32 val = 1;</code>
    * @return The val.
    */
   int getVal();

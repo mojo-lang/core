@@ -12,7 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/// integer percentage
 ///
 ///
-///
-type Percentage : UInt8 @range(0..100)
+/// @format("$%")
+type Percentage: Int32 //@range(0..100)
+
+/// float percentage
+/// the value is from 0 to 100 with two decimal places precision normally, and then printed to '100.00%', '12.45%'
+/// @format("$%")
+//type FloatPercentage: Float32 @precision(4)

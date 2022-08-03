@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            val_ = input.readUInt32();
+            val_ = input.readInt32();
             break;
           }
           default: {
@@ -88,7 +88,7 @@ private static final long serialVersionUID = 0L;
   public static final int VAL_FIELD_NUMBER = 1;
   private int val_;
   /**
-   * <code>uint32 val = 1;</code>
+   * <code>int32 val = 1;</code>
    * @return The val.
    */
   @java.lang.Override
@@ -111,7 +111,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (val_ != 0) {
-      output.writeUInt32(1, val_);
+      output.writeInt32(1, val_);
     }
     unknownFields.writeTo(output);
   }
@@ -124,7 +124,7 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (val_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(1, val_);
+        .computeInt32Size(1, val_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -400,7 +400,7 @@ private static final long serialVersionUID = 0L;
 
     private int val_ ;
     /**
-     * <code>uint32 val = 1;</code>
+     * <code>int32 val = 1;</code>
      * @return The val.
      */
     @java.lang.Override
@@ -408,7 +408,7 @@ private static final long serialVersionUID = 0L;
       return val_;
     }
     /**
-     * <code>uint32 val = 1;</code>
+     * <code>int32 val = 1;</code>
      * @param value The val to set.
      * @return This builder for chaining.
      */
@@ -419,7 +419,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 val = 1;</code>
+     * <code>int32 val = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearVal() {
