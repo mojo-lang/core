@@ -372,7 +372,11 @@ func (x *Value) GetStringArray() []string {
     values := x.GetValues()
     array := make([]string, 0, len(values))
     for _, value := range values {
-        array = append(array, value.GetString())
+        if value.GetKind() == ValueKind_VALUE_KIND_STRING {
+            array = append(array, value.GetString())
+        } else {
+            return nil
+        }
     }
     return array
 }

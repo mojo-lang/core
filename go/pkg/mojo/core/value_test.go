@@ -23,3 +23,14 @@ func TestValue_GetKind(t *testing.T) {
     val = NewStringArrayValue("foo")
     assert.Equal(t, ValueKind_VALUE_KIND_ARRAY, val.GetKind())
 }
+
+func TestValue_GetStringArray(t *testing.T) {
+    val := NewInt32ArrayValue(1, 2, 3, 4)
+    strs := val.GetStringArray()
+    assert.Empty(t, strs)
+
+    strs = NewStringArrayValue("foo", "bar", "baz").GetStringArray()
+    assert.Equal(t, 3, len(strs))
+    assert.Equal(t, "foo", strs[0])
+    assert.Equal(t, "baz", strs[2])
+}
