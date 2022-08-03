@@ -7,9 +7,9 @@ import (
 )
 
 const (
-    TimestampString1       = "2019-10-13T19:52:25+08:00"
-    TimestampString2       = "2019-10-13T19:53:25+08:00"
-    TimestampString1Json   = `"2019-10-13T19:52:25+08:00"`
+    TimestampString1       = "2019-10-13T19:52:25.000+08:00"
+    TimestampString2       = "2019-10-13T19:53:25.000+08:00"
+    TimestampString1Json   = `"2019-10-13T19:52:25.000+08:00"`
     TimestampString1Number = "1570967545"
     Timestamp1             = int64(1570967545)
 )
