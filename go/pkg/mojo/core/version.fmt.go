@@ -18,6 +18,14 @@ func ParseVersion(version string) (*Version, error) {
 
 func (x *Version) Parse(version string) error {
     if x != nil && len(version) > 0 {
+        // if v or V prefixed, then remove the v tag.
+        if version[0] == 'v' || version[0] == 'V' {
+            version = version[1:]
+        }
+        if len(version) == 0 {
+            return nil
+        }
+
         segments := strings.Split(version, "+")
         if len(segments) > 1 {
             x.Builds = strings.Split(segments[1], ".")
