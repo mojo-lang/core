@@ -23,6 +23,6 @@ enum CaseStyle {
     screaming_snake @2 //< SCREAMING_SNAKE_CASE style
     kebab @3           //< kebab-case style
     screaming_kebab @4 //< SCREAMING-KEBAB-CASE style
-    camel @5           // CamelCase style
+    camel @5           //< CamelCase style
     lower_camel @6     //< lowerCamelCase style
 }

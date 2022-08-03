@@ -56,19 +56,19 @@ enum OS {
 @format("{os}/{architecture}{/variant}{-os_name/os_version}")
 type Platform {
     /// the CPU architecture, such as "x86" or "amd64".
-    architecture: Architecture @1 @required
+    architecture: Architecture @1
     
     /// to qualify ARM architecture, the Variant field is used to qualify the arm version.
-    variant: String @2
+    variant: String @2 @format('[a-z0-9]+')
 
     /// the os type in the platform.
     os: OS @10 @required
 
     /// a string identifying the operating system, such as "Windows NT",
     /// "Mac OS X", or "Ubutun".
-    os_name: String @11
+    os_name: String @11 @format('[a-zA-Z0-9 ._]+')
     
     /// A string identifying the version of the operating system, such as
     /// "5.1.2600 Service Pack 2" or "10.4.8 8L2127", or "14.02".
-    os_version: String @12
+    os_version: String @12 @format('[a-zA-Z0-9 ._]+')
 }
