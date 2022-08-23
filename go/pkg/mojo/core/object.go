@@ -1,6 +1,7 @@
 package core
 
 import (
+    "fmt"
     jsoniter "github.com/json-iterator/go"
     "google.golang.org/protobuf/runtime/protoimpl"
     "unicode/utf8"
@@ -31,9 +32,35 @@ func NewObjectFromMap(v map[string]interface{}) (*Object, error) {
     return x, nil
 }
 
+func NewObjectFromKeyValues(kvs ...interface{}) (*Object, error) {
+    if len(kvs)%2 != 0 {
+        return nil, fmt.Errorf("invalid key value pairs")
+    }
+
+    m := make(map[string]interface{})
+    for i := 0; i < len(kvs); i += 2 {
+        key, ok := kvs[i].(string)
+        if !ok {
+            return nil, fmt.Errorf("invalid key type, must be string. key: %v", kvs[i])
+        }
+        m[key] = kvs[i+1]
+    }
+    return NewObjectFromMap(m)
+}
+
 func NewObjectFrom(value interface{}) (*Object, error) {
     obj := &Object{}
     return obj, obj.From(value)
+}
+
+func MergeObjects(objs ...*Object) *Object {
+    obj := &Object{
+        Vals: make(map[string]*Value),
+    }
+    for _, o := range objs {
+        obj.Merge(o)
+    }
+    return obj
 }
 
 func (x *Object) ToMap() interface{} {
@@ -281,6 +308,15 @@ func (x *Object) SetObjectArray(key string, vals ...*Object) *Object {
 func (x *Object) Delete(key string) *Object {
     if x != nil && len(x.Vals) > 0 {
         delete(x.Vals, key)
+    }
+    return x
+}
+
+func (x *Object) Merge(obj *Object) *Object {
+    if x != nil {
+        for k, v := range obj.GetVals() {
+            x.Vals[k] = v
+        }
     }
     return x
 }

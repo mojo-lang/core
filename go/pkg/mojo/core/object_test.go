@@ -40,3 +40,22 @@ func TestObject_Delete(t *testing.T) {
     obj.Delete("title")
     assert.True(t, obj.IsEmpty())
 }
+
+func TestObject_Merge(t *testing.T) {
+    o1, _ := NewObjectFromKeyValues("x", 12, "y", "foo")
+    o2, _ := NewObjectFromKeyValues("x", 16, "z", "bar")
+    o1.Merge(o2)
+    assert.Equal(t, 3, len(o1.Vals))
+    assert.Equal(t, int64(16), o1.GetInt64("x"))
+}
+
+func TestMergeObjects(t *testing.T) {
+    o1, _ := NewObjectFromKeyValues("x", 12, "y", "foo")
+    o2, _ := NewObjectFromKeyValues("x", 16, "z", "bar")
+    o3, _ := NewObjectFromKeyValues("a", "alpha", "b", "blue")
+
+    o := MergeObjects(o1, o2, o3)
+    assert.NotNil(t, o)
+    assert.Equal(t, 5, len(o.Vals))
+    assert.Equal(t, int64(16), o.GetInt64("x"))
+}

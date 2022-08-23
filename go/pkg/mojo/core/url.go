@@ -10,3 +10,6 @@ func NewUrl(url string) (*Url, error) {
     }
     return u, nil
 }
+
+func (x *Url) Fake() *Value {
+}
