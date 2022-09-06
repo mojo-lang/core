@@ -21,7 +21,7 @@ func (codec *BoolValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator)
 
 func (codec *BoolValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
     e := (*BoolValue)(ptr)
-    stream.WriteString(strconv.FormatBool(e.Val))
+    stream.WriteRaw(strconv.FormatBool(e.Val))
 }
 
 func (codec *BoolValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
