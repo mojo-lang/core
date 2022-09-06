@@ -1,8 +1,11 @@
 package core
 
 import (
+    "fmt"
     "google.golang.org/protobuf/runtime/protoimpl"
     "math"
+    "reflect"
+    "strings"
     "unicode/utf8"
 )
 
@@ -32,6 +35,10 @@ func NewValue(v interface{}) (*Value, error) {
         return NewBoolValue(v), nil
     case int:
         return NewIntValue(v), nil
+    case int8:
+        return NewInt8Value(v), nil
+    case int16:
+        return NewInt16Value(v), nil
     case int32:
         return NewInt32Value(v), nil
     case int64:
@@ -72,7 +79,65 @@ func NewValue(v interface{}) (*Value, error) {
     case *Values:
         return NewValuesValue(v), nil
     default:
-        return nil, protoimpl.X.NewError("invalid type: %T", v)
+        if sv, ok := v.(StringLike); ok {
+            if sv == nil {
+                return NewNullValue(), nil
+            }
+            return NewStringValue(sv.ToString()), nil
+        }
+
+        value := reflect.ValueOf(v)
+        typ := reflect.Indirect(value).Type()
+        if value.Kind() == reflect.Ptr {
+            value = value.Elem()
+            typ = reflect.Indirect(value).Type()
+        }
+
+        if typ.Kind() == reflect.Slice || typ.Kind() == reflect.Array {
+            var values []*Value
+            for i := 0; i < value.Len(); i++ {
+                nv, err := NewValue(value.Index(i).Interface())
+                if err != nil {
+                    return nil, err
+                }
+                values = append(values, nv)
+            }
+            if len(values) > 0 {
+                return NewArrayValue(values...), nil
+            }
+        } else if typ.Kind() == reflect.Map {
+            values := make(map[string]*Value)
+            for iter := value.MapRange(); iter.Next(); {
+                val, err := NewValue(iter.Value().Interface())
+                if err != nil {
+                    return nil, err
+                }
+                values[iter.Key().String()] = val
+            }
+            if len(values) > 0 {
+                return NewMapValue(values), nil
+            }
+        } else if typ.Kind() == reflect.Struct {
+            values := make(map[string]*Value)
+            for i := 0; i < typ.NumField(); i++ {
+                key := typ.Field(i).Name
+                if (key[0] >= 'a' && key[0] <= 'z') || strings.HasPrefix(key, "XXX") {
+                    continue
+                }
+                if value.Field(i).IsZero() {
+                    continue
+                }
+                val, err := NewValue(value.Field(i).Interface())
+                if err != nil {
+                    return nil, err
+                }
+                values[key] = val
+            }
+            if len(values) > 0 {
+                return NewMapValue(values), nil
+            }
+        }
+        return nil, fmt.Errorf("invalid type: %T", v)
     }
 }
 
@@ -85,6 +150,14 @@ func NewBoolValue(val bool) *Value {
 }
 
 func NewIntValue(val int) *Value {
+    return NewInt64Value(int64(val))
+}
+
+func NewInt8Value(val int8) *Value {
+    return NewInt64Value(int64(val))
+}
+
+func NewInt16Value(val int16) *Value {
     return NewInt64Value(int64(val))
 }
 

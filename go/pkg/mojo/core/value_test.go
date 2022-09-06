@@ -34,3 +34,11 @@ func TestValue_GetStringArray(t *testing.T) {
     assert.Equal(t, "foo", strs[0])
     assert.Equal(t, "baz", strs[2])
 }
+
+func TestNewValue(t *testing.T) {
+    p := &Platform{Os: OS_OS_LINUX, Architecture: Architecture_ARCHITECTURE_AMD64}
+    val, err := NewValue(p)
+    assert.NoError(t, err)
+    assert.NotNil(t, val)
+    assert.Equal(t, p.Format(), val.GetString())
+}
