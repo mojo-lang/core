@@ -218,6 +218,18 @@ func TestUrl_Query_Unmarshal_Version(t *testing.T) {
     assert.Equal(t, uint64(1), val.Major)
 }
 
+func TestUrl_Query_Unmarshal_Url(t *testing.T) {
+    query := &Url_Query{Vals: map[string]*StringValues{
+        "foo": {Vals: []string{"https://localhost:9090/path/to/foo"}},
+    }}
+
+    var val Url
+    err := query.Unmarshal("foo", &val)
+    assert.NoError(t, err)
+    assert.Equal(t, "https", val.Scheme)
+    assert.Equal(t, "/path/to/foo", val.Path)
+}
+
 func TestUrl_Query_Unmarshal_Object(t *testing.T) {
     query := &Url_Query{Vals: map[string]*StringValues{
         "foo": {Vals: []string{`{"code":"200","message":"OK"}`}},
