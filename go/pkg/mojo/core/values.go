@@ -16,15 +16,21 @@ func NewValues(values ...interface{}) (*Values, error) {
 }
 
 func (x *Values) ToSlice() []interface{} {
-    vs := make([]interface{}, len(x.GetVals()))
-    for i, v := range x.GetVals() {
-        vs[i] = v.ToInterface()
+    if x != nil && len(x.Vals) > 0 {
+        vs := make([]interface{}, len(x.Vals))
+        for i, v := range x.Vals {
+            vs[i] = v.ToInterface()
+        }
+        return vs
     }
-    return vs
+    return []interface{}{}
 }
 
 func (x *Values) Len() int {
-    return len(x.Vals)
+    if x != nil {
+        return len(x.Vals)
+    }
+    return 0
 }
 
 func (x *Values) GetValue(index int) *Value {
