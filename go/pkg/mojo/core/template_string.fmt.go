@@ -8,7 +8,7 @@ import (
 var segmentRegex *regexp.Regexp
 
 func init() {
-    segmentRegex = regexp.MustCompile(`\{[a-z0-9_.]+\}`)
+    segmentRegex = regexp.MustCompile(`\{[a-zA-Z\d_.]+\}`)
 }
 
 func (x *TemplateString) Parse(str string) error {

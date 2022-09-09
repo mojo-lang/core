@@ -26,6 +26,15 @@ func TestTemplateString_Parse2(t *testing.T) {
     assert.True(t, ts.Segments[1].Templated)
 }
 
+func TestTemplateString_Parse3(t *testing.T) {
+    ts := &TemplateString{}
+    err := ts.Parse(`/maps/tiles/v1/layers/{layerId}`)
+    assert.NoError(t, err)
+    assert.Equal(t, "/maps/tiles/v1/layers/", ts.Segments[0].Content)
+    assert.Equal(t, "layerId", ts.Segments[1].Content)
+    assert.True(t, ts.Segments[1].Templated)
+}
+
 func TestTemplateString_Format(t *testing.T) {
     ts := &TemplateString{}
     err := ts.Parse(urlTemplate)
