@@ -16,14 +16,18 @@
 ///
 ///
 type Range<T> {
-    min: T @1
-    max: T @2
+    start: T @1 // first
+    end: T @2   // last
 
-    min_excluded: Bool @3
-    max_excluded: Bool @4
+    //step: Int @3 = 1 //
+
+    start_excluded: Bool @9
+    end_included: Bool @10
 }
 
-// 12...45    12..45
+type IntRange = Range<Int64>
+
+// 12..=45    12..45
 // 12..<45    12..<45
 // 12<..45    12<..45
 // 12<.<45    12<..<45

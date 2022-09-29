@@ -50,38 +50,38 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             org.mojolang.mojo.core.Version.Builder subBuilder = null;
-            if (min_ != null) {
-              subBuilder = min_.toBuilder();
+            if (start_ != null) {
+              subBuilder = start_.toBuilder();
             }
-            min_ = input.readMessage(org.mojolang.mojo.core.Version.parser(), extensionRegistry);
+            start_ = input.readMessage(org.mojolang.mojo.core.Version.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(min_);
-              min_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(start_);
+              start_ = subBuilder.buildPartial();
             }
 
             break;
           }
           case 18: {
             org.mojolang.mojo.core.Version.Builder subBuilder = null;
-            if (max_ != null) {
-              subBuilder = max_.toBuilder();
+            if (end_ != null) {
+              subBuilder = end_.toBuilder();
             }
-            max_ = input.readMessage(org.mojolang.mojo.core.Version.parser(), extensionRegistry);
+            end_ = input.readMessage(org.mojolang.mojo.core.Version.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(max_);
-              max_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(end_);
+              end_ = subBuilder.buildPartial();
             }
 
             break;
           }
-          case 24: {
+          case 72: {
 
-            minExcluded_ = input.readBool();
+            startExcluded_ = input.readBool();
             break;
           }
-          case 32: {
+          case 80: {
 
-            maxExcluded_ = input.readBool();
+            endIncluded_ = input.readBool();
             break;
           }
           default: {
@@ -116,78 +116,78 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.core.VersionRange.class, org.mojolang.mojo.core.VersionRange.Builder.class);
   }
 
-  public static final int MIN_FIELD_NUMBER = 1;
-  private org.mojolang.mojo.core.Version min_;
+  public static final int START_FIELD_NUMBER = 1;
+  private org.mojolang.mojo.core.Version start_;
   /**
-   * <code>.mojo.core.Version min = 1;</code>
-   * @return Whether the min field is set.
+   * <code>.mojo.core.Version start = 1;</code>
+   * @return Whether the start field is set.
    */
   @java.lang.Override
-  public boolean hasMin() {
-    return min_ != null;
+  public boolean hasStart() {
+    return start_ != null;
   }
   /**
-   * <code>.mojo.core.Version min = 1;</code>
-   * @return The min.
+   * <code>.mojo.core.Version start = 1;</code>
+   * @return The start.
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.Version getMin() {
-    return min_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : min_;
+  public org.mojolang.mojo.core.Version getStart() {
+    return start_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : start_;
   }
   /**
-   * <code>.mojo.core.Version min = 1;</code>
+   * <code>.mojo.core.Version start = 1;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.VersionOrBuilder getMinOrBuilder() {
-    return getMin();
-  }
-
-  public static final int MAX_FIELD_NUMBER = 2;
-  private org.mojolang.mojo.core.Version max_;
-  /**
-   * <code>.mojo.core.Version max = 2;</code>
-   * @return Whether the max field is set.
-   */
-  @java.lang.Override
-  public boolean hasMax() {
-    return max_ != null;
-  }
-  /**
-   * <code>.mojo.core.Version max = 2;</code>
-   * @return The max.
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.core.Version getMax() {
-    return max_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : max_;
-  }
-  /**
-   * <code>.mojo.core.Version max = 2;</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.core.VersionOrBuilder getMaxOrBuilder() {
-    return getMax();
+  public org.mojolang.mojo.core.VersionOrBuilder getStartOrBuilder() {
+    return getStart();
   }
 
-  public static final int MIN_EXCLUDED_FIELD_NUMBER = 3;
-  private boolean minExcluded_;
+  public static final int END_FIELD_NUMBER = 2;
+  private org.mojolang.mojo.core.Version end_;
   /**
-   * <code>bool min_excluded = 3;</code>
-   * @return The minExcluded.
+   * <code>.mojo.core.Version end = 2;</code>
+   * @return Whether the end field is set.
    */
   @java.lang.Override
-  public boolean getMinExcluded() {
-    return minExcluded_;
+  public boolean hasEnd() {
+    return end_ != null;
+  }
+  /**
+   * <code>.mojo.core.Version end = 2;</code>
+   * @return The end.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.core.Version getEnd() {
+    return end_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : end_;
+  }
+  /**
+   * <code>.mojo.core.Version end = 2;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.core.VersionOrBuilder getEndOrBuilder() {
+    return getEnd();
   }
 
-  public static final int MAX_EXCLUDED_FIELD_NUMBER = 4;
-  private boolean maxExcluded_;
+  public static final int START_EXCLUDED_FIELD_NUMBER = 9;
+  private boolean startExcluded_;
   /**
-   * <code>bool max_excluded = 4;</code>
-   * @return The maxExcluded.
+   * <code>bool start_excluded = 9;</code>
+   * @return The startExcluded.
    */
   @java.lang.Override
-  public boolean getMaxExcluded() {
-    return maxExcluded_;
+  public boolean getStartExcluded() {
+    return startExcluded_;
+  }
+
+  public static final int END_INCLUDED_FIELD_NUMBER = 10;
+  private boolean endIncluded_;
+  /**
+   * <code>bool end_included = 10;</code>
+   * @return The endIncluded.
+   */
+  @java.lang.Override
+  public boolean getEndIncluded() {
+    return endIncluded_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -204,17 +204,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (min_ != null) {
-      output.writeMessage(1, getMin());
+    if (start_ != null) {
+      output.writeMessage(1, getStart());
     }
-    if (max_ != null) {
-      output.writeMessage(2, getMax());
+    if (end_ != null) {
+      output.writeMessage(2, getEnd());
     }
-    if (minExcluded_ != false) {
-      output.writeBool(3, minExcluded_);
+    if (startExcluded_ != false) {
+      output.writeBool(9, startExcluded_);
     }
-    if (maxExcluded_ != false) {
-      output.writeBool(4, maxExcluded_);
+    if (endIncluded_ != false) {
+      output.writeBool(10, endIncluded_);
     }
     unknownFields.writeTo(output);
   }
@@ -225,21 +225,21 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (min_ != null) {
+    if (start_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getMin());
+        .computeMessageSize(1, getStart());
     }
-    if (max_ != null) {
+    if (end_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getMax());
+        .computeMessageSize(2, getEnd());
     }
-    if (minExcluded_ != false) {
+    if (startExcluded_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, minExcluded_);
+        .computeBoolSize(9, startExcluded_);
     }
-    if (maxExcluded_ != false) {
+    if (endIncluded_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, maxExcluded_);
+        .computeBoolSize(10, endIncluded_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -256,20 +256,20 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.VersionRange other = (org.mojolang.mojo.core.VersionRange) obj;
 
-    if (hasMin() != other.hasMin()) return false;
-    if (hasMin()) {
-      if (!getMin()
-          .equals(other.getMin())) return false;
+    if (hasStart() != other.hasStart()) return false;
+    if (hasStart()) {
+      if (!getStart()
+          .equals(other.getStart())) return false;
     }
-    if (hasMax() != other.hasMax()) return false;
-    if (hasMax()) {
-      if (!getMax()
-          .equals(other.getMax())) return false;
+    if (hasEnd() != other.hasEnd()) return false;
+    if (hasEnd()) {
+      if (!getEnd()
+          .equals(other.getEnd())) return false;
     }
-    if (getMinExcluded()
-        != other.getMinExcluded()) return false;
-    if (getMaxExcluded()
-        != other.getMaxExcluded()) return false;
+    if (getStartExcluded()
+        != other.getStartExcluded()) return false;
+    if (getEndIncluded()
+        != other.getEndIncluded()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -281,20 +281,20 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasMin()) {
-      hash = (37 * hash) + MIN_FIELD_NUMBER;
-      hash = (53 * hash) + getMin().hashCode();
+    if (hasStart()) {
+      hash = (37 * hash) + START_FIELD_NUMBER;
+      hash = (53 * hash) + getStart().hashCode();
     }
-    if (hasMax()) {
-      hash = (37 * hash) + MAX_FIELD_NUMBER;
-      hash = (53 * hash) + getMax().hashCode();
+    if (hasEnd()) {
+      hash = (37 * hash) + END_FIELD_NUMBER;
+      hash = (53 * hash) + getEnd().hashCode();
     }
-    hash = (37 * hash) + MIN_EXCLUDED_FIELD_NUMBER;
+    hash = (37 * hash) + START_EXCLUDED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getMinExcluded());
-    hash = (37 * hash) + MAX_EXCLUDED_FIELD_NUMBER;
+        getStartExcluded());
+    hash = (37 * hash) + END_INCLUDED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getMaxExcluded());
+        getEndIncluded());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -428,21 +428,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (minBuilder_ == null) {
-        min_ = null;
+      if (startBuilder_ == null) {
+        start_ = null;
       } else {
-        min_ = null;
-        minBuilder_ = null;
+        start_ = null;
+        startBuilder_ = null;
       }
-      if (maxBuilder_ == null) {
-        max_ = null;
+      if (endBuilder_ == null) {
+        end_ = null;
       } else {
-        max_ = null;
-        maxBuilder_ = null;
+        end_ = null;
+        endBuilder_ = null;
       }
-      minExcluded_ = false;
+      startExcluded_ = false;
 
-      maxExcluded_ = false;
+      endIncluded_ = false;
 
       return this;
     }
@@ -470,18 +470,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.VersionRange buildPartial() {
       org.mojolang.mojo.core.VersionRange result = new org.mojolang.mojo.core.VersionRange(this);
-      if (minBuilder_ == null) {
-        result.min_ = min_;
+      if (startBuilder_ == null) {
+        result.start_ = start_;
       } else {
-        result.min_ = minBuilder_.build();
+        result.start_ = startBuilder_.build();
       }
-      if (maxBuilder_ == null) {
-        result.max_ = max_;
+      if (endBuilder_ == null) {
+        result.end_ = end_;
       } else {
-        result.max_ = maxBuilder_.build();
+        result.end_ = endBuilder_.build();
       }
-      result.minExcluded_ = minExcluded_;
-      result.maxExcluded_ = maxExcluded_;
+      result.startExcluded_ = startExcluded_;
+      result.endIncluded_ = endIncluded_;
       onBuilt();
       return result;
     }
@@ -530,17 +530,17 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.VersionRange other) {
       if (other == org.mojolang.mojo.core.VersionRange.getDefaultInstance()) return this;
-      if (other.hasMin()) {
-        mergeMin(other.getMin());
+      if (other.hasStart()) {
+        mergeStart(other.getStart());
       }
-      if (other.hasMax()) {
-        mergeMax(other.getMax());
+      if (other.hasEnd()) {
+        mergeEnd(other.getEnd());
       }
-      if (other.getMinExcluded() != false) {
-        setMinExcluded(other.getMinExcluded());
+      if (other.getStartExcluded() != false) {
+        setStartExcluded(other.getStartExcluded());
       }
-      if (other.getMaxExcluded() != false) {
-        setMaxExcluded(other.getMaxExcluded());
+      if (other.getEndIncluded() != false) {
+        setEndIncluded(other.getEndIncluded());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -571,302 +571,302 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.core.Version min_;
+    private org.mojolang.mojo.core.Version start_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder> minBuilder_;
+        org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder> startBuilder_;
     /**
-     * <code>.mojo.core.Version min = 1;</code>
-     * @return Whether the min field is set.
+     * <code>.mojo.core.Version start = 1;</code>
+     * @return Whether the start field is set.
      */
-    public boolean hasMin() {
-      return minBuilder_ != null || min_ != null;
+    public boolean hasStart() {
+      return startBuilder_ != null || start_ != null;
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
-     * @return The min.
+     * <code>.mojo.core.Version start = 1;</code>
+     * @return The start.
      */
-    public org.mojolang.mojo.core.Version getMin() {
-      if (minBuilder_ == null) {
-        return min_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : min_;
+    public org.mojolang.mojo.core.Version getStart() {
+      if (startBuilder_ == null) {
+        return start_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : start_;
       } else {
-        return minBuilder_.getMessage();
+        return startBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
-    public Builder setMin(org.mojolang.mojo.core.Version value) {
-      if (minBuilder_ == null) {
+    public Builder setStart(org.mojolang.mojo.core.Version value) {
+      if (startBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        min_ = value;
+        start_ = value;
         onChanged();
       } else {
-        minBuilder_.setMessage(value);
+        startBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
-    public Builder setMin(
+    public Builder setStart(
         org.mojolang.mojo.core.Version.Builder builderForValue) {
-      if (minBuilder_ == null) {
-        min_ = builderForValue.build();
+      if (startBuilder_ == null) {
+        start_ = builderForValue.build();
         onChanged();
       } else {
-        minBuilder_.setMessage(builderForValue.build());
+        startBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
-    public Builder mergeMin(org.mojolang.mojo.core.Version value) {
-      if (minBuilder_ == null) {
-        if (min_ != null) {
-          min_ =
-            org.mojolang.mojo.core.Version.newBuilder(min_).mergeFrom(value).buildPartial();
+    public Builder mergeStart(org.mojolang.mojo.core.Version value) {
+      if (startBuilder_ == null) {
+        if (start_ != null) {
+          start_ =
+            org.mojolang.mojo.core.Version.newBuilder(start_).mergeFrom(value).buildPartial();
         } else {
-          min_ = value;
+          start_ = value;
         }
         onChanged();
       } else {
-        minBuilder_.mergeFrom(value);
+        startBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
-    public Builder clearMin() {
-      if (minBuilder_ == null) {
-        min_ = null;
+    public Builder clearStart() {
+      if (startBuilder_ == null) {
+        start_ = null;
         onChanged();
       } else {
-        min_ = null;
-        minBuilder_ = null;
+        start_ = null;
+        startBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
-    public org.mojolang.mojo.core.Version.Builder getMinBuilder() {
+    public org.mojolang.mojo.core.Version.Builder getStartBuilder() {
       
       onChanged();
-      return getMinFieldBuilder().getBuilder();
+      return getStartFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
-    public org.mojolang.mojo.core.VersionOrBuilder getMinOrBuilder() {
-      if (minBuilder_ != null) {
-        return minBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.core.VersionOrBuilder getStartOrBuilder() {
+      if (startBuilder_ != null) {
+        return startBuilder_.getMessageOrBuilder();
       } else {
-        return min_ == null ?
-            org.mojolang.mojo.core.Version.getDefaultInstance() : min_;
+        return start_ == null ?
+            org.mojolang.mojo.core.Version.getDefaultInstance() : start_;
       }
     }
     /**
-     * <code>.mojo.core.Version min = 1;</code>
+     * <code>.mojo.core.Version start = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder> 
-        getMinFieldBuilder() {
-      if (minBuilder_ == null) {
-        minBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getStartFieldBuilder() {
+      if (startBuilder_ == null) {
+        startBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder>(
-                getMin(),
+                getStart(),
                 getParentForChildren(),
                 isClean());
-        min_ = null;
+        start_ = null;
       }
-      return minBuilder_;
+      return startBuilder_;
     }
 
-    private org.mojolang.mojo.core.Version max_;
+    private org.mojolang.mojo.core.Version end_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder> maxBuilder_;
+        org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder> endBuilder_;
     /**
-     * <code>.mojo.core.Version max = 2;</code>
-     * @return Whether the max field is set.
+     * <code>.mojo.core.Version end = 2;</code>
+     * @return Whether the end field is set.
      */
-    public boolean hasMax() {
-      return maxBuilder_ != null || max_ != null;
+    public boolean hasEnd() {
+      return endBuilder_ != null || end_ != null;
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
-     * @return The max.
+     * <code>.mojo.core.Version end = 2;</code>
+     * @return The end.
      */
-    public org.mojolang.mojo.core.Version getMax() {
-      if (maxBuilder_ == null) {
-        return max_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : max_;
+    public org.mojolang.mojo.core.Version getEnd() {
+      if (endBuilder_ == null) {
+        return end_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : end_;
       } else {
-        return maxBuilder_.getMessage();
+        return endBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
-    public Builder setMax(org.mojolang.mojo.core.Version value) {
-      if (maxBuilder_ == null) {
+    public Builder setEnd(org.mojolang.mojo.core.Version value) {
+      if (endBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        max_ = value;
+        end_ = value;
         onChanged();
       } else {
-        maxBuilder_.setMessage(value);
+        endBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
-    public Builder setMax(
+    public Builder setEnd(
         org.mojolang.mojo.core.Version.Builder builderForValue) {
-      if (maxBuilder_ == null) {
-        max_ = builderForValue.build();
+      if (endBuilder_ == null) {
+        end_ = builderForValue.build();
         onChanged();
       } else {
-        maxBuilder_.setMessage(builderForValue.build());
+        endBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
-    public Builder mergeMax(org.mojolang.mojo.core.Version value) {
-      if (maxBuilder_ == null) {
-        if (max_ != null) {
-          max_ =
-            org.mojolang.mojo.core.Version.newBuilder(max_).mergeFrom(value).buildPartial();
+    public Builder mergeEnd(org.mojolang.mojo.core.Version value) {
+      if (endBuilder_ == null) {
+        if (end_ != null) {
+          end_ =
+            org.mojolang.mojo.core.Version.newBuilder(end_).mergeFrom(value).buildPartial();
         } else {
-          max_ = value;
+          end_ = value;
         }
         onChanged();
       } else {
-        maxBuilder_.mergeFrom(value);
+        endBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
-    public Builder clearMax() {
-      if (maxBuilder_ == null) {
-        max_ = null;
+    public Builder clearEnd() {
+      if (endBuilder_ == null) {
+        end_ = null;
         onChanged();
       } else {
-        max_ = null;
-        maxBuilder_ = null;
+        end_ = null;
+        endBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
-    public org.mojolang.mojo.core.Version.Builder getMaxBuilder() {
+    public org.mojolang.mojo.core.Version.Builder getEndBuilder() {
       
       onChanged();
-      return getMaxFieldBuilder().getBuilder();
+      return getEndFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
-    public org.mojolang.mojo.core.VersionOrBuilder getMaxOrBuilder() {
-      if (maxBuilder_ != null) {
-        return maxBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.core.VersionOrBuilder getEndOrBuilder() {
+      if (endBuilder_ != null) {
+        return endBuilder_.getMessageOrBuilder();
       } else {
-        return max_ == null ?
-            org.mojolang.mojo.core.Version.getDefaultInstance() : max_;
+        return end_ == null ?
+            org.mojolang.mojo.core.Version.getDefaultInstance() : end_;
       }
     }
     /**
-     * <code>.mojo.core.Version max = 2;</code>
+     * <code>.mojo.core.Version end = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder> 
-        getMaxFieldBuilder() {
-      if (maxBuilder_ == null) {
-        maxBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getEndFieldBuilder() {
+      if (endBuilder_ == null) {
+        endBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.core.Version, org.mojolang.mojo.core.Version.Builder, org.mojolang.mojo.core.VersionOrBuilder>(
-                getMax(),
+                getEnd(),
                 getParentForChildren(),
                 isClean());
-        max_ = null;
+        end_ = null;
       }
-      return maxBuilder_;
+      return endBuilder_;
     }
 
-    private boolean minExcluded_ ;
+    private boolean startExcluded_ ;
     /**
-     * <code>bool min_excluded = 3;</code>
-     * @return The minExcluded.
+     * <code>bool start_excluded = 9;</code>
+     * @return The startExcluded.
      */
     @java.lang.Override
-    public boolean getMinExcluded() {
-      return minExcluded_;
+    public boolean getStartExcluded() {
+      return startExcluded_;
     }
     /**
-     * <code>bool min_excluded = 3;</code>
-     * @param value The minExcluded to set.
+     * <code>bool start_excluded = 9;</code>
+     * @param value The startExcluded to set.
      * @return This builder for chaining.
      */
-    public Builder setMinExcluded(boolean value) {
+    public Builder setStartExcluded(boolean value) {
       
-      minExcluded_ = value;
+      startExcluded_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool min_excluded = 3;</code>
+     * <code>bool start_excluded = 9;</code>
      * @return This builder for chaining.
      */
-    public Builder clearMinExcluded() {
+    public Builder clearStartExcluded() {
       
-      minExcluded_ = false;
+      startExcluded_ = false;
       onChanged();
       return this;
     }
 
-    private boolean maxExcluded_ ;
+    private boolean endIncluded_ ;
     /**
-     * <code>bool max_excluded = 4;</code>
-     * @return The maxExcluded.
+     * <code>bool end_included = 10;</code>
+     * @return The endIncluded.
      */
     @java.lang.Override
-    public boolean getMaxExcluded() {
-      return maxExcluded_;
+    public boolean getEndIncluded() {
+      return endIncluded_;
     }
     /**
-     * <code>bool max_excluded = 4;</code>
-     * @param value The maxExcluded to set.
+     * <code>bool end_included = 10;</code>
+     * @param value The endIncluded to set.
      * @return This builder for chaining.
      */
-    public Builder setMaxExcluded(boolean value) {
+    public Builder setEndIncluded(boolean value) {
       
-      maxExcluded_ = value;
+      endIncluded_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool max_excluded = 4;</code>
+     * <code>bool end_included = 10;</code>
      * @return This builder for chaining.
      */
-    public Builder clearMaxExcluded() {
+    public Builder clearEndIncluded() {
       
-      maxExcluded_ = false;
+      endIncluded_ = false;
       onChanged();
       return this;
     }

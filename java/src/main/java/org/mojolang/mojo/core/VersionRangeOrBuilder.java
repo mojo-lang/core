@@ -8,44 +8,44 @@ public interface VersionRangeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.mojo.core.Version min = 1;</code>
-   * @return Whether the min field is set.
+   * <code>.mojo.core.Version start = 1;</code>
+   * @return Whether the start field is set.
    */
-  boolean hasMin();
+  boolean hasStart();
   /**
-   * <code>.mojo.core.Version min = 1;</code>
-   * @return The min.
+   * <code>.mojo.core.Version start = 1;</code>
+   * @return The start.
    */
-  org.mojolang.mojo.core.Version getMin();
+  org.mojolang.mojo.core.Version getStart();
   /**
-   * <code>.mojo.core.Version min = 1;</code>
+   * <code>.mojo.core.Version start = 1;</code>
    */
-  org.mojolang.mojo.core.VersionOrBuilder getMinOrBuilder();
+  org.mojolang.mojo.core.VersionOrBuilder getStartOrBuilder();
 
   /**
-   * <code>.mojo.core.Version max = 2;</code>
-   * @return Whether the max field is set.
+   * <code>.mojo.core.Version end = 2;</code>
+   * @return Whether the end field is set.
    */
-  boolean hasMax();
+  boolean hasEnd();
   /**
-   * <code>.mojo.core.Version max = 2;</code>
-   * @return The max.
+   * <code>.mojo.core.Version end = 2;</code>
+   * @return The end.
    */
-  org.mojolang.mojo.core.Version getMax();
+  org.mojolang.mojo.core.Version getEnd();
   /**
-   * <code>.mojo.core.Version max = 2;</code>
+   * <code>.mojo.core.Version end = 2;</code>
    */
-  org.mojolang.mojo.core.VersionOrBuilder getMaxOrBuilder();
+  org.mojolang.mojo.core.VersionOrBuilder getEndOrBuilder();
 
   /**
-   * <code>bool min_excluded = 3;</code>
-   * @return The minExcluded.
+   * <code>bool start_excluded = 9;</code>
+   * @return The startExcluded.
    */
-  boolean getMinExcluded();
+  boolean getStartExcluded();
 
   /**
-   * <code>bool max_excluded = 4;</code>
-   * @return The maxExcluded.
+   * <code>bool end_included = 10;</code>
+   * @return The endIncluded.
    */
-  boolean getMaxExcluded();
+  boolean getEndIncluded();
 }
