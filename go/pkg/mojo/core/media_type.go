@@ -10,6 +10,7 @@ const (
     ApplicationWwwFormUrlencoded = "application/x-www-form-urlencoded"
     ApplicationXml               = "application/xml"
     ApplicationGeoJson           = "application/geo+json"
+    ApplicationZip               = "application/zip"
 
     ImagePng  = "image/png"
     ImageJpeg = "image/jpeg"
