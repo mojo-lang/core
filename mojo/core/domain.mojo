@@ -34,7 +34,7 @@
 /// upper case and a through z in lower case
 /// <digit> ::= any one of the ten digits 0 through 9
 /// ```
-@format('labels:delimiter(".")')
+@format(labels:delimiter("."))
 type Domain {
     labels: [String] @1
 }
