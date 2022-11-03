@@ -7,13 +7,13 @@ type SkipError struct {
 }
 
 func (e SkipError) Error() string {
-    return "skip"
+	return "skip"
 }
 
 func NewSkipError() error {
-    return &SkipError{}
+	return &SkipError{}
 }
 
 func IsSkipError(err error) bool {
-    return errors.Is(err, &SkipError{})
+	return errors.Is(err, &SkipError{})
 }

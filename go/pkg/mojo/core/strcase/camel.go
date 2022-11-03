@@ -41,88 +41,88 @@
 package strcase
 
 import (
-    "regexp"
-    "strings"
-    "unicode"
+	"regexp"
+	"strings"
+	"unicode"
 )
 
 var irregularCamelRules []caseRule
 
 func RegisterIrregularCamelCaseRule(rule string, replacement string) {
-    r, _ := regexp.Compile(rule)
-    irregularCamelRules = append(irregularCamelRules, caseRule{
-        Regexp:      r,
-        Replacement: replacement,
-    })
+	r, _ := regexp.Compile(rule)
+	irregularCamelRules = append(irregularCamelRules, caseRule{
+		Regexp:      r,
+		Replacement: replacement,
+	})
 }
 
 // ToCamel converts a string to CamelCase
 func ToCamel(s string) string {
-    return applyCamelRules(toCamelInitCase(s, true))
+	return applyCamelRules(toCamelInitCase(s, true))
 }
 
 // ToLowerCamel converts a string to lowerCamelCase
 func ToLowerCamel(s string) string {
-    s = applySnakeRules(strings.TrimSpace(s))
-    return toCamelInitCase(s, false)
+	s = applySnakeRules(strings.TrimSpace(s))
+	return toCamelInitCase(s, false)
 }
 
 func applyCamelRules(s string) string {
-    for _, rule := range irregularCamelRules {
-        s = string(rule.Regexp.ReplaceAll([]byte(s), []byte(rule.Replacement)))
-    }
-    return s
+	for _, rule := range irregularCamelRules {
+		s = string(rule.Regexp.ReplaceAll([]byte(s), []byte(rule.Replacement)))
+	}
+	return s
 }
 
 // Converts a string to CamelCase
 func toCamelInitCase(s string, initCase bool) string {
-    s = strings.TrimSpace(s)
-    if s == "" {
-        return s
-    }
+	s = strings.TrimSpace(s)
+	if s == "" {
+		return s
+	}
 
-    n := strings.Builder{}
-    n.Grow(len(s))
-    capNext := initCase
-    for i, v := range []byte(s) {
-        vIsCap := v >= 'A' && v <= 'Z'
-        vIsLow := v >= 'a' && v <= 'z'
-        if capNext {
-            if vIsLow {
-                v += 'A'
-                v -= 'a'
-            }
-        } else if i == 0 {
-            if vIsCap {
-                v += 'a'
-                v -= 'A'
-            }
-        }
-        vIsNum := v >= '0' && v <= '9'
+	n := strings.Builder{}
+	n.Grow(len(s))
+	capNext := initCase
+	for i, v := range []byte(s) {
+		vIsCap := v >= 'A' && v <= 'Z'
+		vIsLow := v >= 'a' && v <= 'z'
+		if capNext {
+			if vIsLow {
+				v += 'A'
+				v -= 'a'
+			}
+		} else if i == 0 {
+			if vIsCap {
+				v += 'a'
+				v -= 'A'
+			}
+		}
+		vIsNum := v >= '0' && v <= '9'
 
-        nextIsCap := false
-        nextIsLow := false
-        if i+1 < len(s) {
-            next := s[i+1]
-            nextIsCap = next >= 'A' && next <= 'Z'
-            nextIsLow = next >= 'a' && next <= 'z'
-        }
+		nextIsCap := false
+		nextIsLow := false
+		if i+1 < len(s) {
+			next := s[i+1]
+			nextIsCap = next >= 'A' && next <= 'Z'
+			nextIsLow = next >= 'a' && next <= 'z'
+		}
 
-        if vIsCap || vIsLow {
-            n.WriteByte(v)
-            capNext = false
-        } else if vIsNum {
-            // treat the a2b as a whole word
-            if v == '2' && (nextIsCap || nextIsLow) && i > 0 && unicode.IsLetter(rune(s[i-1])) {
-                n.WriteByte(v)
-                capNext = false
-                continue
-            }
-            n.WriteByte(v)
-            capNext = true
-        } else {
-            capNext = v == '_' || v == ' ' || v == '-' || v == '.'
-        }
-    }
-    return n.String()
+		if vIsCap || vIsLow {
+			n.WriteByte(v)
+			capNext = false
+		} else if vIsNum {
+			// treat the a2b as a whole word
+			if v == '2' && (nextIsCap || nextIsLow) && i > 0 && unicode.IsLetter(rune(s[i-1])) {
+				n.WriteByte(v)
+				capNext = false
+				continue
+			}
+			n.WriteByte(v)
+			capNext = true
+		} else {
+			capNext = v == '_' || v == ' ' || v == '-' || v == '.'
+		}
+	}
+	return n.String()
 }

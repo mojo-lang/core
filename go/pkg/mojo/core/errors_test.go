@@ -1,9 +1,10 @@
 package core
 
 import (
+	"testing"
+
 	jsoniter "github.com/json-iterator/go"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestNewAbortedError(t *testing.T) {

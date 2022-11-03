@@ -112,7 +112,7 @@ func (x *Url) ToString() string {
 	return x.Format()
 }
 
-//FormatWithoutSchema get url like: "apis.company.com/path/to/resource"
+// FormatWithoutSchema get url like: "apis.company.com/path/to/resource"
 func (x *Url) FormatWithoutSchema() string {
 	if x == nil {
 		return ""

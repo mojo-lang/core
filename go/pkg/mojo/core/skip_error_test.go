@@ -1,11 +1,12 @@
 package core
 
 import (
-    "github.com/stretchr/testify/assert"
-    "testing"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIsSkipError(t *testing.T) {
-    err := &SkipError{}
-    assert.True(t, IsSkipError(err))
+	err := &SkipError{}
+	assert.True(t, IsSkipError(err))
 }

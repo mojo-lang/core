@@ -1,11 +1,12 @@
 package core
 
 import (
-	"github.com/stretchr/testify/assert"
 	"os"
 	"path"
 	"syscall"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMkDir(t *testing.T) {

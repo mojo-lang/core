@@ -2,9 +2,10 @@ package core
 
 import (
 	"encoding/json"
+	"testing"
+
 	jsoniter "github.com/json-iterator/go"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 const anyStr = `{"@type":"mojo.core.Error","code":"404","message":"something wrong"}`

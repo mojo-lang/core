@@ -1,11 +1,12 @@
 package core
 
 import (
-    "github.com/stretchr/testify/assert"
-    "testing"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIsBreakError(t *testing.T) {
-    err := &BreakError{}
-    assert.True(t, IsBreakError(err))
+	err := &BreakError{}
+	assert.True(t, IsBreakError(err))
 }

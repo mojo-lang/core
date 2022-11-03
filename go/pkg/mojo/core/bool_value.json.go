@@ -1,30 +1,31 @@
 package core
 
 import (
-    jsoniter "github.com/json-iterator/go"
-    "strconv"
-    "unsafe"
+	"strconv"
+	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 func init() {
-    RegisterJSONTypeDecoder("core.BoolValue", &BoolValueCodec{})
-    RegisterJSONTypeEncoder("core.BoolValue", &BoolValueCodec{})
+	RegisterJSONTypeDecoder("core.BoolValue", &BoolValueCodec{})
+	RegisterJSONTypeEncoder("core.BoolValue", &BoolValueCodec{})
 }
 
 type BoolValueCodec struct {
 }
 
 func (codec *BoolValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-    any := iter.ReadAny()
-    (*BoolValue)(ptr).Val = any.ToBool()
+	any := iter.ReadAny()
+	(*BoolValue)(ptr).Val = any.ToBool()
 }
 
 func (codec *BoolValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
-    e := (*BoolValue)(ptr)
-    stream.WriteRaw(strconv.FormatBool(e.Val))
+	e := (*BoolValue)(ptr)
+	stream.WriteRaw(strconv.FormatBool(e.Val))
 }
 
 func (codec *BoolValueCodec) IsEmpty(ptr unsafe.Pointer) bool {
-    e := (*BoolValue)(ptr)
-    return e == nil
+	e := (*BoolValue)(ptr)
+	return e == nil
 }

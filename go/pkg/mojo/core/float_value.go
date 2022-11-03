@@ -13,9 +13,9 @@ const DoubleValueTypeName = "DoubleValue"
 const DoubleValueTypeFullName = "mojo.core.DoubleValue"
 
 type FloatValue struct {
-    Float32Value
+	Float32Value
 }
 
 type DoubleValue struct {
-    Float64Value
+	Float64Value
 }

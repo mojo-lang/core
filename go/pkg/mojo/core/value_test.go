@@ -1,44 +1,45 @@
 package core
 
 import (
-    "github.com/stretchr/testify/assert"
-    "testing"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewArrayValue(t *testing.T) {
-    val := NewInt32ArrayValue(1, 2, 3, 4)
+	val := NewInt32ArrayValue(1, 2, 3, 4)
 
-    vi, ok := val.ToInterface().([]interface{})
-    assert.True(t, ok)
-    assert.Equal(t, 4, len(vi))
+	vi, ok := val.ToInterface().([]interface{})
+	assert.True(t, ok)
+	assert.Equal(t, 4, len(vi))
 }
 
 func TestValue_GetKind(t *testing.T) {
-    val := NewInt32Value(32)
-    assert.Equal(t, ValueKind_VALUE_KIND_INTEGER, val.GetKind())
+	val := NewInt32Value(32)
+	assert.Equal(t, ValueKind_VALUE_KIND_INTEGER, val.GetKind())
 
-    val = NewStringValue("foo")
-    assert.Equal(t, ValueKind_VALUE_KIND_STRING, val.GetKind())
+	val = NewStringValue("foo")
+	assert.Equal(t, ValueKind_VALUE_KIND_STRING, val.GetKind())
 
-    val = NewStringArrayValue("foo")
-    assert.Equal(t, ValueKind_VALUE_KIND_ARRAY, val.GetKind())
+	val = NewStringArrayValue("foo")
+	assert.Equal(t, ValueKind_VALUE_KIND_ARRAY, val.GetKind())
 }
 
 func TestValue_GetStringArray(t *testing.T) {
-    val := NewInt32ArrayValue(1, 2, 3, 4)
-    strs := val.GetStringArray()
-    assert.Empty(t, strs)
+	val := NewInt32ArrayValue(1, 2, 3, 4)
+	strs := val.GetStringArray()
+	assert.Empty(t, strs)
 
-    strs = NewStringArrayValue("foo", "bar", "baz").GetStringArray()
-    assert.Equal(t, 3, len(strs))
-    assert.Equal(t, "foo", strs[0])
-    assert.Equal(t, "baz", strs[2])
+	strs = NewStringArrayValue("foo", "bar", "baz").GetStringArray()
+	assert.Equal(t, 3, len(strs))
+	assert.Equal(t, "foo", strs[0])
+	assert.Equal(t, "baz", strs[2])
 }
 
 func TestNewValue(t *testing.T) {
-    p := &Platform{Os: OS_OS_LINUX, Architecture: Architecture_ARCHITECTURE_AMD64}
-    val, err := NewValue(p)
-    assert.NoError(t, err)
-    assert.NotNil(t, val)
-    assert.Equal(t, p.Format(), val.GetString())
+	p := &Platform{Os: OS_OS_LINUX, Architecture: Architecture_ARCHITECTURE_AMD64}
+	val, err := NewValue(p)
+	assert.NoError(t, err)
+	assert.NotNil(t, val)
+	assert.Equal(t, p.Format(), val.GetString())
 }
