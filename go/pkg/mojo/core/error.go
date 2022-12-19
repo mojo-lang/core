@@ -62,14 +62,14 @@ func (x *Error) Error() string {
 	return x.Message
 }
 
-func (x *Error) StatusCode() int32 {
+func (x *Error) StatusCode() int {
 	if x != nil && x.Code != nil {
 		if x.Code.HttpStatusCode > 0 {
-			return x.Code.HttpStatusCode
+			return int(x.Code.HttpStatusCode)
 		}
-		return x.Code.Code
+		return int(x.Code.Code)
 	}
-	return 0
+	return 200
 }
 
 func (x *Error) AddDetail(detail interface{}) *Error {

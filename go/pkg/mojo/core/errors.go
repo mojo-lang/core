@@ -370,7 +370,7 @@ func (e *err) ToError() *Error {
 	return (*Error)(e)
 }
 
-func (e *err) StatusCode() int32 {
+func (e *err) StatusCode() int {
 	return (*Error)(e).StatusCode()
 }
 
