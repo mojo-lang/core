@@ -10,16 +10,16 @@ option java_outer_classname = "OrderingProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Ordering {
-    
     enum Sort {
         SORT_UNSPECIFIED=0;
         SORT_ASC=1;
         SORT_DESC=2;
     }
-    
+
     message Value {
         string field = 1;
         Ordering.Sort sort = 2;
     }
+
     repeated Value vals = 1;
 }

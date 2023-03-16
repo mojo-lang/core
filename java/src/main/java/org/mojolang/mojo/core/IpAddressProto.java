@@ -15,6 +15,11 @@ public final class IpAddressProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_mojo_core_IPAddress_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_mojo_core_IPAddress_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_mojo_core_IPv4_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -34,23 +39,31 @@ public final class IpAddressProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/core/ip_address.proto\022\tmojo.core\"" +
-      "\023\n\004IPv4\022\013\n\003val\030\001 \001(\r\"\023\n\004IPv6\022\013\n\003val\030\001 \001(" +
-      "\004B[\n\026org.mojolang.mojo.coreB\016IpAddressPr" +
-      "otoP\001Z/github.com/mojo-lang/core/go/pkg/" +
-      "mojo/core;coreb\006proto3"
+      "[\n\tIPAddress\022\037\n\004ipv4\030\001 \001(\0132\017.mojo.core.I" +
+      "Pv4H\000\022\037\n\004ipv6\030\002 \001(\0132\017.mojo.core.IPv6H\000B\014" +
+      "\n\nip_address\"\023\n\004IPv4\022\013\n\003val\030\001 \001(\r\"\023\n\004IPv" +
+      "6\022\013\n\003val\030\001 \001(\004B[\n\026org.mojolang.mojo.core" +
+      "B\016IpAddressProtoP\001Z/github.com/mojo-lang" +
+      "/core/go/pkg/mojo/core;coreb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_mojo_core_IPv4_descriptor =
+    internal_static_mojo_core_IPAddress_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_mojo_core_IPAddress_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_mojo_core_IPAddress_descriptor,
+        new java.lang.String[] { "Ipv4", "Ipv6", "IpAddress", });
+    internal_static_mojo_core_IPv4_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_mojo_core_IPv4_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_IPv4_descriptor,
         new java.lang.String[] { "Val", });
     internal_static_mojo_core_IPv6_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_mojo_core_IPv6_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_core_IPv6_descriptor,

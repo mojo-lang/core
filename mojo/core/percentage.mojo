@@ -15,10 +15,10 @@
 /// integer percentage
 ///
 ///
-/// @format("$%")
+/// @format("{}%")
 type Percentage: Int32 //@range(0..100)
 
 /// float percentage
 /// the value is from 0 to 100 with two decimal places precision normally, and then printed to '100.00%', '12.45%'
-/// @format("$%")
+/// @format("{}%")
 //type FloatPercentage: Float32 @precision(4)

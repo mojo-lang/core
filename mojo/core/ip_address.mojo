@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-type IPAddress = IPv4 | IPv6
+@label_format('{}')
+type IPAddress = IPv4 @1 | IPv6 @2
 
 @irregular_case_rule("IPv4", "Ipv4")
 type IPv4: UInt32

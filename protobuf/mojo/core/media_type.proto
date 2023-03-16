@@ -12,11 +12,11 @@ option java_outer_classname = "MediaTypeProto";
 option java_package = "org.mojolang.mojo.core";
 
 message MediaType {
-    
     message Parameter {
         string key = 1;
         Value value = 2;
     }
+
     string type = 1;
     string subtype = 2;
     Parameter parameter = 3;

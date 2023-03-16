@@ -10,9 +10,7 @@ option java_outer_classname = "WildcardStringProto";
 option java_package = "org.mojolang.mojo.core";
 
 message WildcardString {
-    
     message Wildcard {
-        
         enum Type {
             TYPE_UNSPECIFIED=0;
             TYPE_SINGLE_CHARACTER=1;
@@ -20,8 +18,10 @@ message WildcardString {
             TYPE_IN_CHARACTERS=3;
             TYPE_NOT_IN_CHARACTERS=4;
         }
+
         Type type = 1;
         string content = 2;
     }
+
     repeated Wildcard wildcards = 1;
 }

@@ -31,62 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EmailAddress(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            localPart_ = s;
-            break;
-          }
-          case 18: {
-            org.mojolang.mojo.core.Domain.Builder subBuilder = null;
-            if (domain_ != null) {
-              subBuilder = domain_.toBuilder();
-            }
-            domain_ = input.readMessage(org.mojolang.mojo.core.Domain.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(domain_);
-              domain_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojolang.mojo.core.EmailAddressProto.internal_static_mojo_core_EmailAddress_descriptor;
@@ -101,7 +45,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_PART_FIELD_NUMBER = 1;
-  private volatile java.lang.Object localPart_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object localPart_ = "";
   /**
    * <code>string local_part = 1;</code>
    * @return The localPart.
@@ -161,7 +106,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.DomainOrBuilder getDomainOrBuilder() {
-    return getDomain();
+    return domain_ == null ? org.mojolang.mojo.core.Domain.getDefaultInstance() : domain_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -184,7 +129,7 @@ private static final long serialVersionUID = 0L;
     if (domain_ != null) {
       output.writeMessage(2, getDomain());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -200,7 +145,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getDomain());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -222,7 +167,7 @@ private static final long serialVersionUID = 0L;
       if (!getDomain()
           .equals(other.getDomain())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -239,7 +184,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOMAIN_FIELD_NUMBER;
       hash = (53 * hash) + getDomain().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -356,28 +301,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojolang.mojo.core.EmailAddress.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       localPart_ = "";
-
-      if (domainBuilder_ == null) {
-        domain_ = null;
-      } else {
-        domain_ = null;
+      domain_ = null;
+      if (domainBuilder_ != null) {
+        domainBuilder_.dispose();
         domainBuilder_ = null;
       }
       return this;
@@ -406,14 +345,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.EmailAddress buildPartial() {
       org.mojolang.mojo.core.EmailAddress result = new org.mojolang.mojo.core.EmailAddress(this);
-      result.localPart_ = localPart_;
-      if (domainBuilder_ == null) {
-        result.domain_ = domain_;
-      } else {
-        result.domain_ = domainBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(org.mojolang.mojo.core.EmailAddress result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.localPart_ = localPart_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.domain_ = domainBuilder_ == null
+            ? domain_
+            : domainBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -462,12 +408,13 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.EmailAddress.getDefaultInstance()) return this;
       if (!other.getLocalPart().isEmpty()) {
         localPart_ = other.localPart_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDomain()) {
         mergeDomain(other.getDomain());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -482,19 +429,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.core.EmailAddress parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              localPart_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDomainFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.core.EmailAddress) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object localPart_ = "";
     /**
@@ -537,11 +510,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalPart(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       localPart_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -550,8 +521,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalPart() {
-      
       localPart_ = getDefaultInstance().getLocalPart();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -562,12 +533,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalPartBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       localPart_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -580,7 +549,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the domain field is set.
      */
     public boolean hasDomain() {
-      return domainBuilder_ != null || domain_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.mojo.core.Domain domain = 2;</code>
@@ -602,11 +571,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         domain_ = value;
-        onChanged();
       } else {
         domainBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -616,11 +585,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Domain.Builder builderForValue) {
       if (domainBuilder_ == null) {
         domain_ = builderForValue.build();
-        onChanged();
       } else {
         domainBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -628,38 +597,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDomain(org.mojolang.mojo.core.Domain value) {
       if (domainBuilder_ == null) {
-        if (domain_ != null) {
-          domain_ =
-            org.mojolang.mojo.core.Domain.newBuilder(domain_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          domain_ != null &&
+          domain_ != org.mojolang.mojo.core.Domain.getDefaultInstance()) {
+          getDomainBuilder().mergeFrom(value);
         } else {
           domain_ = value;
         }
-        onChanged();
       } else {
         domainBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.core.Domain domain = 2;</code>
      */
     public Builder clearDomain() {
-      if (domainBuilder_ == null) {
-        domain_ = null;
-        onChanged();
-      } else {
-        domain_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      domain_ = null;
+      if (domainBuilder_ != null) {
+        domainBuilder_.dispose();
         domainBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.core.Domain domain = 2;</code>
      */
     public org.mojolang.mojo.core.Domain.Builder getDomainBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDomainFieldBuilder().getBuilder();
     }
@@ -723,7 +692,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EmailAddress(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

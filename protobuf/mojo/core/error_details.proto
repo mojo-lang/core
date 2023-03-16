@@ -23,11 +23,11 @@ message DebugInfo {
 }
 
 message QuotaFailure {
-    
     message Violation {
         string subject = 1;
         string description = 2;
     }
+
     repeated Violation violations = 1;
 }
 
@@ -38,21 +38,21 @@ message ErrorInfo {
 }
 
 message PreconditionFailure {
-    
     message Violation {
         string type = 1;
         string subject = 2;
         string description = 3;
     }
+
     repeated Violation violations = 1;
 }
 
 message MalformedRequest {
-    
     message FieldViolation {
         string field = 1;
         string description = 2;
     }
+
     repeated FieldViolation field_violations = 1;
 }
 
@@ -69,11 +69,11 @@ message ResourceInfo {
 }
 
 message Help {
-    
     message Link {
         string description = 1;
         Url url = 2;
     }
+
     repeated Link links = 1;
 }
 

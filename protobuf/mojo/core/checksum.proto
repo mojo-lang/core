@@ -10,7 +10,6 @@ option java_outer_classname = "ChecksumProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Checksum {
-    
     enum Algorithm {
         ALGORITHM_UNSPECIFIED=0;
         ALGORITHM_MD5=1;
@@ -18,6 +17,7 @@ message Checksum {
         ALGORITHM_SHA256=3;
         ALGORITHM_SHA512=4;
     }
+
     Algorithm algorithm = 1;
     string val = 2;
 }

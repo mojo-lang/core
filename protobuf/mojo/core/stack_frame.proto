@@ -12,7 +12,6 @@ option java_outer_classname = "StackFrameProto";
 option java_package = "org.mojolang.mojo.core";
 
 message StackFrame {
-    
     enum Trust {
         TRUST_UNSPECIFIED=0;
         TRUST_SCAN=1;
@@ -22,6 +21,7 @@ message StackFrame {
         TRUST_PREWALKED=5;
         TRUST_CONTEXT=6;
     }
+
     int64 instruction = 1;
     CodeModule module = 2;
     string function_name = 3;

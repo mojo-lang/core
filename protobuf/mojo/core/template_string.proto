@@ -10,10 +10,10 @@ option java_outer_classname = "TemplateStringProto";
 option java_package = "org.mojolang.mojo.core";
 
 message TemplateString {
-    
     message Segment {
         string content = 1;
         bool templated = 2;
     }
+
     repeated Segment segments = 1;
 }

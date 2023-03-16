@@ -9,6 +9,13 @@ option java_multiple_files = true;
 option java_outer_classname = "IpAddressProto";
 option java_package = "org.mojolang.mojo.core";
 
+message IPAddress {
+    oneof ip_address {
+        IPv4 ipv4 = 1;
+        IPv6 ipv6 = 2;
+    }
+}
+
 message IPv4 {
     uint32 val = 1;
 }

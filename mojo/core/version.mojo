@@ -16,7 +16,7 @@
 ///
 /// (spec)[http://semver.org/spec/v2.0.0.html]
 ///
-@format("{major}.{minor}.{patch}{-pre_releases:'.'}{+builds:'.'}")
+@format("{major}.{minor}.{patch}{-pre_releases:delimiter('.')}{+builds:delimiter('.')}")
 type Version {
     type Identifier = String @format(r'[0-9A-Za-z-]+')
 

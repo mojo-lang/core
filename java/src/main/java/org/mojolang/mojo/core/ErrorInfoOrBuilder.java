@@ -54,14 +54,14 @@ public interface ErrorInfoOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
-
-  org.mojolang.mojo.core.Value getMetadataOrDefault(
+  /* nullable */
+org.mojolang.mojo.core.Value getMetadataOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.core.Value defaultValue);
+      /* nullable */
+org.mojolang.mojo.core.Value defaultValue);
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
-
   org.mojolang.mojo.core.Value getMetadataOrThrow(
       java.lang.String key);
 }

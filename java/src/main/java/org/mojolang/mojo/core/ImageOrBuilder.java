@@ -69,14 +69,14 @@ public interface ImageOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
    */
-
-  org.mojolang.mojo.core.Value getPropertiesOrDefault(
+  /* nullable */
+org.mojolang.mojo.core.Value getPropertiesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.core.Value defaultValue);
+      /* nullable */
+org.mojolang.mojo.core.Value defaultValue);
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
    */
-
   org.mojolang.mojo.core.Value getPropertiesOrThrow(
       java.lang.String key);
 

@@ -30,14 +30,14 @@ public interface StringMapOrBuilder extends
   /**
    * <code>map&lt;string, string&gt; vals = 1;</code>
    */
-
-  java.lang.String getValsOrDefault(
+  /* nullable */
+java.lang.String getValsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue);
+      /* nullable */
+java.lang.String defaultValue);
   /**
    * <code>map&lt;string, string&gt; vals = 1;</code>
    */
-
   java.lang.String getValsOrThrow(
       java.lang.String key);
 }

@@ -30,91 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DateTime(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            year_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            month_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            day_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            hour_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            minute_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            seconds_ = input.readInt32();
-            break;
-          }
-          case 56: {
-
-            nanoseconds_ = input.readInt32();
-            break;
-          }
-          case 122: {
-            org.mojolang.mojo.core.TimeZone.Builder subBuilder = null;
-            if (timeZone_ != null) {
-              subBuilder = timeZone_.toBuilder();
-            }
-            timeZone_ = input.readMessage(org.mojolang.mojo.core.TimeZone.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeZone_);
-              timeZone_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojolang.mojo.core.TimeProto.internal_static_mojo_core_DateTime_descriptor;
@@ -129,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int YEAR_FIELD_NUMBER = 1;
-  private int year_;
+  private int year_ = 0;
   /**
    * <code>int32 year = 1;</code>
    * @return The year.
@@ -140,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MONTH_FIELD_NUMBER = 2;
-  private int month_;
+  private int month_ = 0;
   /**
    * <code>int32 month = 2;</code>
    * @return The month.
@@ -151,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DAY_FIELD_NUMBER = 3;
-  private int day_;
+  private int day_ = 0;
   /**
    * <code>int32 day = 3;</code>
    * @return The day.
@@ -162,7 +77,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOUR_FIELD_NUMBER = 4;
-  private int hour_;
+  private int hour_ = 0;
   /**
    * <code>int32 hour = 4;</code>
    * @return The hour.
@@ -173,7 +88,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINUTE_FIELD_NUMBER = 5;
-  private int minute_;
+  private int minute_ = 0;
   /**
    * <code>int32 minute = 5;</code>
    * @return The minute.
@@ -184,7 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDS_FIELD_NUMBER = 6;
-  private int seconds_;
+  private int seconds_ = 0;
   /**
    * <code>int32 seconds = 6;</code>
    * @return The seconds.
@@ -195,7 +110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NANOSECONDS_FIELD_NUMBER = 7;
-  private int nanoseconds_;
+  private int nanoseconds_ = 0;
   /**
    * <code>int32 nanoseconds = 7;</code>
    * @return The nanoseconds.
@@ -228,7 +143,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.TimeZoneOrBuilder getTimeZoneOrBuilder() {
-    return getTimeZone();
+    return timeZone_ == null ? org.mojolang.mojo.core.TimeZone.getDefaultInstance() : timeZone_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -269,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (timeZone_ != null) {
       output.writeMessage(15, getTimeZone());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -310,7 +225,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getTimeZone());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -344,7 +259,7 @@ private static final long serialVersionUID = 0L;
       if (!getTimeZone()
           .equals(other.getTimeZone())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -373,7 +288,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getTimeZone().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -490,40 +405,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojolang.mojo.core.DateTime.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       year_ = 0;
-
       month_ = 0;
-
       day_ = 0;
-
       hour_ = 0;
-
       minute_ = 0;
-
       seconds_ = 0;
-
       nanoseconds_ = 0;
-
-      if (timeZoneBuilder_ == null) {
-        timeZone_ = null;
-      } else {
-        timeZone_ = null;
+      timeZone_ = null;
+      if (timeZoneBuilder_ != null) {
+        timeZoneBuilder_.dispose();
         timeZoneBuilder_ = null;
       }
       return this;
@@ -552,20 +455,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.DateTime buildPartial() {
       org.mojolang.mojo.core.DateTime result = new org.mojolang.mojo.core.DateTime(this);
-      result.year_ = year_;
-      result.month_ = month_;
-      result.day_ = day_;
-      result.hour_ = hour_;
-      result.minute_ = minute_;
-      result.seconds_ = seconds_;
-      result.nanoseconds_ = nanoseconds_;
-      if (timeZoneBuilder_ == null) {
-        result.timeZone_ = timeZone_;
-      } else {
-        result.timeZone_ = timeZoneBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(org.mojolang.mojo.core.DateTime result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.year_ = year_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.month_ = month_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.day_ = day_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.hour_ = hour_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.minute_ = minute_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.seconds_ = seconds_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.nanoseconds_ = nanoseconds_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.timeZone_ = timeZoneBuilder_ == null
+            ? timeZone_
+            : timeZoneBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -636,7 +558,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTimeZone()) {
         mergeTimeZone(other.getTimeZone());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -651,19 +573,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.core.DateTime parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              year_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              month_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              day_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              hour_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              minute_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              seconds_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              nanoseconds_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 122: {
+              input.readMessage(
+                  getTimeZoneFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.core.DateTime) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int year_ ;
     /**
@@ -682,6 +660,7 @@ private static final long serialVersionUID = 0L;
     public Builder setYear(int value) {
       
       year_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -690,7 +669,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearYear() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       year_ = 0;
       onChanged();
       return this;
@@ -713,6 +692,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMonth(int value) {
       
       month_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -721,7 +701,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMonth() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       month_ = 0;
       onChanged();
       return this;
@@ -744,6 +724,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDay(int value) {
       
       day_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -752,7 +733,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDay() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       day_ = 0;
       onChanged();
       return this;
@@ -775,6 +756,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHour(int value) {
       
       hour_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -783,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHour() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       hour_ = 0;
       onChanged();
       return this;
@@ -806,6 +788,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinute(int value) {
       
       minute_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -814,7 +797,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinute() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       minute_ = 0;
       onChanged();
       return this;
@@ -837,6 +820,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSeconds(int value) {
       
       seconds_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -845,7 +829,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeconds() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       seconds_ = 0;
       onChanged();
       return this;
@@ -868,6 +852,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNanoseconds(int value) {
       
       nanoseconds_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -876,7 +861,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNanoseconds() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       nanoseconds_ = 0;
       onChanged();
       return this;
@@ -890,7 +875,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeZone field is set.
      */
     public boolean hasTimeZone() {
-      return timeZoneBuilder_ != null || timeZone_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>.mojo.core.TimeZone time_zone = 15;</code>
@@ -912,11 +897,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeZone_ = value;
-        onChanged();
       } else {
         timeZoneBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -926,11 +911,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.TimeZone.Builder builderForValue) {
       if (timeZoneBuilder_ == null) {
         timeZone_ = builderForValue.build();
-        onChanged();
       } else {
         timeZoneBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -938,38 +923,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeZone(org.mojolang.mojo.core.TimeZone value) {
       if (timeZoneBuilder_ == null) {
-        if (timeZone_ != null) {
-          timeZone_ =
-            org.mojolang.mojo.core.TimeZone.newBuilder(timeZone_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          timeZone_ != null &&
+          timeZone_ != org.mojolang.mojo.core.TimeZone.getDefaultInstance()) {
+          getTimeZoneBuilder().mergeFrom(value);
         } else {
           timeZone_ = value;
         }
-        onChanged();
       } else {
         timeZoneBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.core.TimeZone time_zone = 15;</code>
      */
     public Builder clearTimeZone() {
-      if (timeZoneBuilder_ == null) {
-        timeZone_ = null;
-        onChanged();
-      } else {
-        timeZone_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      timeZone_ = null;
+      if (timeZoneBuilder_ != null) {
+        timeZoneBuilder_.dispose();
         timeZoneBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.core.TimeZone time_zone = 15;</code>
      */
     public org.mojolang.mojo.core.TimeZone.Builder getTimeZoneBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getTimeZoneFieldBuilder().getBuilder();
     }
@@ -1033,7 +1018,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DateTime(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

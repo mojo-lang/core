@@ -12,12 +12,11 @@ option java_outer_classname = "FileProto";
 option java_package = "org.mojolang.mojo.core";
 
 message File {
-    
     enum Mode {
         MODE_UNSPECIFIED=0;
         MODE_DIR=10;
     }
-    
+
     message Info {
         string name = 1;
         string suffix = 2;
@@ -25,6 +24,7 @@ message File {
         Timestamp change_time = 5;
         Timestamp modify_time = 6;
     }
+
     string name = 1;
     bool is_dir = 2;
     Mode mode = 5;
