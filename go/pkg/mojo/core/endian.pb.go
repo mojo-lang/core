@@ -50,7 +50,7 @@ func (x Endian) Enum() *Endian {
 	return p
 }
 
-func (x Endian) String() string {
+func (x Endian) Text() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 

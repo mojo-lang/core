@@ -39,7 +39,7 @@ func (x *Ratio) Reset() {
 	}
 }
 
-func (x *Ratio) String() string {
+func (x *Ratio) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

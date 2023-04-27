@@ -43,7 +43,7 @@ func (x *Url) Reset() {
 	}
 }
 
-func (x *Url) String() string {
+func (x *Url) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -120,7 +120,7 @@ func (x *Url_Authority) Reset() {
 	}
 }
 
-func (x *Url_Authority) String() string {
+func (x *Url_Authority) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -181,7 +181,7 @@ func (x *Url_Query) Reset() {
 	}
 }
 
-func (x *Url_Query) String() string {
+func (x *Url_Query) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

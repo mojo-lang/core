@@ -62,7 +62,7 @@ func (x StackFrame_Trust) Enum() *StackFrame_Trust {
 	return p
 }
 
-func (x StackFrame_Trust) String() string {
+func (x StackFrame_Trust) Text() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -107,7 +107,7 @@ func (x *StackFrame) Reset() {
 	}
 }
 
-func (x *StackFrame) String() string {
+func (x *StackFrame) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

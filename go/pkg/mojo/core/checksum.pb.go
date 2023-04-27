@@ -56,7 +56,7 @@ func (x Checksum_Algorithm) Enum() *Checksum_Algorithm {
 	return p
 }
 
-func (x Checksum_Algorithm) String() string {
+func (x Checksum_Algorithm) Text() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -95,7 +95,7 @@ func (x *Checksum) Reset() {
 	}
 }
 
-func (x *Checksum) String() string {
+func (x *Checksum) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

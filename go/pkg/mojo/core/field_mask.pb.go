@@ -39,7 +39,7 @@ func (x *FieldMask) Reset() {
 	}
 }
 
-func (x *FieldMask) String() string {
+func (x *FieldMask) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

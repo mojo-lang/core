@@ -56,7 +56,7 @@ func (x WildcardString_Wildcard_Type) Enum() *WildcardString_Wildcard_Type {
 	return p
 }
 
-func (x WildcardString_Wildcard_Type) String() string {
+func (x WildcardString_Wildcard_Type) Text() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -94,7 +94,7 @@ func (x *WildcardString) Reset() {
 	}
 }
 
-func (x *WildcardString) String() string {
+func (x *WildcardString) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -142,7 +142,7 @@ func (x *WildcardString_Wildcard) Reset() {
 	}
 }
 
-func (x *WildcardString_Wildcard) String() string {
+func (x *WildcardString_Wildcard) Text() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
