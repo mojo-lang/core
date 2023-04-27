@@ -30,3 +30,11 @@ func TestVersion_Parse_2(t *testing.T) {
 	assert.Equal(t, uint64(0), version.Major)
 	assert.Equal(t, int32(2), version.Level)
 }
+
+func TestVersion_Parse_3(t *testing.T) {
+	const V = "3.0.3"
+	version, err := ParseVersion(V)
+	assert.NoError(t, err)
+	assert.Equal(t, uint64(3), version.Major)
+	assert.Equal(t, int32(3), version.Level)
+}

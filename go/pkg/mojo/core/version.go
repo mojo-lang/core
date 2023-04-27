@@ -21,6 +21,7 @@ func NewVersion(major int, minor int, patch int) *Version {
 		Major: uint64(major),
 		Minor: uint64(minor),
 		Patch: uint64(patch),
+		Level: 3,
 	}
 }
 

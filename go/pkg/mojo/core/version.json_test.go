@@ -34,7 +34,7 @@ func init() {
 	RegisterJSONFieldDecoder("core.VersionWrap", "Version", &VersionStructCodec{IsFieldPointer: true})
 }
 
-const versionWrapJson = `{"version":{"major":1,"minor":2,"patch":3}}`
+const versionWrapJson = `{"version":{"major":1,"minor":2,"patch":3,"level":3}}`
 
 func TestVersionStructCodec_Encode(t *testing.T) {
 	json, err := jsoniter.ConfigDefault.MarshalToString(&VersionWrap{Version: NewVersion(1, 2, 3)})
