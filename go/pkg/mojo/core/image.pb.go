@@ -43,7 +43,7 @@ func (x *Image) Reset() {
 	}
 }
 
-func (x *Image) Text() string {
+func (x *Image) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

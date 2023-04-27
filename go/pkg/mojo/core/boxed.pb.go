@@ -39,7 +39,7 @@ func (x *BoolValue) Reset() {
 	}
 }
 
-func (x *BoolValue) Text() string {
+func (x *BoolValue) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -86,7 +86,7 @@ func (x *Int32Value) Reset() {
 	}
 }
 
-func (x *Int32Value) Text() string {
+func (x *Int32Value) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -133,7 +133,7 @@ func (x *UInt32Value) Reset() {
 	}
 }
 
-func (x *UInt32Value) Text() string {
+func (x *UInt32Value) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -180,7 +180,7 @@ func (x *Int64Value) Reset() {
 	}
 }
 
-func (x *Int64Value) Text() string {
+func (x *Int64Value) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -227,7 +227,7 @@ func (x *UInt64Value) Reset() {
 	}
 }
 
-func (x *UInt64Value) Text() string {
+func (x *UInt64Value) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -274,7 +274,7 @@ func (x *Float32Value) Reset() {
 	}
 }
 
-func (x *Float32Value) Text() string {
+func (x *Float32Value) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -321,7 +321,7 @@ func (x *Float64Value) Reset() {
 	}
 }
 
-func (x *Float64Value) Text() string {
+func (x *Float64Value) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -368,7 +368,7 @@ func (x *StringValue) Reset() {
 	}
 }
 
-func (x *StringValue) Text() string {
+func (x *StringValue) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -415,7 +415,7 @@ func (x *BytesValue) Reset() {
 	}
 }
 
-func (x *BytesValue) Text() string {
+func (x *BytesValue) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -462,7 +462,7 @@ func (x *BoolValues) Reset() {
 	}
 }
 
-func (x *BoolValues) Text() string {
+func (x *BoolValues) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -509,7 +509,7 @@ func (x *Int32Values) Reset() {
 	}
 }
 
-func (x *Int32Values) Text() string {
+func (x *Int32Values) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -556,7 +556,7 @@ func (x *UInt32Values) Reset() {
 	}
 }
 
-func (x *UInt32Values) Text() string {
+func (x *UInt32Values) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -603,7 +603,7 @@ func (x *Int64Values) Reset() {
 	}
 }
 
-func (x *Int64Values) Text() string {
+func (x *Int64Values) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -650,7 +650,7 @@ func (x *UInt64Values) Reset() {
 	}
 }
 
-func (x *UInt64Values) Text() string {
+func (x *UInt64Values) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -697,7 +697,7 @@ func (x *Float32Values) Reset() {
 	}
 }
 
-func (x *Float32Values) Text() string {
+func (x *Float32Values) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -744,7 +744,7 @@ func (x *Float64Values) Reset() {
 	}
 }
 
-func (x *Float64Values) Text() string {
+func (x *Float64Values) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -791,7 +791,7 @@ func (x *StringValues) Reset() {
 	}
 }
 
-func (x *StringValues) Text() string {
+func (x *StringValues) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -838,7 +838,7 @@ func (x *StringMap) Reset() {
 	}
 }
 
-func (x *StringMap) Text() string {
+func (x *StringMap) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -885,7 +885,7 @@ func (x *StringMultiMap) Reset() {
 	}
 }
 
-func (x *StringMultiMap) Text() string {
+func (x *StringMultiMap) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

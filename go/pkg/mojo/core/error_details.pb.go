@@ -39,7 +39,7 @@ func (x *RetryInfo) Reset() {
 	}
 }
 
-func (x *RetryInfo) Text() string {
+func (x *RetryInfo) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -87,7 +87,7 @@ func (x *DebugInfo) Reset() {
 	}
 }
 
-func (x *DebugInfo) Text() string {
+func (x *DebugInfo) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -141,7 +141,7 @@ func (x *QuotaFailure) Reset() {
 	}
 }
 
-func (x *QuotaFailure) Text() string {
+func (x *QuotaFailure) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -190,7 +190,7 @@ func (x *ErrorInfo) Reset() {
 	}
 }
 
-func (x *ErrorInfo) Text() string {
+func (x *ErrorInfo) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -251,7 +251,7 @@ func (x *PreconditionFailure) Reset() {
 	}
 }
 
-func (x *PreconditionFailure) Text() string {
+func (x *PreconditionFailure) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -298,7 +298,7 @@ func (x *MalformedRequest) Reset() {
 	}
 }
 
-func (x *MalformedRequest) Text() string {
+func (x *MalformedRequest) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -346,7 +346,7 @@ func (x *RequestInfo) Reset() {
 	}
 }
 
-func (x *RequestInfo) Text() string {
+func (x *RequestInfo) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -403,7 +403,7 @@ func (x *ResourceInfo) Reset() {
 	}
 }
 
-func (x *ResourceInfo) Text() string {
+func (x *ResourceInfo) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -471,7 +471,7 @@ func (x *Help) Reset() {
 	}
 }
 
-func (x *Help) Text() string {
+func (x *Help) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -519,7 +519,7 @@ func (x *LocalizedMessage) Reset() {
 	}
 }
 
-func (x *LocalizedMessage) Text() string {
+func (x *LocalizedMessage) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -574,7 +574,7 @@ func (x *QuotaFailure_Violation) Reset() {
 	}
 }
 
-func (x *QuotaFailure_Violation) Text() string {
+func (x *QuotaFailure_Violation) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -630,7 +630,7 @@ func (x *PreconditionFailure_Violation) Reset() {
 	}
 }
 
-func (x *PreconditionFailure_Violation) Text() string {
+func (x *PreconditionFailure_Violation) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -692,7 +692,7 @@ func (x *MalformedRequest_FieldViolation) Reset() {
 	}
 }
 
-func (x *MalformedRequest_FieldViolation) Text() string {
+func (x *MalformedRequest_FieldViolation) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -747,7 +747,7 @@ func (x *Help_Link) Reset() {
 	}
 }
 
-func (x *Help_Link) Text() string {
+func (x *Help_Link) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

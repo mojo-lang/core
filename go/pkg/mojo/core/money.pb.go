@@ -41,7 +41,7 @@ func (x *Money) Reset() {
 	}
 }
 
-func (x *Money) Text() string {
+func (x *Money) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

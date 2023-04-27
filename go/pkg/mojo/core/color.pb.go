@@ -42,7 +42,7 @@ func (x *Color) Reset() {
 	}
 }
 
-func (x *Color) Text() string {
+func (x *Color) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

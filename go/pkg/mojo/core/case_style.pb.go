@@ -62,7 +62,7 @@ func (x CaseStyle) Enum() *CaseStyle {
 	return p
 }
 
-func (x CaseStyle) Text() string {
+func (x CaseStyle) ToText() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 

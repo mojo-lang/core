@@ -39,7 +39,7 @@ func (x *Domain) Reset() {
 	}
 }
 
-func (x *Domain) Text() string {
+func (x *Domain) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

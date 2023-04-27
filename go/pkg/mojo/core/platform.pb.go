@@ -59,7 +59,7 @@ func (x Architecture) Enum() *Architecture {
 	return p
 }
 
-func (x Architecture) Text() string {
+func (x Architecture) ToText() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -120,7 +120,7 @@ func (x OS) Enum() *OS {
 	return p
 }
 
-func (x OS) Text() string {
+func (x OS) ToText() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -162,7 +162,7 @@ func (x *Platform) Reset() {
 	}
 }
 
-func (x *Platform) Text() string {
+func (x *Platform) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

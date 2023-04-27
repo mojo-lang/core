@@ -39,7 +39,7 @@ func (x *Environ) Reset() {
 	}
 }
 
-func (x *Environ) Text() string {
+func (x *Environ) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

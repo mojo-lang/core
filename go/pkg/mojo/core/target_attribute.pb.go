@@ -65,7 +65,7 @@ func (x DeclType) Enum() *DeclType {
 	return p
 }
 
-func (x DeclType) Text() string {
+func (x DeclType) ToText() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
