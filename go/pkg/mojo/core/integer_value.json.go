@@ -1,6 +1,7 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
 	"unsafe"
 
@@ -22,8 +23,12 @@ type Int32ValueCodec struct {
 }
 
 func (codec *Int32ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-	any := iter.ReadAny()
-	(*Int32Value)(ptr).Val = any.ToInt32()
+	val := iter.ReadAny()
+	if val.ValueType() == jsoniter.NumberValue {
+		(*Int32Value)(ptr).Val = val.ToInt32()
+	} else {
+		iter.ReportError("number", fmt.Sprintf("invalid int32 type value, original type: %d", val.ValueType()))
+	}
 }
 
 func (codec *Int32ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
@@ -40,8 +45,12 @@ type UInt32ValueCodec struct {
 }
 
 func (codec *UInt32ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-	any := iter.ReadAny()
-	(*UInt32Value)(ptr).Val = any.ToUint32()
+	val := iter.ReadAny()
+	if val.ValueType() == jsoniter.NumberValue {
+		(*UInt32Value)(ptr).Val = val.ToUint32()
+	} else {
+		iter.ReportError("number", fmt.Sprintf("invalid uint32 type value, original type: %d", val.ValueType()))
+	}
 }
 
 func (codec *UInt32ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
@@ -58,8 +67,12 @@ type Int64ValueCodec struct {
 }
 
 func (codec *Int64ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-	any := iter.ReadAny()
-	(*Int64Value)(ptr).Val = any.ToInt64()
+	val := iter.ReadAny()
+	if val.ValueType() == jsoniter.NumberValue {
+		(*Int64Value)(ptr).Val = val.ToInt64()
+	} else {
+		iter.ReportError("number", fmt.Sprintf("invalid int64 type value, original type: %d", val.ValueType()))
+	}
 }
 
 func (codec *Int64ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
@@ -76,8 +89,12 @@ type UInt64ValueCodec struct {
 }
 
 func (codec *UInt64ValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-	any := iter.ReadAny()
-	(*UInt64Value)(ptr).Val = any.ToUint64()
+	val := iter.ReadAny()
+	if val.ValueType() == jsoniter.NumberValue {
+		(*UInt64Value)(ptr).Val = val.ToUint64()
+	} else {
+		iter.ReportError("number", fmt.Sprintf("invalid uint64 type value, original type: %d", val.ValueType()))
+	}
 }
 
 func (codec *UInt64ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {

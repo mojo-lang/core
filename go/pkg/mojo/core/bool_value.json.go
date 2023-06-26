@@ -1,6 +1,7 @@
 package core
 
 import (
+	"fmt"
 	"strconv"
 	"unsafe"
 
@@ -16,8 +17,12 @@ type BoolValueCodec struct {
 }
 
 func (codec *BoolValueCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterator) {
-	any := iter.ReadAny()
-	(*BoolValue)(ptr).Val = any.ToBool()
+	val := iter.ReadAny()
+	if val.ValueType() == jsoniter.BoolValue {
+		(*BoolValue)(ptr).Val = val.ToBool()
+	} else {
+		iter.ReportError("bool", fmt.Sprintf("invalid bool type value, original type: %d", val.ValueType()))
+	}
 }
 
 func (codec *BoolValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
