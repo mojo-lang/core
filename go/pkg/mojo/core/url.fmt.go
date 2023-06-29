@@ -61,10 +61,14 @@ func (x *Url) Parse(raw string) error {
 	x.Query = &Url_Query{
 		Vals: make(map[string]*StringValues),
 	}
-	query := u.Query()
-	for k, v := range query {
-		x.Query.Vals[k] = &StringValues{
-			Vals: v,
+
+	if query, err := url.ParseQuery(u.RawQuery); err != nil {
+		return err
+	} else {
+		for k, v := range query {
+			x.Query.Vals[k] = &StringValues{
+				Vals: v,
+			}
 		}
 	}
 
