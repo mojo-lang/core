@@ -16,10 +16,10 @@ message Ordering {
         SORT_DESC=2;
     }
 
-    message Value {
+    message Order {
         string field = 1;
         Ordering.Sort sort = 2;
     }
 
-    repeated Value vals = 1;
+    repeated Order orders = 1;
 }

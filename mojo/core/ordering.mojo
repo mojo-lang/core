@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@format('{vals:delimiter(',')}')
+@format('{orders:delimiter(',')}')
 type Ordering {
     enum Sort {
         unspecified @0
@@ -21,10 +21,10 @@ type Ordering {
     }
 
     @format('{field}{ sort}')
-    type Value {
+    type Order {
         field: String @1
         sort: Sort @2
     }
 
-    vals: [Value] @1
+    orders: [Order] @1
 }

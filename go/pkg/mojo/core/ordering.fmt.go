@@ -13,9 +13,9 @@ func ParseOrdering(value string) (*Ordering, error) {
 }
 
 func (x *Ordering) Format() string {
-	if len(x.Vals) > 0 {
+	if len(x.Orders) > 0 {
 		var values []string
-		for _, v := range x.Vals {
+		for _, v := range x.Orders {
 			values = append(values, v.Format())
 		}
 		return strings.Join(values, ", ")
@@ -31,17 +31,17 @@ func (x *Ordering) Parse(value string) error {
 	if x != nil {
 		segments := strings.Split(value, ",")
 		for _, segment := range segments {
-			v := &Ordering_Value{}
+			v := &Ordering_Order{}
 			if err := v.Parse(segment); err != nil {
 				return err
 			}
-			x.Vals = append(x.Vals, v)
+			x.Orders = append(x.Orders, v)
 		}
 	}
 	return nil
 }
 
-func (x Ordering_Value) Format() string {
+func (x *Ordering_Order) Format() string {
 	if x.Sort != Ordering_SORT_UNSPECIFIED {
 		return x.Field + " " + x.Sort.Format()
 	} else {
@@ -49,7 +49,7 @@ func (x Ordering_Value) Format() string {
 	}
 }
 
-func (x *Ordering_Value) Parse(value string) error {
+func (x *Ordering_Order) Parse(value string) error {
 	value = strings.TrimSpace(value)
 	if len(value) > 0 {
 		pos := strings.Index(value, " ")

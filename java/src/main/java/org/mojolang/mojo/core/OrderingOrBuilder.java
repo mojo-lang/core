@@ -8,26 +8,26 @@ public interface OrderingOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
-  java.util.List<org.mojolang.mojo.core.Ordering.Value> 
-      getValsList();
+  java.util.List<org.mojolang.mojo.core.Ordering.Order> 
+      getOrdersList();
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
-  org.mojolang.mojo.core.Ordering.Value getVals(int index);
+  org.mojolang.mojo.core.Ordering.Order getOrders(int index);
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
-  int getValsCount();
+  int getOrdersCount();
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
-  java.util.List<? extends org.mojolang.mojo.core.Ordering.ValueOrBuilder> 
-      getValsOrBuilderList();
+  java.util.List<? extends org.mojolang.mojo.core.Ordering.OrderOrBuilder> 
+      getOrdersOrBuilderList();
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
-  org.mojolang.mojo.core.Ordering.ValueOrBuilder getValsOrBuilder(
+  org.mojolang.mojo.core.Ordering.OrderOrBuilder getOrdersOrBuilder(
       int index);
 }

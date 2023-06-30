@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Ordering() {
-    vals_ = java.util.Collections.emptyList();
+    orders_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -161,8 +161,8 @@ private static final long serialVersionUID = 0L;
     // @@protoc_insertion_point(enum_scope:mojo.core.Ordering.Sort)
   }
 
-  public interface ValueOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:mojo.core.Ordering.Value)
+  public interface OrderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:mojo.core.Ordering.Order)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -189,18 +189,18 @@ private static final long serialVersionUID = 0L;
     org.mojolang.mojo.core.Ordering.Sort getSort();
   }
   /**
-   * Protobuf type {@code mojo.core.Ordering.Value}
+   * Protobuf type {@code mojo.core.Ordering.Order}
    */
-  public static final class Value extends
+  public static final class Order extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:mojo.core.Ordering.Value)
-      ValueOrBuilder {
+      // @@protoc_insertion_point(message_implements:mojo.core.Ordering.Order)
+      OrderOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Value.newBuilder() to construct.
-    private Value(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Order.newBuilder() to construct.
+    private Order(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Value() {
+    private Order() {
       field_ = "";
       sort_ = 0;
     }
@@ -209,7 +209,7 @@ private static final long serialVersionUID = 0L;
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Value();
+      return new Order();
     }
 
     @java.lang.Override
@@ -219,15 +219,15 @@ private static final long serialVersionUID = 0L;
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Value_descriptor;
+      return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Order_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Value_fieldAccessorTable
+      return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Order_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mojolang.mojo.core.Ordering.Value.class, org.mojolang.mojo.core.Ordering.Value.Builder.class);
+              org.mojolang.mojo.core.Ordering.Order.class, org.mojolang.mojo.core.Ordering.Order.Builder.class);
     }
 
     public static final int FIELD_FIELD_NUMBER = 1;
@@ -333,10 +333,10 @@ private static final long serialVersionUID = 0L;
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.mojolang.mojo.core.Ordering.Value)) {
+      if (!(obj instanceof org.mojolang.mojo.core.Ordering.Order)) {
         return super.equals(obj);
       }
-      org.mojolang.mojo.core.Ordering.Value other = (org.mojolang.mojo.core.Ordering.Value) obj;
+      org.mojolang.mojo.core.Ordering.Order other = (org.mojolang.mojo.core.Ordering.Order) obj;
 
       if (!getField()
           .equals(other.getField())) return false;
@@ -361,69 +361,69 @@ private static final long serialVersionUID = 0L;
       return hash;
     }
 
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(byte[] data)
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(java.io.InputStream input)
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseDelimitedFrom(java.io.InputStream input)
+    public static org.mojolang.mojo.core.Ordering.Order parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseDelimitedFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.mojolang.mojo.core.Ordering.Value parseFrom(
+    public static org.mojolang.mojo.core.Ordering.Order parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -436,7 +436,7 @@ private static final long serialVersionUID = 0L;
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.mojolang.mojo.core.Ordering.Value prototype) {
+    public static Builder newBuilder(org.mojolang.mojo.core.Ordering.Order prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -452,26 +452,26 @@ private static final long serialVersionUID = 0L;
       return builder;
     }
     /**
-     * Protobuf type {@code mojo.core.Ordering.Value}
+     * Protobuf type {@code mojo.core.Ordering.Order}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:mojo.core.Ordering.Value)
-        org.mojolang.mojo.core.Ordering.ValueOrBuilder {
+        // @@protoc_insertion_point(builder_implements:mojo.core.Ordering.Order)
+        org.mojolang.mojo.core.Ordering.OrderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Value_descriptor;
+        return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Order_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Value_fieldAccessorTable
+        return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Order_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.mojolang.mojo.core.Ordering.Value.class, org.mojolang.mojo.core.Ordering.Value.Builder.class);
+                org.mojolang.mojo.core.Ordering.Order.class, org.mojolang.mojo.core.Ordering.Order.Builder.class);
       }
 
-      // Construct using org.mojolang.mojo.core.Ordering.Value.newBuilder()
+      // Construct using org.mojolang.mojo.core.Ordering.Order.newBuilder()
       private Builder() {
 
       }
@@ -493,17 +493,17 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Value_descriptor;
+        return org.mojolang.mojo.core.OrderingProto.internal_static_mojo_core_Ordering_Order_descriptor;
       }
 
       @java.lang.Override
-      public org.mojolang.mojo.core.Ordering.Value getDefaultInstanceForType() {
-        return org.mojolang.mojo.core.Ordering.Value.getDefaultInstance();
+      public org.mojolang.mojo.core.Ordering.Order getDefaultInstanceForType() {
+        return org.mojolang.mojo.core.Ordering.Order.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.mojolang.mojo.core.Ordering.Value build() {
-        org.mojolang.mojo.core.Ordering.Value result = buildPartial();
+      public org.mojolang.mojo.core.Ordering.Order build() {
+        org.mojolang.mojo.core.Ordering.Order result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -511,14 +511,14 @@ private static final long serialVersionUID = 0L;
       }
 
       @java.lang.Override
-      public org.mojolang.mojo.core.Ordering.Value buildPartial() {
-        org.mojolang.mojo.core.Ordering.Value result = new org.mojolang.mojo.core.Ordering.Value(this);
+      public org.mojolang.mojo.core.Ordering.Order buildPartial() {
+        org.mojolang.mojo.core.Ordering.Order result = new org.mojolang.mojo.core.Ordering.Order(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(org.mojolang.mojo.core.Ordering.Value result) {
+      private void buildPartial0(org.mojolang.mojo.core.Ordering.Order result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.field_ = field_;
@@ -562,16 +562,16 @@ private static final long serialVersionUID = 0L;
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.mojolang.mojo.core.Ordering.Value) {
-          return mergeFrom((org.mojolang.mojo.core.Ordering.Value)other);
+        if (other instanceof org.mojolang.mojo.core.Ordering.Order) {
+          return mergeFrom((org.mojolang.mojo.core.Ordering.Order)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.mojolang.mojo.core.Ordering.Value other) {
-        if (other == org.mojolang.mojo.core.Ordering.Value.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.mojolang.mojo.core.Ordering.Order other) {
+        if (other == org.mojolang.mojo.core.Ordering.Order.getDefaultInstance()) return this;
         if (!other.getField().isEmpty()) {
           field_ = other.field_;
           bitField0_ |= 0x00000001;
@@ -770,23 +770,23 @@ private static final long serialVersionUID = 0L;
       }
 
 
-      // @@protoc_insertion_point(builder_scope:mojo.core.Ordering.Value)
+      // @@protoc_insertion_point(builder_scope:mojo.core.Ordering.Order)
     }
 
-    // @@protoc_insertion_point(class_scope:mojo.core.Ordering.Value)
-    private static final org.mojolang.mojo.core.Ordering.Value DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:mojo.core.Ordering.Order)
+    private static final org.mojolang.mojo.core.Ordering.Order DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.mojolang.mojo.core.Ordering.Value();
+      DEFAULT_INSTANCE = new org.mojolang.mojo.core.Ordering.Order();
     }
 
-    public static org.mojolang.mojo.core.Ordering.Value getDefaultInstance() {
+    public static org.mojolang.mojo.core.Ordering.Order getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Value>
-        PARSER = new com.google.protobuf.AbstractParser<Value>() {
+    private static final com.google.protobuf.Parser<Order>
+        PARSER = new com.google.protobuf.AbstractParser<Order>() {
       @java.lang.Override
-      public Value parsePartialFrom(
+      public Order parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -805,61 +805,61 @@ private static final long serialVersionUID = 0L;
       }
     };
 
-    public static com.google.protobuf.Parser<Value> parser() {
+    public static com.google.protobuf.Parser<Order> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Value> getParserForType() {
+    public com.google.protobuf.Parser<Order> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.core.Ordering.Value getDefaultInstanceForType() {
+    public org.mojolang.mojo.core.Ordering.Order getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public static final int VALS_FIELD_NUMBER = 1;
+  public static final int ORDERS_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private java.util.List<org.mojolang.mojo.core.Ordering.Value> vals_;
+  private java.util.List<org.mojolang.mojo.core.Ordering.Order> orders_;
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<org.mojolang.mojo.core.Ordering.Value> getValsList() {
-    return vals_;
+  public java.util.List<org.mojolang.mojo.core.Ordering.Order> getOrdersList() {
+    return orders_;
   }
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends org.mojolang.mojo.core.Ordering.ValueOrBuilder> 
-      getValsOrBuilderList() {
-    return vals_;
+  public java.util.List<? extends org.mojolang.mojo.core.Ordering.OrderOrBuilder> 
+      getOrdersOrBuilderList() {
+    return orders_;
   }
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
   @java.lang.Override
-  public int getValsCount() {
-    return vals_.size();
+  public int getOrdersCount() {
+    return orders_.size();
   }
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.Ordering.Value getVals(int index) {
-    return vals_.get(index);
+  public org.mojolang.mojo.core.Ordering.Order getOrders(int index) {
+    return orders_.get(index);
   }
   /**
-   * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+   * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.core.Ordering.ValueOrBuilder getValsOrBuilder(
+  public org.mojolang.mojo.core.Ordering.OrderOrBuilder getOrdersOrBuilder(
       int index) {
-    return vals_.get(index);
+    return orders_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -876,8 +876,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < vals_.size(); i++) {
-      output.writeMessage(1, vals_.get(i));
+    for (int i = 0; i < orders_.size(); i++) {
+      output.writeMessage(1, orders_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -888,9 +888,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < vals_.size(); i++) {
+    for (int i = 0; i < orders_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, vals_.get(i));
+        .computeMessageSize(1, orders_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -907,8 +907,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.core.Ordering other = (org.mojolang.mojo.core.Ordering) obj;
 
-    if (!getValsList()
-        .equals(other.getValsList())) return false;
+    if (!getOrdersList()
+        .equals(other.getOrdersList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -920,9 +920,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getValsCount() > 0) {
-      hash = (37 * hash) + VALS_FIELD_NUMBER;
-      hash = (53 * hash) + getValsList().hashCode();
+    if (getOrdersCount() > 0) {
+      hash = (37 * hash) + ORDERS_FIELD_NUMBER;
+      hash = (53 * hash) + getOrdersList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1053,11 +1053,11 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (valsBuilder_ == null) {
-        vals_ = java.util.Collections.emptyList();
+      if (ordersBuilder_ == null) {
+        orders_ = java.util.Collections.emptyList();
       } else {
-        vals_ = null;
-        valsBuilder_.clear();
+        orders_ = null;
+        ordersBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -1093,14 +1093,14 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(org.mojolang.mojo.core.Ordering result) {
-      if (valsBuilder_ == null) {
+      if (ordersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          vals_ = java.util.Collections.unmodifiableList(vals_);
+          orders_ = java.util.Collections.unmodifiableList(orders_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.vals_ = vals_;
+        result.orders_ = orders_;
       } else {
-        result.vals_ = valsBuilder_.build();
+        result.orders_ = ordersBuilder_.build();
       }
     }
 
@@ -1152,29 +1152,29 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.core.Ordering other) {
       if (other == org.mojolang.mojo.core.Ordering.getDefaultInstance()) return this;
-      if (valsBuilder_ == null) {
-        if (!other.vals_.isEmpty()) {
-          if (vals_.isEmpty()) {
-            vals_ = other.vals_;
+      if (ordersBuilder_ == null) {
+        if (!other.orders_.isEmpty()) {
+          if (orders_.isEmpty()) {
+            orders_ = other.orders_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureValsIsMutable();
-            vals_.addAll(other.vals_);
+            ensureOrdersIsMutable();
+            orders_.addAll(other.orders_);
           }
           onChanged();
         }
       } else {
-        if (!other.vals_.isEmpty()) {
-          if (valsBuilder_.isEmpty()) {
-            valsBuilder_.dispose();
-            valsBuilder_ = null;
-            vals_ = other.vals_;
+        if (!other.orders_.isEmpty()) {
+          if (ordersBuilder_.isEmpty()) {
+            ordersBuilder_.dispose();
+            ordersBuilder_ = null;
+            orders_ = other.orders_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            valsBuilder_ = 
+            ordersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getValsFieldBuilder() : null;
+                 getOrdersFieldBuilder() : null;
           } else {
-            valsBuilder_.addAllMessages(other.vals_);
+            ordersBuilder_.addAllMessages(other.orders_);
           }
         }
       }
@@ -1205,15 +1205,15 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              org.mojolang.mojo.core.Ordering.Value m =
+              org.mojolang.mojo.core.Ordering.Order m =
                   input.readMessage(
-                      org.mojolang.mojo.core.Ordering.Value.parser(),
+                      org.mojolang.mojo.core.Ordering.Order.parser(),
                       extensionRegistry);
-              if (valsBuilder_ == null) {
-                ensureValsIsMutable();
-                vals_.add(m);
+              if (ordersBuilder_ == null) {
+                ensureOrdersIsMutable();
+                orders_.add(m);
               } else {
-                valsBuilder_.addMessage(m);
+                ordersBuilder_.addMessage(m);
               }
               break;
             } // case 10
@@ -1234,244 +1234,244 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<org.mojolang.mojo.core.Ordering.Value> vals_ =
+    private java.util.List<org.mojolang.mojo.core.Ordering.Order> orders_ =
       java.util.Collections.emptyList();
-    private void ensureValsIsMutable() {
+    private void ensureOrdersIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        vals_ = new java.util.ArrayList<org.mojolang.mojo.core.Ordering.Value>(vals_);
+        orders_ = new java.util.ArrayList<org.mojolang.mojo.core.Ordering.Order>(orders_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        org.mojolang.mojo.core.Ordering.Value, org.mojolang.mojo.core.Ordering.Value.Builder, org.mojolang.mojo.core.Ordering.ValueOrBuilder> valsBuilder_;
+        org.mojolang.mojo.core.Ordering.Order, org.mojolang.mojo.core.Ordering.Order.Builder, org.mojolang.mojo.core.Ordering.OrderOrBuilder> ordersBuilder_;
 
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public java.util.List<org.mojolang.mojo.core.Ordering.Value> getValsList() {
-      if (valsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(vals_);
+    public java.util.List<org.mojolang.mojo.core.Ordering.Order> getOrdersList() {
+      if (ordersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(orders_);
       } else {
-        return valsBuilder_.getMessageList();
+        return ordersBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public int getValsCount() {
-      if (valsBuilder_ == null) {
-        return vals_.size();
+    public int getOrdersCount() {
+      if (ordersBuilder_ == null) {
+        return orders_.size();
       } else {
-        return valsBuilder_.getCount();
+        return ordersBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public org.mojolang.mojo.core.Ordering.Value getVals(int index) {
-      if (valsBuilder_ == null) {
-        return vals_.get(index);
+    public org.mojolang.mojo.core.Ordering.Order getOrders(int index) {
+      if (ordersBuilder_ == null) {
+        return orders_.get(index);
       } else {
-        return valsBuilder_.getMessage(index);
+        return ordersBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder setVals(
-        int index, org.mojolang.mojo.core.Ordering.Value value) {
-      if (valsBuilder_ == null) {
+    public Builder setOrders(
+        int index, org.mojolang.mojo.core.Ordering.Order value) {
+      if (ordersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureValsIsMutable();
-        vals_.set(index, value);
+        ensureOrdersIsMutable();
+        orders_.set(index, value);
         onChanged();
       } else {
-        valsBuilder_.setMessage(index, value);
+        ordersBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder setVals(
-        int index, org.mojolang.mojo.core.Ordering.Value.Builder builderForValue) {
-      if (valsBuilder_ == null) {
-        ensureValsIsMutable();
-        vals_.set(index, builderForValue.build());
+    public Builder setOrders(
+        int index, org.mojolang.mojo.core.Ordering.Order.Builder builderForValue) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.set(index, builderForValue.build());
         onChanged();
       } else {
-        valsBuilder_.setMessage(index, builderForValue.build());
+        ordersBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder addVals(org.mojolang.mojo.core.Ordering.Value value) {
-      if (valsBuilder_ == null) {
+    public Builder addOrders(org.mojolang.mojo.core.Ordering.Order value) {
+      if (ordersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureValsIsMutable();
-        vals_.add(value);
+        ensureOrdersIsMutable();
+        orders_.add(value);
         onChanged();
       } else {
-        valsBuilder_.addMessage(value);
+        ordersBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder addVals(
-        int index, org.mojolang.mojo.core.Ordering.Value value) {
-      if (valsBuilder_ == null) {
+    public Builder addOrders(
+        int index, org.mojolang.mojo.core.Ordering.Order value) {
+      if (ordersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureValsIsMutable();
-        vals_.add(index, value);
+        ensureOrdersIsMutable();
+        orders_.add(index, value);
         onChanged();
       } else {
-        valsBuilder_.addMessage(index, value);
+        ordersBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder addVals(
-        org.mojolang.mojo.core.Ordering.Value.Builder builderForValue) {
-      if (valsBuilder_ == null) {
-        ensureValsIsMutable();
-        vals_.add(builderForValue.build());
+    public Builder addOrders(
+        org.mojolang.mojo.core.Ordering.Order.Builder builderForValue) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.add(builderForValue.build());
         onChanged();
       } else {
-        valsBuilder_.addMessage(builderForValue.build());
+        ordersBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder addVals(
-        int index, org.mojolang.mojo.core.Ordering.Value.Builder builderForValue) {
-      if (valsBuilder_ == null) {
-        ensureValsIsMutable();
-        vals_.add(index, builderForValue.build());
+    public Builder addOrders(
+        int index, org.mojolang.mojo.core.Ordering.Order.Builder builderForValue) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.add(index, builderForValue.build());
         onChanged();
       } else {
-        valsBuilder_.addMessage(index, builderForValue.build());
+        ordersBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder addAllVals(
-        java.lang.Iterable<? extends org.mojolang.mojo.core.Ordering.Value> values) {
-      if (valsBuilder_ == null) {
-        ensureValsIsMutable();
+    public Builder addAllOrders(
+        java.lang.Iterable<? extends org.mojolang.mojo.core.Ordering.Order> values) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, vals_);
+            values, orders_);
         onChanged();
       } else {
-        valsBuilder_.addAllMessages(values);
+        ordersBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder clearVals() {
-      if (valsBuilder_ == null) {
-        vals_ = java.util.Collections.emptyList();
+    public Builder clearOrders() {
+      if (ordersBuilder_ == null) {
+        orders_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        valsBuilder_.clear();
+        ordersBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public Builder removeVals(int index) {
-      if (valsBuilder_ == null) {
-        ensureValsIsMutable();
-        vals_.remove(index);
+    public Builder removeOrders(int index) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.remove(index);
         onChanged();
       } else {
-        valsBuilder_.remove(index);
+        ordersBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public org.mojolang.mojo.core.Ordering.Value.Builder getValsBuilder(
+    public org.mojolang.mojo.core.Ordering.Order.Builder getOrdersBuilder(
         int index) {
-      return getValsFieldBuilder().getBuilder(index);
+      return getOrdersFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public org.mojolang.mojo.core.Ordering.ValueOrBuilder getValsOrBuilder(
+    public org.mojolang.mojo.core.Ordering.OrderOrBuilder getOrdersOrBuilder(
         int index) {
-      if (valsBuilder_ == null) {
-        return vals_.get(index);  } else {
-        return valsBuilder_.getMessageOrBuilder(index);
+      if (ordersBuilder_ == null) {
+        return orders_.get(index);  } else {
+        return ordersBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public java.util.List<? extends org.mojolang.mojo.core.Ordering.ValueOrBuilder> 
-         getValsOrBuilderList() {
-      if (valsBuilder_ != null) {
-        return valsBuilder_.getMessageOrBuilderList();
+    public java.util.List<? extends org.mojolang.mojo.core.Ordering.OrderOrBuilder> 
+         getOrdersOrBuilderList() {
+      if (ordersBuilder_ != null) {
+        return ordersBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(vals_);
+        return java.util.Collections.unmodifiableList(orders_);
       }
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public org.mojolang.mojo.core.Ordering.Value.Builder addValsBuilder() {
-      return getValsFieldBuilder().addBuilder(
-          org.mojolang.mojo.core.Ordering.Value.getDefaultInstance());
+    public org.mojolang.mojo.core.Ordering.Order.Builder addOrdersBuilder() {
+      return getOrdersFieldBuilder().addBuilder(
+          org.mojolang.mojo.core.Ordering.Order.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public org.mojolang.mojo.core.Ordering.Value.Builder addValsBuilder(
+    public org.mojolang.mojo.core.Ordering.Order.Builder addOrdersBuilder(
         int index) {
-      return getValsFieldBuilder().addBuilder(
-          index, org.mojolang.mojo.core.Ordering.Value.getDefaultInstance());
+      return getOrdersFieldBuilder().addBuilder(
+          index, org.mojolang.mojo.core.Ordering.Order.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.core.Ordering.Value vals = 1;</code>
+     * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
      */
-    public java.util.List<org.mojolang.mojo.core.Ordering.Value.Builder> 
-         getValsBuilderList() {
-      return getValsFieldBuilder().getBuilderList();
+    public java.util.List<org.mojolang.mojo.core.Ordering.Order.Builder> 
+         getOrdersBuilderList() {
+      return getOrdersFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        org.mojolang.mojo.core.Ordering.Value, org.mojolang.mojo.core.Ordering.Value.Builder, org.mojolang.mojo.core.Ordering.ValueOrBuilder> 
-        getValsFieldBuilder() {
-      if (valsBuilder_ == null) {
-        valsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            org.mojolang.mojo.core.Ordering.Value, org.mojolang.mojo.core.Ordering.Value.Builder, org.mojolang.mojo.core.Ordering.ValueOrBuilder>(
-                vals_,
+        org.mojolang.mojo.core.Ordering.Order, org.mojolang.mojo.core.Ordering.Order.Builder, org.mojolang.mojo.core.Ordering.OrderOrBuilder> 
+        getOrdersFieldBuilder() {
+      if (ordersBuilder_ == null) {
+        ordersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.mojolang.mojo.core.Ordering.Order, org.mojolang.mojo.core.Ordering.Order.Builder, org.mojolang.mojo.core.Ordering.OrderOrBuilder>(
+                orders_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        vals_ = null;
+        orders_ = null;
       }
-      return valsBuilder_;
+      return ordersBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

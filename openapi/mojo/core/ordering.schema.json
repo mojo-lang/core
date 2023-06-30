@@ -3,11 +3,11 @@
     "description": "",
     "type": "object",
     "properties": {
-        "vals": {
+        "orders": {
             "title": "mojo.core.Array",
             "type": "array",
             "items": {
-                "$ref": "#/components/schemas/mojo.core.Ordering.Value"
+                "$ref": "#/components/schemas/mojo.core.Ordering.Order"
             }
         }
     }
