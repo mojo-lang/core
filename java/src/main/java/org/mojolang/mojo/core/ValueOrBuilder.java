@@ -75,12 +75,12 @@ public interface ValueOrBuilder extends
   long getPositiveVal();
 
   /**
-   * <code>int64 negative_val = 6;</code>
+   * <code>uint64 negative_val = 6;</code>
    * @return Whether the negativeVal field is set.
    */
   boolean hasNegativeVal();
   /**
-   * <code>int64 negative_val = 6;</code>
+   * <code>uint64 negative_val = 6;</code>
    * @return The negativeVal.
    */
   long getNegativeVal();

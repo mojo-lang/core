@@ -8,7 +8,7 @@ public interface NegativeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 val = 1;</code>
+   * <code>uint64 val = 1;</code>
    * @return The val.
    */
   long getVal();

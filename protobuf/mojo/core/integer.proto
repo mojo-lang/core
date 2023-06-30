@@ -10,5 +10,5 @@ option java_outer_classname = "IntegerProto";
 option java_package = "org.mojolang.mojo.core";
 
 message Negative {
-    int64 val = 1;
+    uint64 val = 1;
 }

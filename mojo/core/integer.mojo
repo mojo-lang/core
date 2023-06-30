@@ -37,7 +37,7 @@ type UInt32
 type UInt64
 
 ///
-type Negative: Int64
+type Negative: UInt64
 
 ///
 type Positive = UInt64

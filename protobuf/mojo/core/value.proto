@@ -38,7 +38,7 @@ message Value {
         Null null_val = 3;
         bool bool_val = 4;
         uint64 positive_val = 5;
-        int64 negative_val = 6;
+        uint64 negative_val = 6;
         double double_val = 7;
         string string_val = 8;
         bytes bytes_val = 9;

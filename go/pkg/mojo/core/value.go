@@ -170,7 +170,14 @@ func NewInt64Value(val int64) *Value {
 	if val >= 0 {
 		return &Value{Val: &Value_PositiveVal{PositiveVal: uint64(val)}}
 	}
-	return &Value{Val: &Value_NegativeVal{NegativeVal: -val}}
+	value := uint64(0)
+	if val == math.MinInt64 {
+		value = uint64(math.MaxInt64) + 1
+	} else {
+		value = uint64(-val)
+	}
+
+	return &Value{Val: &Value_NegativeVal{NegativeVal: value}}
 }
 
 func NewUIntValue(val uint) *Value {
@@ -383,7 +390,10 @@ func (x *Value) GetInt32() int32 {
 
 func (x *Value) GetInt64() int64 {
 	if negative := x.GetNegativeVal(); negative > 0 {
-		return -negative
+		if negative == uint64(math.MaxInt64)+1 {
+			return math.MinInt64
+		}
+		return -int64(negative)
 	}
 	return int64(x.GetPositiveVal())
 }

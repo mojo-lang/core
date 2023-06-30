@@ -235,7 +235,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int NEGATIVE_VAL_FIELD_NUMBER = 6;
   /**
-   * <code>int64 negative_val = 6;</code>
+   * <code>uint64 negative_val = 6;</code>
    * @return Whether the negativeVal field is set.
    */
   @java.lang.Override
@@ -243,7 +243,7 @@ private static final long serialVersionUID = 0L;
     return valCase_ == 6;
   }
   /**
-   * <code>int64 negative_val = 6;</code>
+   * <code>uint64 negative_val = 6;</code>
    * @return The negativeVal.
    */
   @java.lang.Override
@@ -380,7 +380,7 @@ private static final long serialVersionUID = 0L;
           5, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 6) {
-      output.writeInt64(
+      output.writeUInt64(
           6, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 7) {
@@ -427,7 +427,7 @@ private static final long serialVersionUID = 0L;
     }
     if (valCase_ == 6) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(
+        .computeUInt64Size(
             6, (long)((java.lang.Long) val_));
     }
     if (valCase_ == 7) {
@@ -893,7 +893,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 40
             case 48: {
-              val_ = input.readInt64();
+              val_ = input.readUInt64();
               valCase_ = 6;
               break;
             } // case 48
@@ -1456,14 +1456,14 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>int64 negative_val = 6;</code>
+     * <code>uint64 negative_val = 6;</code>
      * @return Whether the negativeVal field is set.
      */
     public boolean hasNegativeVal() {
       return valCase_ == 6;
     }
     /**
-     * <code>int64 negative_val = 6;</code>
+     * <code>uint64 negative_val = 6;</code>
      * @return The negativeVal.
      */
     public long getNegativeVal() {
@@ -1473,7 +1473,7 @@ private static final long serialVersionUID = 0L;
       return 0L;
     }
     /**
-     * <code>int64 negative_val = 6;</code>
+     * <code>uint64 negative_val = 6;</code>
      * @param value The negativeVal to set.
      * @return This builder for chaining.
      */
@@ -1485,7 +1485,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 negative_val = 6;</code>
+     * <code>uint64 negative_val = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearNegativeVal() {

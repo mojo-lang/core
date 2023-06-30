@@ -53,7 +53,7 @@ public final class ValueProto {
       "\002 \001(\0132\021.mojo.core.ObjectH\000\022#\n\010null_val\030\003" +
       " \001(\0132\017.mojo.core.NullH\000\022\022\n\010bool_val\030\004 \001(" +
       "\010H\000\022\026\n\014positive_val\030\005 \001(\004H\000\022\026\n\014negative_" +
-      "val\030\006 \001(\003H\000\022\024\n\ndouble_val\030\007 \001(\001H\000\022\024\n\nstr" +
+      "val\030\006 \001(\004H\000\022\024\n\ndouble_val\030\007 \001(\001H\000\022\024\n\nstr" +
       "ing_val\030\010 \001(\tH\000\022\023\n\tbytes_val\030\t \001(\014H\000B\005\n\003" +
       "val*\335\001\n\tValueKind\022\032\n\026VALUE_KIND_UNSPECIF" +
       "IED\020\000\022\023\n\017VALUE_KIND_NULL\020\001\022\026\n\022VALUE_KIND" +

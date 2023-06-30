@@ -29,7 +29,7 @@ public final class IntegerProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\027mojo/core/integer.proto\022\tmojo.core\"\027\n\010" +
-      "Negative\022\013\n\003val\030\001 \001(\003BY\n\026org.mojolang.mo" +
+      "Negative\022\013\n\003val\030\001 \001(\004BY\n\026org.mojolang.mo" +
       "jo.coreB\014IntegerProtoP\001Z/github.com/mojo" +
       "-lang/core/go/pkg/mojo/core;coreb\006proto3"
     };

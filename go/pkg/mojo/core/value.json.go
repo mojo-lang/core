@@ -33,7 +33,11 @@ func (codec *ValueCodec) DecodeAny(any jsoniter.Any) (*Value, error) {
 	case jsoniter.NumberValue:
 		floatVal := any.ToFloat64()
 		intVal := any.ToInt64() // not support uint64 (the highest bit is 1)
-		if floatVal != float64(intVal) {
+		uintVal := any.ToUint64()
+
+		if intVal == 0 && uintVal > 0 { // > int64.max
+			return NewUInt64Value(uintVal), nil
+		} else if floatVal != float64(intVal) {
 			return NewFloat64Value(floatVal), nil
 		} else {
 			return NewInt64Value(intVal), nil
@@ -86,7 +90,7 @@ func (codec *ValueCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	case *Value_BoolVal:
 		stream.WriteBool(val.BoolVal)
 	case *Value_NegativeVal:
-		stream.WriteInt64(-val.NegativeVal)
+		stream.WriteInt64(value.GetInt64())
 	case *Value_PositiveVal:
 		stream.WriteUint64(val.PositiveVal)
 	case *Value_DoubleVal:
