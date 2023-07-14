@@ -10,11 +10,11 @@ import (
 )
 
 type BadRequestError struct {
-	*err
+	*basicError
 }
 
 func NewBadRequestError(format string, arguments ...interface{}) *BadRequestError {
-	return &BadRequestError{newErr(BadRequest, format, arguments...)}
+	return &BadRequestError{newBasicError(BadRequest, format, arguments...)}
 }
 
 func IsBadRequestError(err error) bool {
@@ -29,11 +29,11 @@ func (*BadRequestError) Is(err error) bool {
 }
 
 type InvalidArgumentError struct {
-	*err
+	*basicError
 }
 
 func NewInvalidArgumentError(format string, arguments ...interface{}) *InvalidArgumentError {
-	return &InvalidArgumentError{newErr(InvalidArgument, format, arguments...)}
+	return &InvalidArgumentError{newBasicError(InvalidArgument, format, arguments...)}
 }
 
 func IsInvalidArgumentError(err error) bool {
@@ -48,11 +48,11 @@ func (*InvalidArgumentError) Is(err error) bool {
 }
 
 type MalformedSyntaxError struct {
-	*err
+	*basicError
 }
 
 func NewMalformedSyntaxError(format string, arguments ...interface{}) *MalformedSyntaxError {
-	return &MalformedSyntaxError{newErr(MalformedSyntax, format, arguments...)}
+	return &MalformedSyntaxError{newBasicError(MalformedSyntax, format, arguments...)}
 }
 
 func IsMalformedSyntaxError(err error) bool {
@@ -67,11 +67,11 @@ func (*MalformedSyntaxError) Is(err error) bool {
 }
 
 type FailedPreconditionError struct {
-	*err
+	*basicError
 }
 
 func NewFailedPreconditionError(format string, arguments ...interface{}) *FailedPreconditionError {
-	return &FailedPreconditionError{newErr(FailedPrecondition, format, arguments...)}
+	return &FailedPreconditionError{newBasicError(FailedPrecondition, format, arguments...)}
 }
 
 func IsFailedPreconditionError(err error) bool {
@@ -86,11 +86,11 @@ func (*FailedPreconditionError) Is(err error) bool {
 }
 
 type OutOfRangeError struct {
-	*err
+	*basicError
 }
 
 func NewOutOfRangeError(format string, arguments ...interface{}) *OutOfRangeError {
-	return &OutOfRangeError{newErr(OutOfRange, format, arguments...)}
+	return &OutOfRangeError{newBasicError(OutOfRange, format, arguments...)}
 }
 
 func IsOutOfRangeError(err error) bool {
@@ -105,11 +105,11 @@ func (*OutOfRangeError) Is(err error) bool {
 }
 
 type UnauthenticatedError struct {
-	*err
+	*basicError
 }
 
 func NewUnauthenticatedError(format string, arguments ...interface{}) *UnauthenticatedError {
-	return &UnauthenticatedError{newErr(Unauthenticated, format, arguments...)}
+	return &UnauthenticatedError{newBasicError(Unauthenticated, format, arguments...)}
 }
 
 func IsUnauthenticatedError(err error) bool {
@@ -124,11 +124,11 @@ func (*UnauthenticatedError) Is(err error) bool {
 }
 
 type PermissionDeniedError struct {
-	*err
+	*basicError
 }
 
 func NewPermissionDeniedError(format string, arguments ...interface{}) *PermissionDeniedError {
-	return &PermissionDeniedError{newErr(PermissionDenied, format, arguments...)}
+	return &PermissionDeniedError{newBasicError(PermissionDenied, format, arguments...)}
 }
 
 func IsPermissionDeniedError(err error) bool {
@@ -143,11 +143,11 @@ func (*PermissionDeniedError) Is(err error) bool {
 }
 
 type NotFoundError struct {
-	*err
+	*basicError
 }
 
 func NewNotFoundError(format string, arguments ...interface{}) *NotFoundError {
-	return &NotFoundError{newErr(NotFound, format, arguments...)}
+	return &NotFoundError{newBasicError(NotFound, format, arguments...)}
 }
 
 func IsNotFoundError(err error) bool {
@@ -162,11 +162,11 @@ func (*NotFoundError) Is(err error) bool {
 }
 
 type AlreadyExistsError struct {
-	*err
+	*basicError
 }
 
 func NewAlreadyExistsError(format string, arguments ...interface{}) *AlreadyExistsError {
-	return &AlreadyExistsError{newErr(AlreadyExists, format, arguments...)}
+	return &AlreadyExistsError{newBasicError(AlreadyExists, format, arguments...)}
 }
 
 func IsAlreadyExistsError(err error) bool {
@@ -181,11 +181,11 @@ func (*AlreadyExistsError) Is(err error) bool {
 }
 
 type AbortedError struct {
-	*err
+	*basicError
 }
 
 func NewAbortedError(format string, arguments ...interface{}) *AbortedError {
-	return &AbortedError{newErr(Aborted, format, arguments...)}
+	return &AbortedError{newBasicError(Aborted, format, arguments...)}
 }
 
 func IsAbortedError(err error) bool {
@@ -200,11 +200,11 @@ func (*AbortedError) Is(err error) bool {
 }
 
 type ResourceExhaustedError struct {
-	*err
+	*basicError
 }
 
 func NewResourceExhaustedError(format string, arguments ...interface{}) *ResourceExhaustedError {
-	return &ResourceExhaustedError{newErr(ResourceExhausted, format, arguments...)}
+	return &ResourceExhaustedError{newBasicError(ResourceExhausted, format, arguments...)}
 }
 
 func IsResourceExhaustedError(err error) bool {
@@ -219,11 +219,11 @@ func (*ResourceExhaustedError) Is(err error) bool {
 }
 
 type CancelledError struct {
-	*err
+	*basicError
 }
 
 func NewCancelledError(format string, arguments ...interface{}) *CancelledError {
-	return &CancelledError{newErr(Cancelled, format, arguments...)}
+	return &CancelledError{newBasicError(Cancelled, format, arguments...)}
 }
 
 func IsCancelledError(err error) bool {
@@ -238,11 +238,11 @@ func (*CancelledError) Is(err error) bool {
 }
 
 type UnknownErrorError struct {
-	*err
+	*basicError
 }
 
 func NewUnknownError(format string, arguments ...interface{}) *UnknownErrorError {
-	return &UnknownErrorError{newErr(UnknownError, format, arguments...)}
+	return &UnknownErrorError{newBasicError(UnknownError, format, arguments...)}
 }
 
 func IsUnknownError(err error) bool {
@@ -257,11 +257,11 @@ func (*UnknownErrorError) Is(err error) bool {
 }
 
 type InternalErrorError struct {
-	*err
+	*basicError
 }
 
 func NewInternalError(format string, arguments ...interface{}) *InternalErrorError {
-	return &InternalErrorError{newErr(InternalError, format, arguments...)}
+	return &InternalErrorError{newBasicError(InternalError, format, arguments...)}
 }
 
 func IsInternalError(err error) bool {
@@ -276,11 +276,11 @@ func (*InternalErrorError) Is(err error) bool {
 }
 
 type DataLossError struct {
-	*err
+	*basicError
 }
 
 func NewDataLossError(format string, arguments ...interface{}) *DataLossError {
-	return &DataLossError{newErr(DataLoss, format, arguments...)}
+	return &DataLossError{newBasicError(DataLoss, format, arguments...)}
 }
 
 func IsDataLossError(err error) bool {
@@ -295,11 +295,11 @@ func (*DataLossError) Is(err error) bool {
 }
 
 type UnimplementedError struct {
-	*err
+	*basicError
 }
 
 func NewUnimplementedError(format string, arguments ...interface{}) *UnimplementedError {
-	return &UnimplementedError{newErr(Unimplemented, format, arguments...)}
+	return &UnimplementedError{newBasicError(Unimplemented, format, arguments...)}
 }
 
 func IsUnimplementedError(err error) bool {
@@ -314,11 +314,11 @@ func (*UnimplementedError) Is(err error) bool {
 }
 
 type UnavailableError struct {
-	*err
+	*basicError
 }
 
 func NewUnavailableError(format string, arguments ...interface{}) *UnavailableError {
-	return &UnavailableError{newErr(Unavailable, format, arguments...)}
+	return &UnavailableError{newBasicError(Unavailable, format, arguments...)}
 }
 
 func IsUnavailableError(err error) bool {
@@ -333,11 +333,11 @@ func (*UnavailableError) Is(err error) bool {
 }
 
 type DeadlineExceededError struct {
-	*err
+	*basicError
 }
 
 func NewDeadlineExceededError(format string, arguments ...interface{}) *DeadlineExceededError {
-	return &DeadlineExceededError{newErr(DeadlineExceeded, format, arguments...)}
+	return &DeadlineExceededError{newBasicError(DeadlineExceeded, format, arguments...)}
 }
 
 func IsDeadlineExceededError(err error) bool {
@@ -352,85 +352,85 @@ func (*DeadlineExceededError) Is(err error) bool {
 }
 
 func init() {
-	RegisterJSONFieldEncoder("core.err", "Code", &ErrorCodeStringCodec{IsFieldPointer: true})
-	RegisterJSONFieldDecoder("core.err", "Code", &ErrorCodeStringCodec{IsFieldPointer: true})
+	RegisterJSONFieldEncoder("core.basicError", "Code", &ErrorCodeStringCodec{IsFieldPointer: true})
+	RegisterJSONFieldDecoder("core.basicError", "Code", &ErrorCodeStringCodec{IsFieldPointer: true})
 }
 
-type err Error
+type basicError Error
 
-func newErr(code *ErrorCode, message string, arguments ...interface{}) *err {
-	return (*err)(NewError(code, message, arguments...))
+func newBasicError(code *ErrorCode, message string, arguments ...interface{}) *basicError {
+	return (*basicError)(NewError(code, message, arguments...))
 }
 
-func (e *err) Error() string {
+func (e *basicError) Error() string {
 	return (*Error)(e).Error()
 }
 
-func (e *err) ToError() *Error {
+func (e *basicError) ToError() *Error {
 	return (*Error)(e)
 }
 
-func (e *err) StatusCode() int {
+func (e *basicError) StatusCode() int {
 	return (*Error)(e).StatusCode()
 }
 
-func (e *err) AddDetail(detail interface{}) *err {
-	return (*err)((*Error)(e).AddDetail(detail))
+func (e *basicError) AddDetail(detail interface{}) *basicError {
+	return (*basicError)((*Error)(e).AddDetail(detail))
 }
 
-func (e *err) Value() (driver.Value, error) {
+func (e *basicError) Value() (driver.Value, error) {
 	if e != nil {
 		return (*Error)(e).Value()
 	}
 	return nil, nil
 }
 
-func (e *err) Scan(src interface{}) error {
+func (e *basicError) Scan(src interface{}) error {
 	if e != nil && src != nil {
 		return (*Error)(e).Scan(src)
 	}
 	return nil
 }
 
-func (e *err) GormDBDataType(db *gorm.DB, field *schema.Field) string {
+func (e *basicError) GormDBDataType(db *gorm.DB, field *schema.Field) string {
 	return e.ToError().GormDBDataType(db, field)
 }
 
-func (e *err) GormDataType() string {
+func (e *basicError) GormDataType() string {
 	return e.ToError().GormDataType()
 }
 
-func (e *err) Reset() {
+func (e *basicError) Reset() {
 	(*Error)(e).Reset()
 }
 
-func (e *err) String() string {
+func (e *basicError) String() string {
 	return (*Error)(e).String()
 }
 
-func (*err) ProtoMessage() {}
+func (*basicError) ProtoMessage() {}
 
-func (e *err) ProtoReflect() protoreflect.Message {
+func (e *basicError) ProtoReflect() protoreflect.Message {
 	return (*Error)(e).ProtoReflect()
 }
 
 // Deprecated: Use Error.ProtoReflect.Descriptor instead.
-func (e *err) Descriptor() ([]byte, []int) {
+func (e *basicError) Descriptor() ([]byte, []int) {
 	return (*Error)(e).Descriptor()
 }
 
-func (e *err) GetCode() *ErrorCode {
+func (e *basicError) GetCode() *ErrorCode {
 	return (*Error)(e).GetCode()
 }
 
-func (e *err) GetMessage() string {
+func (e *basicError) GetMessage() string {
 	return (*Error)(e).GetMessage()
 }
 
-func (e *err) GetDetails() []*Any {
+func (e *basicError) GetDetails() []*Any {
 	return (*Error)(e).GetDetails()
 }
 
-func (e *err) ContainsDetailType(i interface{}) bool {
+func (e *basicError) ContainsDetailType(i interface{}) bool {
 	return (*Error)(e).ContainsDetailType(i)
 }

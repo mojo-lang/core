@@ -97,7 +97,7 @@ func (*Error) Is(e error) bool {
 	if _, ok := e.(*Error); ok {
 		return true
 	}
-	if _, ok := e.(*err); ok {
+	if _, ok := e.(*basicError); ok {
 		return true
 	}
 	return false

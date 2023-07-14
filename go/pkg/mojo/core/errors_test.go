@@ -31,6 +31,11 @@ func TestIsCancelledError(t *testing.T) {
 func TestNewBadRequestError(t *testing.T) {
 	err := NewBadRequestError("bad request")
 	assert.Equal(t, BadRequest, err.Code)
+
+	bytes, e := jsoniter.Marshal(err)
+	assert.NoError(t, e)
+	assert.NotEmpty(t, bytes)
+	assert.Equal(t, []byte(`{"code":"400","message":"bad request"}`), bytes)
 }
 
 func TestErr_AddDetail(t *testing.T) {
