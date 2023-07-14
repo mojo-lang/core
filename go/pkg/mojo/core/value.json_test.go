@@ -80,3 +80,13 @@ func TestValuesCodec_Decode7(t *testing.T) {
 	assert.Equal(t, ValueKind_VALUE_KIND_INTEGER, vt.Value.GetKind())
 	assert.Equal(t, int64(-9223372036854775808), vt.Value.GetInt64())
 }
+
+func TestValuesCodec_Decode8(t *testing.T) {
+	json := `{"tag":"integer", "value": 0}`
+	vt := &ValueTag{}
+	err := jsoniter.ConfigDefault.UnmarshalFromString(json, vt)
+	assert.NoError(t, err)
+	assert.Equal(t, "integer", vt.Tag)
+	assert.Equal(t, ValueKind_VALUE_KIND_INTEGER, vt.Value.GetKind())
+	assert.Equal(t, int64(0), vt.Value.GetInt64())
+}
