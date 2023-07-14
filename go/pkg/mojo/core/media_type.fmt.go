@@ -19,7 +19,21 @@ func (x *MediaType) Parse(mediaType string) error {
 	if x != nil && len(mediaType) > 0 {
 		segments := strings.Split(mediaType, ";")
 		if len(segments) > 1 {
-			// TODO
+			kv := strings.Split(segments[1], "=")
+			if len(kv) > 1 {
+				x.Parameter = &MediaType_Parameter{
+					Key:   strings.TrimSpace(kv[0]),
+					Value: nil,
+				}
+
+				value := strings.TrimSpace(kv[1])
+				if IsQuotedString(value, `'`) {
+					value = RemoveSingleQuote(value)
+				} else if IsQuotedString(value, `"`) {
+					value = RemoveDoubleQuote(value)
+				}
+				x.Parameter.Value = NewStringValue(value)
+			}
 		}
 
 		segments = strings.Split(segments[0], "/")
