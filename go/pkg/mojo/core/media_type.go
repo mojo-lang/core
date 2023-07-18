@@ -49,6 +49,43 @@ const (
 	VideoWebm = "video/webm"
 )
 
+func NewMediaType(mediaType string) (*MediaType, error) {
+	mt, err := ParseMediaType(mediaType)
+	if err != nil {
+		return nil, err
+	}
+	return mt, nil
+}
+
+func NewApplicationJson() *MediaType {
+	mt, _ := NewMediaType(ApplicationJson)
+	return mt
+}
+
+func NewApplicationOctetStream() *MediaType {
+	mt, _ := NewMediaType(ApplicationOctetStream)
+	return mt
+}
+
+func NewApplicationWwwFormUrlencoded() *MediaType {
+	mt, _ := NewMediaType(ApplicationWwwFormUrlencoded)
+	return mt
+}
+
+func (x *MediaType) SetParameter(key string, value interface{}) error {
+	if x != nil {
+		val, err := NewValue(value)
+		if err != nil {
+			return err
+		}
+		x.Parameter = &MediaType_Parameter{
+			Key:   key,
+			Value: val,
+		}
+	}
+	return nil
+}
+
 func (x *MediaType) IsSame(mediaType string) bool {
 	if x != nil {
 		return x.Type+"/"+x.Subtype == mediaType
