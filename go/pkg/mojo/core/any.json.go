@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"reflect"
 	"sort"
-	"sync"
 	"unsafe"
 
 	"google.golang.org/protobuf/reflect/protoregistry"
@@ -30,17 +29,6 @@ func (x *Any) MarshalJSON() ([]byte, error) {
 
 func (x *Any) UnmarshalJSON(err []byte) error {
 	return jsoniter.ConfigFastest.Unmarshal(err, x)
-}
-
-var once = &sync.Once{}
-var anyFieldEncoders map[string]jsoniter.ValEncoder
-
-func RegisterAnyFieldEncoder(typ string, field string, encoder jsoniter.ValEncoder) {
-	once.Do(func() {
-		anyFieldEncoders = make(map[string]jsoniter.ValEncoder)
-	})
-
-	anyFieldEncoders[typ+"."+field] = encoder
 }
 
 func init() {
@@ -149,10 +137,12 @@ func (codec *AnyCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 
 					fieldName := strcase.ToCamel(string(descriptor.Name()))
 					field := obj.FieldByName(fieldName)
-					if encoder, ok := anyFieldEncoders[t.String()+"."+fieldName]; ok {
+					if encoder, ok := registeredJsonEncoderTypeFields[t.String()+"."+fieldName]; ok {
 						f := field.UnsafeGet(reflect2.PtrOf(any.typedVal))
 						if !encoder.IsEmpty(f) {
 							encoder.Encode(f, stream)
+						} else {
+							stream.WriteVal(nil)
 						}
 					} else {
 						stream.WriteVal(field.Get(any.typedVal))

@@ -1,8 +1,16 @@
 package core
 
 import (
+	"sync"
+
 	jsoniter "github.com/json-iterator/go"
 )
+
+var registeredJsonEncoderTypesOnce = &sync.Once{}
+var registeredJsonEncoderTypes map[string]jsoniter.ValEncoder
+
+var registeredJsonEncoderTypeFieldsOnce = &sync.Once{}
+var registeredJsonEncoderTypeFields map[string]jsoniter.ValEncoder
 
 func RegisterJSONTypeDecoder(typ string, decoder jsoniter.ValDecoder) {
 	jsoniter.RegisterTypeDecoder(typ, decoder)
@@ -10,6 +18,11 @@ func RegisterJSONTypeDecoder(typ string, decoder jsoniter.ValDecoder) {
 
 func RegisterJSONTypeEncoder(typ string, encoder jsoniter.ValEncoder) {
 	jsoniter.RegisterTypeEncoder(typ, encoder)
+
+	registeredJsonEncoderTypesOnce.Do(func() {
+		registeredJsonEncoderTypes = make(map[string]jsoniter.ValEncoder)
+	})
+	registeredJsonEncoderTypes[typ] = encoder
 }
 
 func RegisterJSONFieldDecoder(typ string, field string, decoder jsoniter.ValDecoder) {
@@ -18,7 +31,11 @@ func RegisterJSONFieldDecoder(typ string, field string, decoder jsoniter.ValDeco
 
 func RegisterJSONFieldEncoder(typ string, field string, encoder jsoniter.ValEncoder) {
 	jsoniter.RegisterFieldEncoder(typ, field, encoder)
-	RegisterAnyFieldEncoder(typ, field, encoder)
+
+	registeredJsonEncoderTypeFieldsOnce.Do(func() {
+		registeredJsonEncoderTypeFields = make(map[string]jsoniter.ValEncoder)
+	})
+	registeredJsonEncoderTypeFields[typ+"."+field] = encoder
 }
 
 func FormatJson(input []byte) ([]byte, error) {
