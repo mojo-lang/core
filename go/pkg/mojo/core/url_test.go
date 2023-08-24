@@ -31,4 +31,8 @@ func TestUrlStringCodec_Decode(t *testing.T) {
 	url = "http://192.168.5.113:9090//VulnerableApp/XSSInImgTagAttribute/LEVEL_7?src=Set-Cookie: session=1234567890%0D%0AContent-Length: 0%0D%0A%0D%0A<script>alert('CRLF Vulnerability');</script>\\n"
 	_, e = ParseUrl(url)
 	assert.Error(t, e)
+
+	url = "http://192.168.0.1、80"
+	r, e = ParseUrl(url)
+	assert.NoError(t, e)
 }
