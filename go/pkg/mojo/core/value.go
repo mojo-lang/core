@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math"
 	"reflect"
-	"strings"
 	"unicode/utf8"
 
+	jsoniter "github.com/json-iterator/go"
 	"google.golang.org/protobuf/runtime/protoimpl"
 )
 
@@ -46,6 +46,10 @@ func NewValue(v interface{}) (*Value, error) {
 		return NewInt64Value(v), nil
 	case uint:
 		return NewUIntValue(v), nil
+	case uint8:
+		return NewUInt8Value(v), nil
+	case uint16:
+		return NewUInt16Value(v), nil
 	case uint32:
 		return NewUInt32Value(v), nil
 	case uint64:
@@ -66,6 +70,9 @@ func NewValue(v interface{}) (*Value, error) {
 		if err != nil {
 			return nil, err
 		}
+		return NewObjectValue(obj), nil
+	case map[string]*Value:
+		obj := &Object{Vals: v}
 		return NewObjectValue(obj), nil
 	case []interface{}:
 		array, err := NewValues(v...)
@@ -119,23 +126,24 @@ func NewValue(v interface{}) (*Value, error) {
 				return NewMapValue(values), nil
 			}
 		} else if typ.Kind() == reflect.Struct {
-			values := make(map[string]*Value)
-			for i := 0; i < typ.NumField(); i++ {
-				key := typ.Field(i).Name
-				if (key[0] >= 'a' && key[0] <= 'z') || strings.HasPrefix(key, "XXX") {
-					continue
-				}
-				if value.Field(i).IsZero() {
-					continue
-				}
-				val, err := NewValue(value.Field(i).Interface())
-				if err != nil {
+			if _, ok := registeredJsonEncoderTypes[typ.String()]; ok {
+				if json, err := jsoniter.ConfigFastest.Marshal(v); err != nil {
 					return nil, err
+				} else {
+					val := &Value{}
+					if err = jsoniter.ConfigFastest.Unmarshal(json, val); err != nil {
+						return nil, err
+					}
+					return val, nil
 				}
-				values[key] = val
 			}
-			if len(values) > 0 {
-				return NewMapValue(values), nil
+
+			obj := NewObject()
+			if err := obj.From(v); err != nil {
+				return nil, err
+			}
+			if !obj.IsEmpty() {
+				return NewObjectValue(obj), nil
 			}
 		}
 		return nil, fmt.Errorf("invalid type: %T", v)
@@ -181,6 +189,14 @@ func NewInt64Value(val int64) *Value {
 }
 
 func NewUIntValue(val uint) *Value {
+	return NewUInt64Value(uint64(val))
+}
+
+func NewUInt8Value(val uint8) *Value {
+	return NewUInt64Value(uint64(val))
+}
+
+func NewUInt16Value(val uint16) *Value {
 	return NewUInt64Value(uint64(val))
 }
 
@@ -544,3 +560,51 @@ func (x *Value) GetFloat64Array() []float64 {
 	}
 	return array
 }
+
+// type UrlStringOptions struct {
+// 	Explode   bool
+// 	Separator string // default: <||>
+// }
+//
+// func (x *Value) ToUrlString(options *UrlStringOptions) string {
+// 	if x != nil {
+// 		builder := &strings.Builder{}
+// 		if err := x.toUrlString(builder, options); err != nil {
+// 			return ""
+// 		}
+// 		return builder.String()
+// 	}
+// 	return ""
+// }
+//
+// func (x *Value) toUrlString(buf *strings.Builder, options *UrlStringOptions) error {
+// 	if x != nil {
+// 		switch x.GetKind() {
+// 		case ValueKind_VALUE_KIND_NULL:
+// 			buf.WriteString("")
+// 		case ValueKind_VALUE_KIND_STRING:
+// 			buf.WriteString(x.GetString())
+// 		case ValueKind_VALUE_KIND_BOOLEAN:
+// 			if val := x.GetBool(); val {
+// 				buf.WriteString("true")
+// 			} else {
+// 				buf.WriteString("false")
+// 			}
+// 		case ValueKind_VALUE_KIND_INTEGER:
+// 			val := x.GetInt64()
+// 			buf.WriteString(strconv.FormatInt(val, 10))
+// 		case ValueKind_VALUE_KIND_NUMBER:
+// 			val := x.GetFloat64()
+// 			buf.WriteString(strconv.FormatFloat(val, 'g', 12, 64))
+// 		case ValueKind_VALUE_KIND_ARRAY:
+// 			// values := x.GetValues()
+// 			// for _, val := range values {
+// 			//
+// 			// }
+// 		case ValueKind_VALUE_KIND_OBJECT:
+// 		case ValueKind_VALUE_KIND_BYTES:
+// 			return errors.New("not supported bytes type in converting from the Value to safe string")
+// 		}
+// 	}
+// 	return nil
+// }

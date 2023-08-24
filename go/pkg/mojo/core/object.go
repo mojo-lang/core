@@ -1,18 +1,26 @@
 package core
 
 import (
+	"errors"
 	"fmt"
+	"reflect"
+	"strings"
 	"unicode/utf8"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/modern-go/reflect2"
 	"google.golang.org/protobuf/runtime/protoimpl"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
 )
 
 const ObjectTypeName = "Object"
 const ObjectTypeFullName = "mojo.core.Object"
 
 func NewObject() *Object {
-	return &Object{}
+	return &Object{
+		Vals: make(map[string]*Value),
+	}
 }
 
 // NewObjectFromMap constructs a Struct from a general-purpose Go map.
@@ -72,7 +80,7 @@ func (x *Object) ToMap() interface{} {
 }
 
 func (x *Object) ToMapInterface() map[string]interface{} {
-	if x != nil && x.Vals != nil {
+	if x != nil && x.Vals != nil && len(x.Vals) > 0 {
 		vs := make(map[string]interface{})
 		for k, v := range x.Vals {
 			vs[k] = v.ToInterface()
@@ -95,10 +103,84 @@ func (x *Object) To(value interface{}) error {
 
 func (x *Object) From(value interface{}) error {
 	if x != nil {
-		if json, err := jsoniter.ConfigFastest.Marshal(value); err != nil {
-			return err
-		} else {
-			return jsoniter.ConfigFastest.Unmarshal(json, x)
+		if x.Vals == nil {
+			x.Vals = make(map[string]*Value)
+		}
+
+		switch value := value.(type) {
+		case nil, bool, int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, float32, float64, string, []byte, []interface{}, *Values:
+			return errors.New(fmt.Sprintf("invalid input object format: %T", value))
+		case map[string]interface{}:
+			if obj, err := NewObjectFromMap(value); err != nil {
+				return err
+			} else {
+				x.Vals = obj.Vals
+			}
+		case *Value:
+			if obj := value.GetObject(); obj != nil {
+				x.Vals = obj.Vals
+			} else {
+				return errors.New(fmt.Sprintf("invalid input object format: %T", value))
+			}
+		case *Object:
+			x.Vals = value.Vals
+		case map[string]*Value:
+			x.Vals = value
+		default:
+			v := reflect.ValueOf(value)
+			typ := reflect.Indirect(v).Type()
+			if v.Kind() == reflect.Ptr {
+				v = v.Elem()
+				typ = reflect.Indirect(v).Type()
+			}
+			if typ.Kind() != reflect.Struct {
+				return errors.New(fmt.Sprintf("invalid input object format: %T", value))
+			}
+
+			if _, ok := registeredJsonEncoderTypes[typ.String()]; ok {
+				if json, err := jsoniter.ConfigFastest.Marshal(value); err != nil {
+					return err
+				} else {
+					if err = jsoniter.ConfigFastest.Unmarshal(json, &x.Vals); err != nil {
+						return err
+					}
+				}
+			} else {
+				for i := 0; i < typ.NumField(); i++ {
+					key := typ.Field(i).Name
+					if (key[0] >= 'a' && key[0] <= 'z') || strings.HasPrefix(key, "XXX") {
+						continue
+					}
+					if v.Field(i).IsZero() {
+						continue
+					}
+
+					val := &Value{}
+					if encoder, ok := registeredJsonEncoderTypeFields[typ.String()+"."+key]; ok {
+						rt := reflect2.TypeOf(value)
+						if rt.Kind() == reflect.Ptr {
+							rt = rt.(*reflect2.UnsafePtrType).Elem()
+						}
+						if obj, ok := rt.(*reflect2.UnsafeStructType); ok {
+							field := obj.FieldByName(key)
+							f := field.UnsafeGet(reflect2.PtrOf(value))
+
+							buf := &strings.Builder{}
+							stream := jsoniter.NewStream(jsoniter.ConfigFastest, buf, 1024)
+							encoder.Encode(f, stream)
+							if err := jsoniter.ConfigFastest.Unmarshal(stream.Buffer(), &val); err != nil {
+								return err
+							}
+						}
+					} else {
+						var err error
+						if val, err = NewValue(v.Field(i).Interface()); err != nil {
+							return err
+						}
+					}
+					x.Vals[strcase.ToSnake(key)] = val
+				}
+			}
 		}
 	}
 	return nil

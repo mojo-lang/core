@@ -23,6 +23,27 @@ func TestObject_From(t *testing.T) {
 	assert.Equal(t, int32(1234), object.GetValue("properties").GetObject().GetInt32("p1"))
 }
 
+func TestObject_From2(t *testing.T) {
+	v := &Error{Code: Aborted, Message: "aborted"}
+
+	object := &Object{}
+	err := object.From(v)
+	assert.NoError(t, err)
+
+	assert.Equal(t, v.Code.Format(), object.GetString("code"))
+}
+
+func TestObject_From3(t *testing.T) {
+	v := NewStringMap()
+	v.Vals["Foo"] = "bar"
+
+	object := &Object{}
+	err := object.From(v)
+	assert.NoError(t, err)
+
+	assert.Equal(t, "bar", object.GetString("Foo"))
+}
+
 func TestObject_To(t *testing.T) {
 	obj := NewObject().SetString("title", "test").
 		SetString("type", "png").

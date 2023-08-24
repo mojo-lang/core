@@ -43,3 +43,29 @@ func TestNewValue(t *testing.T) {
 	assert.NotNil(t, val)
 	assert.Equal(t, p.Format(), val.GetString())
 }
+
+func TestNewValue1(t *testing.T) {
+	v := &BoolValue{Val: true}
+	val, err := NewValue(v)
+	assert.NoError(t, err)
+	assert.NotNil(t, val)
+	assert.Equal(t, true, val.GetBoolVal())
+}
+
+func TestNewValue2(t *testing.T) {
+	v := &Error{Code: Aborted, Message: "aborted"}
+	val, err := NewValue(v)
+	assert.NoError(t, err)
+	assert.NotNil(t, val)
+	assert.Equal(t, v.Code.Format(), val.GetObject().GetString("code"))
+}
+
+func TestNewValue3(t *testing.T) {
+	v := NewStringMap()
+	v.Vals["foo"] = "bar"
+
+	val, err := NewValue(v)
+	assert.NoError(t, err)
+	assert.NotNil(t, val)
+	assert.Equal(t, "bar", val.GetObject().GetString("foo"))
+}
