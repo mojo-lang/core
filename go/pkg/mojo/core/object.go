@@ -178,7 +178,8 @@ func (x *Object) From(value interface{}) error {
 							return err
 						}
 					}
-					x.Vals[strcase.ToSnake(key)] = val
+					// FIXME should using the json tag name in the struct
+					x.Vals[strcase.ToLowerCamel(key)] = val
 				}
 			}
 		}
