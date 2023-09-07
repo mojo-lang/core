@@ -26,13 +26,6 @@ func (codec *RegexStringCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterato
 		*(**Regex)(ptr) = regex
 	}
 
-	any := iter.ReadAny()
-	typ := any.ValueType()
-	if any.ValueType() == jsoniter.StringValue {
-		v := any.ToString()
-		println(v, typ)
-	}
-
 	if err := regex.Parse(s); err != nil {
 		iter.ReportError("RegexStringCodec", err.Error())
 	}
