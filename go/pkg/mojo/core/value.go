@@ -142,9 +142,7 @@ func NewValue(v interface{}) (*Value, error) {
 			if err := obj.From(v); err != nil {
 				return nil, err
 			}
-			if !obj.IsEmpty() {
-				return NewObjectValue(obj), nil
-			}
+			return NewObjectValue(obj), nil
 		}
 		return nil, fmt.Errorf("invalid type: %T", v)
 	}

@@ -44,6 +44,26 @@ func TestObject_From3(t *testing.T) {
 	assert.Equal(t, "bar", object.GetString("Foo"))
 }
 
+func TestObject_From4(t *testing.T) {
+	type Foo struct {
+		Name string `json:"name"`
+	}
+
+	type Test struct {
+		Name string `json:"name"`
+		Foo  *Foo   `json:"foo"`
+	}
+
+	v := &Test{
+		Name: "name",
+		Foo:  &Foo{},
+	}
+
+	object := &Object{}
+	err := object.From(v)
+	assert.NoError(t, err)
+}
+
 func TestObject_To(t *testing.T) {
 	obj := NewObject().SetString("title", "test").
 		SetString("type", "png").
