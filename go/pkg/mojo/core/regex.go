@@ -10,11 +10,13 @@ const RegexTypeName = "Regex"
 const RegexTypeFullName = "mojo.core.Regex"
 
 func NewRegex(expr string) *Regex {
-	if _, err := regexp.Compile(expr); err == nil {
-		return &Regex{Expression: expr}
-	}
+	// if _, err := regexp.Compile(expr); err == nil {
+	// 	return &Regex{Expression: expr}
+	// } else {
+	// 	logs.Warnw("failed to compile the regex", "regex", expr, "error", err)
+	// }
 
-	return nil
+	return &Regex{Expression: expr}
 }
 
 // ToRegexp convert the Regex to *regexp.Regexp
