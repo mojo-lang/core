@@ -103,6 +103,13 @@ func (x *Object) To(value interface{}) error {
 
 func (x *Object) From(value interface{}) error {
 	if x != nil {
+		if value == nil {
+			return nil
+		}
+		if reflect.ValueOf(value).IsZero() {
+			return nil
+		}
+
 		if x.Vals == nil {
 			x.Vals = make(map[string]*Value)
 		}

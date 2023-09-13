@@ -64,6 +64,25 @@ func TestObject_From4(t *testing.T) {
 	assert.NoError(t, err)
 }
 
+func TestObject_From5(t *testing.T) {
+	type V struct {
+		Name string
+		ID   int
+		Desc string
+	}
+	type KeyValuePair struct {
+		Key    string `json:"key"`
+		Source string `json:"src"`
+		Value  *V     `json:"value"`
+	}
+
+	kv := KeyValuePair{}
+	o := NewObject()
+	err := o.From(kv.Value)
+	assert.NoError(t, err)
+	assert.Empty(t, o.Vals)
+}
+
 func TestObject_To(t *testing.T) {
 	obj := NewObject().SetString("title", "test").
 		SetString("type", "png").
