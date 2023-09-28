@@ -11,6 +11,8 @@ import (
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
+// to avoid cyclic core package reference, move the test to separate folder
+
 func TestLogJSON(t *testing.T) {
 	const logFileName = "./test.log"
 	l := logs.New(&logs.Config{
