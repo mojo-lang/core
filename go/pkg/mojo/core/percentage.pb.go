@@ -39,7 +39,7 @@ func (x *Percentage) Reset() {
 	}
 }
 
-func (x *Percentage) ToText() string {
+func (x *Percentage) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

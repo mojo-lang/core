@@ -68,7 +68,7 @@ func (x ValueKind) Enum() *ValueKind {
 	return p
 }
 
-func (x ValueKind) ToText() string {
+func (x ValueKind) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -106,7 +106,7 @@ func (x *Object) Reset() {
 	}
 }
 
-func (x *Object) ToText() string {
+func (x *Object) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -153,7 +153,7 @@ func (x *Values) Reset() {
 	}
 }
 
-func (x *Values) ToText() string {
+func (x *Values) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -210,7 +210,7 @@ func (x *Value) Reset() {
 	}
 }
 
-func (x *Value) ToText() string {
+func (x *Value) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

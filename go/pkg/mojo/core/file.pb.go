@@ -47,7 +47,7 @@ func (x File_Mode) Enum() *File_Mode {
 	return p
 }
 
-func (x File_Mode) ToText() string {
+func (x File_Mode) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -89,7 +89,7 @@ func (x *File) Reset() {
 	}
 }
 
-func (x *File) ToText() string {
+func (x *File) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -168,7 +168,7 @@ func (x *File_Info) Reset() {
 	}
 }
 
-func (x *File_Info) ToText() string {
+func (x *File_Info) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

@@ -39,7 +39,7 @@ func (x *Regex) Reset() {
 	}
 }
 
-func (x *Regex) ToText() string {
+func (x *Regex) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

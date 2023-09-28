@@ -39,7 +39,7 @@ func (x *Negative) Reset() {
 	}
 }
 
-func (x *Negative) ToText() string {
+func (x *Negative) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

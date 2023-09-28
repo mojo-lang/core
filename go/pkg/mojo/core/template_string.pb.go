@@ -39,7 +39,7 @@ func (x *TemplateString) Reset() {
 	}
 }
 
-func (x *TemplateString) ToText() string {
+func (x *TemplateString) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -87,7 +87,7 @@ func (x *TemplateString_Segment) Reset() {
 	}
 }
 
-func (x *TemplateString_Segment) ToText() string {
+func (x *TemplateString_Segment) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

@@ -42,7 +42,7 @@ func (x *IPAddress) Reset() {
 	}
 }
 
-func (x *IPAddress) ToText() string {
+func (x *IPAddress) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -119,7 +119,7 @@ func (x *IPv4) Reset() {
 	}
 }
 
-func (x *IPv4) ToText() string {
+func (x *IPv4) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -166,7 +166,7 @@ func (x *IPv6) Reset() {
 	}
 }
 
-func (x *IPv6) ToText() string {
+func (x *IPv6) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

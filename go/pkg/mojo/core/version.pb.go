@@ -44,7 +44,7 @@ func (x *Version) Reset() {
 	}
 }
 
-func (x *Version) ToText() string {
+func (x *Version) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

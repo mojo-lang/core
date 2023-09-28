@@ -56,7 +56,7 @@ func (x PhoneNumber_CountryCodeSource) Enum() *PhoneNumber_CountryCodeSource {
 	return p
 }
 
-func (x PhoneNumber_CountryCodeSource) ToText() string {
+func (x PhoneNumber_CountryCodeSource) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -101,7 +101,7 @@ func (x *PhoneNumber) Reset() {
 	}
 }
 
-func (x *PhoneNumber) ToText() string {
+func (x *PhoneNumber) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

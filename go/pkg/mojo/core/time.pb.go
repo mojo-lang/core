@@ -80,7 +80,7 @@ func (x Month) Enum() *Month {
 	return p
 }
 
-func (x Month) ToText() string {
+func (x Month) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -144,7 +144,7 @@ func (x DayOfWeek) Enum() *DayOfWeek {
 	return p
 }
 
-func (x DayOfWeek) ToText() string {
+func (x DayOfWeek) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -184,7 +184,7 @@ func (x *Date) Reset() {
 	}
 }
 
-func (x *Date) ToText() string {
+func (x *Date) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -252,7 +252,7 @@ func (x *DateTime) Reset() {
 	}
 }
 
-func (x *DateTime) ToText() string {
+func (x *DateTime) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -349,7 +349,7 @@ func (x *TimeZone) Reset() {
 	}
 }
 
-func (x *TimeZone) ToText() string {
+func (x *TimeZone) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -404,7 +404,7 @@ func (x *Timestamp) Reset() {
 	}
 }
 
-func (x *Timestamp) ToText() string {
+func (x *Timestamp) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -459,7 +459,7 @@ func (x *Duration) Reset() {
 	}
 }
 
-func (x *Duration) ToText() string {
+func (x *Duration) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -516,7 +516,7 @@ func (x *TimeOfDay) Reset() {
 	}
 }
 
-func (x *TimeOfDay) ToText() string {
+func (x *TimeOfDay) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

@@ -40,7 +40,7 @@ func (x *EmailAddress) Reset() {
 	}
 }
 
-func (x *EmailAddress) ToText() string {
+func (x *EmailAddress) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

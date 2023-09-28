@@ -41,7 +41,7 @@ func (x *MediaType) Reset() {
 	}
 }
 
-func (x *MediaType) ToText() string {
+func (x *MediaType) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -103,7 +103,7 @@ func (x *MediaType_Parameter) Reset() {
 	}
 }
 
-func (x *MediaType_Parameter) ToText() string {
+func (x *MediaType_Parameter) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

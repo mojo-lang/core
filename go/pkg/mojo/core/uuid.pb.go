@@ -39,7 +39,7 @@ func (x *Uuid) Reset() {
 	}
 }
 
-func (x *Uuid) ToText() string {
+func (x *Uuid) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

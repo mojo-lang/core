@@ -50,7 +50,7 @@ func (x Ordering_Sort) Enum() *Ordering_Sort {
 	return p
 }
 
-func (x Ordering_Sort) ToText() string {
+func (x Ordering_Sort) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -88,7 +88,7 @@ func (x *Ordering) Reset() {
 	}
 }
 
-func (x *Ordering) ToText() string {
+func (x *Ordering) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -136,7 +136,7 @@ func (x *Ordering_Order) Reset() {
 	}
 }
 
-func (x *Ordering_Order) ToText() string {
+func (x *Ordering_Order) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

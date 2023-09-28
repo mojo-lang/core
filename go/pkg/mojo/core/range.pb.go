@@ -42,7 +42,7 @@ func (x *IntRange) Reset() {
 	}
 }
 
-func (x *IntRange) ToText() string {
+func (x *IntRange) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

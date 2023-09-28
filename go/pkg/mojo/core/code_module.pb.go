@@ -45,7 +45,7 @@ func (x *CodeModule) Reset() {
 	}
 }
 
-func (x *CodeModule) ToText() string {
+func (x *CodeModule) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
