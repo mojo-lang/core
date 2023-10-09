@@ -15,15 +15,11 @@
 package logs
 
 import (
-	"bytes"
 	"errors"
 	"fmt"
-
-	"go.uber.org/zap"
 )
 
 var sugar *SugaredLogger
-var defaultLevel zap.AtomicLevel
 
 type PanicInfo struct {
 	Stack, Panic string
@@ -46,33 +42,33 @@ func Logger() *SugaredLogger {
 }
 
 func SetLevelFrom(level string) {
-	defaultLevel.SetLevel(ParseLogLevel(level))
+	sugar.AtomicLevel.SetLevel(ParseLogLevel(level))
 }
 
 func SetLevel(level Level) {
-	defaultLevel.SetLevel(level)
+	sugar.AtomicLevel.SetLevel(level)
 }
 
 // Debug logs a message at DebugLevel. The message includes any fields passed
-// at the log site, as well as any fields accumulated on the logger.
+// at the log site, as well as any fields accumulated on the Logger.
 func Debug(args ...interface{}) {
 	Logger().Debug(args...)
 }
 
 // Info logs a message at InfoLevel. The message includes any fields passed
-// at the log site, as well as any fields accumulated on the logger.
+// at the log site, as well as any fields accumulated on the Logger.
 func Info(args ...interface{}) {
 	Logger().Info(args...)
 }
 
 // Warn logs a message at WarnLevel. The message includes any fields passed
-// at the log site, as well as any fields accumulated on the logger.
+// at the log site, as well as any fields accumulated on the Logger.
 func Warn(args ...interface{}) {
 	Logger().Warn(args...)
 }
 
 // Error logs a message at ErrorLevel. The message includes any fields passed
-// at the log site, as well as any fields accumulated on the logger.
+// at the log site, as well as any fields accumulated on the Logger.
 func Error(args ...interface{}) {
 	Logger().Error(args...)
 }
@@ -138,14 +134,5 @@ func NewErrorf(template string, args ...interface{}) error {
 
 func NewErrorw(msg string, keysAndValues ...interface{}) error {
 	Logger().Errorw(msg, keysAndValues...)
-
-	buffer := bytes.NewBufferString(msg)
-	buffer.WriteString(" ")
-	for i := 0; i < len(keysAndValues)-1; i += 2 {
-		if i > 0 {
-			buffer.WriteString(", ")
-		}
-		buffer.WriteString(fmt.Sprintf("%v: %v", keysAndValues[i], keysAndValues[i+1]))
-	}
-	return errors.New(buffer.String())
+	return errors.New(Logger().FormatMessage(msg, keysAndValues...))
 }

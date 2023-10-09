@@ -1,12 +1,15 @@
 package logs
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"path"
+	"strconv"
 	"strings"
+	"time"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -23,25 +26,53 @@ const (
 	_multipleErrMsg     = "Multiple errors without a key."
 )
 
+var (
+	defaultConfig = zapcore.EncoderConfig{
+		TimeKey:             "time",
+		LevelKey:            "Level",
+		NameKey:             "Logger",
+		CallerKey:           "caller",
+		MessageKey:          "message",
+		StacktraceKey:       "stacktrace",
+		LineEnding:          zapcore.DefaultLineEnding,
+		EncodeLevel:         zapcore.LowercaseLevelEncoder,
+		EncodeTime:          zapcore.ISO8601TimeEncoder,
+		EncodeDuration:      zapcore.SecondsDurationEncoder,
+		EncodeCaller:        zapcore.ShortCallerEncoder,
+		NewReflectedEncoder: jsoniterReflectedEncoder,
+	}
+)
+
 type SugaredLogger struct {
-	logger *zap.SugaredLogger
+	Logger      *zap.SugaredLogger
+	AtomicLevel zap.AtomicLevel
 }
 
 // New level string, encode string, port int, pattern string, initFields map[string]interface{}
 func New(cfg *Config) *SugaredLogger {
+	if cfg == nil {
+		cfg = &Config{
+			Level:  "debug",
+			Encode: "console",
+			Output: "console",
+		}
+	}
+
+	l := &SugaredLogger{}
+
 	var opts []zap.Option
 	opts = append(opts, zap.Development())
 	opts = append(opts, zap.AddCaller())
 	opts = append(opts, zap.AddCallerSkip(1))
 	opts = append(opts, zap.AddStacktrace(zap.FatalLevel))
 
-	defaultLevel = zap.NewAtomicLevel()
-	SetLevelFrom(cfg.Level)
+	l.AtomicLevel = zap.NewAtomicLevel()
+	l.AtomicLevel.SetLevel(ParseLogLevel(cfg.Level))
 
 	if len(cfg.LevelPattern) > 0 && cfg.LevelPort > 0 {
-		http.HandleFunc(cfg.LevelPattern, defaultLevel.ServeHTTP)
+		http.HandleFunc(cfg.LevelPattern, l.AtomicLevel.ServeHTTP)
 		go func() {
-			fmt.Printf("level serve on port:%d\nusage: [GET] curl http://localhost:%d%s\nusage: [PUT] curl -XPUT --data '{\"level\":\"debug\"}' http://localhost:%d%s\n", cfg.LevelPort, cfg.LevelPort, cfg.LevelPattern, cfg.LevelPort, cfg.LevelPattern)
+			fmt.Printf("Level serve on port:%d\nusage: [GET] curl http://localhost:%d%s\nusage: [PUT] curl -XPUT --data '{\"Level\":\"debug\"}' http://localhost:%d%s\n", cfg.LevelPort, cfg.LevelPort, cfg.LevelPattern, cfg.LevelPort, cfg.LevelPattern)
 			if err := http.ListenAndServe(fmt.Sprintf(":%d", cfg.LevelPort), nil); err != nil {
 				panic(err)
 			}
@@ -51,10 +82,10 @@ func New(cfg *Config) *SugaredLogger {
 	cores := make([]zapcore.Core, 0)
 	output := strings.ToLower(cfg.Output)
 	if strings.Contains(output, "console") {
-		cores = append(cores, initConsoleCore(cfg.Encode))
+		cores = append(cores, initConsoleCore(cfg.Encode, l.AtomicLevel))
 	}
 	if strings.Contains(output, "file") {
-		cores = append(cores, initFileCore(cfg.File.Encode, cfg.File.Path, cfg.File.MaxSize, cfg.File.MaxBackups, cfg.File.MaxAge))
+		cores = append(cores, initFileCore(cfg.File.Encode, cfg.File.Path, cfg.File.MaxSize, cfg.File.MaxBackups, cfg.File.MaxAge, l.AtomicLevel))
 	}
 
 	core := zapcore.NewTee(cores...)
@@ -75,26 +106,24 @@ func New(cfg *Config) *SugaredLogger {
 		logger = logger.With(initFieldList...)
 	}
 
-	logger = logger.WithOptions(opts...)
-	return &SugaredLogger{
-		logger: logger.Sugar(),
-	}
+	l.Logger = logger.WithOptions(opts...).Sugar()
+	return l
 }
 
 // Desugar unwraps a SugaredLogger, exposing the original zap.Logger.
 func (s *SugaredLogger) Desugar() *zap.Logger {
-	return s.logger.Desugar()
+	return s.Logger.Desugar()
 }
 
 // Named adds a sub-scope to the logger's name. See Logger.Named for details.
 func (s *SugaredLogger) Named(name string) *SugaredLogger {
-	return &SugaredLogger{logger: s.logger.Named(name)}
+	return &SugaredLogger{Logger: s.Logger.Named(name)}
 }
 
 // WithOptions clones the current SugaredLogger, applies the supplied Options,
 // and returns the result. It's safe to use concurrently.
 func (s *SugaredLogger) WithOptions(opts ...zap.Option) *SugaredLogger {
-	return &SugaredLogger{logger: s.logger.WithOptions(opts...)}
+	return &SugaredLogger{Logger: s.Logger.WithOptions(opts...)}
 }
 
 // With adds a variadic number of fields to the logging context. It accepts a
@@ -128,14 +157,14 @@ func (s *SugaredLogger) WithOptions(opts ...zap.Option) *SugaredLogger {
 // and execution continues. Passing an orphaned key triggers similar behavior:
 // panics in development and errors in production.
 func (s *SugaredLogger) With(args ...interface{}) *SugaredLogger {
-	return &SugaredLogger{logger: s.logger.With(args...)}
+	return &SugaredLogger{Logger: s.Logger.With(args...)}
 }
 
 // Level reports the minimum enabled level for this logger.
 //
 // For NopLoggers, this is [zapcore.InvalidLevel].
 func (s *SugaredLogger) Level() zapcore.Level {
-	return s.logger.Level()
+	return s.Logger.Level()
 }
 
 // Debug logs the provided arguments at [DebugLevel].
@@ -316,7 +345,7 @@ func (s *SugaredLogger) Fatalln(args ...interface{}) {
 
 // Sync flushes any buffered log entries.
 func (s *SugaredLogger) Sync() error {
-	return s.logger.Sync()
+	return s.Logger.Sync()
 }
 
 func baseLogger(sugar *zap.SugaredLogger) *zap.Logger {
@@ -329,7 +358,7 @@ func baseLogger(sugar *zap.SugaredLogger) *zap.Logger {
 func (s *SugaredLogger) log(lvl zapcore.Level, template string, fmtArgs []interface{}, context []interface{}) {
 	// If logging at this level is completely disabled, skip the overhead of
 	// string formatting.
-	base := baseLogger(s.logger)
+	base := baseLogger(s.Logger)
 	if lvl < zap.DPanicLevel && !base.Core().Enabled(lvl) {
 		return
 	}
@@ -340,9 +369,55 @@ func (s *SugaredLogger) log(lvl zapcore.Level, template string, fmtArgs []interf
 	}
 }
 
+func (s *SugaredLogger) FormatMessage(msg string, context ...interface{}) string {
+	fields := s.sweetenFields(context)
+
+	buffer := bytes.NewBufferString(msg)
+	if len(msg) > 0 && len(fields) > 0 {
+		_, _ = buffer.WriteString(" ")
+	}
+
+	for i, field := range fields {
+		if i > 0 {
+			buffer.WriteByte(',')
+		}
+		buffer.WriteString(field.Key + ":")
+		switch field.Type {
+		case zapcore.BoolType:
+			if field.Integer > 0 {
+				buffer.WriteString("true")
+			} else {
+				buffer.WriteString("false")
+			}
+		case zapcore.Int64Type, zapcore.Int32Type, zapcore.Int16Type, zapcore.Int8Type,
+			zapcore.Uint64Type, zapcore.Uint32Type, zapcore.Uint16Type, zapcore.Uint8Type,
+			zapcore.Float64Type, zapcore.Float32Type,
+			zapcore.TimeType, zapcore.UintptrType:
+			buffer.WriteString(strconv.FormatInt(field.Integer, 10))
+		case zapcore.StringType:
+			buffer.WriteString(field.String)
+		case zapcore.TimeFullType:
+			buffer.WriteString(field.Interface.(time.Time).String())
+		case zapcore.ReflectType:
+			json, _ := jsoniter.ConfigDefault.MarshalToString(field.Interface)
+			buffer.WriteString(json)
+		case zapcore.StringerType:
+			buffer.WriteString(field.Interface.(fmt.Stringer).String())
+		case zapcore.ErrorType:
+			buffer.WriteString(field.Interface.(error).Error())
+		case zapcore.SkipType:
+		default:
+			buffer.WriteString(fmt.Sprintf("%v", field.Interface))
+		}
+
+	}
+
+	return buffer.String()
+}
+
 // logln message with Sprintln
 func (s *SugaredLogger) logln(lvl zapcore.Level, fmtArgs []interface{}, context []interface{}) {
-	base := baseLogger(s.logger)
+	base := baseLogger(s.Logger)
 	if lvl < zap.DPanicLevel && !base.Core().Enabled(lvl) {
 		return
 	}
@@ -388,7 +463,7 @@ func (s *SugaredLogger) sweetenFields(args []interface{}) []zap.Field {
 		fields    = make([]zap.Field, 0, len(args))
 		invalid   invalidPairs
 		seenError bool
-		base      = baseLogger(s.logger)
+		base      = baseLogger(s.Logger)
 	)
 
 	for i := 0; i < len(args); {
@@ -473,23 +548,10 @@ func (ps invalidPairs) MarshalLogArray(enc zapcore.ArrayEncoder) error {
 	return err
 }
 
-func initConsoleCore(encode string) zapcore.Core {
-	encodeConfig := zapcore.EncoderConfig{
-		TimeKey:             "time",
-		LevelKey:            "level",
-		NameKey:             "logger",
-		CallerKey:           "caller",
-		MessageKey:          "message",
-		StacktraceKey:       "stacktrace",
-		LineEnding:          zapcore.DefaultLineEnding,
-		EncodeLevel:         zapcore.LowercaseLevelEncoder,
-		EncodeTime:          zapcore.ISO8601TimeEncoder,
-		EncodeDuration:      zapcore.SecondsDurationEncoder,
-		EncodeCaller:        zapcore.ShortCallerEncoder,
-		NewReflectedEncoder: jsoniterReflectedEncoder,
-	}
-
+func initConsoleCore(encode string, level zap.AtomicLevel) zapcore.Core {
+	encodeConfig := defaultConfig
 	var formatEncoder zapcore.Encoder
+
 	enc := strings.ToLower(encode)
 	if enc == "json" {
 		formatEncoder = zapcore.NewJSONEncoder(encodeConfig)
@@ -497,24 +559,11 @@ func initConsoleCore(encode string) zapcore.Core {
 		formatEncoder = zapcore.NewConsoleEncoder(encodeConfig)
 	}
 	consoleDebugging := zapcore.Lock(os.Stdout)
-	return zapcore.NewCore(formatEncoder, consoleDebugging, defaultLevel)
+	return zapcore.NewCore(formatEncoder, consoleDebugging, level)
 }
 
-func initFileCore(encode, filename string, maxSize, maxBackups, maxAge int) zapcore.Core {
-	encodeConfig := zapcore.EncoderConfig{
-		TimeKey:             "time",
-		LevelKey:            "level",
-		NameKey:             "logger",
-		CallerKey:           "caller",
-		MessageKey:          "message",
-		StacktraceKey:       "stacktrace",
-		LineEnding:          zapcore.DefaultLineEnding,
-		EncodeLevel:         zapcore.LowercaseLevelEncoder,
-		EncodeTime:          zapcore.ISO8601TimeEncoder,
-		EncodeDuration:      zapcore.SecondsDurationEncoder,
-		EncodeCaller:        zapcore.ShortCallerEncoder,
-		NewReflectedEncoder: jsoniterReflectedEncoder,
-	}
+func initFileCore(encode, filename string, maxSize, maxBackups, maxAge int, level zap.AtomicLevel) zapcore.Core {
+	encodeConfig := defaultConfig
 
 	var formatEncoder zapcore.Encoder
 	enc := strings.ToLower(encode)
@@ -533,7 +582,7 @@ func initFileCore(encode, filename string, maxSize, maxBackups, maxAge int) zapc
 		Compress:   true,
 	})
 
-	return zapcore.NewCore(formatEncoder, w, defaultLevel)
+	return zapcore.NewCore(formatEncoder, w, level)
 }
 
 func handleFileName(filename string) string {
@@ -590,7 +639,7 @@ func handleTemplateFileName(template string) string {
 
 func jsoniterReflectedEncoder(w io.Writer) zapcore.ReflectedEncoder {
 	enc := jsoniter.NewEncoder(w)
-	// For consistency with our custom JSON encoder.
+	// For consistency with mojo custom JSON encoder.
 	enc.SetEscapeHTML(false)
 	return enc
 }
