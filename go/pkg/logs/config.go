@@ -26,10 +26,11 @@ type Config struct {
 
 type FileSinkConfig struct {
 	Path       string `json:"path" default:"./logs/app.log"`
-	MaxSize    int    `json:"maxSize" default:"100"`
+	MaxSize    int    `json:"maxSize" default:"100"` // megabytes
 	MaxBackups int    `json:"maxBackups" default:"10"`
-	MaxAge     int    `json:"maxAge" default:"30"`
+	MaxAge     int    `json:"maxAge" default:"30"` // days
 	Encode     string `json:"encode"  default:"json"`
+	Compress   bool   `json:"compress" default:"false"`
 }
 
 func NewConfig() *Config {

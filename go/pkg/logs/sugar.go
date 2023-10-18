@@ -85,7 +85,7 @@ func New(cfg *Config) *SugaredLogger {
 		cores = append(cores, initConsoleCore(cfg.Encode, l.AtomicLevel))
 	}
 	if strings.Contains(output, "file") {
-		cores = append(cores, initFileCore(cfg.File.Encode, cfg.File.Path, cfg.File.MaxSize, cfg.File.MaxBackups, cfg.File.MaxAge, l.AtomicLevel))
+		cores = append(cores, initFileCore(cfg.File, l.AtomicLevel))
 	}
 
 	core := zapcore.NewTee(cores...)
@@ -562,24 +562,24 @@ func initConsoleCore(encode string, level zap.AtomicLevel) zapcore.Core {
 	return zapcore.NewCore(formatEncoder, consoleDebugging, level)
 }
 
-func initFileCore(encode, filename string, maxSize, maxBackups, maxAge int, level zap.AtomicLevel) zapcore.Core {
+func initFileCore(cfg FileSinkConfig, level zap.AtomicLevel) zapcore.Core {
 	encodeConfig := defaultConfig
 
 	var formatEncoder zapcore.Encoder
-	enc := strings.ToLower(encode)
+	enc := strings.ToLower(cfg.Encode)
 	if enc == "json" {
 		formatEncoder = zapcore.NewJSONEncoder(encodeConfig)
 	} else {
 		formatEncoder = zapcore.NewConsoleEncoder(encodeConfig)
 	}
 
-	f := handleFileName(filename)
+	f := handleFileName(cfg.Path)
 	w := zapcore.AddSync(&lumberjack.Logger{
 		Filename:   f,
-		MaxSize:    maxSize, // megabytes
-		MaxBackups: maxBackups,
-		MaxAge:     maxAge, // days
-		Compress:   true,
+		MaxSize:    cfg.MaxSize, // megabytes
+		MaxBackups: cfg.MaxBackups,
+		MaxAge:     cfg.MaxAge, // days
+		Compress:   cfg.Compress,
 	})
 
 	return zapcore.NewCore(formatEncoder, w, level)
