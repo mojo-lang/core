@@ -260,44 +260,44 @@ func (s *SugaredLogger) Fatalf(template string, args ...interface{}) {
 //
 //	s.With(keysAndValues).Debug(msg)
 func (s *SugaredLogger) Debugw(msg string, keysAndValues ...interface{}) {
-	s.log(zap.DebugLevel, "", nil, keysAndValues)
+	s.log(zap.DebugLevel, msg, nil, keysAndValues)
 }
 
 // Infow logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 func (s *SugaredLogger) Infow(msg string, keysAndValues ...interface{}) {
-	s.log(zap.InfoLevel, "", nil, keysAndValues)
+	s.log(zap.InfoLevel, msg, nil, keysAndValues)
 }
 
 // Warnw logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 func (s *SugaredLogger) Warnw(msg string, keysAndValues ...interface{}) {
-	s.log(zap.WarnLevel, "", nil, keysAndValues)
+	s.log(zap.WarnLevel, msg, nil, keysAndValues)
 }
 
 // Errorw logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 func (s *SugaredLogger) Errorw(msg string, keysAndValues ...interface{}) {
-	s.log(zap.ErrorLevel, "", nil, keysAndValues)
+	s.log(zap.ErrorLevel, msg, nil, keysAndValues)
 }
 
 // DPanicw logs a message with some additional context. In development, the
 // logger then panics. (See DPanicLevel for details.) The variadic key-value
 // pairs are treated as they are in With.
 func (s *SugaredLogger) DPanicw(msg string, keysAndValues ...interface{}) {
-	s.log(zap.DPanicLevel, "", nil, keysAndValues)
+	s.log(zap.DPanicLevel, msg, nil, keysAndValues)
 }
 
 // Panicw logs a message with some additional context, then panics. The
 // variadic key-value pairs are treated as they are in With.
 func (s *SugaredLogger) Panicw(msg string, keysAndValues ...interface{}) {
-	s.log(zap.PanicLevel, "", nil, keysAndValues)
+	s.log(zap.PanicLevel, msg, nil, keysAndValues)
 }
 
 // Fatalw logs a message with some additional context, then calls os.Exit. The
 // variadic key-value pairs are treated as they are in With.
 func (s *SugaredLogger) Fatalw(msg string, keysAndValues ...interface{}) {
-	s.log(zap.FatalLevel, "", nil, keysAndValues)
+	s.log(zap.FatalLevel, msg, nil, keysAndValues)
 }
 
 // Debugln logs a message at [DebugLevel].
