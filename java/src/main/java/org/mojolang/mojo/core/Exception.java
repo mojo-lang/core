@@ -1,20 +1,28 @@
 package org.mojolang.mojo.core;
 
 public class Exception extends RuntimeException{
-    private ErrorCode code;
+    private ErrorCode errorCode;
 
     public Error toError() {
         return Error.newBuilder()
-                .setCode(code)
+                .setCode(errorCode)
                 .build();
     }
 
-    public Exception(ErrorCode code) {
-        super(code.getDescription());
+    public Exception(ErrorCode errorCode) {
+        super(errorCode.getDescription());
     }
 
-    public Exception(ErrorCode code, String message) {
+    public Exception(ErrorCode errorCode, String message) {
         super(message);
-        this.code = code;
+        this.errorCode = errorCode;
+    }
+
+    public int getCode() {
+        return errorCode.getCode();
+    }
+
+    public int getHttpStatusCode() {
+        return errorCode.getHttpStatusCode();
     }
 }

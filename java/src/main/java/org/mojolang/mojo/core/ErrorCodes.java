@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class ErrorCodes {
-    private static Map<Integer, ErrorCode> codes = new HashMap<Integer, ErrorCode>();
-
-
+    private static final Map<Integer, ErrorCode> codes = new HashMap<Integer, ErrorCode>();
 
     public static ErrorCode SUCCESS = ErrorCode.newBuilder()
             .setCode(0)
@@ -20,10 +18,24 @@ public final class ErrorCodes {
             .setDescription("The request could not be understood by the server due to malformed syntax.")
             .build();
 
+    public static ErrorCode INTERNAL_ERROR = ErrorCode.newBuilder()
+            .setCode(500)
+            .setHttpStatusCode(500)
+            .setName("INTERNAL_ERROR")
+            .setDescription("This means that some invariants expected by the underlying system have been broken.")
+            .build();
+    public static ErrorCode UNIMPLEMENTED = ErrorCode.newBuilder()
+            .setCode(501)
+            .setHttpStatusCode(501)
+            .setName("UNIMPLEMENTED")
+            .setDescription("The operation is not implemented or is not supported/enabled in this service.")
+            .build();
 
     static {
         codes.put(0, SUCCESS);
         codes.put(400, BAD_REQUEST);
+        codes.put(500, INTERNAL_ERROR);
+        codes.put(501, UNIMPLEMENTED);
     }
 
     /**
