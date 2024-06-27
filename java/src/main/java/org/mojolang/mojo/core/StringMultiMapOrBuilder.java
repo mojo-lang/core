@@ -30,6 +30,7 @@ public interface StringMultiMapOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
    */
+
   /* nullable */
 org.mojolang.mojo.core.StringValues getValsOrDefault(
       java.lang.String key,
@@ -38,6 +39,7 @@ org.mojolang.mojo.core.StringValues defaultValue);
   /**
    * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
    */
+
   org.mojolang.mojo.core.StringValues getValsOrThrow(
       java.lang.String key);
 }

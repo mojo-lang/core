@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAJOR_FIELD_NUMBER = 1;
-  private long major_ = 0L;
+  private long major_;
   /**
    * <code>uint64 major = 1;</code>
    * @return The major.
@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINOR_FIELD_NUMBER = 2;
-  private long minor_ = 0L;
+  private long minor_;
   /**
    * <code>uint64 minor = 2;</code>
    * @return The minor.
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATCH_FIELD_NUMBER = 3;
-  private long patch_ = 0L;
+  private long patch_;
   /**
    * <code>uint64 patch = 3;</code>
    * @return The patch.
@@ -79,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEVEL_FIELD_NUMBER = 4;
-  private int level_ = 0;
+  private int level_;
   /**
    * <code>int32 level = 4;</code>
    * @return The level.
@@ -90,7 +90,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRE_RELEASES_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList preReleases_;
   /**
    * <code>repeated string pre_releases = 5;</code>
@@ -126,7 +125,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUILDS_FIELD_NUMBER = 6;
-  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList builds_;
   /**
    * <code>repeated string builds = 6;</code>
@@ -419,15 +417,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       major_ = 0L;
+
       minor_ = 0L;
+
       patch_ = 0L;
+
       level_ = 0;
+
       preReleases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000001);
       builds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -454,39 +455,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Version buildPartial() {
       org.mojolang.mojo.core.Version result = new org.mojolang.mojo.core.Version(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.Version result) {
-      if (((bitField0_ & 0x00000010) != 0)) {
+      int from_bitField0_ = bitField0_;
+      result.major_ = major_;
+      result.minor_ = minor_;
+      result.patch_ = patch_;
+      result.level_ = level_;
+      if (((bitField0_ & 0x00000001) != 0)) {
         preReleases_ = preReleases_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.preReleases_ = preReleases_;
-      if (((bitField0_ & 0x00000020) != 0)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         builds_ = builds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.builds_ = builds_;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Version result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.major_ = major_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.minor_ = minor_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.patch_ = patch_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.level_ = level_;
-      }
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override
@@ -548,7 +533,7 @@ private static final long serialVersionUID = 0L;
       if (!other.preReleases_.isEmpty()) {
         if (preReleases_.isEmpty()) {
           preReleases_ = other.preReleases_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           ensurePreReleasesIsMutable();
           preReleases_.addAll(other.preReleases_);
@@ -558,7 +543,7 @@ private static final long serialVersionUID = 0L;
       if (!other.builds_.isEmpty()) {
         if (builds_.isEmpty()) {
           builds_ = other.builds_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureBuildsIsMutable();
           builds_.addAll(other.builds_);
@@ -593,22 +578,22 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               major_ = input.readUInt64();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               minor_ = input.readUInt64();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 24: {
               patch_ = input.readUInt64();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 24
             case 32: {
               level_ = input.readInt32();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 32
             case 42: {
@@ -657,7 +642,6 @@ private static final long serialVersionUID = 0L;
     public Builder setMajor(long value) {
       
       major_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,7 +650,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMajor() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       major_ = 0L;
       onChanged();
       return this;
@@ -689,7 +673,6 @@ private static final long serialVersionUID = 0L;
     public Builder setMinor(long value) {
       
       minor_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -698,7 +681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinor() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       minor_ = 0L;
       onChanged();
       return this;
@@ -721,7 +704,6 @@ private static final long serialVersionUID = 0L;
     public Builder setPatch(long value) {
       
       patch_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -730,7 +712,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPatch() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       patch_ = 0L;
       onChanged();
       return this;
@@ -753,7 +735,6 @@ private static final long serialVersionUID = 0L;
     public Builder setLevel(int value) {
       
       level_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -762,7 +743,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLevel() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       level_ = 0;
       onChanged();
       return this;
@@ -770,9 +751,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList preReleases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePreReleasesIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         preReleases_ = new com.google.protobuf.LazyStringArrayList(preReleases_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000001;
        }
     }
     /**
@@ -815,8 +796,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPreReleases(
         int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensurePreReleasesIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreReleasesIsMutable();
       preReleases_.set(index, value);
       onChanged();
       return this;
@@ -828,8 +811,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPreReleases(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensurePreReleasesIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreReleasesIsMutable();
       preReleases_.add(value);
       onChanged();
       return this;
@@ -853,7 +838,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreReleases() {
       preReleases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -864,8 +849,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPreReleasesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       ensurePreReleasesIsMutable();
       preReleases_.add(value);
       onChanged();
@@ -874,9 +861,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList builds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureBuildsIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         builds_ = new com.google.protobuf.LazyStringArrayList(builds_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -919,8 +906,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuilds(
         int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureBuildsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureBuildsIsMutable();
       builds_.set(index, value);
       onChanged();
       return this;
@@ -932,8 +921,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addBuilds(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureBuildsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureBuildsIsMutable();
       builds_.add(value);
       onChanged();
       return this;
@@ -957,7 +948,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearBuilds() {
       builds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -968,8 +959,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addBuildsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       ensureBuildsIsMutable();
       builds_.add(value);
       onChanged();

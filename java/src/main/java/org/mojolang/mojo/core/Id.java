@@ -423,7 +423,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (uuidValBuilder_ != null) {
         uuidValBuilder_.clear();
       }
@@ -455,23 +454,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Id buildPartial() {
       org.mojolang.mojo.core.Id result = new org.mojolang.mojo.core.Id(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      buildPartialOneofs(result);
+      if (idCase_ == 1) {
+        result.id_ = id_;
+      }
+      if (idCase_ == 2) {
+        result.id_ = id_;
+      }
+      if (idCase_ == 3) {
+        if (uuidValBuilder_ == null) {
+          result.id_ = id_;
+        } else {
+          result.id_ = uuidValBuilder_.build();
+        }
+      }
+      result.idCase_ = idCase_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Id result) {
-      int from_bitField0_ = bitField0_;
-    }
-
-    private void buildPartialOneofs(org.mojolang.mojo.core.Id result) {
-      result.idCase_ = idCase_;
-      result.id_ = this.id_;
-      if (idCase_ == 3 &&
-          uuidValBuilder_ != null) {
-        result.id_ = uuidValBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -611,7 +609,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int bitField0_;
 
     /**
      * <code>uint64 uint64_val = 1;</code>
@@ -636,7 +633,6 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUint64Val(long value) {
-      
       idCase_ = 1;
       id_ = value;
       onChanged();
@@ -715,8 +711,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringVal(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      idCase_ = 2;
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  idCase_ = 2;
       id_ = value;
       onChanged();
       return this;
@@ -740,8 +738,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       idCase_ = 2;
       id_ = value;
       onChanged();
@@ -886,7 +886,7 @@ private static final long serialVersionUID = 0L;
         id_ = null;
       }
       idCase_ = 3;
-      onChanged();
+      onChanged();;
       return uuidValBuilder_;
     }
     @java.lang.Override

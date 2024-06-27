@@ -45,8 +45,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENCY_CODE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object currencyCode_ = "";
+  private volatile java.lang.Object currencyCode_;
   /**
    * <code>string currency_code = 1;</code>
    * @return The currencyCode.
@@ -84,7 +83,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNITS_FIELD_NUMBER = 2;
-  private long units_ = 0L;
+  private long units_;
   /**
    * <code>int64 units = 2;</code>
    * @return The units.
@@ -95,7 +94,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NANOS_FIELD_NUMBER = 3;
-  private int nanos_ = 0;
+  private int nanos_;
   /**
    * <code>int32 nanos = 3;</code>
    * @return The nanos.
@@ -315,10 +314,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       currencyCode_ = "";
+
       units_ = 0L;
+
       nanos_ = 0;
+
       return this;
     }
 
@@ -345,22 +346,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Money buildPartial() {
       org.mojolang.mojo.core.Money result = new org.mojolang.mojo.core.Money(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.currencyCode_ = currencyCode_;
+      result.units_ = units_;
+      result.nanos_ = nanos_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Money result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.currencyCode_ = currencyCode_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.units_ = units_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.nanos_ = nanos_;
-      }
     }
 
     @java.lang.Override
@@ -409,7 +399,6 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.Money.getDefaultInstance()) return this;
       if (!other.getCurrencyCode().isEmpty()) {
         currencyCode_ = other.currencyCode_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getUnits() != 0L) {
@@ -446,17 +435,17 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               currencyCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 16: {
               units_ = input.readInt64();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 24: {
               nanos_ = input.readInt32();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 24
             default: {
@@ -474,7 +463,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object currencyCode_ = "";
     /**
@@ -517,9 +505,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrencyCode(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       currencyCode_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -528,8 +518,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrencyCode() {
+      
       currencyCode_ = getDefaultInstance().getCurrencyCode();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -540,10 +530,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrencyCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       currencyCode_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -565,7 +557,6 @@ private static final long serialVersionUID = 0L;
     public Builder setUnits(long value) {
       
       units_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -574,7 +565,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnits() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       units_ = 0L;
       onChanged();
       return this;
@@ -597,7 +588,6 @@ private static final long serialVersionUID = 0L;
     public Builder setNanos(int value) {
       
       nanos_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -606,7 +596,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNanos() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       nanos_ = 0;
       onChanged();
       return this;

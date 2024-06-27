@@ -45,8 +45,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXPRESSION_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object expression_ = "";
+  private volatile java.lang.Object expression_;
   /**
    * <code>string expression = 1;</code>
    * @return The expression.
@@ -270,8 +269,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       expression_ = "";
+
       return this;
     }
 
@@ -298,16 +297,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Regex buildPartial() {
       org.mojolang.mojo.core.Regex result = new org.mojolang.mojo.core.Regex(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.expression_ = expression_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Regex result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.expression_ = expression_;
-      }
     }
 
     @java.lang.Override
@@ -356,7 +348,6 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.Regex.getDefaultInstance()) return this;
       if (!other.getExpression().isEmpty()) {
         expression_ = other.expression_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -387,7 +378,7 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               expression_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             default: {
@@ -405,7 +396,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object expression_ = "";
     /**
@@ -448,9 +438,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExpression(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       expression_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -459,8 +451,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExpression() {
+      
       expression_ = getDefaultInstance().getExpression();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -471,10 +463,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExpressionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       expression_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }

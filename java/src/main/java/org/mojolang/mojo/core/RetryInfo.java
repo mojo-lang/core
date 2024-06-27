@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.DurationOrBuilder getRetryDelayOrBuilder() {
-    return retryDelay_ == null ? org.mojolang.mojo.core.Duration.getDefaultInstance() : retryDelay_;
+    return getRetryDelay();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -262,10 +262,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
-      retryDelay_ = null;
-      if (retryDelayBuilder_ != null) {
-        retryDelayBuilder_.dispose();
+      if (retryDelayBuilder_ == null) {
+        retryDelay_ = null;
+      } else {
+        retryDelay_ = null;
         retryDelayBuilder_ = null;
       }
       return this;
@@ -294,18 +294,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.RetryInfo buildPartial() {
       org.mojolang.mojo.core.RetryInfo result = new org.mojolang.mojo.core.RetryInfo(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      if (retryDelayBuilder_ == null) {
+        result.retryDelay_ = retryDelay_;
+      } else {
+        result.retryDelay_ = retryDelayBuilder_.build();
+      }
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.RetryInfo result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.retryDelay_ = retryDelayBuilder_ == null
-            ? retryDelay_
-            : retryDelayBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -385,7 +380,7 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getRetryDelayFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             default: {
@@ -403,7 +398,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private org.mojolang.mojo.core.Duration retryDelay_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -413,7 +407,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retryDelay field is set.
      */
     public boolean hasRetryDelay() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return retryDelayBuilder_ != null || retryDelay_ != null;
     }
     /**
      * <code>.mojo.core.Duration retry_delay = 1;</code>
@@ -435,11 +429,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retryDelay_ = value;
+        onChanged();
       } else {
         retryDelayBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
+
       return this;
     }
     /**
@@ -449,11 +443,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Duration.Builder builderForValue) {
       if (retryDelayBuilder_ == null) {
         retryDelay_ = builderForValue.build();
+        onChanged();
       } else {
         retryDelayBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
+
       return this;
     }
     /**
@@ -461,38 +455,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetryDelay(org.mojolang.mojo.core.Duration value) {
       if (retryDelayBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-          retryDelay_ != null &&
-          retryDelay_ != org.mojolang.mojo.core.Duration.getDefaultInstance()) {
-          getRetryDelayBuilder().mergeFrom(value);
+        if (retryDelay_ != null) {
+          retryDelay_ =
+            org.mojolang.mojo.core.Duration.newBuilder(retryDelay_).mergeFrom(value).buildPartial();
         } else {
           retryDelay_ = value;
         }
+        onChanged();
       } else {
         retryDelayBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Duration retry_delay = 1;</code>
      */
     public Builder clearRetryDelay() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      retryDelay_ = null;
-      if (retryDelayBuilder_ != null) {
-        retryDelayBuilder_.dispose();
+      if (retryDelayBuilder_ == null) {
+        retryDelay_ = null;
+        onChanged();
+      } else {
+        retryDelay_ = null;
         retryDelayBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Duration retry_delay = 1;</code>
      */
     public org.mojolang.mojo.core.Duration.Builder getRetryDelayBuilder() {
-      bitField0_ |= 0x00000001;
+      
       onChanged();
       return getRetryDelayFieldBuilder().getBuilder();
     }

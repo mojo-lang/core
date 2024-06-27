@@ -117,8 +117,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object description_ = "";
+    private volatile java.lang.Object description_;
     /**
      * <code>string description = 1;</code>
      * @return The description.
@@ -178,7 +177,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.UrlOrBuilder getUrlOrBuilder() {
-      return url_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : url_;
+      return getUrl();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -384,11 +383,12 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         description_ = "";
-        url_ = null;
-        if (urlBuilder_ != null) {
-          urlBuilder_.dispose();
+
+        if (urlBuilder_ == null) {
+          url_ = null;
+        } else {
+          url_ = null;
           urlBuilder_ = null;
         }
         return this;
@@ -417,21 +417,14 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.Help.Link buildPartial() {
         org.mojolang.mojo.core.Help.Link result = new org.mojolang.mojo.core.Help.Link(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.description_ = description_;
+        if (urlBuilder_ == null) {
+          result.url_ = url_;
+        } else {
+          result.url_ = urlBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.Help.Link result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.description_ = description_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.url_ = urlBuilder_ == null
-              ? url_
-              : urlBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -480,7 +473,6 @@ private static final long serialVersionUID = 0L;
         if (other == org.mojolang.mojo.core.Help.Link.getDefaultInstance()) return this;
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasUrl()) {
@@ -514,14 +506,14 @@ private static final long serialVersionUID = 0L;
                 break;
               case 10: {
                 description_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 10
               case 18: {
                 input.readMessage(
                     getUrlFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 18
               default: {
@@ -539,7 +531,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object description_ = "";
       /**
@@ -582,9 +573,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         description_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -593,8 +586,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
+        
         description_ = getDefaultInstance().getDescription();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -605,10 +598,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         description_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -621,7 +616,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the url field is set.
        */
       public boolean hasUrl() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return urlBuilder_ != null || url_ != null;
       }
       /**
        * <code>.mojo.core.Url url = 2;</code>
@@ -643,11 +638,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           url_ = value;
+          onChanged();
         } else {
           urlBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -657,11 +652,11 @@ private static final long serialVersionUID = 0L;
           org.mojolang.mojo.core.Url.Builder builderForValue) {
         if (urlBuilder_ == null) {
           url_ = builderForValue.build();
+          onChanged();
         } else {
           urlBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -669,38 +664,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeUrl(org.mojolang.mojo.core.Url value) {
         if (urlBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            url_ != null &&
-            url_ != org.mojolang.mojo.core.Url.getDefaultInstance()) {
-            getUrlBuilder().mergeFrom(value);
+          if (url_ != null) {
+            url_ =
+              org.mojolang.mojo.core.Url.newBuilder(url_).mergeFrom(value).buildPartial();
           } else {
             url_ = value;
           }
+          onChanged();
         } else {
           urlBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.mojo.core.Url url = 2;</code>
        */
       public Builder clearUrl() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        url_ = null;
-        if (urlBuilder_ != null) {
-          urlBuilder_.dispose();
+        if (urlBuilder_ == null) {
+          url_ = null;
+          onChanged();
+        } else {
+          url_ = null;
           urlBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.mojo.core.Url url = 2;</code>
        */
       public org.mojolang.mojo.core.Url.Builder getUrlBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getUrlFieldBuilder().getBuilder();
       }
@@ -796,7 +791,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINKS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.core.Help.Link> links_;
   /**
    * <code>repeated .mojo.core.Help.Link links = 1;</code>
@@ -1026,7 +1020,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (linksBuilder_ == null) {
         links_ = java.util.Collections.emptyList();
       } else {
@@ -1060,13 +1053,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Help buildPartial() {
       org.mojolang.mojo.core.Help result = new org.mojolang.mojo.core.Help(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.Help result) {
+      int from_bitField0_ = bitField0_;
       if (linksBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
@@ -1076,10 +1063,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.links_ = linksBuilder_.build();
       }
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Help result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override

@@ -108,8 +108,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object content_ = "";
+    private volatile java.lang.Object content_;
     /**
      * <code>string content = 1;</code>
      * @return The content.
@@ -147,7 +146,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TEMPLATED_FIELD_NUMBER = 2;
-    private boolean templated_ = false;
+    private boolean templated_;
     /**
      * <code>bool templated = 2;</code>
      * @return The templated.
@@ -356,9 +355,10 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         content_ = "";
+
         templated_ = false;
+
         return this;
       }
 
@@ -385,19 +385,10 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.TemplateString.Segment buildPartial() {
         org.mojolang.mojo.core.TemplateString.Segment result = new org.mojolang.mojo.core.TemplateString.Segment(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.content_ = content_;
+        result.templated_ = templated_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.TemplateString.Segment result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.content_ = content_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.templated_ = templated_;
-        }
       }
 
       @java.lang.Override
@@ -446,7 +437,6 @@ private static final long serialVersionUID = 0L;
         if (other == org.mojolang.mojo.core.TemplateString.Segment.getDefaultInstance()) return this;
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getTemplated() != false) {
@@ -480,12 +470,12 @@ private static final long serialVersionUID = 0L;
                 break;
               case 10: {
                 content_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 10
               case 16: {
                 templated_ = input.readBool();
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 16
               default: {
@@ -503,7 +493,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object content_ = "";
       /**
@@ -546,9 +535,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setContent(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         content_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -557,8 +548,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearContent() {
+        
         content_ = getDefaultInstance().getContent();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -569,10 +560,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         content_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -594,7 +587,6 @@ private static final long serialVersionUID = 0L;
       public Builder setTemplated(boolean value) {
         
         templated_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -603,7 +595,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTemplated() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         templated_ = false;
         onChanged();
         return this;
@@ -673,7 +665,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEGMENTS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.core.TemplateString.Segment> segments_;
   /**
    * <code>repeated .mojo.core.TemplateString.Segment segments = 1;</code>
@@ -903,7 +894,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (segmentsBuilder_ == null) {
         segments_ = java.util.Collections.emptyList();
       } else {
@@ -937,13 +927,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.TemplateString buildPartial() {
       org.mojolang.mojo.core.TemplateString result = new org.mojolang.mojo.core.TemplateString(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.TemplateString result) {
+      int from_bitField0_ = bitField0_;
       if (segmentsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           segments_ = java.util.Collections.unmodifiableList(segments_);
@@ -953,10 +937,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.segments_ = segmentsBuilder_.build();
       }
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.TemplateString result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override

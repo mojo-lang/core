@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDS_FIELD_NUMBER = 1;
-  private long seconds_ = 0L;
+  private long seconds_;
   /**
    * <code>int64 seconds = 1;</code>
    * @return The seconds.
@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NANOSECONDS_FIELD_NUMBER = 2;
-  private int nanoseconds_ = 0;
+  private int nanoseconds_;
   /**
    * <code>int32 nanoseconds = 2;</code>
    * @return The nanoseconds.
@@ -265,9 +265,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       seconds_ = 0L;
+
       nanoseconds_ = 0;
+
       return this;
     }
 
@@ -294,19 +295,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Timestamp buildPartial() {
       org.mojolang.mojo.core.Timestamp result = new org.mojolang.mojo.core.Timestamp(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.seconds_ = seconds_;
+      result.nanoseconds_ = nanoseconds_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Timestamp result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.seconds_ = seconds_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.nanoseconds_ = nanoseconds_;
-      }
     }
 
     @java.lang.Override
@@ -387,12 +379,12 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               seconds_ = input.readInt64();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               nanoseconds_ = input.readInt32();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             default: {
@@ -410,7 +402,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private long seconds_ ;
     /**
@@ -429,7 +420,6 @@ private static final long serialVersionUID = 0L;
     public Builder setSeconds(long value) {
       
       seconds_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -438,7 +428,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeconds() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       seconds_ = 0L;
       onChanged();
       return this;
@@ -461,7 +451,6 @@ private static final long serialVersionUID = 0L;
     public Builder setNanoseconds(int value) {
       
       nanoseconds_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -470,7 +459,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNanoseconds() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       nanoseconds_ = 0;
       onChanged();
       return this;

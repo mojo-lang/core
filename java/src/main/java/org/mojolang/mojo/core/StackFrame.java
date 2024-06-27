@@ -200,7 +200,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTRUCTION_FIELD_NUMBER = 1;
-  private long instruction_ = 0L;
+  private long instruction_;
   /**
    * <code>int64 instruction = 1;</code>
    * @return The instruction.
@@ -233,12 +233,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.CodeModuleOrBuilder getModuleOrBuilder() {
-    return module_ == null ? org.mojolang.mojo.core.CodeModule.getDefaultInstance() : module_;
+    return getModule();
   }
 
   public static final int FUNCTION_NAME_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object functionName_ = "";
+  private volatile java.lang.Object functionName_;
   /**
    * <code>string function_name = 3;</code>
    * @return The functionName.
@@ -276,7 +275,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FUNCTION_BASE_FIELD_NUMBER = 4;
-  private long functionBase_ = 0L;
+  private long functionBase_;
   /**
    * <code>int64 function_base = 4;</code>
    * @return The functionBase.
@@ -287,8 +286,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_FILE_NAME_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object sourceFileName_ = "";
+  private volatile java.lang.Object sourceFileName_;
   /**
    * <code>string source_file_name = 5;</code>
    * @return The sourceFileName.
@@ -326,7 +324,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_LINE_FIELD_NUMBER = 6;
-  private int sourceLine_ = 0;
+  private int sourceLine_;
   /**
    * <code>int32 source_line = 6;</code>
    * @return The sourceLine.
@@ -337,7 +335,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_LINE_BASE_FIELD_NUMBER = 7;
-  private long sourceLineBase_ = 0L;
+  private long sourceLineBase_;
   /**
    * <code>int64 source_line_base = 7;</code>
    * @return The sourceLineBase.
@@ -348,7 +346,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUST_FIELD_NUMBER = 8;
-  private int trust_ = 0;
+  private int trust_;
   /**
    * <code>.mojo.core.StackFrame.Trust trust = 8;</code>
    * @return The enum numeric value on the wire for trust.
@@ -361,7 +359,8 @@ private static final long serialVersionUID = 0L;
    * @return The trust.
    */
   @java.lang.Override public org.mojolang.mojo.core.StackFrame.Trust getTrust() {
-    org.mojolang.mojo.core.StackFrame.Trust result = org.mojolang.mojo.core.StackFrame.Trust.forNumber(trust_);
+    @SuppressWarnings("deprecation")
+    org.mojolang.mojo.core.StackFrame.Trust result = org.mojolang.mojo.core.StackFrame.Trust.valueOf(trust_);
     return result == null ? org.mojolang.mojo.core.StackFrame.Trust.UNRECOGNIZED : result;
   }
 
@@ -635,19 +634,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       instruction_ = 0L;
-      module_ = null;
-      if (moduleBuilder_ != null) {
-        moduleBuilder_.dispose();
+
+      if (moduleBuilder_ == null) {
+        module_ = null;
+      } else {
+        module_ = null;
         moduleBuilder_ = null;
       }
       functionName_ = "";
+
       functionBase_ = 0L;
+
       sourceFileName_ = "";
+
       sourceLine_ = 0;
+
       sourceLineBase_ = 0L;
+
       trust_ = 0;
+
       return this;
     }
 
@@ -674,39 +680,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.StackFrame buildPartial() {
       org.mojolang.mojo.core.StackFrame result = new org.mojolang.mojo.core.StackFrame(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.instruction_ = instruction_;
+      if (moduleBuilder_ == null) {
+        result.module_ = module_;
+      } else {
+        result.module_ = moduleBuilder_.build();
+      }
+      result.functionName_ = functionName_;
+      result.functionBase_ = functionBase_;
+      result.sourceFileName_ = sourceFileName_;
+      result.sourceLine_ = sourceLine_;
+      result.sourceLineBase_ = sourceLineBase_;
+      result.trust_ = trust_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.StackFrame result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.instruction_ = instruction_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.module_ = moduleBuilder_ == null
-            ? module_
-            : moduleBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.functionName_ = functionName_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.functionBase_ = functionBase_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.sourceFileName_ = sourceFileName_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.sourceLine_ = sourceLine_;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.sourceLineBase_ = sourceLineBase_;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.trust_ = trust_;
-      }
     }
 
     @java.lang.Override
@@ -761,7 +748,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getFunctionName().isEmpty()) {
         functionName_ = other.functionName_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getFunctionBase() != 0L) {
@@ -769,7 +755,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceFileName().isEmpty()) {
         sourceFileName_ = other.sourceFileName_;
-        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getSourceLine() != 0) {
@@ -809,44 +794,44 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               instruction_ = input.readInt64();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 18: {
               input.readMessage(
                   getModuleFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 26: {
               functionName_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 26
             case 32: {
               functionBase_ = input.readInt64();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 32
             case 42: {
               sourceFileName_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 42
             case 48: {
               sourceLine_ = input.readInt32();
-              bitField0_ |= 0x00000020;
+
               break;
             } // case 48
             case 56: {
               sourceLineBase_ = input.readInt64();
-              bitField0_ |= 0x00000040;
+
               break;
             } // case 56
             case 64: {
               trust_ = input.readEnum();
-              bitField0_ |= 0x00000080;
+
               break;
             } // case 64
             default: {
@@ -864,7 +849,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private long instruction_ ;
     /**
@@ -883,7 +867,6 @@ private static final long serialVersionUID = 0L;
     public Builder setInstruction(long value) {
       
       instruction_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -892,7 +875,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstruction() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       instruction_ = 0L;
       onChanged();
       return this;
@@ -906,7 +889,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the module field is set.
      */
     public boolean hasModule() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return moduleBuilder_ != null || module_ != null;
     }
     /**
      * <code>.mojo.core.CodeModule module = 2;</code>
@@ -928,11 +911,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         module_ = value;
+        onChanged();
       } else {
         moduleBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -942,11 +925,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.CodeModule.Builder builderForValue) {
       if (moduleBuilder_ == null) {
         module_ = builderForValue.build();
+        onChanged();
       } else {
         moduleBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -954,38 +937,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModule(org.mojolang.mojo.core.CodeModule value) {
       if (moduleBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          module_ != null &&
-          module_ != org.mojolang.mojo.core.CodeModule.getDefaultInstance()) {
-          getModuleBuilder().mergeFrom(value);
+        if (module_ != null) {
+          module_ =
+            org.mojolang.mojo.core.CodeModule.newBuilder(module_).mergeFrom(value).buildPartial();
         } else {
           module_ = value;
         }
+        onChanged();
       } else {
         moduleBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.CodeModule module = 2;</code>
      */
     public Builder clearModule() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      module_ = null;
-      if (moduleBuilder_ != null) {
-        moduleBuilder_.dispose();
+      if (moduleBuilder_ == null) {
+        module_ = null;
+        onChanged();
+      } else {
+        module_ = null;
         moduleBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.CodeModule module = 2;</code>
      */
     public org.mojolang.mojo.core.CodeModule.Builder getModuleBuilder() {
-      bitField0_ |= 0x00000002;
+      
       onChanged();
       return getModuleFieldBuilder().getBuilder();
     }
@@ -1058,9 +1041,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFunctionName(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       functionName_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1069,8 +1054,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFunctionName() {
+      
       functionName_ = getDefaultInstance().getFunctionName();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1081,10 +1066,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFunctionNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       functionName_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1106,7 +1093,6 @@ private static final long serialVersionUID = 0L;
     public Builder setFunctionBase(long value) {
       
       functionBase_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1115,7 +1101,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFunctionBase() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       functionBase_ = 0L;
       onChanged();
       return this;
@@ -1162,9 +1148,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceFileName(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       sourceFileName_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1173,8 +1161,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceFileName() {
+      
       sourceFileName_ = getDefaultInstance().getSourceFileName();
-      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1185,10 +1173,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceFileNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       sourceFileName_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1210,7 +1200,6 @@ private static final long serialVersionUID = 0L;
     public Builder setSourceLine(int value) {
       
       sourceLine_ = value;
-      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1219,7 +1208,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceLine() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      
       sourceLine_ = 0;
       onChanged();
       return this;
@@ -1242,7 +1231,6 @@ private static final long serialVersionUID = 0L;
     public Builder setSourceLineBase(long value) {
       
       sourceLineBase_ = value;
-      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1251,7 +1239,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceLineBase() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      
       sourceLineBase_ = 0L;
       onChanged();
       return this;
@@ -1271,8 +1259,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrustValue(int value) {
+      
       trust_ = value;
-      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1282,7 +1270,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.StackFrame.Trust getTrust() {
-      org.mojolang.mojo.core.StackFrame.Trust result = org.mojolang.mojo.core.StackFrame.Trust.forNumber(trust_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.StackFrame.Trust result = org.mojolang.mojo.core.StackFrame.Trust.valueOf(trust_);
       return result == null ? org.mojolang.mojo.core.StackFrame.Trust.UNRECOGNIZED : result;
     }
     /**
@@ -1294,7 +1283,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000080;
+      
       trust_ = value.getNumber();
       onChanged();
       return this;
@@ -1304,7 +1293,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrust() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      
       trust_ = 0;
       onChanged();
       return this;

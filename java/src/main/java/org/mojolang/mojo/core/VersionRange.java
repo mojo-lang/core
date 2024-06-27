@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.VersionOrBuilder getStartOrBuilder() {
-    return start_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : start_;
+    return getStart();
   }
 
   public static final int END_FIELD_NUMBER = 2;
@@ -92,11 +92,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.VersionOrBuilder getEndOrBuilder() {
-    return end_ == null ? org.mojolang.mojo.core.Version.getDefaultInstance() : end_;
+    return getEnd();
   }
 
   public static final int START_EXCLUDED_FIELD_NUMBER = 9;
-  private boolean startExcluded_ = false;
+  private boolean startExcluded_;
   /**
    * <code>bool start_excluded = 9;</code>
    * @return The startExcluded.
@@ -107,7 +107,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_INCLUDED_FIELD_NUMBER = 10;
-  private boolean endIncluded_ = false;
+  private boolean endIncluded_;
   /**
    * <code>bool end_included = 10;</code>
    * @return The endIncluded.
@@ -350,19 +350,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
-      start_ = null;
-      if (startBuilder_ != null) {
-        startBuilder_.dispose();
+      if (startBuilder_ == null) {
+        start_ = null;
+      } else {
+        start_ = null;
         startBuilder_ = null;
       }
-      end_ = null;
-      if (endBuilder_ != null) {
-        endBuilder_.dispose();
+      if (endBuilder_ == null) {
+        end_ = null;
+      } else {
+        end_ = null;
         endBuilder_ = null;
       }
       startExcluded_ = false;
+
       endIncluded_ = false;
+
       return this;
     }
 
@@ -389,29 +392,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.VersionRange buildPartial() {
       org.mojolang.mojo.core.VersionRange result = new org.mojolang.mojo.core.VersionRange(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      if (startBuilder_ == null) {
+        result.start_ = start_;
+      } else {
+        result.start_ = startBuilder_.build();
+      }
+      if (endBuilder_ == null) {
+        result.end_ = end_;
+      } else {
+        result.end_ = endBuilder_.build();
+      }
+      result.startExcluded_ = startExcluded_;
+      result.endIncluded_ = endIncluded_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.VersionRange result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.start_ = startBuilder_ == null
-            ? start_
-            : startBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.end_ = endBuilder_ == null
-            ? end_
-            : endBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.startExcluded_ = startExcluded_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.endIncluded_ = endIncluded_;
-      }
     }
 
     @java.lang.Override
@@ -500,24 +494,24 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getStartFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               input.readMessage(
                   getEndFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 72: {
               startExcluded_ = input.readBool();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 72
             case 80: {
               endIncluded_ = input.readBool();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 80
             default: {
@@ -535,7 +529,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private org.mojolang.mojo.core.Version start_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -545,7 +538,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the start field is set.
      */
     public boolean hasStart() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return startBuilder_ != null || start_ != null;
     }
     /**
      * <code>.mojo.core.Version start = 1;</code>
@@ -567,11 +560,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         start_ = value;
+        onChanged();
       } else {
         startBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
+
       return this;
     }
     /**
@@ -581,11 +574,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Version.Builder builderForValue) {
       if (startBuilder_ == null) {
         start_ = builderForValue.build();
+        onChanged();
       } else {
         startBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
+
       return this;
     }
     /**
@@ -593,38 +586,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStart(org.mojolang.mojo.core.Version value) {
       if (startBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-          start_ != null &&
-          start_ != org.mojolang.mojo.core.Version.getDefaultInstance()) {
-          getStartBuilder().mergeFrom(value);
+        if (start_ != null) {
+          start_ =
+            org.mojolang.mojo.core.Version.newBuilder(start_).mergeFrom(value).buildPartial();
         } else {
           start_ = value;
         }
+        onChanged();
       } else {
         startBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Version start = 1;</code>
      */
     public Builder clearStart() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      start_ = null;
-      if (startBuilder_ != null) {
-        startBuilder_.dispose();
+      if (startBuilder_ == null) {
+        start_ = null;
+        onChanged();
+      } else {
+        start_ = null;
         startBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Version start = 1;</code>
      */
     public org.mojolang.mojo.core.Version.Builder getStartBuilder() {
-      bitField0_ |= 0x00000001;
+      
       onChanged();
       return getStartFieldBuilder().getBuilder();
     }
@@ -664,7 +657,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the end field is set.
      */
     public boolean hasEnd() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return endBuilder_ != null || end_ != null;
     }
     /**
      * <code>.mojo.core.Version end = 2;</code>
@@ -686,11 +679,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         end_ = value;
+        onChanged();
       } else {
         endBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -700,11 +693,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Version.Builder builderForValue) {
       if (endBuilder_ == null) {
         end_ = builderForValue.build();
+        onChanged();
       } else {
         endBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -712,38 +705,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnd(org.mojolang.mojo.core.Version value) {
       if (endBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          end_ != null &&
-          end_ != org.mojolang.mojo.core.Version.getDefaultInstance()) {
-          getEndBuilder().mergeFrom(value);
+        if (end_ != null) {
+          end_ =
+            org.mojolang.mojo.core.Version.newBuilder(end_).mergeFrom(value).buildPartial();
         } else {
           end_ = value;
         }
+        onChanged();
       } else {
         endBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Version end = 2;</code>
      */
     public Builder clearEnd() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      end_ = null;
-      if (endBuilder_ != null) {
-        endBuilder_.dispose();
+      if (endBuilder_ == null) {
+        end_ = null;
+        onChanged();
+      } else {
+        end_ = null;
         endBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Version end = 2;</code>
      */
     public org.mojolang.mojo.core.Version.Builder getEndBuilder() {
-      bitField0_ |= 0x00000002;
+      
       onChanged();
       return getEndFieldBuilder().getBuilder();
     }
@@ -792,7 +785,6 @@ private static final long serialVersionUID = 0L;
     public Builder setStartExcluded(boolean value) {
       
       startExcluded_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -801,7 +793,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartExcluded() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       startExcluded_ = false;
       onChanged();
       return this;
@@ -824,7 +816,6 @@ private static final long serialVersionUID = 0L;
     public Builder setEndIncluded(boolean value) {
       
       endIncluded_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -833,7 +824,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndIncluded() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       endIncluded_ = false;
       onChanged();
       return this;

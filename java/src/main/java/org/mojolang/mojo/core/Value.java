@@ -683,7 +683,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (valuesValBuilder_ != null) {
         valuesValBuilder_.clear();
       }
@@ -721,31 +720,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Value buildPartial() {
       org.mojolang.mojo.core.Value result = new org.mojolang.mojo.core.Value(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      buildPartialOneofs(result);
+      if (valCase_ == 1) {
+        if (valuesValBuilder_ == null) {
+          result.val_ = val_;
+        } else {
+          result.val_ = valuesValBuilder_.build();
+        }
+      }
+      if (valCase_ == 2) {
+        if (objectValBuilder_ == null) {
+          result.val_ = val_;
+        } else {
+          result.val_ = objectValBuilder_.build();
+        }
+      }
+      if (valCase_ == 3) {
+        if (nullValBuilder_ == null) {
+          result.val_ = val_;
+        } else {
+          result.val_ = nullValBuilder_.build();
+        }
+      }
+      if (valCase_ == 4) {
+        result.val_ = val_;
+      }
+      if (valCase_ == 5) {
+        result.val_ = val_;
+      }
+      if (valCase_ == 6) {
+        result.val_ = val_;
+      }
+      if (valCase_ == 7) {
+        result.val_ = val_;
+      }
+      if (valCase_ == 8) {
+        result.val_ = val_;
+      }
+      if (valCase_ == 9) {
+        result.val_ = val_;
+      }
+      result.valCase_ = valCase_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Value result) {
-      int from_bitField0_ = bitField0_;
-    }
-
-    private void buildPartialOneofs(org.mojolang.mojo.core.Value result) {
-      result.valCase_ = valCase_;
-      result.val_ = this.val_;
-      if (valCase_ == 1 &&
-          valuesValBuilder_ != null) {
-        result.val_ = valuesValBuilder_.build();
-      }
-      if (valCase_ == 2 &&
-          objectValBuilder_ != null) {
-        result.val_ = objectValBuilder_.build();
-      }
-      if (valCase_ == 3 &&
-          nullValBuilder_ != null) {
-        result.val_ = nullValBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -943,7 +959,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.core.Values, org.mojolang.mojo.core.Values.Builder, org.mojolang.mojo.core.ValuesOrBuilder> valuesValBuilder_;
@@ -1083,7 +1098,7 @@ private static final long serialVersionUID = 0L;
         val_ = null;
       }
       valCase_ = 1;
-      onChanged();
+      onChanged();;
       return valuesValBuilder_;
     }
 
@@ -1225,7 +1240,7 @@ private static final long serialVersionUID = 0L;
         val_ = null;
       }
       valCase_ = 2;
-      onChanged();
+      onChanged();;
       return objectValBuilder_;
     }
 
@@ -1367,7 +1382,7 @@ private static final long serialVersionUID = 0L;
         val_ = null;
       }
       valCase_ = 3;
-      onChanged();
+      onChanged();;
       return nullValBuilder_;
     }
 
@@ -1394,7 +1409,6 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBoolVal(boolean value) {
-      
       valCase_ = 4;
       val_ = value;
       onChanged();
@@ -1436,7 +1450,6 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPositiveVal(long value) {
-      
       valCase_ = 5;
       val_ = value;
       onChanged();
@@ -1478,7 +1491,6 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNegativeVal(long value) {
-      
       valCase_ = 6;
       val_ = value;
       onChanged();
@@ -1520,7 +1532,6 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDoubleVal(double value) {
-      
       valCase_ = 7;
       val_ = value;
       onChanged();
@@ -1599,8 +1610,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringVal(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      valCase_ = 8;
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  valCase_ = 8;
       val_ = value;
       onChanged();
       return this;
@@ -1624,8 +1637,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       valCase_ = 8;
       val_ = value;
       onChanged();
@@ -1655,8 +1670,10 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBytesVal(com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      valCase_ = 9;
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  valCase_ = 9;
       val_ = value;
       onChanged();
       return this;

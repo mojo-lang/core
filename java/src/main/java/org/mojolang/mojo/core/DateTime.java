@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int YEAR_FIELD_NUMBER = 1;
-  private int year_ = 0;
+  private int year_;
   /**
    * <code>int32 year = 1;</code>
    * @return The year.
@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MONTH_FIELD_NUMBER = 2;
-  private int month_ = 0;
+  private int month_;
   /**
    * <code>int32 month = 2;</code>
    * @return The month.
@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DAY_FIELD_NUMBER = 3;
-  private int day_ = 0;
+  private int day_;
   /**
    * <code>int32 day = 3;</code>
    * @return The day.
@@ -77,7 +77,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOUR_FIELD_NUMBER = 4;
-  private int hour_ = 0;
+  private int hour_;
   /**
    * <code>int32 hour = 4;</code>
    * @return The hour.
@@ -88,7 +88,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINUTE_FIELD_NUMBER = 5;
-  private int minute_ = 0;
+  private int minute_;
   /**
    * <code>int32 minute = 5;</code>
    * @return The minute.
@@ -99,7 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDS_FIELD_NUMBER = 6;
-  private int seconds_ = 0;
+  private int seconds_;
   /**
    * <code>int32 seconds = 6;</code>
    * @return The seconds.
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NANOSECONDS_FIELD_NUMBER = 7;
-  private int nanoseconds_ = 0;
+  private int nanoseconds_;
   /**
    * <code>int32 nanoseconds = 7;</code>
    * @return The nanoseconds.
@@ -143,7 +143,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.TimeZoneOrBuilder getTimeZoneOrBuilder() {
-    return timeZone_ == null ? org.mojolang.mojo.core.TimeZone.getDefaultInstance() : timeZone_;
+    return getTimeZone();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -416,17 +416,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       year_ = 0;
+
       month_ = 0;
+
       day_ = 0;
+
       hour_ = 0;
+
       minute_ = 0;
+
       seconds_ = 0;
+
       nanoseconds_ = 0;
-      timeZone_ = null;
-      if (timeZoneBuilder_ != null) {
-        timeZoneBuilder_.dispose();
+
+      if (timeZoneBuilder_ == null) {
+        timeZone_ = null;
+      } else {
+        timeZone_ = null;
         timeZoneBuilder_ = null;
       }
       return this;
@@ -455,39 +462,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.DateTime buildPartial() {
       org.mojolang.mojo.core.DateTime result = new org.mojolang.mojo.core.DateTime(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.year_ = year_;
+      result.month_ = month_;
+      result.day_ = day_;
+      result.hour_ = hour_;
+      result.minute_ = minute_;
+      result.seconds_ = seconds_;
+      result.nanoseconds_ = nanoseconds_;
+      if (timeZoneBuilder_ == null) {
+        result.timeZone_ = timeZone_;
+      } else {
+        result.timeZone_ = timeZoneBuilder_.build();
+      }
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.DateTime result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.year_ = year_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.month_ = month_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.day_ = day_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.hour_ = hour_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.minute_ = minute_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.seconds_ = seconds_;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.nanoseconds_ = nanoseconds_;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.timeZone_ = timeZoneBuilder_ == null
-            ? timeZone_
-            : timeZoneBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -586,44 +574,44 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               year_ = input.readInt32();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               month_ = input.readInt32();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 24: {
               day_ = input.readInt32();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 24
             case 32: {
               hour_ = input.readInt32();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 32
             case 40: {
               minute_ = input.readInt32();
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 40
             case 48: {
               seconds_ = input.readInt32();
-              bitField0_ |= 0x00000020;
+
               break;
             } // case 48
             case 56: {
               nanoseconds_ = input.readInt32();
-              bitField0_ |= 0x00000040;
+
               break;
             } // case 56
             case 122: {
               input.readMessage(
                   getTimeZoneFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000080;
+
               break;
             } // case 122
             default: {
@@ -641,7 +629,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private int year_ ;
     /**
@@ -660,7 +647,6 @@ private static final long serialVersionUID = 0L;
     public Builder setYear(int value) {
       
       year_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -669,7 +655,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearYear() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       year_ = 0;
       onChanged();
       return this;
@@ -692,7 +678,6 @@ private static final long serialVersionUID = 0L;
     public Builder setMonth(int value) {
       
       month_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -701,7 +686,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMonth() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       month_ = 0;
       onChanged();
       return this;
@@ -724,7 +709,6 @@ private static final long serialVersionUID = 0L;
     public Builder setDay(int value) {
       
       day_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -733,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDay() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       day_ = 0;
       onChanged();
       return this;
@@ -756,7 +740,6 @@ private static final long serialVersionUID = 0L;
     public Builder setHour(int value) {
       
       hour_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -765,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHour() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       hour_ = 0;
       onChanged();
       return this;
@@ -788,7 +771,6 @@ private static final long serialVersionUID = 0L;
     public Builder setMinute(int value) {
       
       minute_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -797,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinute() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      
       minute_ = 0;
       onChanged();
       return this;
@@ -820,7 +802,6 @@ private static final long serialVersionUID = 0L;
     public Builder setSeconds(int value) {
       
       seconds_ = value;
-      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -829,7 +810,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeconds() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      
       seconds_ = 0;
       onChanged();
       return this;
@@ -852,7 +833,6 @@ private static final long serialVersionUID = 0L;
     public Builder setNanoseconds(int value) {
       
       nanoseconds_ = value;
-      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -861,7 +841,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNanoseconds() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      
       nanoseconds_ = 0;
       onChanged();
       return this;
@@ -875,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeZone field is set.
      */
     public boolean hasTimeZone() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return timeZoneBuilder_ != null || timeZone_ != null;
     }
     /**
      * <code>.mojo.core.TimeZone time_zone = 15;</code>
@@ -897,11 +877,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeZone_ = value;
+        onChanged();
       } else {
         timeZoneBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000080;
-      onChanged();
+
       return this;
     }
     /**
@@ -911,11 +891,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.TimeZone.Builder builderForValue) {
       if (timeZoneBuilder_ == null) {
         timeZone_ = builderForValue.build();
+        onChanged();
       } else {
         timeZoneBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000080;
-      onChanged();
+
       return this;
     }
     /**
@@ -923,38 +903,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeZone(org.mojolang.mojo.core.TimeZone value) {
       if (timeZoneBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0) &&
-          timeZone_ != null &&
-          timeZone_ != org.mojolang.mojo.core.TimeZone.getDefaultInstance()) {
-          getTimeZoneBuilder().mergeFrom(value);
+        if (timeZone_ != null) {
+          timeZone_ =
+            org.mojolang.mojo.core.TimeZone.newBuilder(timeZone_).mergeFrom(value).buildPartial();
         } else {
           timeZone_ = value;
         }
+        onChanged();
       } else {
         timeZoneBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000080;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.TimeZone time_zone = 15;</code>
      */
     public Builder clearTimeZone() {
-      bitField0_ = (bitField0_ & ~0x00000080);
-      timeZone_ = null;
-      if (timeZoneBuilder_ != null) {
-        timeZoneBuilder_.dispose();
+      if (timeZoneBuilder_ == null) {
+        timeZone_ = null;
+        onChanged();
+      } else {
+        timeZone_ = null;
         timeZoneBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.TimeZone time_zone = 15;</code>
      */
     public org.mojolang.mojo.core.TimeZone.Builder getTimeZoneBuilder() {
-      bitField0_ |= 0x00000080;
+      
       onChanged();
       return getTimeZoneFieldBuilder().getBuilder();
     }

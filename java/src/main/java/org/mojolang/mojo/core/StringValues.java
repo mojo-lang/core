@@ -45,7 +45,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList vals_;
   /**
    * <code>repeated string vals = 1;</code>
@@ -274,7 +273,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       vals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -303,22 +301,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.StringValues buildPartial() {
       org.mojolang.mojo.core.StringValues result = new org.mojolang.mojo.core.StringValues(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.StringValues result) {
+      int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
         vals_ = vals_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.vals_ = vals_;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.StringValues result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override
@@ -471,8 +461,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVals(
         int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureValsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValsIsMutable();
       vals_.set(index, value);
       onChanged();
       return this;
@@ -484,8 +476,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVals(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureValsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValsIsMutable();
       vals_.add(value);
       onChanged();
       return this;
@@ -520,8 +514,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addValsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       ensureValsIsMutable();
       vals_.add(value);
       onChanged();

@@ -33,4 +33,4 @@
 # at src/google/protobuf/compiler/plugin.proto
 # Also we need to fix an import.
 regenerate:
-	protoc --go_out=paths=source_relative:../go/pkg/ -I=. mojo/mojo.proto
+	protoc --go_out=paths=source_relative:../go/pkg/ -I=. mojo/mojo.proto; protoc --java_out=../java/src/main/java/ -I=. mojo/mojo.proto

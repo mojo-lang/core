@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_FIELD_NUMBER = 1;
-  private long start_ = 0L;
+  private long start_;
   /**
    * <code>int64 start = 1;</code>
    * @return The start.
@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_FIELD_NUMBER = 2;
-  private long end_ = 0L;
+  private long end_;
   /**
    * <code>int64 end = 2;</code>
    * @return The end.
@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_EXCLUDED_FIELD_NUMBER = 9;
-  private boolean startExcluded_ = false;
+  private boolean startExcluded_;
   /**
    * <code>bool start_excluded = 9;</code>
    * @return The startExcluded.
@@ -77,7 +77,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_INCLUDED_FIELD_NUMBER = 10;
-  private boolean endIncluded_ = false;
+  private boolean endIncluded_;
   /**
    * <code>bool end_included = 10;</code>
    * @return The endIncluded.
@@ -312,11 +312,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       start_ = 0L;
+
       end_ = 0L;
+
       startExcluded_ = false;
+
       endIncluded_ = false;
+
       return this;
     }
 
@@ -343,25 +346,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.IntRange buildPartial() {
       org.mojolang.mojo.core.IntRange result = new org.mojolang.mojo.core.IntRange(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.start_ = start_;
+      result.end_ = end_;
+      result.startExcluded_ = startExcluded_;
+      result.endIncluded_ = endIncluded_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.IntRange result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.start_ = start_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.end_ = end_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.startExcluded_ = startExcluded_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.endIncluded_ = endIncluded_;
-      }
     }
 
     @java.lang.Override
@@ -448,22 +438,22 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               start_ = input.readInt64();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               end_ = input.readInt64();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 72: {
               startExcluded_ = input.readBool();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 72
             case 80: {
               endIncluded_ = input.readBool();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 80
             default: {
@@ -481,7 +471,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private long start_ ;
     /**
@@ -500,7 +489,6 @@ private static final long serialVersionUID = 0L;
     public Builder setStart(long value) {
       
       start_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -509,7 +497,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStart() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       start_ = 0L;
       onChanged();
       return this;
@@ -532,7 +520,6 @@ private static final long serialVersionUID = 0L;
     public Builder setEnd(long value) {
       
       end_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -541,7 +528,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnd() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       end_ = 0L;
       onChanged();
       return this;
@@ -564,7 +551,6 @@ private static final long serialVersionUID = 0L;
     public Builder setStartExcluded(boolean value) {
       
       startExcluded_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -573,7 +559,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartExcluded() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       startExcluded_ = false;
       onChanged();
       return this;
@@ -596,7 +582,6 @@ private static final long serialVersionUID = 0L;
     public Builder setEndIncluded(boolean value) {
       
       endIncluded_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -605,7 +590,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndIncluded() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       endIncluded_ = false;
       onChanged();
       return this;

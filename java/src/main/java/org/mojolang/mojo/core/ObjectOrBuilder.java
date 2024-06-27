@@ -30,6 +30,7 @@ public interface ObjectOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; vals = 1;</code>
    */
+
   /* nullable */
 org.mojolang.mojo.core.Value getValsOrDefault(
       java.lang.String key,
@@ -38,6 +39,7 @@ org.mojolang.mojo.core.Value defaultValue);
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; vals = 1;</code>
    */
+
   org.mojolang.mojo.core.Value getValsOrThrow(
       java.lang.String key);
 }

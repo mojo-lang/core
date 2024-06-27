@@ -90,6 +90,56 @@ func (x *Timestamp) Equal(u *Timestamp) bool {
 	return false
 }
 
+func (x *Timestamp) Compare(u *Timestamp) int {
+	if x != nil {
+		if u != nil {
+			return x.ToTime().Compare(u.ToTime())
+		} else {
+			return 1
+		}
+	} else {
+		if u != nil {
+			return -1
+		} else {
+			return 0
+		}
+	}
+}
+
+func (x *Timestamp) Date() *Date {
+	if x != nil {
+		y, m, d := x.ToTime().Date()
+		return &Date{
+			Year:  int32(y),
+			Month: int32(m),
+			Day:   int32(d),
+		}
+	}
+	return nil
+}
+
+func (x *Timestamp) Add(d *Duration) *Timestamp {
+	if x != nil && d != nil {
+		return FromTime(x.ToTime().Add(d.ToDuration()))
+	}
+	return nil
+}
+
+// AddDate returns the time corresponding to adding the
+// given number of years, months, and days to t.
+// For example, AddDate(-1, 2, 3) applied to January 1, 2011
+// returns March 4, 2010.
+//
+// AddDate normalizes its result in the same way that Date does,
+// so, for example, adding one month to October 31 yields
+// December 1, the normalized form for November 31.
+func (x *Timestamp) AddDate(years int, months int, days int) *Timestamp {
+	if x != nil {
+		return FromTime(x.ToTime().AddDate(years, months, days))
+	}
+	return nil
+}
+
 // Sub returns the duration t-u. If the result exceeds the maximum (or minimum)
 // value that can be stored in a Duration, the maximum (or minimum) duration
 // will be returned.

@@ -181,7 +181,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALGORITHM_FIELD_NUMBER = 1;
-  private int algorithm_ = 0;
+  private int algorithm_;
   /**
    * <code>.mojo.core.Checksum.Algorithm algorithm = 1;</code>
    * @return The enum numeric value on the wire for algorithm.
@@ -194,13 +194,13 @@ private static final long serialVersionUID = 0L;
    * @return The algorithm.
    */
   @java.lang.Override public org.mojolang.mojo.core.Checksum.Algorithm getAlgorithm() {
-    org.mojolang.mojo.core.Checksum.Algorithm result = org.mojolang.mojo.core.Checksum.Algorithm.forNumber(algorithm_);
+    @SuppressWarnings("deprecation")
+    org.mojolang.mojo.core.Checksum.Algorithm result = org.mojolang.mojo.core.Checksum.Algorithm.valueOf(algorithm_);
     return result == null ? org.mojolang.mojo.core.Checksum.Algorithm.UNRECOGNIZED : result;
   }
 
   public static final int VAL_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object val_ = "";
+  private volatile java.lang.Object val_;
   /**
    * <code>string val = 2;</code>
    * @return The val.
@@ -434,9 +434,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       algorithm_ = 0;
+
       val_ = "";
+
       return this;
     }
 
@@ -463,19 +464,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Checksum buildPartial() {
       org.mojolang.mojo.core.Checksum result = new org.mojolang.mojo.core.Checksum(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.algorithm_ = algorithm_;
+      result.val_ = val_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Checksum result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.algorithm_ = algorithm_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.val_ = val_;
-      }
     }
 
     @java.lang.Override
@@ -527,7 +519,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVal().isEmpty()) {
         val_ = other.val_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -558,12 +549,12 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               algorithm_ = input.readEnum();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 18: {
               val_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             default: {
@@ -581,7 +572,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private int algorithm_ = 0;
     /**
@@ -597,8 +587,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAlgorithmValue(int value) {
+      
       algorithm_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -608,7 +598,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.Checksum.Algorithm getAlgorithm() {
-      org.mojolang.mojo.core.Checksum.Algorithm result = org.mojolang.mojo.core.Checksum.Algorithm.forNumber(algorithm_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.Checksum.Algorithm result = org.mojolang.mojo.core.Checksum.Algorithm.valueOf(algorithm_);
       return result == null ? org.mojolang.mojo.core.Checksum.Algorithm.UNRECOGNIZED : result;
     }
     /**
@@ -620,7 +611,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000001;
+      
       algorithm_ = value.getNumber();
       onChanged();
       return this;
@@ -630,7 +621,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlgorithm() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       algorithm_ = 0;
       onChanged();
       return this;
@@ -677,9 +668,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVal(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       val_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -688,8 +681,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVal() {
+      
       val_ = getDefaultInstance().getVal();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -700,10 +693,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       val_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

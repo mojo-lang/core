@@ -183,7 +183,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNTRY_CODE_FIELD_NUMBER = 1;
-  private int countryCode_ = 0;
+  private int countryCode_;
   /**
    * <code>int32 country_code = 1;</code>
    * @return The countryCode.
@@ -194,7 +194,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NATIONAL_NUMBER_FIELD_NUMBER = 2;
-  private long nationalNumber_ = 0L;
+  private long nationalNumber_;
   /**
    * <code>uint64 national_number = 2;</code>
    * @return The nationalNumber.
@@ -205,8 +205,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXTENSION_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object extension_ = "";
+  private volatile java.lang.Object extension_;
   /**
    * <code>string extension = 3;</code>
    * @return The extension.
@@ -244,7 +243,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITALIAN_LEADING_ZERO_FIELD_NUMBER = 4;
-  private boolean italianLeadingZero_ = false;
+  private boolean italianLeadingZero_;
   /**
    * <code>bool italian_leading_zero = 4;</code>
    * @return The italianLeadingZero.
@@ -255,7 +254,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUMBER_OF_LEADING_ZEROS_FIELD_NUMBER = 8;
-  private int numberOfLeadingZeros_ = 0;
+  private int numberOfLeadingZeros_;
   /**
    * <code>int32 number_of_leading_zeros = 8;</code>
    * @return The numberOfLeadingZeros.
@@ -266,8 +265,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RAW_INPUT_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object rawInput_ = "";
+  private volatile java.lang.Object rawInput_;
   /**
    * <code>string raw_input = 5;</code>
    * @return The rawInput.
@@ -305,7 +303,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNTRY_CODE_SOURCE_FIELD_NUMBER = 6;
-  private int countryCodeSource_ = 0;
+  private int countryCodeSource_;
   /**
    * <code>.mojo.core.PhoneNumber.CountryCodeSource country_code_source = 6;</code>
    * @return The enum numeric value on the wire for countryCodeSource.
@@ -318,13 +316,13 @@ private static final long serialVersionUID = 0L;
    * @return The countryCodeSource.
    */
   @java.lang.Override public org.mojolang.mojo.core.PhoneNumber.CountryCodeSource getCountryCodeSource() {
-    org.mojolang.mojo.core.PhoneNumber.CountryCodeSource result = org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.forNumber(countryCodeSource_);
+    @SuppressWarnings("deprecation")
+    org.mojolang.mojo.core.PhoneNumber.CountryCodeSource result = org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.valueOf(countryCodeSource_);
     return result == null ? org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.UNRECOGNIZED : result;
   }
 
   public static final int PREFERRED_DOMESTIC_CARRIER_CODE_FIELD_NUMBER = 7;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object preferredDomesticCarrierCode_ = "";
+  private volatile java.lang.Object preferredDomesticCarrierCode_;
   /**
    * <code>string preferred_domestic_carrier_code = 7;</code>
    * @return The preferredDomesticCarrierCode.
@@ -624,15 +622,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       countryCode_ = 0;
+
       nationalNumber_ = 0L;
+
       extension_ = "";
+
       italianLeadingZero_ = false;
+
       numberOfLeadingZeros_ = 0;
+
       rawInput_ = "";
+
       countryCodeSource_ = 0;
+
       preferredDomesticCarrierCode_ = "";
+
       return this;
     }
 
@@ -659,37 +664,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.PhoneNumber buildPartial() {
       org.mojolang.mojo.core.PhoneNumber result = new org.mojolang.mojo.core.PhoneNumber(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.countryCode_ = countryCode_;
+      result.nationalNumber_ = nationalNumber_;
+      result.extension_ = extension_;
+      result.italianLeadingZero_ = italianLeadingZero_;
+      result.numberOfLeadingZeros_ = numberOfLeadingZeros_;
+      result.rawInput_ = rawInput_;
+      result.countryCodeSource_ = countryCodeSource_;
+      result.preferredDomesticCarrierCode_ = preferredDomesticCarrierCode_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.PhoneNumber result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.countryCode_ = countryCode_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.nationalNumber_ = nationalNumber_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.extension_ = extension_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.italianLeadingZero_ = italianLeadingZero_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.numberOfLeadingZeros_ = numberOfLeadingZeros_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.rawInput_ = rawInput_;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.countryCodeSource_ = countryCodeSource_;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.preferredDomesticCarrierCode_ = preferredDomesticCarrierCode_;
-      }
     }
 
     @java.lang.Override
@@ -744,7 +728,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getExtension().isEmpty()) {
         extension_ = other.extension_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getItalianLeadingZero() != false) {
@@ -755,7 +738,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRawInput().isEmpty()) {
         rawInput_ = other.rawInput_;
-        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.countryCodeSource_ != 0) {
@@ -763,7 +745,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPreferredDomesticCarrierCode().isEmpty()) {
         preferredDomesticCarrierCode_ = other.preferredDomesticCarrierCode_;
-        bitField0_ |= 0x00000080;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -794,42 +775,42 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               countryCode_ = input.readInt32();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               nationalNumber_ = input.readUInt64();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 26: {
               extension_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 26
             case 32: {
               italianLeadingZero_ = input.readBool();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 32
             case 42: {
               rawInput_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000020;
+
               break;
             } // case 42
             case 48: {
               countryCodeSource_ = input.readEnum();
-              bitField0_ |= 0x00000040;
+
               break;
             } // case 48
             case 58: {
               preferredDomesticCarrierCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000080;
+
               break;
             } // case 58
             case 64: {
               numberOfLeadingZeros_ = input.readInt32();
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 64
             default: {
@@ -847,7 +828,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private int countryCode_ ;
     /**
@@ -866,7 +846,6 @@ private static final long serialVersionUID = 0L;
     public Builder setCountryCode(int value) {
       
       countryCode_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -875,7 +854,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCountryCode() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       countryCode_ = 0;
       onChanged();
       return this;
@@ -898,7 +877,6 @@ private static final long serialVersionUID = 0L;
     public Builder setNationalNumber(long value) {
       
       nationalNumber_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -907,7 +885,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNationalNumber() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       nationalNumber_ = 0L;
       onChanged();
       return this;
@@ -954,9 +932,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExtension(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       extension_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -965,8 +945,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExtension() {
+      
       extension_ = getDefaultInstance().getExtension();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -977,10 +957,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExtensionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       extension_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1002,7 +984,6 @@ private static final long serialVersionUID = 0L;
     public Builder setItalianLeadingZero(boolean value) {
       
       italianLeadingZero_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1011,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearItalianLeadingZero() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      
       italianLeadingZero_ = false;
       onChanged();
       return this;
@@ -1034,7 +1015,6 @@ private static final long serialVersionUID = 0L;
     public Builder setNumberOfLeadingZeros(int value) {
       
       numberOfLeadingZeros_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1043,7 +1023,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumberOfLeadingZeros() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      
       numberOfLeadingZeros_ = 0;
       onChanged();
       return this;
@@ -1090,9 +1070,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRawInput(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       rawInput_ = value;
-      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1101,8 +1083,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRawInput() {
+      
       rawInput_ = getDefaultInstance().getRawInput();
-      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1113,10 +1095,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRawInputBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       rawInput_ = value;
-      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1135,8 +1119,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCountryCodeSourceValue(int value) {
+      
       countryCodeSource_ = value;
-      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1146,7 +1130,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.PhoneNumber.CountryCodeSource getCountryCodeSource() {
-      org.mojolang.mojo.core.PhoneNumber.CountryCodeSource result = org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.forNumber(countryCodeSource_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.PhoneNumber.CountryCodeSource result = org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.valueOf(countryCodeSource_);
       return result == null ? org.mojolang.mojo.core.PhoneNumber.CountryCodeSource.UNRECOGNIZED : result;
     }
     /**
@@ -1158,7 +1143,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000040;
+      
       countryCodeSource_ = value.getNumber();
       onChanged();
       return this;
@@ -1168,7 +1153,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCountryCodeSource() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      
       countryCodeSource_ = 0;
       onChanged();
       return this;
@@ -1215,9 +1200,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPreferredDomesticCarrierCode(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       preferredDomesticCarrierCode_ = value;
-      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1226,8 +1213,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPreferredDomesticCarrierCode() {
+      
       preferredDomesticCarrierCode_ = getDefaultInstance().getPreferredDomesticCarrierCode();
-      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1238,10 +1225,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPreferredDomesticCarrierCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       preferredDomesticCarrierCode_ = value;
-      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }

@@ -46,8 +46,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object requestId_ = "";
+  private volatile java.lang.Object requestId_;
   /**
    * <code>string request_id = 1;</code>
    * @return The requestId.
@@ -85,8 +84,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVING_DATA_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object servingData_ = "";
+  private volatile java.lang.Object servingData_;
   /**
    * <code>string serving_data = 2;</code>
    * @return The servingData.
@@ -320,9 +318,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       requestId_ = "";
+
       servingData_ = "";
+
       return this;
     }
 
@@ -349,19 +348,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.RequestInfo buildPartial() {
       org.mojolang.mojo.core.RequestInfo result = new org.mojolang.mojo.core.RequestInfo(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.requestId_ = requestId_;
+      result.servingData_ = servingData_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.RequestInfo result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.requestId_ = requestId_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.servingData_ = servingData_;
-      }
     }
 
     @java.lang.Override
@@ -410,12 +400,10 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.RequestInfo.getDefaultInstance()) return this;
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getServingData().isEmpty()) {
         servingData_ = other.servingData_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -446,12 +434,12 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               requestId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               servingData_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             default: {
@@ -469,7 +457,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object requestId_ = "";
     /**
@@ -512,9 +499,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       requestId_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -523,8 +512,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
+      
       requestId_ = getDefaultInstance().getRequestId();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -535,10 +524,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       requestId_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -584,9 +575,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServingData(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       servingData_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -595,8 +588,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServingData() {
+      
       servingData_ = getDefaultInstance().getServingData();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -607,10 +600,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServingDataBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       servingData_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

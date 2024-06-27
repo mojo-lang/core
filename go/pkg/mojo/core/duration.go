@@ -18,7 +18,19 @@ func NewDurationFromSeconds(seconds float64) *Duration {
 	return duration.FromSeconds(seconds)
 }
 
-func (x Duration) ToDuration() time.Duration {
+func Hours(hours int) *Duration {
+	return FromDuration(time.Duration(hours) * time.Hour)
+}
+
+func Minute(minutes int) *Duration {
+	return FromDuration(time.Duration(minutes) * time.Minute)
+}
+
+func Second(seconds int) *Duration {
+	return FromDuration(time.Duration(seconds) * time.Second)
+}
+
+func (x *Duration) ToDuration() time.Duration {
 	return time.Duration(x.Seconds)*time.Second + time.Duration(x.Nanoseconds)
 }
 

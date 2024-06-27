@@ -362,7 +362,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (ipv4Builder_ != null) {
         ipv4Builder_.clear();
       }
@@ -397,27 +396,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.IPAddress buildPartial() {
       org.mojolang.mojo.core.IPAddress result = new org.mojolang.mojo.core.IPAddress(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      buildPartialOneofs(result);
+      if (ipAddressCase_ == 1) {
+        if (ipv4Builder_ == null) {
+          result.ipAddress_ = ipAddress_;
+        } else {
+          result.ipAddress_ = ipv4Builder_.build();
+        }
+      }
+      if (ipAddressCase_ == 2) {
+        if (ipv6Builder_ == null) {
+          result.ipAddress_ = ipAddress_;
+        } else {
+          result.ipAddress_ = ipv6Builder_.build();
+        }
+      }
+      result.ipAddressCase_ = ipAddressCase_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.IPAddress result) {
-      int from_bitField0_ = bitField0_;
-    }
-
-    private void buildPartialOneofs(org.mojolang.mojo.core.IPAddress result) {
-      result.ipAddressCase_ = ipAddressCase_;
-      result.ipAddress_ = this.ipAddress_;
-      if (ipAddressCase_ == 1 &&
-          ipv4Builder_ != null) {
-        result.ipAddress_ = ipv4Builder_.build();
-      }
-      if (ipAddressCase_ == 2 &&
-          ipv6Builder_ != null) {
-        result.ipAddress_ = ipv6Builder_.build();
-      }
     }
 
     @java.lang.Override
@@ -547,7 +542,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.core.IPv4, org.mojolang.mojo.core.IPv4.Builder, org.mojolang.mojo.core.IPv4OrBuilder> ipv4Builder_;
@@ -687,7 +681,7 @@ private static final long serialVersionUID = 0L;
         ipAddress_ = null;
       }
       ipAddressCase_ = 1;
-      onChanged();
+      onChanged();;
       return ipv4Builder_;
     }
 
@@ -829,7 +823,7 @@ private static final long serialVersionUID = 0L;
         ipAddress_ = null;
       }
       ipAddressCase_ = 2;
-      onChanged();
+      onChanged();;
       return ipv6Builder_;
     }
     @java.lang.Override

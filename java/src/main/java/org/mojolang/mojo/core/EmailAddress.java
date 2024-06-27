@@ -45,8 +45,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_PART_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object localPart_ = "";
+  private volatile java.lang.Object localPart_;
   /**
    * <code>string local_part = 1;</code>
    * @return The localPart.
@@ -106,7 +105,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.DomainOrBuilder getDomainOrBuilder() {
-    return domain_ == null ? org.mojolang.mojo.core.Domain.getDefaultInstance() : domain_;
+    return getDomain();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -312,11 +311,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       localPart_ = "";
-      domain_ = null;
-      if (domainBuilder_ != null) {
-        domainBuilder_.dispose();
+
+      if (domainBuilder_ == null) {
+        domain_ = null;
+      } else {
+        domain_ = null;
         domainBuilder_ = null;
       }
       return this;
@@ -345,21 +345,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.EmailAddress buildPartial() {
       org.mojolang.mojo.core.EmailAddress result = new org.mojolang.mojo.core.EmailAddress(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.localPart_ = localPart_;
+      if (domainBuilder_ == null) {
+        result.domain_ = domain_;
+      } else {
+        result.domain_ = domainBuilder_.build();
+      }
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.EmailAddress result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.localPart_ = localPart_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.domain_ = domainBuilder_ == null
-            ? domain_
-            : domainBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -408,7 +401,6 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.EmailAddress.getDefaultInstance()) return this;
       if (!other.getLocalPart().isEmpty()) {
         localPart_ = other.localPart_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDomain()) {
@@ -442,14 +434,14 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               localPart_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               input.readMessage(
                   getDomainFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             default: {
@@ -467,7 +459,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object localPart_ = "";
     /**
@@ -510,9 +501,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalPart(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       localPart_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -521,8 +514,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalPart() {
+      
       localPart_ = getDefaultInstance().getLocalPart();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -533,10 +526,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalPartBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       localPart_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -549,7 +544,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the domain field is set.
      */
     public boolean hasDomain() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return domainBuilder_ != null || domain_ != null;
     }
     /**
      * <code>.mojo.core.Domain domain = 2;</code>
@@ -571,11 +566,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         domain_ = value;
+        onChanged();
       } else {
         domainBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -585,11 +580,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Domain.Builder builderForValue) {
       if (domainBuilder_ == null) {
         domain_ = builderForValue.build();
+        onChanged();
       } else {
         domainBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -597,38 +592,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDomain(org.mojolang.mojo.core.Domain value) {
       if (domainBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          domain_ != null &&
-          domain_ != org.mojolang.mojo.core.Domain.getDefaultInstance()) {
-          getDomainBuilder().mergeFrom(value);
+        if (domain_ != null) {
+          domain_ =
+            org.mojolang.mojo.core.Domain.newBuilder(domain_).mergeFrom(value).buildPartial();
         } else {
           domain_ = value;
         }
+        onChanged();
       } else {
         domainBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Domain domain = 2;</code>
      */
     public Builder clearDomain() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      domain_ = null;
-      if (domainBuilder_ != null) {
-        domainBuilder_.dispose();
+      if (domainBuilder_ == null) {
+        domain_ = null;
+        onChanged();
+      } else {
+        domain_ = null;
         domainBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Domain domain = 2;</code>
      */
     public org.mojolang.mojo.core.Domain.Builder getDomainBuilder() {
-      bitField0_ |= 0x00000002;
+      
       onChanged();
       return getDomainFieldBuilder().getBuilder();
     }

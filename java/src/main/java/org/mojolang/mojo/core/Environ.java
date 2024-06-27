@@ -67,7 +67,6 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
-  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> vals_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -78,12 +77,14 @@ private static final long serialVersionUID = 0L;
     }
     return vals_;
   }
+
   public int getValsCount() {
     return internalGetVals().getMap().size();
   }
   /**
    * <code>map&lt;string, string&gt; vals = 1;</code>
    */
+
   @java.lang.Override
   public boolean containsVals(
       java.lang.String key) {
@@ -102,6 +103,7 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; vals = 1;</code>
    */
   @java.lang.Override
+
   public java.util.Map<java.lang.String, java.lang.String> getValsMap() {
     return internalGetVals().getMap();
   }
@@ -109,11 +111,10 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; vals = 1;</code>
    */
   @java.lang.Override
-  public /* nullable */
-java.lang.String getValsOrDefault(
+
+  public java.lang.String getValsOrDefault(
       java.lang.String key,
-      /* nullable */
-java.lang.String defaultValue) {
+      java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetVals().getMap();
@@ -123,6 +124,7 @@ java.lang.String defaultValue) {
    * <code>map&lt;string, string&gt; vals = 1;</code>
    */
   @java.lang.Override
+
   public java.lang.String getValsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -355,7 +357,6 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       internalGetMutableVals().clear();
       return this;
     }
@@ -383,17 +384,11 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public org.mojolang.mojo.core.Environ buildPartial() {
       org.mojolang.mojo.core.Environ result = new org.mojolang.mojo.core.Environ(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      int from_bitField0_ = bitField0_;
+      result.vals_ = internalGetVals();
+      result.vals_.makeImmutable();
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Environ result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.vals_ = internalGetVals();
-        result.vals_.makeImmutable();
-      }
     }
 
     @java.lang.Override
@@ -442,7 +437,6 @@ java.lang.String defaultValue) {
       if (other == org.mojolang.mojo.core.Environ.getDefaultInstance()) return this;
       internalGetMutableVals().mergeFrom(
           other.internalGetVals());
-      bitField0_ |= 0x00000001;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -475,7 +469,6 @@ java.lang.String defaultValue) {
                   ValsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableVals().getMutableMap().put(
                   vals__.getKey(), vals__.getValue());
-              bitField0_ |= 0x00000001;
               break;
             } // case 10
             default: {
@@ -498,7 +491,7 @@ java.lang.String defaultValue) {
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> vals_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetVals() {
+    internalGetVals() {
       if (vals_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ValsDefaultEntryHolder.defaultEntry);
@@ -506,7 +499,8 @@ java.lang.String defaultValue) {
       return vals_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetMutableVals() {
+    internalGetMutableVals() {
+      onChanged();;
       if (vals_ == null) {
         vals_ = com.google.protobuf.MapField.newMapField(
             ValsDefaultEntryHolder.defaultEntry);
@@ -514,16 +508,16 @@ java.lang.String defaultValue) {
       if (!vals_.isMutable()) {
         vals_ = vals_.copy();
       }
-      bitField0_ |= 0x00000001;
-      onChanged();
       return vals_;
     }
+
     public int getValsCount() {
       return internalGetVals().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; vals = 1;</code>
      */
+
     @java.lang.Override
     public boolean containsVals(
         java.lang.String key) {
@@ -542,6 +536,7 @@ java.lang.String defaultValue) {
      * <code>map&lt;string, string&gt; vals = 1;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.String, java.lang.String> getValsMap() {
       return internalGetVals().getMap();
     }
@@ -549,11 +544,10 @@ java.lang.String defaultValue) {
      * <code>map&lt;string, string&gt; vals = 1;</code>
      */
     @java.lang.Override
-    public /* nullable */
-java.lang.String getValsOrDefault(
+
+    public java.lang.String getValsOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue) {
+        java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetVals().getMap();
@@ -563,6 +557,7 @@ java.lang.String defaultValue) {
      * <code>map&lt;string, string&gt; vals = 1;</code>
      */
     @java.lang.Override
+
     public java.lang.String getValsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -573,8 +568,8 @@ java.lang.String defaultValue) {
       }
       return map.get(key);
     }
+
     public Builder clearVals() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableVals().getMutableMap()
           .clear();
       return this;
@@ -582,6 +577,7 @@ java.lang.String defaultValue) {
     /**
      * <code>map&lt;string, string&gt; vals = 1;</code>
      */
+
     public Builder removeVals(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -594,8 +590,7 @@ java.lang.String defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-        getMutableVals() {
-      bitField0_ |= 0x00000001;
+    getMutableVals() {
       return internalGetMutableVals().getMutableMap();
     }
     /**
@@ -605,20 +600,22 @@ java.lang.String defaultValue) {
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) { throw new NullPointerException("map value"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableVals().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000001;
       return this;
     }
     /**
      * <code>map&lt;string, string&gt; vals = 1;</code>
      */
+
     public Builder putAllVals(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableVals().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override

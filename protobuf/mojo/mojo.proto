@@ -32,7 +32,8 @@ package mojo;
 import "google/protobuf/descriptor.proto";
 
 option go_package = "github.com/mojo-lang/core/go/pkg/mojo;mojo";
-option java_package = "com.google.protobuf";
+option java_multiple_files = true;
+option java_package = "org.mojolang.mojo";
 option java_outer_classname = "MojoProtos";
 
 extend google.protobuf.EnumOptions {

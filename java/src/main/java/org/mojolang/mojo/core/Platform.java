@@ -49,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ARCHITECTURE_FIELD_NUMBER = 1;
-  private int architecture_ = 0;
+  private int architecture_;
   /**
    * <code>.mojo.core.Architecture architecture = 1;</code>
    * @return The enum numeric value on the wire for architecture.
@@ -62,13 +62,13 @@ private static final long serialVersionUID = 0L;
    * @return The architecture.
    */
   @java.lang.Override public org.mojolang.mojo.core.Architecture getArchitecture() {
-    org.mojolang.mojo.core.Architecture result = org.mojolang.mojo.core.Architecture.forNumber(architecture_);
+    @SuppressWarnings("deprecation")
+    org.mojolang.mojo.core.Architecture result = org.mojolang.mojo.core.Architecture.valueOf(architecture_);
     return result == null ? org.mojolang.mojo.core.Architecture.UNRECOGNIZED : result;
   }
 
   public static final int VARIANT_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object variant_ = "";
+  private volatile java.lang.Object variant_;
   /**
    * <code>string variant = 2;</code>
    * @return The variant.
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_FIELD_NUMBER = 10;
-  private int os_ = 0;
+  private int os_;
   /**
    * <code>.mojo.core.OS os = 10;</code>
    * @return The enum numeric value on the wire for os.
@@ -119,13 +119,13 @@ private static final long serialVersionUID = 0L;
    * @return The os.
    */
   @java.lang.Override public org.mojolang.mojo.core.OS getOs() {
-    org.mojolang.mojo.core.OS result = org.mojolang.mojo.core.OS.forNumber(os_);
+    @SuppressWarnings("deprecation")
+    org.mojolang.mojo.core.OS result = org.mojolang.mojo.core.OS.valueOf(os_);
     return result == null ? org.mojolang.mojo.core.OS.UNRECOGNIZED : result;
   }
 
   public static final int OS_NAME_FIELD_NUMBER = 11;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object osName_ = "";
+  private volatile java.lang.Object osName_;
   /**
    * <code>string os_name = 11;</code>
    * @return The osName.
@@ -163,8 +163,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_VERSION_FIELD_NUMBER = 12;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object osVersion_ = "";
+  private volatile java.lang.Object osVersion_;
   /**
    * <code>string os_version = 12;</code>
    * @return The osVersion.
@@ -428,12 +427,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       architecture_ = 0;
+
       variant_ = "";
+
       os_ = 0;
+
       osName_ = "";
+
       osVersion_ = "";
+
       return this;
     }
 
@@ -460,28 +463,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Platform buildPartial() {
       org.mojolang.mojo.core.Platform result = new org.mojolang.mojo.core.Platform(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.architecture_ = architecture_;
+      result.variant_ = variant_;
+      result.os_ = os_;
+      result.osName_ = osName_;
+      result.osVersion_ = osVersion_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Platform result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.architecture_ = architecture_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.variant_ = variant_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.os_ = os_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.osName_ = osName_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.osVersion_ = osVersion_;
-      }
     }
 
     @java.lang.Override
@@ -533,7 +521,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVariant().isEmpty()) {
         variant_ = other.variant_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.os_ != 0) {
@@ -541,12 +528,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOsName().isEmpty()) {
         osName_ = other.osName_;
-        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getOsVersion().isEmpty()) {
         osVersion_ = other.osVersion_;
-        bitField0_ |= 0x00000010;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -577,27 +562,27 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               architecture_ = input.readEnum();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 18: {
               variant_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 80: {
               os_ = input.readEnum();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 80
             case 90: {
               osName_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 90
             case 98: {
               osVersion_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 98
             default: {
@@ -615,7 +600,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private int architecture_ = 0;
     /**
@@ -631,8 +615,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setArchitectureValue(int value) {
+      
       architecture_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -642,7 +626,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.Architecture getArchitecture() {
-      org.mojolang.mojo.core.Architecture result = org.mojolang.mojo.core.Architecture.forNumber(architecture_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.Architecture result = org.mojolang.mojo.core.Architecture.valueOf(architecture_);
       return result == null ? org.mojolang.mojo.core.Architecture.UNRECOGNIZED : result;
     }
     /**
@@ -654,7 +639,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000001;
+      
       architecture_ = value.getNumber();
       onChanged();
       return this;
@@ -664,7 +649,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArchitecture() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       architecture_ = 0;
       onChanged();
       return this;
@@ -711,9 +696,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVariant(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       variant_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -722,8 +709,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVariant() {
+      
       variant_ = getDefaultInstance().getVariant();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -734,10 +721,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVariantBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       variant_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -756,8 +745,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOsValue(int value) {
+      
       os_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -767,7 +756,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.OS getOs() {
-      org.mojolang.mojo.core.OS result = org.mojolang.mojo.core.OS.forNumber(os_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.OS result = org.mojolang.mojo.core.OS.valueOf(os_);
       return result == null ? org.mojolang.mojo.core.OS.UNRECOGNIZED : result;
     }
     /**
@@ -779,7 +769,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000004;
+      
       os_ = value.getNumber();
       onChanged();
       return this;
@@ -789,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOs() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       os_ = 0;
       onChanged();
       return this;
@@ -836,9 +826,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsName(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       osName_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -847,8 +839,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsName() {
+      
       osName_ = getDefaultInstance().getOsName();
-      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -859,10 +851,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       osName_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -908,9 +902,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsVersion(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       osVersion_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -919,8 +915,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsVersion() {
+      
       osVersion_ = getDefaultInstance().getOsVersion();
-      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -931,10 +927,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       osVersion_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }

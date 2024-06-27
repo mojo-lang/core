@@ -128,8 +128,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object type_ = "";
+    private volatile java.lang.Object type_;
     /**
      * <code>string type = 1;</code>
      * @return The type.
@@ -167,8 +166,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SUBJECT_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object subject_ = "";
+    private volatile java.lang.Object subject_;
     /**
      * <code>string subject = 2;</code>
      * @return The subject.
@@ -206,8 +204,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object description_ = "";
+    private volatile java.lang.Object description_;
     /**
      * <code>string description = 3;</code>
      * @return The description.
@@ -451,10 +448,12 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         type_ = "";
+
         subject_ = "";
+
         description_ = "";
+
         return this;
       }
 
@@ -481,22 +480,11 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.PreconditionFailure.Violation buildPartial() {
         org.mojolang.mojo.core.PreconditionFailure.Violation result = new org.mojolang.mojo.core.PreconditionFailure.Violation(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.type_ = type_;
+        result.subject_ = subject_;
+        result.description_ = description_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.PreconditionFailure.Violation result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.subject_ = subject_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.description_ = description_;
-        }
       }
 
       @java.lang.Override
@@ -545,17 +533,14 @@ private static final long serialVersionUID = 0L;
         if (other == org.mojolang.mojo.core.PreconditionFailure.Violation.getDefaultInstance()) return this;
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSubject().isEmpty()) {
           subject_ = other.subject_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -586,17 +571,17 @@ private static final long serialVersionUID = 0L;
                 break;
               case 10: {
                 type_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 10
               case 18: {
                 subject_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 18
               case 26: {
                 description_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
+
                 break;
               } // case 26
               default: {
@@ -614,7 +599,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object type_ = "";
       /**
@@ -657,9 +641,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setType(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -668,8 +654,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
+        
         type_ = getDefaultInstance().getType();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -680,10 +666,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -729,9 +717,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubject(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         subject_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -740,8 +730,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSubject() {
+        
         subject_ = getDefaultInstance().getSubject();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -752,10 +742,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubjectBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         subject_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -801,9 +793,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         description_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -812,8 +806,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
+        
         description_ = getDefaultInstance().getDescription();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -824,10 +818,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         description_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -896,7 +892,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIOLATIONS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.core.PreconditionFailure.Violation> violations_;
   /**
    * <code>repeated .mojo.core.PreconditionFailure.Violation violations = 1;</code>
@@ -1126,7 +1121,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (violationsBuilder_ == null) {
         violations_ = java.util.Collections.emptyList();
       } else {
@@ -1160,13 +1154,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.PreconditionFailure buildPartial() {
       org.mojolang.mojo.core.PreconditionFailure result = new org.mojolang.mojo.core.PreconditionFailure(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.PreconditionFailure result) {
+      int from_bitField0_ = bitField0_;
       if (violationsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           violations_ = java.util.Collections.unmodifiableList(violations_);
@@ -1176,10 +1164,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.violations_ = violationsBuilder_.build();
       }
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.PreconditionFailure result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override

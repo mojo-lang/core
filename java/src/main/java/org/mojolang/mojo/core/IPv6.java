@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VAL_FIELD_NUMBER = 1;
-  private long val_ = 0L;
+  private long val_;
   /**
    * <code>uint64 val = 1;</code>
    * @return The val.
@@ -243,8 +243,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       val_ = 0L;
+
       return this;
     }
 
@@ -271,16 +271,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.IPv6 buildPartial() {
       org.mojolang.mojo.core.IPv6 result = new org.mojolang.mojo.core.IPv6(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.val_ = val_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.IPv6 result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.val_ = val_;
-      }
     }
 
     @java.lang.Override
@@ -358,7 +351,7 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               val_ = input.readUInt64();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             default: {
@@ -376,7 +369,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private long val_ ;
     /**
@@ -395,7 +387,6 @@ private static final long serialVersionUID = 0L;
     public Builder setVal(long value) {
       
       val_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -404,7 +395,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVal() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       val_ = 0L;
       onChanged();
       return this;

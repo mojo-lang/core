@@ -231,8 +231,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FIELD_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object field_ = "";
+    private volatile java.lang.Object field_;
     /**
      * <code>string field = 1;</code>
      * @return The field.
@@ -270,7 +269,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SORT_FIELD_NUMBER = 2;
-    private int sort_ = 0;
+    private int sort_;
     /**
      * <code>.mojo.core.Ordering.Sort sort = 2;</code>
      * @return The enum numeric value on the wire for sort.
@@ -283,7 +282,8 @@ private static final long serialVersionUID = 0L;
      * @return The sort.
      */
     @java.lang.Override public org.mojolang.mojo.core.Ordering.Sort getSort() {
-      org.mojolang.mojo.core.Ordering.Sort result = org.mojolang.mojo.core.Ordering.Sort.forNumber(sort_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.Ordering.Sort result = org.mojolang.mojo.core.Ordering.Sort.valueOf(sort_);
       return result == null ? org.mojolang.mojo.core.Ordering.Sort.UNRECOGNIZED : result;
     }
 
@@ -484,9 +484,10 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         field_ = "";
+
         sort_ = 0;
+
         return this;
       }
 
@@ -513,19 +514,10 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.Ordering.Order buildPartial() {
         org.mojolang.mojo.core.Ordering.Order result = new org.mojolang.mojo.core.Ordering.Order(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.field_ = field_;
+        result.sort_ = sort_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.Ordering.Order result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.field_ = field_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.sort_ = sort_;
-        }
       }
 
       @java.lang.Override
@@ -574,7 +566,6 @@ private static final long serialVersionUID = 0L;
         if (other == org.mojolang.mojo.core.Ordering.Order.getDefaultInstance()) return this;
         if (!other.getField().isEmpty()) {
           field_ = other.field_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.sort_ != 0) {
@@ -608,12 +599,12 @@ private static final long serialVersionUID = 0L;
                 break;
               case 10: {
                 field_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 10
               case 16: {
                 sort_ = input.readEnum();
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 16
               default: {
@@ -631,7 +622,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object field_ = "";
       /**
@@ -674,9 +664,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setField(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         field_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -685,8 +677,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearField() {
+        
         field_ = getDefaultInstance().getField();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -697,10 +689,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFieldBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         field_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -719,8 +713,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSortValue(int value) {
+        
         sort_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -730,7 +724,8 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public org.mojolang.mojo.core.Ordering.Sort getSort() {
-        org.mojolang.mojo.core.Ordering.Sort result = org.mojolang.mojo.core.Ordering.Sort.forNumber(sort_);
+        @SuppressWarnings("deprecation")
+        org.mojolang.mojo.core.Ordering.Sort result = org.mojolang.mojo.core.Ordering.Sort.valueOf(sort_);
         return result == null ? org.mojolang.mojo.core.Ordering.Sort.UNRECOGNIZED : result;
       }
       /**
@@ -742,7 +737,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         sort_ = value.getNumber();
         onChanged();
         return this;
@@ -752,7 +747,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSort() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         sort_ = 0;
         onChanged();
         return this;
@@ -822,7 +817,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDERS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.core.Ordering.Order> orders_;
   /**
    * <code>repeated .mojo.core.Ordering.Order orders = 1;</code>
@@ -1052,7 +1046,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (ordersBuilder_ == null) {
         orders_ = java.util.Collections.emptyList();
       } else {
@@ -1086,13 +1079,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Ordering buildPartial() {
       org.mojolang.mojo.core.Ordering result = new org.mojolang.mojo.core.Ordering(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.Ordering result) {
+      int from_bitField0_ = bitField0_;
       if (ordersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           orders_ = java.util.Collections.unmodifiableList(orders_);
@@ -1102,10 +1089,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.orders_ = ordersBuilder_.build();
       }
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Ordering result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override

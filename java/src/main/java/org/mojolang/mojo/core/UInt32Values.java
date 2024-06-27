@@ -45,7 +45,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList vals_;
   /**
    * <code>repeated uint32 vals = 1;</code>
@@ -278,8 +277,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       vals_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -306,22 +305,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.UInt32Values buildPartial() {
       org.mojolang.mojo.core.UInt32Values result = new org.mojolang.mojo.core.UInt32Values(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.UInt32Values result) {
+      int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
         vals_.makeImmutable();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.vals_ = vals_;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.UInt32Values result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override
@@ -442,7 +433,7 @@ private static final long serialVersionUID = 0L;
       if (!((bitField0_ & 0x00000001) != 0)) {
         vals_ = mutableCopy(vals_);
         bitField0_ |= 0x00000001;
-      }
+       }
     }
     /**
      * <code>repeated uint32 vals = 1;</code>
@@ -476,7 +467,6 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVals(
         int index, int value) {
-      
       ensureValsIsMutable();
       vals_.setInt(index, value);
       onChanged();
@@ -488,7 +478,6 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addVals(int value) {
-      
       ensureValsIsMutable();
       vals_.addInt(value);
       onChanged();

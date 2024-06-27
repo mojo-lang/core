@@ -118,8 +118,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object key_ = "";
+    private volatile java.lang.Object key_;
     /**
      * <code>string key = 1;</code>
      * @return The key.
@@ -179,7 +178,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public org.mojolang.mojo.core.ValueOrBuilder getValueOrBuilder() {
-      return value_ == null ? org.mojolang.mojo.core.Value.getDefaultInstance() : value_;
+      return getValue();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -385,11 +384,12 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         key_ = "";
-        value_ = null;
-        if (valueBuilder_ != null) {
-          valueBuilder_.dispose();
+
+        if (valueBuilder_ == null) {
+          value_ = null;
+        } else {
+          value_ = null;
           valueBuilder_ = null;
         }
         return this;
@@ -418,21 +418,14 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.MediaType.Parameter buildPartial() {
         org.mojolang.mojo.core.MediaType.Parameter result = new org.mojolang.mojo.core.MediaType.Parameter(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.key_ = key_;
+        if (valueBuilder_ == null) {
+          result.value_ = value_;
+        } else {
+          result.value_ = valueBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.MediaType.Parameter result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.value_ = valueBuilder_ == null
-              ? value_
-              : valueBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -481,7 +474,6 @@ private static final long serialVersionUID = 0L;
         if (other == org.mojolang.mojo.core.MediaType.Parameter.getDefaultInstance()) return this;
         if (!other.getKey().isEmpty()) {
           key_ = other.key_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasValue()) {
@@ -515,14 +507,14 @@ private static final long serialVersionUID = 0L;
                 break;
               case 10: {
                 key_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 10
               case 18: {
                 input.readMessage(
                     getValueFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 18
               default: {
@@ -540,7 +532,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object key_ = "";
       /**
@@ -583,9 +574,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKey(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -594,8 +587,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearKey() {
+        
         key_ = getDefaultInstance().getKey();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -606,10 +599,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -622,7 +617,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the value field is set.
        */
       public boolean hasValue() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return valueBuilder_ != null || value_ != null;
       }
       /**
        * <code>.mojo.core.Value value = 2;</code>
@@ -644,11 +639,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           value_ = value;
+          onChanged();
         } else {
           valueBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -658,11 +653,11 @@ private static final long serialVersionUID = 0L;
           org.mojolang.mojo.core.Value.Builder builderForValue) {
         if (valueBuilder_ == null) {
           value_ = builderForValue.build();
+          onChanged();
         } else {
           valueBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -670,38 +665,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeValue(org.mojolang.mojo.core.Value value) {
         if (valueBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            value_ != null &&
-            value_ != org.mojolang.mojo.core.Value.getDefaultInstance()) {
-            getValueBuilder().mergeFrom(value);
+          if (value_ != null) {
+            value_ =
+              org.mojolang.mojo.core.Value.newBuilder(value_).mergeFrom(value).buildPartial();
           } else {
             value_ = value;
           }
+          onChanged();
         } else {
           valueBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.mojo.core.Value value = 2;</code>
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        value_ = null;
-        if (valueBuilder_ != null) {
-          valueBuilder_.dispose();
+        if (valueBuilder_ == null) {
+          value_ = null;
+          onChanged();
+        } else {
+          value_ = null;
           valueBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.mojo.core.Value value = 2;</code>
        */
       public org.mojolang.mojo.core.Value.Builder getValueBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
@@ -797,8 +792,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object type_ = "";
+  private volatile java.lang.Object type_;
   /**
    * <code>string type = 1;</code>
    * @return The type.
@@ -836,8 +830,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBTYPE_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object subtype_ = "";
+  private volatile java.lang.Object subtype_;
   /**
    * <code>string subtype = 2;</code>
    * @return The subtype.
@@ -897,7 +890,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.MediaType.ParameterOrBuilder getParameterOrBuilder() {
-    return parameter_ == null ? org.mojolang.mojo.core.MediaType.Parameter.getDefaultInstance() : parameter_;
+    return getParameter();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1113,12 +1106,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       type_ = "";
+
       subtype_ = "";
-      parameter_ = null;
-      if (parameterBuilder_ != null) {
-        parameterBuilder_.dispose();
+
+      if (parameterBuilder_ == null) {
+        parameter_ = null;
+      } else {
+        parameter_ = null;
         parameterBuilder_ = null;
       }
       return this;
@@ -1147,24 +1142,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.MediaType buildPartial() {
       org.mojolang.mojo.core.MediaType result = new org.mojolang.mojo.core.MediaType(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.type_ = type_;
+      result.subtype_ = subtype_;
+      if (parameterBuilder_ == null) {
+        result.parameter_ = parameter_;
+      } else {
+        result.parameter_ = parameterBuilder_.build();
+      }
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.MediaType result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.type_ = type_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.subtype_ = subtype_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.parameter_ = parameterBuilder_ == null
-            ? parameter_
-            : parameterBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -1213,12 +1199,10 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.MediaType.getDefaultInstance()) return this;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSubtype().isEmpty()) {
         subtype_ = other.subtype_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasParameter()) {
@@ -1252,19 +1236,19 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               type_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               subtype_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 26: {
               input.readMessage(
                   getParameterFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 26
             default: {
@@ -1282,7 +1266,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object type_ = "";
     /**
@@ -1325,9 +1308,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       type_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1336,8 +1321,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
+      
       type_ = getDefaultInstance().getType();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1348,10 +1333,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       type_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1397,9 +1384,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubtype(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       subtype_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1408,8 +1397,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubtype() {
+      
       subtype_ = getDefaultInstance().getSubtype();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1420,10 +1409,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubtypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       subtype_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1436,7 +1427,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the parameter field is set.
      */
     public boolean hasParameter() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return parameterBuilder_ != null || parameter_ != null;
     }
     /**
      * <code>.mojo.core.MediaType.Parameter parameter = 3;</code>
@@ -1458,11 +1449,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         parameter_ = value;
+        onChanged();
       } else {
         parameterBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
-      onChanged();
+
       return this;
     }
     /**
@@ -1472,11 +1463,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.MediaType.Parameter.Builder builderForValue) {
       if (parameterBuilder_ == null) {
         parameter_ = builderForValue.build();
+        onChanged();
       } else {
         parameterBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
-      onChanged();
+
       return this;
     }
     /**
@@ -1484,38 +1475,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParameter(org.mojolang.mojo.core.MediaType.Parameter value) {
       if (parameterBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
-          parameter_ != null &&
-          parameter_ != org.mojolang.mojo.core.MediaType.Parameter.getDefaultInstance()) {
-          getParameterBuilder().mergeFrom(value);
+        if (parameter_ != null) {
+          parameter_ =
+            org.mojolang.mojo.core.MediaType.Parameter.newBuilder(parameter_).mergeFrom(value).buildPartial();
         } else {
           parameter_ = value;
         }
+        onChanged();
       } else {
         parameterBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.MediaType.Parameter parameter = 3;</code>
      */
     public Builder clearParameter() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      parameter_ = null;
-      if (parameterBuilder_ != null) {
-        parameterBuilder_.dispose();
+      if (parameterBuilder_ == null) {
+        parameter_ = null;
+        onChanged();
+      } else {
+        parameter_ = null;
         parameterBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.MediaType.Parameter parameter = 3;</code>
      */
     public org.mojolang.mojo.core.MediaType.Parameter.Builder getParameterBuilder() {
-      bitField0_ |= 0x00000004;
+      
       onChanged();
       return getParameterFieldBuilder().getBuilder();
     }

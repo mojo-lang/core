@@ -45,7 +45,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABELS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList labels_;
   /**
    * <code>repeated string labels = 1;</code>
@@ -274,7 +273,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -303,22 +301,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Domain buildPartial() {
       org.mojolang.mojo.core.Domain result = new org.mojolang.mojo.core.Domain(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.Domain result) {
+      int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
         labels_ = labels_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.labels_ = labels_;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Domain result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override
@@ -471,8 +461,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabels(
         int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureLabelsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureLabelsIsMutable();
       labels_.set(index, value);
       onChanged();
       return this;
@@ -484,8 +476,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLabels(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureLabelsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureLabelsIsMutable();
       labels_.add(value);
       onChanged();
       return this;
@@ -520,8 +514,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLabelsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       ensureLabelsIsMutable();
       labels_.add(value);
       onChanged();

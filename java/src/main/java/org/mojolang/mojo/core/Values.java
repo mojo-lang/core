@@ -45,7 +45,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.core.Value> vals_;
   /**
    * <code>repeated .mojo.core.Value vals = 1;</code>
@@ -275,7 +274,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (valsBuilder_ == null) {
         vals_ = java.util.Collections.emptyList();
       } else {
@@ -309,13 +307,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Values buildPartial() {
       org.mojolang.mojo.core.Values result = new org.mojolang.mojo.core.Values(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.Values result) {
+      int from_bitField0_ = bitField0_;
       if (valsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           vals_ = java.util.Collections.unmodifiableList(vals_);
@@ -325,10 +317,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.vals_ = valsBuilder_.build();
       }
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Values result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override

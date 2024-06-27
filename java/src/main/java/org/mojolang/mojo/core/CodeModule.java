@@ -49,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BASE_ADDRESS_FIELD_NUMBER = 1;
-  private long baseAddress_ = 0L;
+  private long baseAddress_;
   /**
    * <code>int64 base_address = 1;</code>
    * @return The baseAddress.
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIZE_FIELD_NUMBER = 2;
-  private long size_ = 0L;
+  private long size_;
   /**
    * <code>int64 size = 2;</code>
    * @return The size.
@@ -71,8 +71,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODE_FILE_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object codeFile_ = "";
+  private volatile java.lang.Object codeFile_;
   /**
    * <code>string code_file = 3;</code>
    * @return The codeFile.
@@ -110,8 +109,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODE_IDENTIFIER_FIELD_NUMBER = 4;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object codeIdentifier_ = "";
+  private volatile java.lang.Object codeIdentifier_;
   /**
    * <code>string code_identifier = 4;</code>
    * @return The codeIdentifier.
@@ -149,8 +147,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEBUG_FILE_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object debugFile_ = "";
+  private volatile java.lang.Object debugFile_;
   /**
    * <code>string debug_file = 5;</code>
    * @return The debugFile.
@@ -188,8 +185,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEBUG_IDENTIFIER_FIELD_NUMBER = 6;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object debugIdentifier_ = "";
+  private volatile java.lang.Object debugIdentifier_;
   /**
    * <code>string debug_identifier = 6;</code>
    * @return The debugIdentifier.
@@ -227,8 +223,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 7;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object version_ = "";
+  private volatile java.lang.Object version_;
   /**
    * <code>string version = 7;</code>
    * @return The version.
@@ -516,14 +511,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       baseAddress_ = 0L;
+
       size_ = 0L;
+
       codeFile_ = "";
+
       codeIdentifier_ = "";
+
       debugFile_ = "";
+
       debugIdentifier_ = "";
+
       version_ = "";
+
       return this;
     }
 
@@ -550,34 +551,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.CodeModule buildPartial() {
       org.mojolang.mojo.core.CodeModule result = new org.mojolang.mojo.core.CodeModule(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.baseAddress_ = baseAddress_;
+      result.size_ = size_;
+      result.codeFile_ = codeFile_;
+      result.codeIdentifier_ = codeIdentifier_;
+      result.debugFile_ = debugFile_;
+      result.debugIdentifier_ = debugIdentifier_;
+      result.version_ = version_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.CodeModule result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.baseAddress_ = baseAddress_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.size_ = size_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.codeFile_ = codeFile_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.codeIdentifier_ = codeIdentifier_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.debugFile_ = debugFile_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.debugIdentifier_ = debugIdentifier_;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.version_ = version_;
-      }
     }
 
     @java.lang.Override
@@ -632,27 +614,22 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCodeFile().isEmpty()) {
         codeFile_ = other.codeFile_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getCodeIdentifier().isEmpty()) {
         codeIdentifier_ = other.codeIdentifier_;
-        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDebugFile().isEmpty()) {
         debugFile_ = other.debugFile_;
-        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDebugIdentifier().isEmpty()) {
         debugIdentifier_ = other.debugIdentifier_;
-        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
-        bitField0_ |= 0x00000040;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -683,37 +660,37 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               baseAddress_ = input.readInt64();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               size_ = input.readInt64();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 26: {
               codeFile_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 26
             case 34: {
               codeIdentifier_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 34
             case 42: {
               debugFile_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 42
             case 50: {
               debugIdentifier_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000020;
+
               break;
             } // case 50
             case 58: {
               version_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000040;
+
               break;
             } // case 58
             default: {
@@ -731,7 +708,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private long baseAddress_ ;
     /**
@@ -750,7 +726,6 @@ private static final long serialVersionUID = 0L;
     public Builder setBaseAddress(long value) {
       
       baseAddress_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -759,7 +734,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBaseAddress() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       baseAddress_ = 0L;
       onChanged();
       return this;
@@ -782,7 +757,6 @@ private static final long serialVersionUID = 0L;
     public Builder setSize(long value) {
       
       size_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -791,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSize() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       size_ = 0L;
       onChanged();
       return this;
@@ -838,9 +812,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodeFile(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       codeFile_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -849,8 +825,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCodeFile() {
+      
       codeFile_ = getDefaultInstance().getCodeFile();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -861,10 +837,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodeFileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       codeFile_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -910,9 +888,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodeIdentifier(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       codeIdentifier_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -921,8 +901,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCodeIdentifier() {
+      
       codeIdentifier_ = getDefaultInstance().getCodeIdentifier();
-      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -933,10 +913,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodeIdentifierBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       codeIdentifier_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -982,9 +964,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebugFile(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       debugFile_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -993,8 +977,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDebugFile() {
+      
       debugFile_ = getDefaultInstance().getDebugFile();
-      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1005,10 +989,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebugFileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       debugFile_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1054,9 +1040,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebugIdentifier(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       debugIdentifier_ = value;
-      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1065,8 +1053,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDebugIdentifier() {
+      
       debugIdentifier_ = getDefaultInstance().getDebugIdentifier();
-      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1077,10 +1065,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebugIdentifierBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       debugIdentifier_ = value;
-      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1126,9 +1116,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       version_ = value;
-      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1137,8 +1129,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
+      
       version_ = getDefaultInstance().getVersion();
-      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1149,10 +1141,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       version_ = value;
-      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }

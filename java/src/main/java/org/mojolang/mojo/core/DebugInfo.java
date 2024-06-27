@@ -46,7 +46,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STACK_ENTRIES_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList stackEntries_;
   /**
    * <code>repeated string stack_entries = 1;</code>
@@ -82,8 +81,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DETAIL_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object detail_ = "";
+  private volatile java.lang.Object detail_;
   /**
    * <code>string detail = 2;</code>
    * @return The detail.
@@ -324,10 +322,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       stackEntries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       detail_ = "";
+
       return this;
     }
 
@@ -354,25 +352,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.DebugInfo buildPartial() {
       org.mojolang.mojo.core.DebugInfo result = new org.mojolang.mojo.core.DebugInfo(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.DebugInfo result) {
+      int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
         stackEntries_ = stackEntries_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.stackEntries_ = stackEntries_;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.DebugInfo result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.detail_ = detail_;
-      }
+      result.detail_ = detail_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override
@@ -431,7 +419,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDetail().isEmpty()) {
         detail_ = other.detail_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -468,7 +455,7 @@ private static final long serialVersionUID = 0L;
             } // case 10
             case 18: {
               detail_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             default: {
@@ -535,8 +522,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackEntries(
         int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureStackEntriesIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStackEntriesIsMutable();
       stackEntries_.set(index, value);
       onChanged();
       return this;
@@ -548,8 +537,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStackEntries(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureStackEntriesIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStackEntriesIsMutable();
       stackEntries_.add(value);
       onChanged();
       return this;
@@ -584,8 +575,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStackEntriesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       ensureStackEntriesIsMutable();
       stackEntries_.add(value);
       onChanged();
@@ -633,9 +626,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDetail(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       detail_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -644,8 +639,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDetail() {
+      
       detail_ = getDefaultInstance().getDetail();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -656,10 +651,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDetailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       detail_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

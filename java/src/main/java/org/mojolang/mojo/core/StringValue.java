@@ -45,8 +45,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VAL_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object val_ = "";
+  private volatile java.lang.Object val_;
   /**
    * <code>string val = 1;</code>
    * @return The val.
@@ -270,8 +269,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       val_ = "";
+
       return this;
     }
 
@@ -298,16 +297,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.StringValue buildPartial() {
       org.mojolang.mojo.core.StringValue result = new org.mojolang.mojo.core.StringValue(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.val_ = val_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.StringValue result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.val_ = val_;
-      }
     }
 
     @java.lang.Override
@@ -356,7 +348,6 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.core.StringValue.getDefaultInstance()) return this;
       if (!other.getVal().isEmpty()) {
         val_ = other.val_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -387,7 +378,7 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               val_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             default: {
@@ -405,7 +396,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object val_ = "";
     /**
@@ -448,9 +438,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVal(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       val_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -459,8 +451,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVal() {
+      
       val_ = getDefaultInstance().getVal();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -471,10 +463,12 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       val_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }

@@ -362,7 +362,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (errorValBuilder_ != null) {
         errorValBuilder_.clear();
       }
@@ -397,27 +396,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Status buildPartial() {
       org.mojolang.mojo.core.Status result = new org.mojolang.mojo.core.Status(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      buildPartialOneofs(result);
+      if (statusCase_ == 1) {
+        if (errorValBuilder_ == null) {
+          result.status_ = status_;
+        } else {
+          result.status_ = errorValBuilder_.build();
+        }
+      }
+      if (statusCase_ == 2) {
+        if (nullValBuilder_ == null) {
+          result.status_ = status_;
+        } else {
+          result.status_ = nullValBuilder_.build();
+        }
+      }
+      result.statusCase_ = statusCase_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Status result) {
-      int from_bitField0_ = bitField0_;
-    }
-
-    private void buildPartialOneofs(org.mojolang.mojo.core.Status result) {
-      result.statusCase_ = statusCase_;
-      result.status_ = this.status_;
-      if (statusCase_ == 1 &&
-          errorValBuilder_ != null) {
-        result.status_ = errorValBuilder_.build();
-      }
-      if (statusCase_ == 2 &&
-          nullValBuilder_ != null) {
-        result.status_ = nullValBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -547,7 +542,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.core.Error, org.mojolang.mojo.core.Error.Builder, org.mojolang.mojo.core.ErrorOrBuilder> errorValBuilder_;
@@ -687,7 +681,7 @@ private static final long serialVersionUID = 0L;
         status_ = null;
       }
       statusCase_ = 1;
-      onChanged();
+      onChanged();;
       return errorValBuilder_;
     }
 
@@ -829,7 +823,7 @@ private static final long serialVersionUID = 0L;
         status_ = null;
       }
       statusCase_ = 2;
-      onChanged();
+      onChanged();;
       return nullValBuilder_;
     }
     @java.lang.Override

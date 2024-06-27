@@ -45,7 +45,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATHS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList paths_;
   /**
    * <code>repeated string paths = 1;</code>
@@ -274,7 +273,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -303,22 +301,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.FieldMask buildPartial() {
       org.mojolang.mojo.core.FieldMask result = new org.mojolang.mojo.core.FieldMask(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.FieldMask result) {
+      int from_bitField0_ = bitField0_;
       if (((bitField0_ & 0x00000001) != 0)) {
         paths_ = paths_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.paths_ = paths_;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.FieldMask result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override
@@ -471,8 +461,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPaths(
         int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensurePathsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePathsIsMutable();
       paths_.set(index, value);
       onChanged();
       return this;
@@ -484,8 +476,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPaths(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensurePathsIsMutable();
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePathsIsMutable();
       paths_.add(value);
       onChanged();
       return this;
@@ -520,8 +514,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPathsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       ensurePathsIsMutable();
       paths_.add(value);
       onChanged();

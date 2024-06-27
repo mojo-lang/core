@@ -58,8 +58,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object title_ = "";
+  private volatile java.lang.Object title_;
   /**
    * <code>string title = 1;</code>
    * @return The title.
@@ -119,12 +118,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.UrlOrBuilder getLinkOrBuilder() {
-    return link_ == null ? org.mojolang.mojo.core.Url.getDefaultInstance() : link_;
+    return getLink();
   }
 
   public static final int TYPE_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object type_ = "";
+  private volatile java.lang.Object type_;
   /**
    * <code>string type = 3;</code>
    * @return The type.
@@ -173,7 +171,6 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.core.Value.getDefaultInstance());
   }
-  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.core.Value> properties_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
@@ -184,12 +181,14 @@ private static final long serialVersionUID = 0L;
     }
     return properties_;
   }
+
   public int getPropertiesCount() {
     return internalGetProperties().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
    */
+
   @java.lang.Override
   public boolean containsProperties(
       java.lang.String key) {
@@ -208,6 +207,7 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
    */
   @java.lang.Override
+
   public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getPropertiesMap() {
     return internalGetProperties().getMap();
   }
@@ -215,11 +215,10 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
    */
   @java.lang.Override
-  public /* nullable */
-org.mojolang.mojo.core.Value getPropertiesOrDefault(
+
+  public org.mojolang.mojo.core.Value getPropertiesOrDefault(
       java.lang.String key,
-      /* nullable */
-org.mojolang.mojo.core.Value defaultValue) {
+      org.mojolang.mojo.core.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
         internalGetProperties().getMap();
@@ -229,6 +228,7 @@ org.mojolang.mojo.core.Value defaultValue) {
    * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
    */
   @java.lang.Override
+
   public org.mojolang.mojo.core.Value getPropertiesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -263,7 +263,7 @@ org.mojolang.mojo.core.Value defaultValue) {
    */
   @java.lang.Override
   public org.mojolang.mojo.core.TimestampOrBuilder getTimestampOrBuilder() {
-    return timestamp_ == null ? org.mojolang.mojo.core.Timestamp.getDefaultInstance() : timestamp_;
+    return getTimestamp();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -539,18 +539,21 @@ org.mojolang.mojo.core.Value defaultValue) {
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       title_ = "";
-      link_ = null;
-      if (linkBuilder_ != null) {
-        linkBuilder_.dispose();
+
+      if (linkBuilder_ == null) {
+        link_ = null;
+      } else {
+        link_ = null;
         linkBuilder_ = null;
       }
       type_ = "";
+
       internalGetMutableProperties().clear();
-      timestamp_ = null;
-      if (timestampBuilder_ != null) {
-        timestampBuilder_.dispose();
+      if (timestampBuilder_ == null) {
+        timestamp_ = null;
+      } else {
+        timestamp_ = null;
         timestampBuilder_ = null;
       }
       return this;
@@ -579,33 +582,23 @@ org.mojolang.mojo.core.Value defaultValue) {
     @java.lang.Override
     public org.mojolang.mojo.core.Image buildPartial() {
       org.mojolang.mojo.core.Image result = new org.mojolang.mojo.core.Image(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      int from_bitField0_ = bitField0_;
+      result.title_ = title_;
+      if (linkBuilder_ == null) {
+        result.link_ = link_;
+      } else {
+        result.link_ = linkBuilder_.build();
+      }
+      result.type_ = type_;
+      result.properties_ = internalGetProperties();
+      result.properties_.makeImmutable();
+      if (timestampBuilder_ == null) {
+        result.timestamp_ = timestamp_;
+      } else {
+        result.timestamp_ = timestampBuilder_.build();
+      }
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Image result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.title_ = title_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.link_ = linkBuilder_ == null
-            ? link_
-            : linkBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.type_ = type_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.properties_ = internalGetProperties();
-        result.properties_.makeImmutable();
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.timestamp_ = timestampBuilder_ == null
-            ? timestamp_
-            : timestampBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -654,7 +647,6 @@ org.mojolang.mojo.core.Value defaultValue) {
       if (other == org.mojolang.mojo.core.Image.getDefaultInstance()) return this;
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasLink()) {
@@ -662,12 +654,10 @@ org.mojolang.mojo.core.Value defaultValue) {
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       internalGetMutableProperties().mergeFrom(
           other.internalGetProperties());
-      bitField0_ |= 0x00000008;
       if (other.hasTimestamp()) {
         mergeTimestamp(other.getTimestamp());
       }
@@ -699,19 +689,19 @@ org.mojolang.mojo.core.Value defaultValue) {
               break;
             case 10: {
               title_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               input.readMessage(
                   getLinkFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 26: {
               type_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 26
             case 34: {
@@ -720,14 +710,13 @@ org.mojolang.mojo.core.Value defaultValue) {
                   PropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableProperties().getMutableMap().put(
                   properties__.getKey(), properties__.getValue());
-              bitField0_ |= 0x00000008;
               break;
             } // case 34
             case 82: {
               input.readMessage(
                   getTimestampFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 82
             default: {
@@ -788,9 +777,11 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       title_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -799,8 +790,8 @@ org.mojolang.mojo.core.Value defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
+      
       title_ = getDefaultInstance().getTitle();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -811,10 +802,12 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       title_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -827,7 +820,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      * @return Whether the link field is set.
      */
     public boolean hasLink() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return linkBuilder_ != null || link_ != null;
     }
     /**
      * <code>.mojo.core.Url link = 2;</code>
@@ -849,11 +842,11 @@ org.mojolang.mojo.core.Value defaultValue) {
           throw new NullPointerException();
         }
         link_ = value;
+        onChanged();
       } else {
         linkBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -863,11 +856,11 @@ org.mojolang.mojo.core.Value defaultValue) {
         org.mojolang.mojo.core.Url.Builder builderForValue) {
       if (linkBuilder_ == null) {
         link_ = builderForValue.build();
+        onChanged();
       } else {
         linkBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -875,38 +868,38 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder mergeLink(org.mojolang.mojo.core.Url value) {
       if (linkBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          link_ != null &&
-          link_ != org.mojolang.mojo.core.Url.getDefaultInstance()) {
-          getLinkBuilder().mergeFrom(value);
+        if (link_ != null) {
+          link_ =
+            org.mojolang.mojo.core.Url.newBuilder(link_).mergeFrom(value).buildPartial();
         } else {
           link_ = value;
         }
+        onChanged();
       } else {
         linkBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Url link = 2;</code>
      */
     public Builder clearLink() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      link_ = null;
-      if (linkBuilder_ != null) {
-        linkBuilder_.dispose();
+      if (linkBuilder_ == null) {
+        link_ = null;
+        onChanged();
+      } else {
+        link_ = null;
         linkBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Url link = 2;</code>
      */
     public org.mojolang.mojo.core.Url.Builder getLinkBuilder() {
-      bitField0_ |= 0x00000002;
+      
       onChanged();
       return getLinkFieldBuilder().getBuilder();
     }
@@ -979,9 +972,11 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       type_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -990,8 +985,8 @@ org.mojolang.mojo.core.Value defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearType() {
+      
       type_ = getDefaultInstance().getType();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1002,10 +997,12 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       type_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1013,7 +1010,7 @@ org.mojolang.mojo.core.Value defaultValue) {
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.core.Value> properties_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
-        internalGetProperties() {
+    internalGetProperties() {
       if (properties_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PropertiesDefaultEntryHolder.defaultEntry);
@@ -1021,7 +1018,8 @@ org.mojolang.mojo.core.Value defaultValue) {
       return properties_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
-        internalGetMutableProperties() {
+    internalGetMutableProperties() {
+      onChanged();;
       if (properties_ == null) {
         properties_ = com.google.protobuf.MapField.newMapField(
             PropertiesDefaultEntryHolder.defaultEntry);
@@ -1029,16 +1027,16 @@ org.mojolang.mojo.core.Value defaultValue) {
       if (!properties_.isMutable()) {
         properties_ = properties_.copy();
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
       return properties_;
     }
+
     public int getPropertiesCount() {
       return internalGetProperties().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
      */
+
     @java.lang.Override
     public boolean containsProperties(
         java.lang.String key) {
@@ -1057,6 +1055,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getPropertiesMap() {
       return internalGetProperties().getMap();
     }
@@ -1064,11 +1063,10 @@ org.mojolang.mojo.core.Value defaultValue) {
      * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
      */
     @java.lang.Override
-    public /* nullable */
-org.mojolang.mojo.core.Value getPropertiesOrDefault(
+
+    public org.mojolang.mojo.core.Value getPropertiesOrDefault(
         java.lang.String key,
-        /* nullable */
-org.mojolang.mojo.core.Value defaultValue) {
+        org.mojolang.mojo.core.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
           internalGetProperties().getMap();
@@ -1078,6 +1076,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
      */
     @java.lang.Override
+
     public org.mojolang.mojo.core.Value getPropertiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1088,8 +1087,8 @@ org.mojolang.mojo.core.Value defaultValue) {
       }
       return map.get(key);
     }
+
     public Builder clearProperties() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableProperties().getMutableMap()
           .clear();
       return this;
@@ -1097,6 +1096,7 @@ org.mojolang.mojo.core.Value defaultValue) {
     /**
      * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
      */
+
     public Builder removeProperties(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1109,8 +1109,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value>
-        getMutableProperties() {
-      bitField0_ |= 0x00000008;
+    getMutableProperties() {
       return internalGetMutableProperties().getMutableMap();
     }
     /**
@@ -1120,20 +1119,22 @@ org.mojolang.mojo.core.Value defaultValue) {
         java.lang.String key,
         org.mojolang.mojo.core.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) { throw new NullPointerException("map value"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableProperties().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000008;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.core.Value&gt; properties = 4;</code>
      */
+
     public Builder putAllProperties(
         java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> values) {
       internalGetMutableProperties().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -1145,7 +1146,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      * @return Whether the timestamp field is set.
      */
     public boolean hasTimestamp() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return timestampBuilder_ != null || timestamp_ != null;
     }
     /**
      * <code>.mojo.core.Timestamp timestamp = 10;</code>
@@ -1167,11 +1168,11 @@ org.mojolang.mojo.core.Value defaultValue) {
           throw new NullPointerException();
         }
         timestamp_ = value;
+        onChanged();
       } else {
         timestampBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
-      onChanged();
+
       return this;
     }
     /**
@@ -1181,11 +1182,11 @@ org.mojolang.mojo.core.Value defaultValue) {
         org.mojolang.mojo.core.Timestamp.Builder builderForValue) {
       if (timestampBuilder_ == null) {
         timestamp_ = builderForValue.build();
+        onChanged();
       } else {
         timestampBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
-      onChanged();
+
       return this;
     }
     /**
@@ -1193,38 +1194,38 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder mergeTimestamp(org.mojolang.mojo.core.Timestamp value) {
       if (timestampBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
-          timestamp_ != null &&
-          timestamp_ != org.mojolang.mojo.core.Timestamp.getDefaultInstance()) {
-          getTimestampBuilder().mergeFrom(value);
+        if (timestamp_ != null) {
+          timestamp_ =
+            org.mojolang.mojo.core.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
         } else {
           timestamp_ = value;
         }
+        onChanged();
       } else {
         timestampBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000010;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Timestamp timestamp = 10;</code>
      */
     public Builder clearTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000010);
-      timestamp_ = null;
-      if (timestampBuilder_ != null) {
-        timestampBuilder_.dispose();
+      if (timestampBuilder_ == null) {
+        timestamp_ = null;
+        onChanged();
+      } else {
+        timestamp_ = null;
         timestampBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Timestamp timestamp = 10;</code>
      */
     public org.mojolang.mojo.core.Timestamp.Builder getTimestampBuilder() {
-      bitField0_ |= 0x00000010;
+      
       onChanged();
       return getTimestampFieldBuilder().getBuilder();
     }

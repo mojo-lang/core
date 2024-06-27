@@ -37,7 +37,7 @@ public final class AnyProto {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.MojoProtos.getDescriptor(),
+          org.mojolang.mojo.MojoProtos.getDescriptor(),
         });
     internal_static_mojo_core_Any_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -47,10 +47,10 @@ public final class AnyProto {
         new java.lang.String[] { "Type", "Val", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.google.protobuf.MojoProtos.alias);
+    registry.add(org.mojolang.mojo.MojoProtos.alias);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.protobuf.MojoProtos.getDescriptor();
+    org.mojolang.mojo.MojoProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

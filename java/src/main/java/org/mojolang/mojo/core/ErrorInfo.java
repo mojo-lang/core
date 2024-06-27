@@ -58,8 +58,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REASON_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object reason_ = "";
+  private volatile java.lang.Object reason_;
   /**
    * <code>string reason = 1;</code>
    * @return The reason.
@@ -97,8 +96,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object domain_ = "";
+  private volatile java.lang.Object domain_;
   /**
    * <code>string domain = 2;</code>
    * @return The domain.
@@ -147,7 +145,6 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.core.Value.getDefaultInstance());
   }
-  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.core.Value> metadata_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
@@ -158,12 +155,14 @@ private static final long serialVersionUID = 0L;
     }
     return metadata_;
   }
+
   public int getMetadataCount() {
     return internalGetMetadata().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
+
   @java.lang.Override
   public boolean containsMetadata(
       java.lang.String key) {
@@ -182,6 +181,7 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   @java.lang.Override
+
   public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getMetadataMap() {
     return internalGetMetadata().getMap();
   }
@@ -189,11 +189,10 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   @java.lang.Override
-  public /* nullable */
-org.mojolang.mojo.core.Value getMetadataOrDefault(
+
+  public org.mojolang.mojo.core.Value getMetadataOrDefault(
       java.lang.String key,
-      /* nullable */
-org.mojolang.mojo.core.Value defaultValue) {
+      org.mojolang.mojo.core.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
         internalGetMetadata().getMap();
@@ -203,6 +202,7 @@ org.mojolang.mojo.core.Value defaultValue) {
    * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
    */
   @java.lang.Override
+
   public org.mojolang.mojo.core.Value getMetadataOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -455,9 +455,10 @@ org.mojolang.mojo.core.Value defaultValue) {
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       reason_ = "";
+
       domain_ = "";
+
       internalGetMutableMetadata().clear();
       return this;
     }
@@ -485,23 +486,13 @@ org.mojolang.mojo.core.Value defaultValue) {
     @java.lang.Override
     public org.mojolang.mojo.core.ErrorInfo buildPartial() {
       org.mojolang.mojo.core.ErrorInfo result = new org.mojolang.mojo.core.ErrorInfo(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      int from_bitField0_ = bitField0_;
+      result.reason_ = reason_;
+      result.domain_ = domain_;
+      result.metadata_ = internalGetMetadata();
+      result.metadata_.makeImmutable();
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.ErrorInfo result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.reason_ = reason_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.domain_ = domain_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.metadata_ = internalGetMetadata();
-        result.metadata_.makeImmutable();
-      }
     }
 
     @java.lang.Override
@@ -550,17 +541,14 @@ org.mojolang.mojo.core.Value defaultValue) {
       if (other == org.mojolang.mojo.core.ErrorInfo.getDefaultInstance()) return this;
       if (!other.getReason().isEmpty()) {
         reason_ = other.reason_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDomain().isEmpty()) {
         domain_ = other.domain_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
-      bitField0_ |= 0x00000004;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -589,12 +577,12 @@ org.mojolang.mojo.core.Value defaultValue) {
               break;
             case 10: {
               reason_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               domain_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 26: {
@@ -603,7 +591,6 @@ org.mojolang.mojo.core.Value defaultValue) {
                   MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableMetadata().getMutableMap().put(
                   metadata__.getKey(), metadata__.getValue());
-              bitField0_ |= 0x00000004;
               break;
             } // case 26
             default: {
@@ -664,9 +651,11 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setReason(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       reason_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -675,8 +664,8 @@ org.mojolang.mojo.core.Value defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearReason() {
+      
       reason_ = getDefaultInstance().getReason();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -687,10 +676,12 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setReasonBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       reason_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -736,9 +727,11 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       domain_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -747,8 +740,8 @@ org.mojolang.mojo.core.Value defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearDomain() {
+      
       domain_ = getDefaultInstance().getDomain();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -759,10 +752,12 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       domain_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -770,7 +765,7 @@ org.mojolang.mojo.core.Value defaultValue) {
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.core.Value> metadata_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
-        internalGetMetadata() {
+    internalGetMetadata() {
       if (metadata_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -778,7 +773,8 @@ org.mojolang.mojo.core.Value defaultValue) {
       return metadata_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.Value>
-        internalGetMutableMetadata() {
+    internalGetMutableMetadata() {
+      onChanged();;
       if (metadata_ == null) {
         metadata_ = com.google.protobuf.MapField.newMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -786,16 +782,16 @@ org.mojolang.mojo.core.Value defaultValue) {
       if (!metadata_.isMutable()) {
         metadata_ = metadata_.copy();
       }
-      bitField0_ |= 0x00000004;
-      onChanged();
       return metadata_;
     }
+
     public int getMetadataCount() {
       return internalGetMetadata().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
+
     @java.lang.Override
     public boolean containsMetadata(
         java.lang.String key) {
@@ -814,6 +810,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> getMetadataMap() {
       return internalGetMetadata().getMap();
     }
@@ -821,11 +818,10 @@ org.mojolang.mojo.core.Value defaultValue) {
      * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     @java.lang.Override
-    public /* nullable */
-org.mojolang.mojo.core.Value getMetadataOrDefault(
+
+    public org.mojolang.mojo.core.Value getMetadataOrDefault(
         java.lang.String key,
-        /* nullable */
-org.mojolang.mojo.core.Value defaultValue) {
+        org.mojolang.mojo.core.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> map =
           internalGetMetadata().getMap();
@@ -835,6 +831,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
     @java.lang.Override
+
     public org.mojolang.mojo.core.Value getMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -845,8 +842,8 @@ org.mojolang.mojo.core.Value defaultValue) {
       }
       return map.get(key);
     }
+
     public Builder clearMetadata() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableMetadata().getMutableMap()
           .clear();
       return this;
@@ -854,6 +851,7 @@ org.mojolang.mojo.core.Value defaultValue) {
     /**
      * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
+
     public Builder removeMetadata(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -866,8 +864,7 @@ org.mojolang.mojo.core.Value defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.core.Value>
-        getMutableMetadata() {
-      bitField0_ |= 0x00000004;
+    getMutableMetadata() {
       return internalGetMutableMetadata().getMutableMap();
     }
     /**
@@ -877,20 +874,22 @@ org.mojolang.mojo.core.Value defaultValue) {
         java.lang.String key,
         org.mojolang.mojo.core.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) { throw new NullPointerException("map value"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableMetadata().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000004;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.core.Value&gt; metadata = 3;</code>
      */
+
     public Builder putAllMetadata(
         java.util.Map<java.lang.String, org.mojolang.mojo.core.Value> values) {
       internalGetMutableMetadata().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override

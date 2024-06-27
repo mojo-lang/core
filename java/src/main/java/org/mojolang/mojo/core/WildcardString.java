@@ -249,7 +249,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_ = 0;
+    private int type_;
     /**
      * <code>.mojo.core.WildcardString.Wildcard.Type type = 1;</code>
      * @return The enum numeric value on the wire for type.
@@ -262,13 +262,13 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public org.mojolang.mojo.core.WildcardString.Wildcard.Type getType() {
-      org.mojolang.mojo.core.WildcardString.Wildcard.Type result = org.mojolang.mojo.core.WildcardString.Wildcard.Type.forNumber(type_);
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.core.WildcardString.Wildcard.Type result = org.mojolang.mojo.core.WildcardString.Wildcard.Type.valueOf(type_);
       return result == null ? org.mojolang.mojo.core.WildcardString.Wildcard.Type.UNRECOGNIZED : result;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object content_ = "";
+    private volatile java.lang.Object content_;
     /**
      * <code>string content = 2;</code>
      * @return The content.
@@ -502,9 +502,10 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         type_ = 0;
+
         content_ = "";
+
         return this;
       }
 
@@ -531,19 +532,10 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.WildcardString.Wildcard buildPartial() {
         org.mojolang.mojo.core.WildcardString.Wildcard result = new org.mojolang.mojo.core.WildcardString.Wildcard(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.type_ = type_;
+        result.content_ = content_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.WildcardString.Wildcard result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.content_ = content_;
-        }
       }
 
       @java.lang.Override
@@ -595,7 +587,6 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getContent().isEmpty()) {
           content_ = other.content_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -626,12 +617,12 @@ private static final long serialVersionUID = 0L;
                 break;
               case 8: {
                 type_ = input.readEnum();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 8
               case 18: {
                 content_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 18
               default: {
@@ -649,7 +640,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -665,8 +655,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
+        
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -676,7 +666,8 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public org.mojolang.mojo.core.WildcardString.Wildcard.Type getType() {
-        org.mojolang.mojo.core.WildcardString.Wildcard.Type result = org.mojolang.mojo.core.WildcardString.Wildcard.Type.forNumber(type_);
+        @SuppressWarnings("deprecation")
+        org.mojolang.mojo.core.WildcardString.Wildcard.Type result = org.mojolang.mojo.core.WildcardString.Wildcard.Type.valueOf(type_);
         return result == null ? org.mojolang.mojo.core.WildcardString.Wildcard.Type.UNRECOGNIZED : result;
       }
       /**
@@ -688,7 +679,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -698,7 +689,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         type_ = 0;
         onChanged();
         return this;
@@ -745,9 +736,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setContent(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         content_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -756,8 +749,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearContent() {
+        
         content_ = getDefaultInstance().getContent();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -768,10 +761,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         content_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -840,7 +835,6 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WILDCARDS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.core.WildcardString.Wildcard> wildcards_;
   /**
    * <code>repeated .mojo.core.WildcardString.Wildcard wildcards = 1;</code>
@@ -1070,7 +1064,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       if (wildcardsBuilder_ == null) {
         wildcards_ = java.util.Collections.emptyList();
       } else {
@@ -1104,13 +1097,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.WildcardString buildPartial() {
       org.mojolang.mojo.core.WildcardString result = new org.mojolang.mojo.core.WildcardString(this);
-      buildPartialRepeatedFields(result);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartialRepeatedFields(org.mojolang.mojo.core.WildcardString result) {
+      int from_bitField0_ = bitField0_;
       if (wildcardsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           wildcards_ = java.util.Collections.unmodifiableList(wildcards_);
@@ -1120,10 +1107,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.wildcards_ = wildcardsBuilder_.build();
       }
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.WildcardString result) {
-      int from_bitField0_ = bitField0_;
+      onBuilt();
+      return result;
     }
 
     @java.lang.Override

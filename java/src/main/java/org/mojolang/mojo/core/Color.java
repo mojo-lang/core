@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RED_FIELD_NUMBER = 1;
-  private int red_ = 0;
+  private int red_;
   /**
    * <code>uint32 red = 1;</code>
    * @return The red.
@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GREEN_FIELD_NUMBER = 2;
-  private int green_ = 0;
+  private int green_;
   /**
    * <code>uint32 green = 2;</code>
    * @return The green.
@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BLUE_FIELD_NUMBER = 3;
-  private int blue_ = 0;
+  private int blue_;
   /**
    * <code>uint32 blue = 3;</code>
    * @return The blue.
@@ -99,7 +99,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.core.Float32ValueOrBuilder getAlphaOrBuilder() {
-    return alpha_ == null ? org.mojolang.mojo.core.Float32Value.getDefaultInstance() : alpha_;
+    return getAlpha();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -328,13 +328,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       red_ = 0;
+
       green_ = 0;
+
       blue_ = 0;
-      alpha_ = null;
-      if (alphaBuilder_ != null) {
-        alphaBuilder_.dispose();
+
+      if (alphaBuilder_ == null) {
+        alpha_ = null;
+      } else {
+        alpha_ = null;
         alphaBuilder_ = null;
       }
       return this;
@@ -363,27 +366,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.core.Color buildPartial() {
       org.mojolang.mojo.core.Color result = new org.mojolang.mojo.core.Color(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.red_ = red_;
+      result.green_ = green_;
+      result.blue_ = blue_;
+      if (alphaBuilder_ == null) {
+        result.alpha_ = alpha_;
+      } else {
+        result.alpha_ = alphaBuilder_.build();
+      }
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Color result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.red_ = red_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.green_ = green_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.blue_ = blue_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.alpha_ = alphaBuilder_ == null
-            ? alpha_
-            : alphaBuilder_.build();
-      }
     }
 
     @java.lang.Override
@@ -470,24 +462,24 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               red_ = input.readUInt32();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 8
             case 16: {
               green_ = input.readUInt32();
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 16
             case 24: {
               blue_ = input.readUInt32();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 24
             case 34: {
               input.readMessage(
                   getAlphaFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 34
             default: {
@@ -505,7 +497,6 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private int red_ ;
     /**
@@ -524,7 +515,6 @@ private static final long serialVersionUID = 0L;
     public Builder setRed(int value) {
       
       red_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -533,7 +523,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRed() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       red_ = 0;
       onChanged();
       return this;
@@ -556,7 +546,6 @@ private static final long serialVersionUID = 0L;
     public Builder setGreen(int value) {
       
       green_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -565,7 +554,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGreen() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       green_ = 0;
       onChanged();
       return this;
@@ -588,7 +577,6 @@ private static final long serialVersionUID = 0L;
     public Builder setBlue(int value) {
       
       blue_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -597,7 +585,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBlue() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       blue_ = 0;
       onChanged();
       return this;
@@ -611,7 +599,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the alpha field is set.
      */
     public boolean hasAlpha() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return alphaBuilder_ != null || alpha_ != null;
     }
     /**
      * <code>.mojo.core.Float32Value alpha = 4;</code>
@@ -633,11 +621,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         alpha_ = value;
+        onChanged();
       } else {
         alphaBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
+
       return this;
     }
     /**
@@ -647,11 +635,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.core.Float32Value.Builder builderForValue) {
       if (alphaBuilder_ == null) {
         alpha_ = builderForValue.build();
+        onChanged();
       } else {
         alphaBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
+
       return this;
     }
     /**
@@ -659,38 +647,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAlpha(org.mojolang.mojo.core.Float32Value value) {
       if (alphaBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
-          alpha_ != null &&
-          alpha_ != org.mojolang.mojo.core.Float32Value.getDefaultInstance()) {
-          getAlphaBuilder().mergeFrom(value);
+        if (alpha_ != null) {
+          alpha_ =
+            org.mojolang.mojo.core.Float32Value.newBuilder(alpha_).mergeFrom(value).buildPartial();
         } else {
           alpha_ = value;
         }
+        onChanged();
       } else {
         alphaBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Float32Value alpha = 4;</code>
      */
     public Builder clearAlpha() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      alpha_ = null;
-      if (alphaBuilder_ != null) {
-        alphaBuilder_.dispose();
+      if (alphaBuilder_ == null) {
+        alpha_ = null;
+        onChanged();
+      } else {
+        alpha_ = null;
         alphaBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Float32Value alpha = 4;</code>
      */
     public org.mojolang.mojo.core.Float32Value.Builder getAlphaBuilder() {
-      bitField0_ |= 0x00000008;
+      
       onChanged();
       return getAlphaFieldBuilder().getBuilder();
     }

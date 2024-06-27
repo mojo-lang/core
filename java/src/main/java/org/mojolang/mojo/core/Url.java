@@ -123,8 +123,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int USER_INFO_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object userInfo_ = "";
+    private volatile java.lang.Object userInfo_;
     /**
      * <code>string user_info = 1;</code>
      * @return The userInfo.
@@ -162,8 +161,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HOST_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object host_ = "";
+    private volatile java.lang.Object host_;
     /**
      * <code>string host = 2;</code>
      * @return The host.
@@ -201,7 +199,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PORT_FIELD_NUMBER = 3;
-    private long port_ = 0L;
+    private long port_;
     /**
      * <code>int64 port = 3;</code>
      * @return The port.
@@ -420,10 +418,12 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         userInfo_ = "";
+
         host_ = "";
+
         port_ = 0L;
+
         return this;
       }
 
@@ -450,22 +450,11 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.core.Url.Authority buildPartial() {
         org.mojolang.mojo.core.Url.Authority result = new org.mojolang.mojo.core.Url.Authority(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.userInfo_ = userInfo_;
+        result.host_ = host_;
+        result.port_ = port_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.Url.Authority result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userInfo_ = userInfo_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.host_ = host_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.port_ = port_;
-        }
       }
 
       @java.lang.Override
@@ -514,12 +503,10 @@ private static final long serialVersionUID = 0L;
         if (other == org.mojolang.mojo.core.Url.Authority.getDefaultInstance()) return this;
         if (!other.getUserInfo().isEmpty()) {
           userInfo_ = other.userInfo_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getHost().isEmpty()) {
           host_ = other.host_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getPort() != 0L) {
@@ -553,17 +540,17 @@ private static final long serialVersionUID = 0L;
                 break;
               case 10: {
                 userInfo_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
+
                 break;
               } // case 10
               case 18: {
                 host_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
+
                 break;
               } // case 18
               case 24: {
                 port_ = input.readInt64();
-                bitField0_ |= 0x00000004;
+
                 break;
               } // case 24
               default: {
@@ -581,7 +568,6 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object userInfo_ = "";
       /**
@@ -624,9 +610,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUserInfo(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         userInfo_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -635,8 +623,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUserInfo() {
+        
         userInfo_ = getDefaultInstance().getUserInfo();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -647,10 +635,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUserInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         userInfo_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -696,9 +686,11 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHost(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         host_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -707,8 +699,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHost() {
+        
         host_ = getDefaultInstance().getHost();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -719,10 +711,12 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         host_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -744,7 +738,6 @@ private static final long serialVersionUID = 0L;
       public Builder setPort(long value) {
         
         port_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -753,7 +746,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPort() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         port_ = 0L;
         onChanged();
         return this;
@@ -849,6 +842,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
+
     /* nullable */
 org.mojolang.mojo.core.StringValues getValsOrDefault(
         java.lang.String key,
@@ -857,6 +851,7 @@ org.mojolang.mojo.core.StringValues defaultValue);
     /**
      * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
+
     org.mojolang.mojo.core.StringValues getValsOrThrow(
         java.lang.String key);
   }
@@ -924,7 +919,6 @@ org.mojolang.mojo.core.StringValues defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   org.mojolang.mojo.core.StringValues.getDefaultInstance());
     }
-    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.core.StringValues> vals_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.StringValues>
@@ -935,12 +929,14 @@ org.mojolang.mojo.core.StringValues defaultValue);
       }
       return vals_;
     }
+
     public int getValsCount() {
       return internalGetVals().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
+
     @java.lang.Override
     public boolean containsVals(
         java.lang.String key) {
@@ -959,6 +955,7 @@ org.mojolang.mojo.core.StringValues defaultValue);
      * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> getValsMap() {
       return internalGetVals().getMap();
     }
@@ -966,11 +963,10 @@ org.mojolang.mojo.core.StringValues defaultValue);
      * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     @java.lang.Override
-    public /* nullable */
-org.mojolang.mojo.core.StringValues getValsOrDefault(
+
+    public org.mojolang.mojo.core.StringValues getValsOrDefault(
         java.lang.String key,
-        /* nullable */
-org.mojolang.mojo.core.StringValues defaultValue) {
+        org.mojolang.mojo.core.StringValues defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> map =
           internalGetVals().getMap();
@@ -980,6 +976,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
      */
     @java.lang.Override
+
     public org.mojolang.mojo.core.StringValues getValsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1212,7 +1209,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         internalGetMutableVals().clear();
         return this;
       }
@@ -1240,17 +1236,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       @java.lang.Override
       public org.mojolang.mojo.core.Url.Query buildPartial() {
         org.mojolang.mojo.core.Url.Query result = new org.mojolang.mojo.core.Url.Query(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        int from_bitField0_ = bitField0_;
+        result.vals_ = internalGetVals();
+        result.vals_.makeImmutable();
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.mojolang.mojo.core.Url.Query result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.vals_ = internalGetVals();
-          result.vals_.makeImmutable();
-        }
       }
 
       @java.lang.Override
@@ -1299,7 +1289,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
         if (other == org.mojolang.mojo.core.Url.Query.getDefaultInstance()) return this;
         internalGetMutableVals().mergeFrom(
             other.internalGetVals());
-        bitField0_ |= 0x00000001;
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -1332,7 +1321,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
                     ValsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
                 internalGetMutableVals().getMutableMap().put(
                     vals__.getKey(), vals__.getValue());
-                bitField0_ |= 0x00000001;
                 break;
               } // case 10
               default: {
@@ -1355,7 +1343,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       private com.google.protobuf.MapField<
           java.lang.String, org.mojolang.mojo.core.StringValues> vals_;
       private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.StringValues>
-          internalGetVals() {
+      internalGetVals() {
         if (vals_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ValsDefaultEntryHolder.defaultEntry);
@@ -1363,7 +1351,8 @@ org.mojolang.mojo.core.StringValues defaultValue) {
         return vals_;
       }
       private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.core.StringValues>
-          internalGetMutableVals() {
+      internalGetMutableVals() {
+        onChanged();;
         if (vals_ == null) {
           vals_ = com.google.protobuf.MapField.newMapField(
               ValsDefaultEntryHolder.defaultEntry);
@@ -1371,16 +1360,16 @@ org.mojolang.mojo.core.StringValues defaultValue) {
         if (!vals_.isMutable()) {
           vals_ = vals_.copy();
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
         return vals_;
       }
+
       public int getValsCount() {
         return internalGetVals().getMap().size();
       }
       /**
        * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
+
       @java.lang.Override
       public boolean containsVals(
           java.lang.String key) {
@@ -1399,6 +1388,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
        * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       @java.lang.Override
+
       public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> getValsMap() {
         return internalGetVals().getMap();
       }
@@ -1406,11 +1396,10 @@ org.mojolang.mojo.core.StringValues defaultValue) {
        * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       @java.lang.Override
-      public /* nullable */
-org.mojolang.mojo.core.StringValues getValsOrDefault(
+
+      public org.mojolang.mojo.core.StringValues getValsOrDefault(
           java.lang.String key,
-          /* nullable */
-org.mojolang.mojo.core.StringValues defaultValue) {
+          org.mojolang.mojo.core.StringValues defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> map =
             internalGetVals().getMap();
@@ -1420,6 +1409,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
        * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
       @java.lang.Override
+
       public org.mojolang.mojo.core.StringValues getValsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1430,8 +1420,8 @@ org.mojolang.mojo.core.StringValues defaultValue) {
         }
         return map.get(key);
       }
+
       public Builder clearVals() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableVals().getMutableMap()
             .clear();
         return this;
@@ -1439,6 +1429,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       /**
        * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
+
       public Builder removeVals(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1451,8 +1442,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues>
-          getMutableVals() {
-        bitField0_ |= 0x00000001;
+      getMutableVals() {
         return internalGetMutableVals().getMutableMap();
       }
       /**
@@ -1462,20 +1452,22 @@ org.mojolang.mojo.core.StringValues defaultValue) {
           java.lang.String key,
           org.mojolang.mojo.core.StringValues value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) { throw new NullPointerException("map value"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableVals().getMutableMap()
             .put(key, value);
-        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;string, .mojo.core.StringValues&gt; vals = 1;</code>
        */
+
       public Builder putAllVals(
           java.util.Map<java.lang.String, org.mojolang.mojo.core.StringValues> values) {
         internalGetMutableVals().getMutableMap()
             .putAll(values);
-        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -1543,8 +1535,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
   }
 
   public static final int SCHEME_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object scheme_ = "";
+  private volatile java.lang.Object scheme_;
   /**
    * <code>string scheme = 1;</code>
    * @return The scheme.
@@ -1604,12 +1595,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
    */
   @java.lang.Override
   public org.mojolang.mojo.core.Url.AuthorityOrBuilder getAuthorityOrBuilder() {
-    return authority_ == null ? org.mojolang.mojo.core.Url.Authority.getDefaultInstance() : authority_;
+    return getAuthority();
   }
 
   public static final int PATH_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object path_ = "";
+  private volatile java.lang.Object path_;
   /**
    * <code>string path = 3;</code>
    * @return The path.
@@ -1669,12 +1659,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
    */
   @java.lang.Override
   public org.mojolang.mojo.core.Url.QueryOrBuilder getQueryOrBuilder() {
-    return query_ == null ? org.mojolang.mojo.core.Url.Query.getDefaultInstance() : query_;
+    return getQuery();
   }
 
   public static final int FRAGMENT_FIELD_NUMBER = 7;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object fragment_ = "";
+  private volatile java.lang.Object fragment_;
   /**
    * <code>string fragment = 7;</code>
    * @return The fragment.
@@ -1950,20 +1939,24 @@ org.mojolang.mojo.core.StringValues defaultValue) {
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       scheme_ = "";
-      authority_ = null;
-      if (authorityBuilder_ != null) {
-        authorityBuilder_.dispose();
+
+      if (authorityBuilder_ == null) {
+        authority_ = null;
+      } else {
+        authority_ = null;
         authorityBuilder_ = null;
       }
       path_ = "";
-      query_ = null;
-      if (queryBuilder_ != null) {
-        queryBuilder_.dispose();
+
+      if (queryBuilder_ == null) {
+        query_ = null;
+      } else {
+        query_ = null;
         queryBuilder_ = null;
       }
       fragment_ = "";
+
       return this;
     }
 
@@ -1990,32 +1983,21 @@ org.mojolang.mojo.core.StringValues defaultValue) {
     @java.lang.Override
     public org.mojolang.mojo.core.Url buildPartial() {
       org.mojolang.mojo.core.Url result = new org.mojolang.mojo.core.Url(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.scheme_ = scheme_;
+      if (authorityBuilder_ == null) {
+        result.authority_ = authority_;
+      } else {
+        result.authority_ = authorityBuilder_.build();
+      }
+      result.path_ = path_;
+      if (queryBuilder_ == null) {
+        result.query_ = query_;
+      } else {
+        result.query_ = queryBuilder_.build();
+      }
+      result.fragment_ = fragment_;
       onBuilt();
       return result;
-    }
-
-    private void buildPartial0(org.mojolang.mojo.core.Url result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.scheme_ = scheme_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.authority_ = authorityBuilder_ == null
-            ? authority_
-            : authorityBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.path_ = path_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.query_ = queryBuilder_ == null
-            ? query_
-            : queryBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.fragment_ = fragment_;
-      }
     }
 
     @java.lang.Override
@@ -2064,7 +2046,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       if (other == org.mojolang.mojo.core.Url.getDefaultInstance()) return this;
       if (!other.getScheme().isEmpty()) {
         scheme_ = other.scheme_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAuthority()) {
@@ -2072,7 +2053,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       }
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasQuery()) {
@@ -2080,7 +2060,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       }
       if (!other.getFragment().isEmpty()) {
         fragment_ = other.fragment_;
-        bitField0_ |= 0x00000010;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -2111,31 +2090,31 @@ org.mojolang.mojo.core.StringValues defaultValue) {
               break;
             case 10: {
               scheme_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+
               break;
             } // case 10
             case 18: {
               input.readMessage(
                   getAuthorityFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+
               break;
             } // case 18
             case 26: {
               path_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+
               break;
             } // case 26
             case 42: {
               input.readMessage(
                   getQueryFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000008;
+
               break;
             } // case 42
             case 58: {
               fragment_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+
               break;
             } // case 58
             default: {
@@ -2153,7 +2132,6 @@ org.mojolang.mojo.core.StringValues defaultValue) {
       } // finally
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object scheme_ = "";
     /**
@@ -2196,9 +2174,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder setScheme(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       scheme_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2207,8 +2187,8 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearScheme() {
+      
       scheme_ = getDefaultInstance().getScheme();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2219,10 +2199,12 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder setSchemeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       scheme_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2235,7 +2217,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      * @return Whether the authority field is set.
      */
     public boolean hasAuthority() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return authorityBuilder_ != null || authority_ != null;
     }
     /**
      * <code>.mojo.core.Url.Authority authority = 2;</code>
@@ -2257,11 +2239,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
           throw new NullPointerException();
         }
         authority_ = value;
+        onChanged();
       } else {
         authorityBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -2271,11 +2253,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
         org.mojolang.mojo.core.Url.Authority.Builder builderForValue) {
       if (authorityBuilder_ == null) {
         authority_ = builderForValue.build();
+        onChanged();
       } else {
         authorityBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
@@ -2283,38 +2265,38 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder mergeAuthority(org.mojolang.mojo.core.Url.Authority value) {
       if (authorityBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          authority_ != null &&
-          authority_ != org.mojolang.mojo.core.Url.Authority.getDefaultInstance()) {
-          getAuthorityBuilder().mergeFrom(value);
+        if (authority_ != null) {
+          authority_ =
+            org.mojolang.mojo.core.Url.Authority.newBuilder(authority_).mergeFrom(value).buildPartial();
         } else {
           authority_ = value;
         }
+        onChanged();
       } else {
         authorityBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Url.Authority authority = 2;</code>
      */
     public Builder clearAuthority() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      authority_ = null;
-      if (authorityBuilder_ != null) {
-        authorityBuilder_.dispose();
+      if (authorityBuilder_ == null) {
+        authority_ = null;
+        onChanged();
+      } else {
+        authority_ = null;
         authorityBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Url.Authority authority = 2;</code>
      */
     public org.mojolang.mojo.core.Url.Authority.Builder getAuthorityBuilder() {
-      bitField0_ |= 0x00000002;
+      
       onChanged();
       return getAuthorityFieldBuilder().getBuilder();
     }
@@ -2387,9 +2369,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       path_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2398,8 +2382,8 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearPath() {
+      
       path_ = getDefaultInstance().getPath();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2410,10 +2394,12 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       path_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2426,7 +2412,7 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      * @return Whether the query field is set.
      */
     public boolean hasQuery() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return queryBuilder_ != null || query_ != null;
     }
     /**
      * <code>.mojo.core.Url.Query query = 5;</code>
@@ -2448,11 +2434,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
           throw new NullPointerException();
         }
         query_ = value;
+        onChanged();
       } else {
         queryBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
+
       return this;
     }
     /**
@@ -2462,11 +2448,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
         org.mojolang.mojo.core.Url.Query.Builder builderForValue) {
       if (queryBuilder_ == null) {
         query_ = builderForValue.build();
+        onChanged();
       } else {
         queryBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
+
       return this;
     }
     /**
@@ -2474,38 +2460,38 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder mergeQuery(org.mojolang.mojo.core.Url.Query value) {
       if (queryBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
-          query_ != null &&
-          query_ != org.mojolang.mojo.core.Url.Query.getDefaultInstance()) {
-          getQueryBuilder().mergeFrom(value);
+        if (query_ != null) {
+          query_ =
+            org.mojolang.mojo.core.Url.Query.newBuilder(query_).mergeFrom(value).buildPartial();
         } else {
           query_ = value;
         }
+        onChanged();
       } else {
         queryBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000008;
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Url.Query query = 5;</code>
      */
     public Builder clearQuery() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      query_ = null;
-      if (queryBuilder_ != null) {
-        queryBuilder_.dispose();
+      if (queryBuilder_ == null) {
+        query_ = null;
+        onChanged();
+      } else {
+        query_ = null;
         queryBuilder_ = null;
       }
-      onChanged();
+
       return this;
     }
     /**
      * <code>.mojo.core.Url.Query query = 5;</code>
      */
     public org.mojolang.mojo.core.Url.Query.Builder getQueryBuilder() {
-      bitField0_ |= 0x00000008;
+      
       onChanged();
       return getQueryFieldBuilder().getBuilder();
     }
@@ -2578,9 +2564,11 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder setFragment(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       fragment_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2589,8 +2577,8 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearFragment() {
+      
       fragment_ = getDefaultInstance().getFragment();
-      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2601,10 +2589,12 @@ org.mojolang.mojo.core.StringValues defaultValue) {
      */
     public Builder setFragmentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       fragment_ = value;
-      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
