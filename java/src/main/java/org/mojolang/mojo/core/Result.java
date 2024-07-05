@@ -9,6 +9,16 @@ public class Result<T> {
     private Exception exception;
     private T data;
 
+    public void setException(ErrorCode code) {
+        this.exception = new Exception(code);
+    }
+    public void setException(Integer code) {
+        this.exception = new Exception(ErrorCodes.build(code));
+    }
+    public void setException(Integer code, String msg) {
+        this.exception = new Exception(ErrorCodes.build(code), msg);
+    }
+
     public static <T> Result<T> success() {
         return build(null, ErrorCodes.SUCCESS);
     }
