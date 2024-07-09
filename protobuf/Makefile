@@ -34,3 +34,4 @@
 # Also we need to fix an import.
 regenerate:
 	protoc --go_out=paths=source_relative:../go/pkg/ -I=. mojo/mojo.proto; protoc --java_out=../java/src/main/java/ -I=. mojo/mojo.proto
+	protoc --java_out=../java/src/test/java/ -I=. -I=../java/src/test/proto/org/mojolang/mojo/core/ ../java/src/test/proto/org/mojolang/mojo/core/json_test.proto ../java/src/test/proto/org/mojolang/mojo/core/json_test_proto2.proto

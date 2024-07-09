@@ -307,7 +307,7 @@ public final class Timestamps {
     private static Method instantMethod(String methodName) {
         try {
             return Class.forName("java.time.Instant").getMethod(methodName);
-        } catch (Exception | ClassNotFoundException | NoSuchMethodException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
             return null;
         }
     }

@@ -1,73 +1,103 @@
 package org.mojolang.mojo.core;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Result<T> {
-    private Exception exception;
+    private Error error;
     private T data;
 
-    public void setException(ErrorCode code) {
-        this.exception = new Exception(code);
+    public Result<T> setError(Error error) {
+        this.error = error;
+        return this;
     }
-    public void setException(Integer code) {
-        this.exception = new Exception(ErrorCodes.build(code));
+    public Result<T> setError(ErrorCode code) {
+        this.error = Error.newBuilder().setCode(code).build();
+        return this;
     }
-    public void setException(Integer code, String msg) {
-        this.exception = new Exception(ErrorCodes.build(code), msg);
+    public Result<T> setError(Integer code) {
+        this.error = Error.newBuilder().setCode(ErrorCodes.build(code)).build();
+        return this;
+    }
+    public Result<T> setError(Integer code, String msg) {
+        this.error = Error.newBuilder().setCode(ErrorCodes.build(code)).setMessage(msg).build();
+        return this;
+    }
+
+    public Result<T> setData(T data) {
+        this.data = data;
+        return this;
+    }
+
+    public int getCode() {
+        if (this.error != null) {
+            return this.error.getCode().getCode();
+        }
+        return 0;
+    }
+
+    public String getMessage() {
+        if (this.error != null) {
+            return this.error.getMessage();
+        }
+        return "";
     }
 
     public static <T> Result<T> success() {
-        return build(null, ErrorCodes.SUCCESS);
+        return build(ErrorCodes.SUCCESS,null);
     }
 
     public static <T> Result<T> success(T data) {
-        return build(data, ErrorCodes.SUCCESS);
+        return build(ErrorCodes.SUCCESS, data);
     }
 
     public static <T> Result<T> fail() {
-        return build(null, ErrorCodes.BAD_REQUEST);
+        return build(ErrorCodes.BAD_REQUEST, null);
     }
 
     public static <T> Result<T> fail(T data) {
-        return build(data, ErrorCodes.BAD_REQUEST);
+        return build(ErrorCodes.BAD_REQUEST, data);
     }
 
     public static <T> Result<T> fail(int code) {
-        return build(null, code);
+        return build(code, null);
     }
 
     public static <T> Result<T> fail(int code, T data) {
-        return build(data, code);
+        return build(code, data);
     }
 
     public static <T> Result<T> fail(int code, String msg) {
-        return build(null, code, msg);
+        return build(code, msg, null);
     }
 
     public static <T> Result<T> fail(int code, String msg, T data) {
-        return build(data, code, msg);
+        return build(code, msg, data);
     }
 
-    public static <T> Result<T> fail(Exception exception) {
+    public static <T> Result<T> fail(ErrorException exception) {
         return fail(exception, null);
     }
 
-    public static <T> Result<T> fail(Exception exception, T data) {
-        return new Result<>(exception, data);
+    public static <T> Result<T> fail(ErrorException exception, T data) {
+        return new Result<T>(exception.toError(), data);
     }
 
-    public static <T> Result<T> build(T data, ErrorCode code) {
-        return new Result<>(new Exception(code), data);
+    public static <T> Result<T> build(ErrorCode code, T data) {
+        return new Result<T>().setError(code).setData(data);
     }
 
-    public static <T> Result<T> build(T data, Integer code) {
-        return new Result<>(new Exception(ErrorCodes.build(code)), data);
+    public static <T> Result<T> build(Integer code, T data) {
+        return new Result<T>().setError(code).setData(data);
     }
 
-    public static <T> Result<T> build(T data, Integer code, String msg) {
-        return new Result<>(new Exception(ErrorCodes.build(code), msg), data);
+    public static <T> Result<T> build(Integer code, String msg, T data) {
+        return new Result<T>().setError(code, msg).setData(data);
     }
 }
