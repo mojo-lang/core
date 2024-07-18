@@ -49,7 +49,7 @@ public class JsonHttpMessageConverter
      * Can serialize/deserialize all types.
      */
     public JsonHttpMessageConverter() {
-        super(APPLICATION_JSON);
+        super(MediaType.ALL);
     }
 
     /**
@@ -126,6 +126,19 @@ public class JsonHttpMessageConverter
                         return  JsonFormat.parser().listFromJSON (baos.toString(), (Class<? extends Message>) argument);
                     }
                 }
+//                if (Pagination.class.isAssignableFrom((Class<?>) paramType.getRawType())) {
+//                    final Type argument = paramType.getActualTypeArguments()[0];
+//                    if (Message.class.isAssignableFrom((Class<?>) argument)) {
+//                        return JsonFormat.parser().paginationFromJSON(baos.toString(), (Class<? extends  Message>) argument);
+//                    }
+//                }
+//
+//                if (Result.class.isAssignableFrom((Class<?>) paramType.getRawType())) {
+//                    final Type argument = paramType.getActualTypeArguments()[0];
+//                    if (Message.class.isAssignableFrom((Class<?>) argument)) {
+//                        return JsonFormat.parser().resultFromJSON(baos.toString(), (Class<? extends  Message>) argument);
+//                    }
+//                }
             }
 
             byte[] bytes = baos.toByteArray();
@@ -161,11 +174,12 @@ public class JsonHttpMessageConverter
                     out = JsonFormat.printer().print((MessageOrBuilder) object);
                 } else if (object instanceof List) {
                     out = JsonFormat.printer().print((List<? extends MessageOrBuilder>) object);
-                } else if (object instanceof Result) {
-                    out = JsonFormat.printer().print((Result<? extends MessageOrBuilder>) object);
-                } else if (object instanceof Pagination) {
-                    out = JsonFormat.printer().print((Pagination<? extends MessageOrBuilder>) object);
                 }
+//                else if (object instanceof Result) {
+//                    out = JsonFormat.printer().print((Result<? extends MessageOrBuilder>) object);
+//                } else if (object instanceof Pagination) {
+//                    out = JsonFormat.printer().print((Pagination<? extends MessageOrBuilder>) object);
+//                }
 
                 byte[] strBytes = out.getBytes(config.getCharset());
                 contentLength = strBytes.length;

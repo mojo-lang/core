@@ -7,11 +7,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.alibaba.fastjson2.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 
 import org.junit.Before;
@@ -53,16 +55,18 @@ public class JsonControllerTest {
 
     @Test
     public void simpleResult() throws Exception {
-        mvc.perform(get("/simple/result").accept(MediaType.APPLICATION_JSON))
+        JsonObjectRegister.init();
+        mvc.perform(get("/simple/result").accept(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"code\":200,\n\"message\":OK,\n\"data\":{\n  \"Hello\": \" World\"\n}}")));
+                .andExpect(content().string(equalTo("{\"code\":200,\"message\":\"OK\",\"data\":{\n  \"Hello\": \" World\"\n}}")));
     }
 
     @Test
     public void simplePagination() throws Exception {
+        JsonObjectRegister.init();
         mvc.perform(get("/simple/pagination").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"code\":200,\n\"message\":OK,\n\"totalCount\":100,\n\"nextPageToken\":1,\n\"data\":[{\n  \"Hello\": \" World\"\n}]}")));
+                .andExpect(content().string(equalTo("{\"code\":200,\"message\":\"OK\",\"totalCount\":100,\"nextPageToken\":\"1\",\"data\":[{\n  \"Hello\": \" World\"\n}]}")));
     }
 
     @Test

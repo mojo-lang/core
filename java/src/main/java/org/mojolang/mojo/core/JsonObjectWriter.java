@@ -3,7 +3,6 @@ package org.mojolang.mojo.core;
 import java.lang.reflect.Type;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-import java.util.Map;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
@@ -21,14 +20,11 @@ public class JsonObjectWriter implements ObjectWriter  {
             return;
         }
 
-        if (fieldName == null && fieldType == null) {
-            fieldType = object.getClass();
-        }
-
+        fieldType = object.getClass();
         try {
             if (fieldType instanceof Class && MessageOrBuilder.class.isAssignableFrom((Class<?>) fieldType)) {
                 final MessageOrBuilder value = (MessageOrBuilder) object;
-                jsonWriter.writeString(JsonFormat.printer().print(value));
+                jsonWriter.writeRaw(JsonFormat.printer().print(value));
             } else if (fieldType instanceof ParameterizedType) {
                 final ParameterizedType type = (ParameterizedType) fieldType;
 

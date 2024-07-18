@@ -401,59 +401,6 @@ public class JsonFormat {
                 throw new IllegalStateException(e.getMessage(), e);
             }
         }
-
-        public <T extends MessageOrBuilder> String print(Result<T> result) throws InvalidProtocolBufferException {
-            if (result == null) {
-                return "";
-            }
-            try {
-                StringBuilder builder = new StringBuilder();
-                builder.append("{");
-                builder.append("\"").append("code").append("\":").append(result.getCode()).append(",\n");
-                builder.append("\"").append("message").append("\":").append(result.getMessage()).append(",\n");
-                builder.append("\"").append("data").append("\":");
-                appendTo(result.getData(), builder);
-                builder.append("}");
-                return builder.toString();
-            } catch (InvalidProtocolBufferException e) {
-                throw e;
-            } catch (IOException e) {
-                throw new IllegalStateException(e);
-            }
-        }
-
-        public <T extends MessageOrBuilder> String print(Pagination<T> pagination) throws InvalidProtocolBufferException {
-            if (pagination == null) {
-                return "";
-            }
-            try {
-                StringBuilder builder = new StringBuilder();
-                builder.append("{");
-                builder.append("\"").append("code").append("\":").append(pagination.getCode()).append(",\n");
-                builder.append("\"").append("message").append("\":").append(pagination.getMessage()).append(",\n");
-                builder.append("\"").append("totalCount").append("\":").append(pagination.getTotalCount()).append(",\n");
-                builder.append("\"").append("nextPageToken").append("\":").append(pagination.getNextPageToken()).append(",\n");
-                builder.append("\"").append("data").append("\":");
-                builder.append("[");
-
-                List<T> data = pagination.getData();
-                if (data != null && !data.isEmpty()) {
-                    for (MessageOrBuilder message : pagination.getData()) {
-                        appendTo(message, builder);
-                        builder.append(",");
-                    }
-                    builder.deleteCharAt(builder.length() - 1);
-                }
-                builder.append("]");
-                builder.append("}");
-                return builder.toString();
-            } catch (InvalidProtocolBufferException e) {
-                throw e;
-            } catch (IOException e) {
-                // Unexpected IOException.
-                throw new IllegalStateException(e);
-            }
-        }
     }
 
     /**
@@ -615,45 +562,6 @@ public class JsonFormat {
                 map.put(key, v);
             }
             return map;
-        }
-
-        public <T extends Message> Result<T> resultFromJSON(String json, Class<T> clazz) throws IOException {
-            if (json == null) {
-                return null;
-            }
-
-            json = json.trim();
-            if (json.isEmpty()) {
-                return new Result<>();
-            }
-
-            final JSONObject jsonObject = JSON.parseObject(json);
-            final Result<T> result = new Result<>();
-            result.setError(jsonObject.getIntValue("code"), jsonObject.getString("message"));
-            final T v = fromJSON(jsonObject.getString("data"), clazz);
-            result.setData(v);
-
-            return result;
-        }
-
-        public <T extends Message> Pagination<T> paginationFromJSON(String json, Class<T> clazz) throws IOException {
-            if (json == null) {
-                return null;
-            }
-
-            json = json.trim();
-            if (json.isEmpty()) {
-                return new Pagination<>();
-            }
-
-            final JSONObject jsonObject = JSON.parseObject(json);
-            final Pagination<T> pagination = new Pagination<>();
-            pagination.setError(jsonObject.getIntValue("code"), jsonObject.getString("message"));
-            pagination.setTotalCount(jsonObject.getInteger("totalCount"));
-            pagination.setNextPageToken(jsonObject.getString("nextPageToken"));
-            final List<T> v = listFromJSON(jsonObject.getString("data"), clazz);
-            pagination.setData(v);
-            return pagination;
         }
 
         // For testing only.
