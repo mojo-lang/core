@@ -1,5 +1,6 @@
 package org.mojolang.mojo.core;
 
+import com.alibaba.fastjson2.annotation.JSONField;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -10,25 +11,38 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pagination<T> {
-    private Error error;
+    @JSONField(ordinal = 0)
+    private int code;
+
+    @JSONField(ordinal = 1)
+    private String message;
+
+    @JSONField(ordinal = 2)
     private int totalCount;
+
+    @JSONField(ordinal = 3)
     private String nextPageToken;
+
+    @JSONField(ordinal = 10)
     private List<T> data;
 
     public Pagination<T> setError(Error error) {
-        this.error = error;
+        this.code = error.getCode().getCode();
+        this.message = error.getMessage();
         return this;
     }
     public Pagination<T> setError(ErrorCode code) {
-        this.error = Error.newBuilder().setCode(code).build();
+        this.code = code.getCode();
+        this.message = code.getName();
         return this;
     }
     public Pagination<T> setError(Integer code) {
-        this.error = Error.newBuilder().setCode(ErrorCodes.build(code)).build();
+        this.code = code;
         return this;
     }
     public Pagination<T> setError(Integer code, String msg) {
-        this.error = Error.newBuilder().setCode(ErrorCodes.build(code)).setMessage(msg).build();
+        this.code = code;
+        this.message = msg;
         return this;
     }
 
@@ -45,20 +59,6 @@ public class Pagination<T> {
     public Pagination<T> setData(List<T> data) {
         this.data = data;
         return this;
-    }
-
-    public int getCode() {
-        if (this.error != null) {
-            return this.error.getCode().getCode();
-        }
-        return 0;
-    }
-
-    public String getMessage() {
-        if (this.error != null) {
-            return this.error.getMessage();
-        }
-        return "";
     }
 
     public static <T> Pagination<T> fail() {
