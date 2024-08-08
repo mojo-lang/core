@@ -49,3 +49,8 @@ func TestErr_AddDetail(t *testing.T) {
 	e = jsoniter.Unmarshal(str, notFoundErr)
 	assert.NoError(t, e)
 }
+
+func TestErrorsIsError(t *testing.T) {
+	err := NewNotFoundError("not found")
+	assert.True(t, IsError(err))
+}

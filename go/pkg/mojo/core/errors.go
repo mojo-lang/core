@@ -366,6 +366,10 @@ func (e *basicError) Error() string {
 	return (*Error)(e).Error()
 }
 
+func (e *basicError) Unwrap() error {
+	return (*Error)(e)
+}
+
 func (e *basicError) ToError() *Error {
 	return (*Error)(e)
 }
