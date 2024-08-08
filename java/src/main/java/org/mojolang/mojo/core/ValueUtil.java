@@ -82,6 +82,10 @@ public final class ValueUtil {
 
         if (value instanceof Integer) {
             return of(((Integer) value).longValue());
+        } else if (value instanceof Short) {
+            return of(((Short) value).longValue());
+        } else if (value instanceof Long) {
+            return of(((Long) value).longValue());
         } else if (value instanceof Boolean) {
             return of(((Boolean) value).booleanValue());
         } else if (value instanceof Double) {
@@ -102,12 +106,17 @@ public final class ValueUtil {
                 builder.addVals(of(val));
             }
             return of(builder.build());
+        } else if (value instanceof Value) {
+            return (Value) value;
+        } else if (value instanceof Values) {
+            return of((Values) value);
+        } else if (value instanceof org.mojolang.mojo.core.Object) {
+            return of((org.mojolang.mojo.core.Object) value);
         } else {
             System.out.println("unknown type, or yourself type");
             return ofNull();
         }
     }
-
 
     public static java.lang.Object to(Value value) {
         if (value.hasNullVal()) {
