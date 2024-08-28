@@ -7,6 +7,7 @@
 
 package org.mojolang.mojo.core;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,6 +87,8 @@ public final class ValueUtil {
             return of(((Short) value).longValue());
         } else if (value instanceof Long) {
             return of(((Long) value).longValue());
+        } else if (value instanceof BigDecimal) {
+            return of(((BigDecimal) value).doubleValue());
         } else if (value instanceof Boolean) {
             return of(((Boolean) value).booleanValue());
         } else if (value instanceof Double) {
