@@ -1,5 +1,7 @@
 package core
 
+import "regexp"
+
 const StringValuesTypeName = "StringValues"
 const StringValuesTypeFullName = "mojo.core.StringValues"
 
@@ -22,6 +24,41 @@ func (x *StringValues) Unique() *StringValues {
 	return x
 }
 
+func (x *StringValues) Contains(element string) bool {
+	if x != nil {
+		for _, e := range x.Vals {
+			if e == element {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func (x *StringValues) Matched(expr string) bool {
+	if rgx, err := regexp.Compile(expr); err == nil {
+		for _, e := range x.Vals {
+			if rgx.MatchString(e) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func (x *StringValues) Matches(expr string) *StringValues {
+	values := &StringValues{}
+
+	if rgx, err := regexp.Compile(expr); err == nil {
+		for _, e := range x.Vals {
+			if rgx.MatchString(e) {
+				values.Vals = append(values.Vals, e)
+			}
+		}
+	}
+	return values
+}
+
 func (x *StringValues) ToArray() interface{} {
 	if x != nil {
 		return x.Vals
@@ -29,9 +66,9 @@ func (x *StringValues) ToArray() interface{} {
 	return []string{}
 }
 
-func (x *StringValues) Append(val string) *StringValues {
+func (x *StringValues) Append(vs ...string) *StringValues {
 	if x != nil {
-		x.Vals = append(x.Vals, val)
+		x.Vals = append(x.Vals, vs...)
 	}
 	return x
 }
