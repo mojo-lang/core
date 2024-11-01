@@ -1,6 +1,7 @@
 package core
 
 import (
+	jsoniter "github.com/json-iterator/go"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -54,4 +55,25 @@ func TestOptions_Merge(t *testing.T) {
 	options := NewOptions("k1", 1, "k2", "k2").Merge(NewOptions("k1", 2, "k3", 3))
 	assert.Equal(t, 3, len(options))
 	assert.Equal(t, 2, options["k1"].(int))
+}
+
+func TestOptions_GetValueByPath(t *testing.T) {
+	const OptionsJson = `
+	{
+		"k1": {
+			"k11": {
+				"k111": {
+					"int": 12,
+					"float": 12.3
+				}
+			}
+		}
+	}
+	`
+
+	options := &Options{}
+	_ = jsoniter.ConfigFastest.Unmarshal([]byte(OptionsJson), options)
+
+	out := options.GetValueByPath("k1.k11.k111.int")
+	assert.Equal(t, float64(12), out.(float64))
 }

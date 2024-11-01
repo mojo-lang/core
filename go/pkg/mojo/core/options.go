@@ -1,5 +1,11 @@
 package core
 
+import (
+	jsoniter "github.com/json-iterator/go"
+	"github.com/mojo-lang/core/go/pkg/logs"
+	"strings"
+)
+
 type Options map[string]interface{}
 
 func NewOptions(kvs ...interface{}) Options {
@@ -22,6 +28,31 @@ func (o Options) HasValue(key string) bool {
 func (o Options) GetValue(key string) interface{} {
 	if val, ok := o[key]; ok {
 		return val
+	}
+	return nil
+}
+
+func (o Options) GetValueByPath(key string) interface{} {
+	if len(key) == 0 {
+		return nil
+	}
+
+	segments := strings.Split(key, ".")
+	options := o
+	for i, segment := range segments {
+		if option, ok := options[segment]; ok {
+			if i == len(segments)-1 {
+				return option
+			} else if op, ok := option.(map[string]interface{}); ok {
+				options = op
+			} else {
+				logs.Warnw("not found", "key", key, "options", options)
+				return nil
+			}
+		} else {
+			logs.Warnw("not found", "key", key, "options", options)
+			return nil
+		}
 	}
 	return nil
 }
@@ -93,4 +124,15 @@ func (o Options) KeyValues() []interface{} {
 		}
 	}
 	return kvs
+}
+
+func (o Options) To(newOptions interface{}) error {
+	if len(o) > 0 {
+		bytes, err := jsoniter.ConfigFastest.Marshal(o)
+		if err != nil {
+			return err
+		}
+		return jsoniter.ConfigFastest.Unmarshal(bytes, newOptions)
+	}
+	return nil
 }
