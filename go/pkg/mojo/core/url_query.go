@@ -93,6 +93,18 @@ func (x *Url_Query) GetValues(key string) []string {
 	return nil
 }
 
+func (x *Url_Query) GetKeys() []string {
+	if x == nil {
+		return nil
+	}
+
+	var keys []string
+	for k, _ := range x.Vals {
+		keys = append(keys, k)
+	}
+	return keys
+}
+
 // Set sets the key to value. It replaces any existing
 // values.
 func (x *Url_Query) Set(key string, value interface{}) *Url_Query {
@@ -126,14 +138,19 @@ func (x *Url_Query) Del(key string) *Url_Query {
 
 // Unmarshal
 // list type
-//      foo=bar&foo=baz
-//      foo=bar,baz
-//      foo="bar","baz"
-//      foo=["bar","baz"]
+//
+//	foo=bar&foo=baz
+//	foo=bar,baz
+//	foo="bar","baz"
+//	foo=["bar","baz"]
+//
 // map
-//      foo=key1,bar,key2,baz <not support>
+//
+//	foo=key1,bar,key2,baz <not support>
+//
 // object
-//      foo={"key1":"bar","key2","baz"}
+//
+//	foo={"key1":"bar","key2","baz"}
 func (x *Url_Query) Unmarshal(name string, value interface{}) error {
 	if x == nil || x.Vals == nil {
 		return nil
