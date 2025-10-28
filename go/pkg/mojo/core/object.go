@@ -228,6 +228,18 @@ func (x *Object) GetUint64(key string) uint64 {
 	return x.GetValue(key).GetUint64()
 }
 
+func (x *Object) GetFloat32(key string) float32 {
+	return x.GetValue(key).GetFloat32()
+}
+
+func (x *Object) GetFloat64(key string) float64 {
+	return x.GetValue(key).GetFloat64()
+}
+
+func (x *Object) GetBoolArray(key string) []bool {
+	return x.GetValue(key).GetBoolArray()
+}
+
 func (x *Object) GetInt32Array(key string) []int32 {
 	return x.GetValue(key).GetInt32Array()
 }
@@ -242,6 +254,14 @@ func (x *Object) GetUint32Array(key string) []uint32 {
 
 func (x *Object) GetUint64Array(key string) []uint64 {
 	return x.GetValue(key).GetUint64Array()
+}
+
+func (x *Object) GetFloat32Array(key string) []float32 {
+	return x.GetValue(key).GetFloat32Array()
+}
+
+func (x *Object) GetFloat64Array(key string) []float64 {
+	return x.GetValue(key).GetFloat64Array()
 }
 
 func (x *Object) GetStringArray(key string) []string {
@@ -380,6 +400,22 @@ func (x *Object) SetUint64Array(key string, vals ...uint64) *Object {
 	return x
 }
 
+func (x *Object) SetFloat32Array(key string, vals ...float32) *Object {
+	if x != nil {
+		x.init()
+		x.Vals[key] = NewFloat32ArrayValue(vals...)
+	}
+	return x
+}
+
+func (x *Object) SetFloat64Array(key string, vals ...float64) *Object {
+	if x != nil {
+		x.init()
+		x.Vals[key] = NewFloat64ArrayValue(vals...)
+	}
+	return x
+}
+
 func (x *Object) SetStringArray(key string, vals ...string) *Object {
 	if x != nil {
 		x.init()
@@ -410,4 +446,26 @@ func (x *Object) Merge(obj *Object) *Object {
 		}
 	}
 	return x
+}
+
+func (x *Object) ToLowerCamelKeys() *Object {
+	if x != nil {
+		obj := NewObject()
+		for k, v := range obj.GetVals() {
+			obj.SetValue(strcase.ToLowerCamel(k), v)
+		}
+		return obj
+	}
+	return nil
+}
+
+func (x *Object) ToSnakeKeys() *Object {
+	if x != nil {
+		obj := NewObject()
+		for k, v := range obj.GetVals() {
+			obj.SetValue(strcase.ToSnake(k), v)
+		}
+		return obj
+	}
+	return nil
 }

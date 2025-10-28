@@ -487,6 +487,15 @@ func (x *Value) GetStringValues() *StringValues {
 	return nil
 }
 
+func (x *Value) GetBoolArray() []bool {
+	values := x.GetValues()
+	array := make([]bool, 0, len(values))
+	for _, value := range values {
+		array = append(array, value.GetBool())
+	}
+	return array
+}
+
 func (x *Value) GetIntArray() []int {
 	values := x.GetValues()
 	array := make([]int, 0, len(values))
